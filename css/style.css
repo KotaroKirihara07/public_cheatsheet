@@ -1,0 +1,20 @@
+@import url(sanitize.css);
+
+
+<!-- コメント文p{
+    font-size: 14px;
+}-->
+
+
+#information_form{
+    margin-left: 170px;
+}
+
+
+a {
+    color:#0000FF; 
+    /* 
+    text-decoration:none; 
+    */
+}
+
