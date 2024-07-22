@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 基本 </h2>
+          <p class="blog-post-meta"> 2023/07/02 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> MVC </h2>
+          <p> Model ： データアクセス関係の処理を担当。Webアプリケーションとデータベース間のやりとりを行う。 </p> 
+          <p> View ： 画面に表示されるWebページの作成を担当。</p>
+          <p> Controller ： 全体の制御を担当。</p>
+          <hr>
+
+          <h2> トップページの作成 </h2>
+          <p> 説明 </p> 
+          <ol>
+            <li>プロジェクト名と同じ名前のディレクトリ内の「urls.py」を開く </li>
+            <li> <code> from djapp import views</code>と<code>path('', views.index, name='index')</code>を追加する</li>
+            <li> djappディレクトリに「views.py」を作成する </li>
+            <li>「views.py」を <br>
+            <br>
+            <code>
+                <pre>
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'djapp/index.html')
+                </pre>
+            </code>とする</li>
+            <li> 上層のdjappディレクトリ内に「templates」ディレクトリを作成する</li>
+            <li>「templates」ディレクトリに「djapp」ディレクトリを作成する</li>
+            <li>「djapp」ディレクトリに「index.html」を作成する</li>
+            <li>下層のdjappの「setting.py」に<code>import os</code>を追加した後、[TEMPLATES]内の[DIRS]を<code>[os.path.join(BASE_DIR, 'templates')]にする</code></li>
+          </ol>
+          <hr>
+
+          <h2> アプリケーション開発の流れ </h2>
+          <ol>
+            <li> プロジェクトを立ち上げる </li>
+            <li> アプリケーションを立ち上げる</li>
+            <li> 「setting.py」を編集し、アプリケーションを追加する </li>
+            <li> 「models.py」を編集し、データベースを定義する </li>
+            <li> マイグレーションファイルを作成し、マイグレーションを実行する </li>
+            <li> 「admin.py」を編集し、データベースを管理可能な状態にする </li>
+            <li> 「templatesディレクトリ」にhtmlファイルを配置する </li>
+            <li> 「views.py」で関数を定義する </li>
+            <li> 「urls.py」を編集する </li>
+            <li> 実行 </li>
+          </ol>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

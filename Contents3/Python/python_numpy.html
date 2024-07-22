@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> Numpy </h2>
+        <p class="blog-post-meta"> 2024/02/11 </p>
+        <p> このページではNumpyについての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> モジュールの読み込み </h2>
+        <p> #モジュールの読み込み </p> 
+        <code> import numpy as np </code> 
+        <hr>
+
+        <h2> ndarray </h2>
+        <p> ndarrayはNumpyの配列であり、リストと比較して処理速度が速く、数学的な演算等の便利な機能をもっている。 </p> 
+
+        <p> #ndarrayの生成 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> np.array(1次元リスト) </code> </td>
+              <td> 1行n列の行列の生成 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.array(n次元リスト)</code> </td>
+              <td> 行列の生成 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.arange(start,stop,step) </code> </td>
+              <td> startからstopまでのstep区切りの1行n列の行列の生成 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.eye(N) </code> </td>
+              <td> N行N列の単位行列 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.zeros((N,M)) </code> </td>
+              <td> N行M列のゼロ行列 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.tri(N) </code> </td>
+              <td> N行N列の三角行列 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.ones((N,M)) </code> </td>
+              <td> N行M列の要素がすべて1の行列 </td>
+              <td> ndarray </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <br>
+        <p> #共分散行列 (対格成分は分散) </p> 
+        <code> np.cov(x1,x2) </code> <br>
+
+        <br>
+        <p> #標準偏差 </p> 
+        <code> np.std(x) </code> <br>
+
+        <br>
+        <p> #ndarrayの各要素に対する計算を行うための関数 </p>
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> np.add(ndarray1,ndarray2)</code> </td>
+                  <td> ndarray1の各要素にndarray2の各要素を足す </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.subtract(ndarray1,ndarray2)</code> </td>
+                  <td> ndarray1の各要素からndarray2の各要素を引く </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.multiply(ndarray1,ndarray2)</code> </td>
+                  <td> ndarray1の各要素にndarray2の各要素を掛ける </td>
+                  <td> ndarray </td>
+                </tr>
+                  <tr>
+                    <td> <code> np.divide(ndarray1,ndarray2)</code> </td>
+                    <td> ndarray1の各要素をndarray2の各要素で割る </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.mod(ndarray1,ndarray2)</code> </td>
+                    <td> ndarray1の各要素をndarray2の各要素で割った剰余 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.square(ndarray1)</code> </td>
+                    <td> ndarray1の各要素を2乗する </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.sqrt(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の平方根 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.sign(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の符号 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.reciprocal(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の逆数 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.abs(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の絶対値 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.exp(ndarray1)</code> </td>
+                    <td> eのndarray1の各要素乗 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.log(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の自然対数 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.log(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の自然対数 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.log2(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の底が2の対数 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.log10(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の常用対数 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.sin(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の正弦 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.cos(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の余弦 </td>
+                    <td> ndarray </td>
+                  </tr>
+                  <tr>
+                    <td> <code> np.tan(ndarray1)</code> </td>
+                    <td> ndarray1の各要素の正接 </td>
+                    <td> ndarray </td>
+                  </tr>
+              </tbody>
+        </table>
+        
+        
+        
+        <br>
+        <p> #行列の形を調べる </p> 
+        <code> ndarray1.shape() </code> <br>
+
+        <br>
+        <p> #行列の入れ替え (M行N列へ変換) </p> 
+        <code> ndarray1.reshape(M,N) </code> <br>
+
+        <br>
+        <p> #行列のうちn行m列の部分行列を抽出する </p> 
+        <code> ndarray1[[0:n+1],[0:m+1]] </code> <br>
+
+        <br>
+        <p> #(n+1)行目の要素を抽出 </p> 
+        <code> ndarray1[n] </code> <br>
+
+        <br>
+        <p> #(m+1)列目の要素を抽出 </p> 
+        <code> ndarray1[:,m] </code> <br>
+
+        <br>
+        <p> #行列の計算 </p> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> 計算 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> ndarray1 + ndarray2</code> </td>
+                  <td> 足し算 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1 - ndarray2</code> </td>
+                  <td> 引き算 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1 * C </code> </td>
+                  <td> 掛け算(スカラー積) </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1 / C </code> </td>
+                  <td> 割り算(スカラー積) </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1 * ndarray2 </code> </td>
+                  <td> 掛け算(アダマール積) </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1 / ndarray2 </code> </td>
+                  <td> 割り算(アダマール積) </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.dot(ndarray1, ndarray2) </code> </td>
+                  <td> 内積 </td>
+                  <td> int/float </td>
+                </tr>
+                <tr>
+                  <td> <code> np.cross(ndarray1, ndarray2) </code> </td>
+                  <td> 外積 </td>
+                  <td> int/float </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1.T </code> </td>
+                  <td> 転置行列 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> ndarray1.trace() </code> </td>
+                  <td> トレース </td>
+                  <td> int/float </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.inv(ndarray1) </code> </td>
+                  <td> 逆行列 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.det(ndarray1) </code> </td>
+                  <td> 行列式 </td>
+                  <td> int/float </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.matrix_rank(ndarray1) </code> </td>
+                  <td> ランク </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.qr(ndarray1) </code> </td>
+                  <td> 直交行列と上三角行列のタプル(QR分解) </td>
+                  <td> tuple </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.eig(ndarray1) </code> </td>
+                  <td> 固有値と固有ベクトルのタプル </td>
+                  <td> tuple </td>
+                </tr>
+                <tr>
+                  <td> <code> np.linalg.solve(係数行列,定数行列) </code> </td>
+                  <td> 連立1次方程式の解 </td>
+                  <td> ndarray </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+
+        <h2> 乱数 </h2>
+        <p> #シードの固定 </p> 
+        <code> np.random.seed(0) </code> <br>
+        
+        <br>
+        <p> #乱数の生成 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> np.random(n) </code> </td>
+                  <td> 0以上1未満の一様分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.randint(0,10,n) </code> </td>
+                  <td> 0以上10以下の離散一様分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.randn(n) </code> </td>
+                  <td> 標準正規分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.normal(loc,scale,n)</code> </td>
+                  <td> 平均loc、標準偏差scaleの正規分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.binomial(N,p,n)</code> </td>
+                  <td> 試行回数N、確率pの二項分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.exponential(a,n) </code> </td>
+                  <td> パラメータがaの指数分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.beta(a,b,n) </code> </td>
+                  <td> パラメータa,bのベータ分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.gamma(a,b,n) </code> </td>
+                  <td> 形状母数がa、尺度母数がbのガンマ分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                    <td> <code> np.random.chisquare(a,n) </code> </td>
+                    <td> 自由度aのχ二乗分布に従う乱数をn要素もつndarrayの生成 </td>
+                    <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.random.choice(a=value_list,size=n,p=prob_list) </code> </td>
+                  <td> value_list[i]である確率がprob_list[i]の確率分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+              </tr>
+                <tr>
+                    <td colspan="3"> ※上記の変数の個数<code>n</code>を<code>(N,M)</code>とすることでN行M列のランダム行列に変更できる </td>
+                </tr>
+            </tbody>
+          </table>
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

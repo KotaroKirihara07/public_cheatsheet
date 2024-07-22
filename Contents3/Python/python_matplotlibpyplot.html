@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> matplotlib.pyplot </h2>
+        <p class="blog-post-meta"> 2024/02/12 </p>
+        <p> このページではmatplotlib.pyplotについての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> モジュールの読み込み </h2>
+        <p> #モジュールの読み込み </p>
+        <code> import matplotlib.pyplot as plt </code>
+        <hr>
+
+        <h2> 基本 (オブジェクト指向スタイル) </h2>
+        <p> #figureの生成 </p> 
+        <code> fig = plt.figure() </code> <br>
+
+        <br>
+        <p> #figureをN行M列に分割してn番目にaxesを追加する </p> 
+        <code> ax = fig.add_subplot(N,M,n) </code> <br>
+
+        <br>
+        <p> #表示 </p> 
+        <code> ax.plot(x,y) </code> <br>
+        <code> plt.show() </code> <br>
+        <hr>
+
+        
+        <h2> 散布図 (オブジェクト指向スタイル) </h2>
+        <p> #散布図を作成 </p> 
+        <code> ax.scatter(x,y,オプションパラメータ) </code> <br>
+        <code> plt.show() </code> <br>
+        
+        <br>
+        <p> #オプションパラメータ集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> パラメータ </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 設定値 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> s </code> </td>
+                  <td> マーカーサイズ </td>
+                  <td> 数値 </td>
+                </tr>
+                <tr>
+                  <td> <code> c </code> </td>
+                  <td> マーカーの色 </td>
+                  <td> <code> '#aaaaFF' </code> </td>
+                </tr>
+                <tr>
+                  <td> <code> marker </code> </td>
+                  <td> マーカーの形 </td>
+                  <td> <code> '.' </code>(点)、<code> '*' </code>(星印)、<code> '+' </code>(+)、<code> 'D' </code>(ひし形) </td>
+                </tr>
+                <tr>
+                  <td> <code> alpha </code> </td>
+                  <td> マーカーの透明度 </td>
+                  <td> 0~1</td>
+                </tr>
+                <tr>
+                  <td> <code> linewidths </code> </td>
+                  <td> マーカーのエッジ線の太さ </td>
+                  <td> 数値 </td>
+                </tr>
+                <tr>
+                  <td> <code> edgecolors </code> </td>
+                  <td> マーカーのエッジ線の色 </td>
+                  <td> <code> 'black' </code>、<code> 'blue' </code>、<code> 'red' </code>、<code> 'green' </code>、<code> 'white' </code> </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+        <h2> 棒グラフ (オブジェクト指向スタイル) </h2>
+        <p> #棒グラフを作成 </p> 
+        <code> ax.bar(x,y,オプションパラメータ) </code> <br>
+        <code> plt.show() </code> <br>
+
+        <br>
+        <p> #オプションパラメータ集</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> パラメータ </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 設定値 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> width </code> </td>
+                  <td> 棒の幅 </td>
+                  <td> 数値 </td>
+                </tr>
+                <tr>
+                  <td> <code> bottom </code> </td>
+                  <td> 棒の下側の位置を指定 </td>
+                  <td> 数値 </td>
+                </tr>
+                <tr>
+                  <td> <code> color </code> </td>
+                  <td> 棒の色を指定 </td>
+                  <td> 16進数カラーコード </td>
+                </tr>
+                <tr>
+                  <td> <code> edgecolor </code> </td>
+                  <td> 棒の枠線の色を指定 </td>
+                  <td> 16進数カラーコード </td>
+                </tr>
+                <tr>
+                  <td> <code> linewidths </code> </td>
+                  <td> マーカーのエッジ線の太さ </td>
+                  <td> 数値 </td>
+                </tr>
+                <tr>
+                  <td> <code> tick_label </code> </td>
+                  <td> 横軸のラベル </td>
+                  <td> str </td>
+                </tr>
+                <tr>
+                  <td> <code> align </code> </td>
+                  <td> 棒の位置を指定</td>
+                  <td> <code> center </code> or <code> edge </code> </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+        <h2> 折れ線グラフ (オブジェクト指向スタイル) </h2>
+        <p> #折れ線グラフを作成 </p> 
+        <code> ax.plot(x,y,オプションパラメータ) </code> <br>
+        <code> plt.show() </code> <br>
+
+        <br>
+        <p> #オプションパラメータ集 </p>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 設定値 </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td> <code> fmt </code> </td>
+                <td> 線の種類 </td>
+                <td> <code> "-" </code>(実線)、<code> "--" </code>(破線)、<code> "-." </code>(点+破線)、<code> ":" </code>(点線) </td>
+              </tr>
+              <tr>
+                <td> <code> c </code> </td>
+                <td> 線の色 </td>
+                <td> 16進数カラーコード </td>
+              </tr>
+              <tr>
+                <td> <code> linewidth </code> </td>
+                <td> 線の太さ </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> alpha </code> </td>
+                <td> 透明度 </td>
+                <td> 0~1 </td>
+              </tr>
+              <tr>
+                <td> <code> mraker </code> </td>
+                <td> マーカーの形 </td>
+                <td> <code> '.' </code>(点)、<code> '*' </code>(星印)、<code> '+' </code>(+)、<code> 'D' </code>(ひし形) </td>
+              </tr>
+          </tbody>
+      </table>
+        <hr>
+
+        <h2> 円グラフ (オブジェクト指向スタイル) </h2>
+        <p> #円グラフを作成 </p> 
+        <code> ax.pie(x,オプションパラメータ) </code> <br>
+        <code> plt.show() </code> <br>
+
+        <br>
+        <p> #オプションパラメータ集 </p>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 設定値 </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td> <code> labels </code> </td>
+                <td> 各要素のラベルの配列 </td>
+                <td> リスト </td>
+              </tr>
+              <tr>
+                <td> <code> colors </code> </td>
+                <td> 各要素の色の配列 </td>
+                <td> リスト </td>
+              </tr>
+              <tr>
+                <td> <code> counterclock </code> </td>
+                <td> 反時計回り(True) or 時計回り(False) </td>
+                <td> <code> True </code> or <code> False </code> </td>
+              </tr>
+              <tr>
+                <td> <code> startangle </code> </td>
+                <td> 開始角度 </td>
+                <td> 数値 </td>
+              </tr>
+          </tbody>
+      </table>
+        <hr>
+
+        <h2> ヒストグラム (オブジェクト指向スタイル) </h2>
+        <p> #ヒストグラムを作成 </p> 
+        <code> ax.hist(x,オプションパラメータ) </code> <br>
+        <code> plt.show() </code> <br>
+
+        <br>
+        <p> #オプションパラメータ集 </p>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 設定値 </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td> <code> bins </code> </td>
+                <td> 階級数 or 階級リスト or 階級の分割方式 </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> density </code> </td>
+                <td> Trueの場合面積が1になる </td>
+                <td> <code> True </code> or <code> False </code> </td>
+              </tr>
+              <tr>
+                <td> <code> color </code> </td>
+                <td> 色を指定 </td>
+                <td> 16進数カラーコード </td>
+              </tr>
+              <tr>
+                <td> <code> ec </code> </td>
+                <td> 境界色を指定 </td>
+                <td> 16進数カラーコード </td>
+              </tr>
+              <tr>
+                <td> <code> alpha </code> </td>
+                <td> 透明度を指定 </td>
+                <td> 0~1 </td>
+              </tr>
+          </tbody>
+      </table>
+      <hr>
+
+        <h2> グラフの汎用要素の設定 (オブジェクト指向スタイル) </h2>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> ax.set_title("タイトル") </code> </td>
+                  <td> グラフタイトルを設定する </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.grid(True) </code> </td>
+                  <td>  グリッドオン </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_xlim(0,100) </code> </td>
+                  <td> x軸の範囲を指定 </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_ylim(0,100) </code> </td>
+                  <td> y軸の範囲を指定 </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_xlabel("ラベル名") </code> </td>
+                  <td> x軸のラベルを設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_ylabel("ラベル名") </code> </td>
+                  <td> y軸のラベルを設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.legend(["f(x)=x","g(x)=x"]) </code> </td>
+                  <td> グラフの凡例を設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_xticks([0,1,2,3,4,5]) </code> </td>
+                  <td> x軸の目盛を指定する </td>
+                </tr>
+                <tr>
+                  <td> <code> ax.set_yticks([0,1,2,3,4,5]) </code> </td>
+                  <td> y軸の目盛を指定する </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+        <h2> 基本 (MATLABスタイル) </h2>
+        <p> #表示 </p>
+        <code> plt.plot(x,y) </code> <br>
+        <code> plt.show() </code> <br>
+
+        <br>
+        <p> #サイズの変更 </p>
+        <code> plt.figure(figsize=(4,4)) </code> <br>
+
+        <br>
+        <p> #フォントの変更 </p>
+        <code> plt.rcParams["font.size"] = 18 </code> <br>
+
+        <br>
+        <p> #はみださないようにする </p>
+        <code>plt.tight_layout()</code> <br>
+        <hr>
+
+
+        <h2> グラフの汎用要素の設定 </h2>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> plt.title("タイトル") </code> </td>
+                  <td> グラフタイトルを設定する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xlim(0,100) </code> </td>
+                  <td> x軸の範囲を指定 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.ylim(0,100) </code> </td>
+                  <td> y軸の範囲を指定 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xlabel("ラベル名") </code> </td>
+                  <td> x軸のラベルを設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xlabel(r'$x_{1} + y_{1}$') </code> </td>
+                  <td> Latex記法でx軸ラベルを作成する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.ylabel("ラベル名") </code> </td>
+                  <td> y軸のラベルを設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.ylabel(r'$f(x) = 2x$') </code> </td>
+                  <td> Latex記法でy軸ラベルを作成する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.legend(["f(x)=x","g(x)=x"]) </code> </td>
+                  <td> グラフの凡例を設定 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xticks([0,1,2,3,4,5]) </code> </td>
+                  <td> 表示するx軸の目盛を指定する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xticks(元のリスト,新しいリスト) </code> </td>
+                  <td> 表示するx軸の目盛を変更する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.yticks([0,1,2,3,4,5]) </code> </td>
+                  <td> 表示するy軸の目盛を指定する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.yticks(元のリスト,新しいリスト) </code> </td>
+                  <td> 表示するy軸の目盛を変更する </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.xscale("log") </code> </td>
+                  <td> x軸をlogスケールに変換 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.yscale("log") </code> </td>
+                  <td> y軸をlogスケールに変換 </td>
+                </tr>
+                <tr>
+                  <td> <code> plt.savefig("img.pdf") </code> </td>
+                  <td> 図の保存を保存する </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+
+        <h2> その他 </h2>
+        <p> #x軸縦書き(90度回転)</p>
+        <code> plt.xticks(rotation=90) </code> <br>
+
+        <br>
+        <p> #フォントサイズの変更 </p>
+        <code> plt.xlabel(x,fontname="MS Gothic") </code> <br>
+        <code> plt.ylabel(x,fontname="MS Gothic") </code> <br>
+        <code> plt.xlabel(x,fontname="Segoe UI") </code> <br>
+        <code> plt.ylabel(x,fontname="Meirio") </code> <br>
+
+        <br>
+        <p> #軸の数字をオフセットを使わずに表現する </p>
+        <code> import matplotlib.ticker as ticker </code> <br>
+        <code> plt.gca().get_xaxis().get_major_formatter().set_useOffset(False)
+        </code> <br>
+        <code> plt.gca().get_yaxis().get_major_formatter().set_useOffset(False)
+        </code> <br>
+
+        <br>
+        <p> #軸の数字が必ず整数になるようにする </p>
+        <code> import matplotlib.ticker as ticker </code> <br>
+        <code> plt.gca().get_xaxis().set_major_locator(ticker.MaxNLocator(integer=True))
+        </code> <br>
+        <code> plt.gca().get_yaxis().set_major_locator(ticker.MaxNLocator(integer=True))
+        </code>
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

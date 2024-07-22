@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a> 
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> データベースの操作 </h2>
+          <p class="blog-post-meta"> 2023/07/23 </p>
+          <p> データベースの操作は「view.py」の関数内で行う。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> データベースの操作 (Create) </h2>
+          <p> #Formからデータの保存</p>
+          <code>
+            <pre>
+def create(request):
+    if (request.method == 'POST'):
+        obj = model_name()
+        model = form_name(request.POST,instance=obj)
+        model.save()
+        return redirect(to='/')
+
+    params = {
+        'title' : "タイトル",
+        'form' : form_name(),
+    }
+
+    return render(request,'app/create.html',params)
+            </pre>
+          </code>
+          <hr>
+
+          <h2> データベースの操作 (Read) </h2>
+          <p> #Read系メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> data = model_name.object.all() </code> </td>
+                <td> データベース内のすべてのデータ (QuerySet)を得る </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.object.all().values()</code> </td>
+                <td> データベース内のすべてのデータ (辞書形式)を得る </td>
+              </tr>
+              <tr>
+                <td> <code> data = model_name.object.all().values('id','name') </code> </td>
+                <td> 特定の項目だけを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.object.all().values_list()</code> </td>
+                <td> データベース内のすべてのデータ (リスト形式)を得る </td>
+              </tr>
+              <tr>
+                <td> <code>num = model_name.object.all().count() </code> </td>
+                <td> レコード数を返す </td>
+              </tr>
+              <tr>
+                <td> <code>first = model_name.object.all().first()</code> </td>
+                <td> レコードの先頭のみ取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>last = model_name.object.all().last()</code> </td>
+                <td> レコードの末尾のみ取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.all().order_by('age')</code> </td>
+                <td> レコードを並び替える (age基準の場合) </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.all().order_by('age').reverse()</code> </td>
+                <td> レコードを逆順に並び替える (age基準の場合) </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.all()[n:m]</code> </td>
+                <td> 指定範囲内のレコードを取り出す (idがn+1からmまでのレコード) </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #集計用メソッド集 </p>
+          <code> from django.db.models import Count,Sum,Avg,Min,Max </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>str(model_name.objects.aggregate(Count('age'))['age__count'])</code> </td>
+                <td> レコード数を得る </td>
+              </tr>
+              <tr>
+                <td> <code>str(model_name.objects.aggregate(Sum('age'))['age__sum'])</code> </td>
+                <td> 合計値を得る </td>
+              </tr>
+              <tr>
+                <td> <code> str(model_name.objects.aggregate(Avg('age'))['age__avg'])</code> </td>
+                <td> 平均値を得る </td>
+              </tr>
+              <tr>
+                <td> <code>str(model_name.objects.aggregate(Min('age'))['age__min'])</code> </td>
+                <td> 最小値を得る</td>
+              </tr>
+              <tr>
+                <td> <code>str(model_name.objects.aggregate(Max('age'))['age__max'])</code> </td>
+                <td> 最大値を得る </td>
+              </tr>
+            </tbody>
+          </table> 
+
+          <br>
+          <p> #SQL文を実行する (あまり推奨はされない) </p>
+          <code> data = model_name.objects.raw('SQL文') </code> <br>
+
+          <br>
+          <p> #検索用メソッド集 (for 文字列)</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> data = model_name.objects.filter(name=str)</code> </td>
+                <td> nameがstrであるものを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__contains=str) </code> </td>
+                <td> strをnameに含むデータを取得 </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__startswith=str)</code> </td>
+                <td> nameがstrで始まるデータを取得</td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__endswith=str)</code> </td>
+                <td> nameがstrで終わるデータを取得 </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__iexact=str)</code> </td>
+                <td> nameがstrであるデータを取り出す (大文字と小文字を区別しない)</td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__icontains=str) </code> </td>
+                <td> strをnameに含むデータを取得 (大文字と小文字を区別しない)</td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__istartswith=str)</code> </td>
+                <td> nameがstrで始まるデータを取得 (大文字と小文字を区別しない)</td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(name__iendswith=str)</code> </td>
+                <td> nameがstrで終わるデータを取得 (大文字と小文字を区別しない)</td>
+              </tr>
+            </tbody>
+          </table> 
+
+          <br>
+          <p> #検索用メソッド集 (for 数値)</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age=20)</code> </td>
+                <td> ageが20のデータを取り出す</td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__gt=20)</code> </td>
+                <td> ageが20より大きいデータを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__gte=20)</code> </td>
+                <td> ageが20以上のデータを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__lt=20)</code> </td>
+                <td> ageが20より小さいデータを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__lte=20)</code> </td>
+                <td> ageが20以下のデータを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__gte=20,age__lte=30)</code> </td>
+                <td> ageが20以上30以下のデータを取り出す </td>
+              </tr>
+              <tr>
+                <td> <code>data = model_name.objects.filter(age__gte=20).filter(age__lte=30)</code> </td>
+                <td> ageが20以上30以下のデータを取り出す </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #論理和検索 </p>
+          <code> from django.db.models import Q </code> <br>
+          <code> data = model_name.objects.filter( Q(1つ目の条件)| Q(2つ目の条件) )</code> <br>
+
+          <br>
+          <p> #リストによる検索 </p>
+          <code> data = model_name.objects.filter(name__in=namelist)</code>
+          <hr>
+
+          <h2> データベースの操作 (Update) </h2>
+          <p> #データの編集 (id(=n)で指定)</p>
+          <code>
+            <pre>
+def update(request,n):
+    obj = model_name.objects.get(id=n)
+    if (request.method == 'POST'):
+        model = form_name(request.POST,instance=obj)
+        model.save()
+        return redirect(to='/path')
+
+    params = {
+
+    }
+
+    return render(request,'app/xxx.html',params)
+            </pre>
+          </code>
+          <hr>
+
+          <h2> データベースの操作 (Delete) </h2>
+          <p> #データの削除 (id(=n)で指定) </p>
+          <code>
+            <pre>
+def delete(request,n):
+    obj = model_name.objects.get(id=n)
+    if (request.method == 'POST'):
+        obj.delete()
+        return redirect(to='/path')
+    
+    params = {
+
+    }
+
+    return render(request,'app/xxx.html',params)
+            </pre>
+          </code>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> views.py </h2>
+          <p class="blog-post-meta"> 2023/06/25 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 処理 </h2> 
+          <p> 説明 </p>
+
+          <p> #HTMLファイルを表示する (「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する)</p>
+          <code>
+            <pre>
+def index(request):
+    params = {
+        'title' : 'タイトル',
+        'message' : 'メッセージ',
+    }
+          
+    return render(request,'app_name/index.html',params)
+            </pre>
+          </code> 
+
+          <p> #自動でページを移動する</p>
+          <code> return redirect(to='/')</code> <br>
+
+          <br>
+          <p> #Formで入力されたものを受け取る </p>
+          <code> 
+            <pre>
+def accept(request):
+    params = {
+        'title' : 'タイトル',
+        'message' : 'メッセージ',
+    }
+    if (request.method == 'POST'):
+        params['title'] = request.POST['name']
+        params['message'] = request.POST['msg']
+
+    return render(request,'app_name/accpet.html',params)
+            </pre>
+          </code>
+
+          <p> #フォームのインスタンスを作成する </p>
+          <code> params['form'] = Form_name(request.POST)</code> <br>
+
+          <br>
+          <p> #チェックボックスがON、OFFの場合の処理 </p>
+          <code>
+            <pre>
+#ON時
+if ('check' in request.POST):
+    処理
+#OFF時
+else:
+    処理
+            </pre>
+          </code>
+
+          <p> #クエリパラメータを取得する (URL上で「?msg=hello」とした場合) </p>
+          <code>
+            <pre>
+def hello(request):
+    if 'msg' in request.GET:
+        msg = request.GET['msg']
+    else:
+        msg = 'クエリパラメータがありません'
+            </pre>
+          </code>
+
+          <p> #URLに値が格納されている場合 (localhost:8000/app_name/1/addressとした場合)</p>
+          <code>
+            <pre>
+def address(request,id,address):
+    id = id
+    address = address
+            </pre>
+          </code>
+
+          <p> #レコードを取得する </p>
+          <code>
+            <pre>
+def data_accept(request):
+    data = model_name.objects.all()
+    params = {
+        'title' : 'タイトル',
+        'message' : 'メッセージ',
+        'data' : data,
+    }
+
+    return render(request,'app_name/data_accept.html',params)
+            </pre>
+          </code>
+          <hr>
+
+          <h2> ページネーション </h2>
+          <p> #ページネーション用の関数 </p>
+          <code>
+            <pre>
+from django.core.paginator import Paginator
+
+def page(request,num):
+    data = model_name.objects.all()
+    #1ページに3つのデータを表示させる
+    page = Paginator(data,3)
+    params = {
+        'title' : "タイトル",
+        #numページ目の情報のみdataに渡す
+        'data' : page.get_page(num),
+    }
+
+    return render(request,'app_name/page.html',params)
+            </pre>
+          </code>
+
+          
+          <hr>
+
+          <h2> テンプレート (関数方式)</h2>
+          <p> 説明 </p> 
+          <code>
+            <pre>
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from .models import model_name
+from .form import Form_name
+from django.core.paginator import Paginator
+
+def index(request):
+    #データの取得
+    data = model_name.object.all()
+    #ページネーション
+    page = Paginator(data,3)
+    
+    params = {
+        'title' : 'タイトル',
+        'message' : 'メッセージ',
+        #データ受け取り
+        'data' : data,
+        #フォーム
+        'form' : Form_name(),
+    }
+
+    return render(request,'app_name/index.html',params)
+            </pre>
+          </code> 
+          <hr>
+
+          <h2> テンプレート (TemplateViewクラスの継承方式)</h2>
+          <p> 説明 </p>
+          <code>
+            <pre>
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.views.generic. import TemplateView
+from .models import model_name
+from .form import Form_name
+from django.core.paginator import Paginator
+
+class TemView(TemplateView):
+    
+    def __init__(self):
+        self.params = {
+          'title' : 'タイトル',
+          'message' : 'メッセージ',
+          'form' : Form_name,
+        }
+
+    def get(self,request):
+        return render(request,'app_name/index.html',self.params)
+
+    def post(self,request):
+        msg = 'post送信メッセージ'
+        self.params['message'] = msg
+        self.params['form'] = Form_name(request.POST)
+
+        return render(request,'app_name/index.html',self.params)
+            </pre>
+          </code>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
