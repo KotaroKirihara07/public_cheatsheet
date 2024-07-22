@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+          <a href="postgresql_index.html"> PostgreSQL </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 関数 </h2>
+          <p class="blog-post-meta"> 2024/02/16 </p>
+          <p> このページでは、PostgreSQLの関数である<a href="#a">算術関数</a>、<a href="#b">文字列関数</a>、<a href="#c">日付関数</a>、<a href="#d"> 変換関数</a>、<a href="#e">ウィンドウ関数</a>についてまとめています。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id ="a"> 算術関数 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> ABS(数値型列名) </code> </td>
+                <td> 絶対値を求める </td>
+                <td> <code> ABS(col_name) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> MOD(数値型列名,除数)</code> </td>
+                <td> 剰余を求める </td>
+                <td> <code> MOD(col_name,6) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> ROUND(数値型列名,丸めの桁数)</code> </td>
+                <td> 四捨五入する </td>
+                <td> <code> ROUND(col_name,4) </code> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="b"> 文字列関数 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> 文字列型列名1 || 文字列型列名2 </code> </td>
+                <td> 文字列の内容を連結させる(3つ以上も可) </td>
+                <td> <code> col_name1 || col_name2 </code> </td>
+              </tr>
+              <tr>
+                <td> <code> LENGTH(文字列型列名)</code> </td>
+                <td> 字数を返す </td>
+                <td> <code> LENGTH(col_name) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> LOWER(文字列型列名) </code> </td>
+                <td> 小文字化 </td>
+                <td> <code> LOWER(col_name) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> UPPER(文字列型列名) </code> </td>
+                <td> 大文字化 </td>
+                <td> <code> UPPER(col_name) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> REPLACE(対象文字列名,置換前の文字列名,置換後の文字列名) </code> </td>
+                <td> 文字列を置換する </td>
+                <td> <code> REPLACE(col1,col2,col3) </code> </td>
+              </tr>
+              <tr>
+                <td> <code> SUBSTRING(対象文字列名, FROM 開始位置 FOR 文字数) </code> </td>
+                <td> 開始位置から特定文字数分を切り出す </td>
+                <td> <code> SUBSTRING(col_name1 FROM 2 FOR 5) </code> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+          
+          <h2 id="c"> 日付関数 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> CURRENT_DATE </code> </td>
+                <td> 現在の日付を表示する </td>
+                <td> <code> SELECT CURRENT_DATE; </code> </td>
+              </tr>
+              <tr>
+                <td> <code> CURRENT_TIME </code> </td>
+                <td> 現在の時刻を表示する </td>
+                <td> <code> SELECT CURRENT_TIME; </code> </td>
+              </tr>
+              <tr>
+                <td> <code> CURRENT_TIMESTAMP </code> </td>
+                <td> 日付と時間を同時に表示する </td>
+                <td> <code> SELECT CURRENT_TIMESTAMP; </code> </td>
+              </tr>
+              <tr>
+                <td> <code> EXTRACT(引数 FROM CURRENT_TIMESTAMP) </code> </td>
+                <td> 現在日付時刻から引数の値を表示する </td>
+                <td> <code> SELECT EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS year;</code> </td>
+              </tr>
+              <tr>
+                <td colspan="3"> ※EXTRACTの引数は<code>(YEAR,MONTH,DAY,HOUR,MINUTE,SECOND) </code> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="d"> 変換関数 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> CAST(変換前の値 AS 変換するデータ型) </code> </td>
+                <td> 型を変換する </td>
+                <td> <code> SELECT CAST('01234' AS INTEGER) AS Int_col; </code> </td>
+              </tr>
+              <tr>
+                <td> <code> COALESCE(data1,data2,data3) </code> </td>
+                <td> 左のデータから順に見ていき、最初にNULLでない値を返す </td>
+                <td> <code> SELECT COALESCE(NULL,data2,data3) AS col_name; </code> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+          <h2 id="e"> ウィンドウ関数 </h2>
+          <p> OLAP関数や分析関数とも呼ばれる。通常の集約関数にはできない高度な操作を行うことができる。 </p>
+          <h4> RANK関数 </h4>
+          <p> レコードのランキングを算出する関数。同順位が複数レコード存在した場合、後続の順位が飛ぶ。 </p>
+          <p> #col2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 RANK () OVER (ORDER BY col_name2) AS ranking FROM Table_name; </code> <br>
+
+          <br>
+          <p> #col_name3でグループ化した後、col_name2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 RANK () OVER (PARTITION BY col_name3 ORDER BY col_name2) AS ranking FROM Table_name; </code>
+          <br>
+
+          <br>
+          <h4> DENSE_RANK関数 </h4>
+          <p> レコードのランキングを算出する関数。同順位が複数レコード存在した場合でも、後続の順位が飛ばない。 </p>
+          <p> #col2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 DENSE_RANK () OVER (ORDER BY col_name2) AS ranking FROM Table_name; </code> <br>
+
+          <br>
+          <p> #col_name3でグループ化した後、col_name2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 DENSE_RANK () OVER (PARTITION BY col_name3 ORDER BY col_name2) AS ranking FROM Table_name; </code>
+          <br>
+
+          <br>
+          <h4> ROW_NUMBER関数 </h4>
+          <p> レコードのランキングを算出する関数。一意な連番を付与する。</p>
+          <p> #col2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 ROW_NUMBER () OVER (ORDER BY col_name2) AS ranking FROM Table_name; </code> <br>
+
+          <br>
+          <p> #col_name3でグループ化した後、col_name2をもとにランキングを作成する </p>
+          <code> SELECT col_name1, col_name2, col_name3 ROW_NUMBER () OVER (PARTITION BY col_name3 ORDER BY col_name2) AS ranking FROM Table_name; </code>
+          <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+          <a href="postgresql_index.html"> PostgreSQL </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 述語 </h2>
+          <p class="blog-post-meta"> 2024/02/16 </p>
+          <p> このページでは述語にについての説明を行う。述語とは、戻り値がTURE/FALSE/UNKWONNのいずれかである関数である。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> LIKE述語 </h2>
+          <p> 文字列の部分一致検索。「<code>%</code>」は0文字以上の任意の文字列、「<code>_</code>」は任意の1文字を表す。 </p>
+          <p> #前方一致検索 </p>
+          <code> SELECT * FROM Table_name WHERE col_name LIKE 'abc%'; </code> <br>
+
+          <br>
+          <p> #中間一致検索 </p>
+          <code> SELECT * FROM Table_name WHERE col_name LIKE '%bcd%'; </code> <br>
+
+          <br>
+          <p> #後方一致検索 </p>
+          <code> SELECT * FROM Table_name WHERE col_name LIKE '%cde'; </code> <br>
+
+          <br>
+          <p> #特定の文字数の後方一致検索(前2文字は任意) </p>
+          <code> SELECT * FROM Table_name WHERE col_name LIKE '__cde'; </code>
+          <hr>
+
+          <h2> BETWEEN述語 </h2>
+          <p> 範囲検索。 </p>
+          <p> #col_name2の値が100以上200以下の行を取得する </p>
+          <code> SELECT col_name1, col_name2 FROM Table_name WHERE col_name2 BETWEEN 100 AND 200; </code>
+          <hr>
+
+
+          <h2> IS NULL述語 </h2>
+          <p> 値がNULLの行の取得。または、値がNULLでないの行の取得。 </p>
+          <p> #値がNULLの行の取得 </p>
+          <code> SELECT * FROM Table_name WHERE col_name1 IS NULL;</code> <br>
+
+          <br>
+          <p> #値がNULLでない行の取得 </p>
+          <code> SELECT * FROM Table_name WHERE col_name1 IS NOT NULL;</code> 
+          <hr> 
+
+          <h2> IN述語 </h2>
+          <p> 条件を複数同時に与えることを可能にする。 </p>
+          <p> #col_name2の値が(100,200,300)のいずれかの場合の行を取り出す</p>
+          <code> SELECT col_name1,col_name2 FROM Table_name WHERE col_name2 IN (100,200,300); </code> <br>
+
+          <br>
+          <p> #col_name2の値が(100,200,300)のいずれでもない場合の行を取り出す</p>
+          <code> SELECT col_name1,col_name2 FROM Table_name WHERE col_name2 NOT IN (100,200,300); </code>
+          <hr>
+
+          <h2> EXISTS述語 </h2>
+          <p> IN述語で代用できるため積極的に覚える必要はなし。必要になったら勉強してください。 </p>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

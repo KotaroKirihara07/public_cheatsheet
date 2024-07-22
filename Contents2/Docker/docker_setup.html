@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="docker_index.html"> Docker </a> 
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> セットアップ </h2>
+          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p> このページではDockerのセットアップ方法についての説明を行う。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> Docker Engineのインストール </h2>
+          <p> #UbuntuにおけるDocker Engineのインストール方法 </p> 
+          <ol>
+            <li> <code> sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common </code> </li>
+            <li> <code> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - </code></li>
+            <li> <code> sudo apt-key fingerprint 0EBFCD88 </code></li>
+            <li> <code> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" </code> </li>
+            <li> <code> sudo apt-get update </code> </li>
+            <li> <code> sudo apt-get install docker-ce docker-ce-cli containerd.io </code></li>
+            <li> <code> sudo usermod -aG docker $USER </code></li>
+            <li> <code> docker --version </code></li>
+          </ol>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

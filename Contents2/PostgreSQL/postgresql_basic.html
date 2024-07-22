@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="postgresql_index.html"> PostgreSQL </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 基本 </h2>
+          <p class="blog-post-meta"> 2024/05/20 </p>
+          <p> このページではデータベースに関する基本的な事項についてまとめる。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> DBMS(Database Management System) </h2>
+          <ul>
+            <li> 階層型データベース (Hierarchical Database)</li>
+            <li> 関係データベース (Relational Database : RDB)</li>
+            <ul>
+              <li> Oracle Database : Oracle社のRDBMS</li>
+              <li> SQL Server : Microsoft社のRDBMS</li>
+              <li> DB2 : IBM社のRDBMS</li>
+              <li> PostgreSQL : オープンソースのRDBMS</li>
+              <li> MySQL : オープンソースのRDBMS</li>
+            </ul>
+            <li> オブジェクト指向データベース (Object Oriented Database : OODB)</li>
+            <li> XMLデータベース (XML Database : XMLDB)</li>
+            <li> キー・バリュー型データストア (Key-Value Store : KVS)</li>
+          </ul> 
+          <hr>
+          
+
+          <h2> SQL(Structured Query Language)の記述ルール </h2>
+          <ul> 
+            <li> 文の最後は<code>「;」</code>をつける </li>
+            <li> キーワードは大文字 </li> 
+            <li> テーブル名の頭文字のみ大文字 </li>
+            <li> 列名は小文字 </li> 
+            <li> 文字列と日付の定数は<code>「'」</code>(シングルクォーテーション)で囲む。</li>
+            <li> 単語の間は半角スペースで区切る </li>
+          </ul>
+          <hr>
+
+          <h2> SQLの評価順序 </h2>
+          <p> SQLは以下の順序で評価される。そのため、SELECTで列名に名前を付ける場合、気を付ける必要がある。 </p>
+          <ol> 
+            <li> FROM </li>
+            <li> WHERE </li>
+            <li> GROUP BY </li>
+            <li> HAVING </li>
+            <li> SELECT </li>
+            <li> ORDER BY </li>            
+          </ol>
+          <hr>
+
+          <h2> 構造 </h2>
+          <dl> 
+            <dt> データベース </dt> 
+            <dd> インストールした直後はテンプレート用のデータベースの
+              「template0」、「template1」 、「postgres」 という名前のデータベースが作成される。
+               また、任意で新しいデータベースを作成することもできる。 </dd>
+
+            <dt> スキーマ </dt> 
+            <dd> スキーマはデータベースの中に作成することができる。
+              スキーマはデータベース内に作成されるテーブルや関数といったオブジェクトをグループ化するものである。
+              スキーマが異なれば同じデータベース内であっても同じテーブル名でテーブルを作成することができる。
+              データベースを作成すると、自動的に「public」と呼ばれる特別なスキーマが作成されるが、任意で新しい
+              スキーマを作成することもできる。 </dd> 
+
+            <dt> テーブル </dt> 
+            <dd> テーブルはスキーマの中に作成することができる。テーブル作成時にスキーマを指定しないと「public」スキーマ内に配置される。 </dd> 
+          </dl>   
+          <hr>
+
+          <h2> コメント </h2>
+          <p> #1行コメント </p> 
+          <code> -- コメント </code> <br>
+
+          <br>
+          <p> #複数行コメント </p> 
+          <code> /* コメント */ </code> 
+          <hr>
+
+          <h2> ACID特性 </h2>
+          <ul>
+            <li> 原子性 (Atomicity) </li>
+            <p> 更新処理がすべて実行されるか、またはすべて実行されない状態で終わることを保証する性質。 </p>
+            <li> 一貫性 (Consistency) </li>
+            <p> トランザクションに含まれる処理はデータベースにあらかじめ設定された制約を満たすという性質。</p>
+            <li> 独立性 (Isolation) </li>
+            <p> トランザクション同士が互いに干渉を受けないことを保証する性質。</p>
+            <li> 永続性 (Durability) </li>
+            <p> トランザクションが終了したら、その時点でのデータの状態が保存されることを保証する性質。</p>
+          </ul>
+          <hr> 
+          
+          <h2> データベース・テーブルの操作 </h2>
+          <p> #データベース一覧を表示する </p>
+          <code> \l </code> <br>
+
+          <br>
+          <p> #データベースに接続する </p>
+          <code> \c database_name </code> <br>
+
+          <br>
+          <p> #テーブル一覧の表示 </p>
+          <code> \dt </code> <br>
+
+          <br>
+          <p> #終了 </p>
+          <code> \q </code> <br>
+          <hr>
+
+          <h2> ファイルからSQLの実行 </h2>
+          <ol>
+            <li> ファイルを作成する(拡張子は<code>.spl</code>)</li>
+            <li> <code> psql -U postgres -f C:\-----\file.sql </code></li>
+          </ol> 
+
+          <p> #ファイルのテンプレート </p>
+          <code> DROP DATABASE IF EXISTS result_2020; </code> <br>
+          <code> CREATE DATABASE result_2020 WITH ENCODING = 'UTF-8'; </code> <br>
+          <code> </code> <br>
+          <code> \c result_2020 postgres; </code> <br>
+          <code> </code> <br>
+          <code> DROP TABLE IF EXISTS product; </code> <br>
+          <code> CREATE TABLE product ( </code> <br>
+          <code> &nbsp; &nbsp; model char(5), </code> <br>
+          <code> &nbsp; &nbsp; name  varchar(10), </code> <br>
+          <code> &nbsp; &nbsp; price integer, </code> <br>
+          <code> &nbsp; &nbsp; PRIMARY KEY (model) </code> <br>
+          <code> ); </code> <br>
+          <code> &nbsp; &nbsp; </code> <br>
+          <code> BEGIN; </code> <br>
+          <code> LOCK TABLE product; </code> <br>
+          <code> INSERT INTO product VALUES </code> <br>
+          <code> &nbsp; &nbsp; ('PN001','aaa',1000), </code> <br>
+          <code> &nbsp; &nbsp; ('PN002','bbb',2000), </code> <br>
+          <code> &nbsp; &nbsp; ('PN003','ccc',30000), </code> <br>
+          <code> &nbsp; &nbsp; ('PN004','ddd',2000), </code> <br>
+          <code> &nbsp; &nbsp; ('PN005','eee',500); </code> <br>
+          <code> COMMIT; </code> <br>
+          <code> </code> <br>
+          <code> DROP TABLE IF EXISTS sales; </code> <br>
+          <code> CREATE TABLE sales ( </code> <br>
+          <code> &nbsp; &nbsp; id    integer, </code> <br>
+          <code> &nbsp; &nbsp; day   date, </code> <br>
+          <code> &nbsp; &nbsp; model char(5), </code> <br>
+          <code> &nbsp; &nbsp; quantity integer, </code> <br>
+          <code> &nbsp; &nbsp; PRIMARY KEY (id) </code> <br>
+          <code> ); </code> <br>
+          <code> </code> <br>
+          <code> BEGIN; </code> <br>
+          <code> LOCK TABLE sales; </code> <br>
+          <code> INSERT INTO sales VALUES </code> <br>
+          <code> &nbsp; &nbsp; (1,'2020-01-07','PN005',7), </code> <br>
+          <code> &nbsp; &nbsp; (2,'2020-01-08','PN002',5), </code> <br>
+          <code> &nbsp; &nbsp; (3,'2020-01-12','PN004',3), </code> <br>
+          <code> &nbsp; &nbsp; (4,'2020-01-18','PN001',2), </code> <br>
+          <code> &nbsp; &nbsp; (5,'2020-01-22','PN005',10); </code> <br>
+          <code> COMMIT; </code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
