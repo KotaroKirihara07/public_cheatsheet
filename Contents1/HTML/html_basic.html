@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../css/blog.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="html_index.html"> HTML </a> 
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> 基本構造 </h2>
+        <p class="blog-post-meta"> 2024/02/03 </p>
+        <p> このページではHTMLファイルの基本的事項について説明する。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> コメント </h2>
+        <code> &lt;!-- コメント --&gt; </code>
+        <hr>
+
+        <h2> スペース </h2>
+        <p> #半角スペース </p>
+        <code> &amp;nbsp; </code>
+        <hr>
+
+        <h2> HTMLの基本的なタグと共通属性 </h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> タグ </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code>&lt;!DOCTYPE html&gt;</code> </td>
+              <td> DOCTYPE宣言 </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;html&gt; ... &lt;/html&gt;</code> </td>
+              <td> 文書のルート要素 </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;head&gt; ... &lt;/head&gt;</code> </td>
+              <td>文書のヘッダであり、ブラウザウインドウには表示されないHTMLドキュメントのメタデータを定義するためのタグ </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;meta&gt;</code> </td>
+              <td> 文書に関する情報(メタ情報) </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;title&gt; ... &lt;/title&gt;</code></td>
+              <td> 文書のタイトル </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;body&gt; ... &lt;/body&gt;</code> </td>
+              <td>文書の本体であり、ブラウザウインドウには表示される部分を配置するためのタグ</td>
+            </tr>
+            <tr>
+              <td> <code>&lt;div&gt; ... &lt;/div&gt;</code></td>
+              <td> 範囲の指定(ブロックレベル) </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;main&gt; ... &lt;/main&gt;</code></td>
+              <td> ページの中心的なコンテンツ </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;section&gt; ... &lt;/section&gt;</code></td>
+              <td> ページ全体の一部分やセクション </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;article&gt; ... &lt;/article&gt;</code></td>
+              <td> 記事全体、もしくは独立したコンテンツ </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;span&gt; ... &lt;/span&gt;</code></td>
+              <td>  範囲の指定(インライン) </td>
+            </tr>
+            <tr>
+              <td> <code>&lt;address&gt; ... &lt;/address&gt;</code></td>
+              <td> 作者情報、連絡先 </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> 属性 </th>
+              <th scope="col"> 属性値 </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> class </code> </td>
+              <td> クラス名 </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> <code> id </code> </td>
+              <td> id名 </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+
+        <h2> &lt;html&gt; ... &lt;/html&gt; </h2>
+        <p> &lt;html&gt;はHTMLのルート要素を配置するためのタグ。 </p>
+        <code> &lt;html 属性="属性値"&gt; ... &lt;/html&gt; </code>
+
+        <p> </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> 属性 </th>
+              <th scope="col"> 属性値 </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> ja </code> </td>
+              <td> 日本語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> en </code> </td>
+              <td> 英語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> zh </code> </td>
+              <td> 中国語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> ko </code> </td>
+              <td> 韓国語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> es </code> </td>
+              <td> スペイン語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> de </code> </td>
+              <td> ドイツ語 </td>
+            </tr>
+            <tr>
+              <td> <code> lang </code> </td>
+              <td> <code> fr </code> </td>
+              <td> フランス語 </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+
+        <h2> &lt;meta&gt; </h2>
+        <p> &lt;meta&gt;はページのメタ情報を設定するためのタグ。 </p>
+
+        <p> <code>&lt;meta 属性="属性値"&gt; </code></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> 属性 </th>
+              <th scope="col"> 属性値 </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> charset </code> </td>
+              <td> <code> UTF-8 </code> </td>
+              <td> UTF-8 </td>
+            </tr>
+            <tr>
+              <td> <code> charset </code> </td>
+              <td> <code> shift_jis </code> </td>
+              <td> Shift JIS </td>
+            </tr>
+            <tr>
+              <td> <code> charset </code> </td>
+              <td> <code> euc-jp </code> </td>
+              <td> EUC-JP </td>
+            </tr>
+          </tbody>
+        </table>
+
+  
+        <br>
+        <p> #レスポンシブ対応にする </p>
+        <code> &lt;meta name="viewport" content="width=device-width"&gt; </code> <br>
+
+        <br>
+        <p> #ページが検索されないようにする </p>
+        <code> &lt;meta name="robots" content="noindex,nofollow"&gt; </code> <br>
+
+        <br>
+        <p> #3秒後に別のページに移動する </p>
+        <code> &lt;meta http-equiv="refresh content="3;url=https://www.-------"&gt; </code> <br>
+
+        <br>
+        <p> #電話番号がリンクにならないようにする </p>
+        <code> &lt;meta name="format-detection" content="telephone=no"&gt; </code>
+        <hr>
+
+        <h2>&lt;link&gt;</h2>
+        <p> &lt;link&gt;は別ファイルを外部参照するためのタグ。</p>
+        <code> &lt;link 属性="属性値"&gt; </code> <br>
+
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">属性</th>
+                  <th scope="col">属性値</th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> rel </code> </td>
+                  <td> <code> stylesheet </code> </td>
+                  <td> CSSファイルの読み込みを可能にする </td>
+                </tr>
+                <tr>
+                  <td> <code> rel </code> </td>
+                  <td> <code> shortcut icon </code> </td>
+                  <td> サイトのアイコン(ファビコン)の読み込みを可能にする </td>
+                </tr>
+                <tr>
+                  <td> <code> href </code> </td>
+                  <td> <code> /css/example.css </code> </td>
+                  <td>  ファイルパスを指定する </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <p> #style.cssというcssファイルを参照 </p> 
+        <code> &lt;link rel="stylesheet" href="style.css"&gt;</code><br>
+
+        <br>
+        <p> #サイトのアイコン(ファビコン)を設定する(設定しなくても"favicon.ico"というファイルをルートディレクトリに置いておけば勝手に読み込まれる) </p> 
+        <code> &lt;link rel="shortcut icon" href="画像ファイルのパス" type="image/vnd.microsoft.icon"&gt; </code><br>
+
+        <br>
+        <p> #スマートフォン向けサイトのアイコン(ファビコン)を設定する(ファビコンにする画像の名前をapple-touch-icon.pngとする) </p>
+        <code> &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt; </code> <br>
+
+        <br>
+        <p> #印刷用のCSSを読み込む </p>
+        <code> &lt;link rel="stylesheet" href="style-print.css" media="print"&gt; </code>
+        <hr>
+
+        <h2>&lt;style&gt; ... &lt;/style&gt;</h2>
+        <p> &lt;style&gt;はHTMLドキュメント内に直接CSSを記述するためのタグ。</p>
+        <code> &lt;style&gt; ... &lt;/style&gt; </code> <br>
+        <hr>
+
+        <h2> &lt;header&gt; ... &lt;/header&gt; </h2>
+        <p> &lt;header&gt;はヘッダーを作成するためのタグ。</p>
+        <hr>
+
+
+        <h2> &lt;nav&gt; ... &lt;/nav&gt;</h2>
+        <p> &lt;nav&gt;はナビゲーションを作成するためのタグ。 </p>
+        <p> #ナビゲーションの作成 </p> 
+        
+        <code> &lt;nav class="submenu"&gt; </code> <br> 
+        <code> &nbsp; &lt;ul&gt; </code> <br>
+        <code> &nbsp; &nbsp; &lt;li&gt; &lt;a href="#"&gt; aaaaa &lt;/a&gt; &lt;/li&gt; </code> <br>
+        <code> &nbsp; &nbsp; &lt;li&gt; &lt;a href="#"&gt; bbbbb &lt;/a&gt; &lt;/li&gt; </code> <br>
+        <code> &nbsp; &nbsp; &lt;li&gt; &lt;a href="#"&gt; ccccc &lt;/a&gt; &lt;/li&gt; </code> <br>
+        <code> &nbsp; &lt;/ul&gt; </code> <br>
+        <code> &lt;/nav&gt; </code> <br>
+        <hr>
+
+        <h2>&lt;script&gt; ... &lt;/script&gt;</h2>
+        <p>&lt;script&gt;はJavaScriptファイルを読み込むためのタグ。</p>
+        <code> &lt;script 属性="属性値"&gt; ... &lt;/script&gt; </code> <br>
+
+        <br>
+        <p>#script.jsというファイルを読み込む</p>
+        <code> &lt;script src="/script.js"&gt; &lt;/script&gt; </code> <br>
+
+        <br>
+        <p> #HTMLに直接JavaScriptを埋め込む </p>
+        <code> &lt;script> JavaScriptプログラム &lt;/script&gt; </code> <br>
+
+        <br>
+        <p> #JavaScriptファイルを非同期で読み込み、即座に実行 </p>
+        <code> &lt;script src="/script.js" async&gt; &lt;/script&gt;
+         </code> <br>
+
+        <br>
+        <p> #JavaScriptファイルを非同期で読み込み、HTMLの解析完了後に実行 </p>
+        <code> &lt;script src="/script.js" defer&gt; &lt;/script&gt; </code> <br>
+
+        <br>
+        <p> #ESモジュール(処理ごとに分割したJavaScriptファイルを読み込み実行する) (script.jsからMyclass1.jsやMyClass2.jsを呼び出す) </p>
+        <code> &lt;script type="module" src="/script.js"&gt; &lt;/script&gt; </code> <br>
+        <hr>
+
+        <h2>&lt;noscript&gt; ... &lt;/noscript&gt;</h2>
+        <p>&lt;noscript&gt;はJavaScriptが動作しないブラウザが表示するコンテンツを記述するためのタグ。</p>
+        <code> &lt;noscript&gt; ... &lt;/noscript&gt; </code> <br>
+
+        <br>
+        <p> #JavaScriptが動作しないブラウザが表示するコンテンツを記述する </p>
+        <code> &lt;noscript&gt; 表示するコンテンツ(HTML) &lt;/noscript&gt; </code> <br>
+        <hr>
+
+        <h2> &lt;footer&gt; ... &lt;/footer&gt;</h2>
+        <p> &lt;footer&gt;はフッターを作成するためのタグ。</p>
+        <hr>
+    </article>    
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

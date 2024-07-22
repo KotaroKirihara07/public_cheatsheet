@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="js_index.html"> JavaScript </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> メディアの操作 </h2>
+          <p class="blog-post-meta"> 2024/02/09 </p>
+          <p> メディア (アニメーション、画像、音声、動画)の操作方法について説明を行う。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> アニメーション </h2>
+          <p> #モーションを作成する </p> 
+          <code> const element = document.querySelector('.class_name'); </code> 
+          <code> element.animate( </code> <br>
+          <code> &nbsp; { </code> <br>
+          <code> &nbsp; &nbsp; transform: [ </code> <br>
+          <code> &nbsp; &nbsp; &nbsp; //開始値 </code> <br>
+          <code> &nbsp; &nbsp; &nbsp; 処理 </code> <br>
+          <code> &nbsp; &nbsp; &nbsp; //終了値 </code> <br>
+          <code> &nbsp; &nbsp; &nbsp; 処理 </code> <br>
+          <code> &nbsp; &nbsp; ] </code> <br>
+          <code> &nbsp; }, </code> <br>
+          <code> &nbsp; { </code> <br>
+          <code> &nbsp; &nbsp; //ミリ秒指定 </code> <br>
+          <code> &nbsp; &nbsp; duration: 3000, </code> <br>
+          <code> &nbsp; &nbsp; //繰り返し回数 </code> <br>
+          <code> &nbsp; &nbsp; iterations: Infinity, </code> <br>
+          <code> &nbsp; &nbsp; //繰り返し挙動 </code> <br>
+          <code> &nbsp; &nbsp; direction: 'normal', </code> <br>
+          <code> &nbsp; &nbsp; //加減速種類 </code> <br>
+          <code> &nbsp; &nbsp; easing: 'ease', </code> <br>
+          <code> &nbsp; &nbsp; //終了時のプロパティ </code> <br>
+          <code> &nbsp; &nbsp; fill: 'forwards', </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> ); </code> <br>
+          <hr>
+
+          <h2> 画像 </h2>
+          <p> #画像をスクリプトで読み込む </p> 
+          <code> const img = document.querySelector('#id_name'); </code> <br>
+          <code> img.src = 'images/sample.jpg';</code> <br>
+
+          <br>
+          <p> #スクリプトからimg要素を追加する </p>
+          <code> const img = new Image(); </code> <br>
+          <code> img.src = 'images/sample.jpg';</code> 
+          <hr>
+
+          <h2> 音声 </h2>
+          <p> #音声をスクリプトで制御する </p> 
+          <code> const audio = document.querySelector('#id_name'); </code> <br>
+          <code> audio.play(); </code> <br>
+          <code> audio.pause(); </code> <br>
+
+          <br>
+          <p> #プロパティ集 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> プロパティ </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>audio.currentTime</code> </td>
+                <td> 現在の秒数を取得する (or 変更する) </td>
+              </tr>
+              <tr>
+                <td> <code>audio.duration</code> </td>
+                <td> 音声の長さ(秒数)を取得する</td>
+              </tr>
+              <tr>
+                <td> <code>audio.volume</code> </td>
+                <td> 音声のvolumeを取得する (or 変更する)</td>
+              </tr>
+              <tr>
+                <td> <code>audio.muted = true</code> </td>
+                <td> ミュートオン </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> 動画 </h2>
+          <p> #動画をスクリプトで制御する </p>
+          <code> const video = document.querySelector('#id_name'); </code> <br>
+          <code> video.play(); </code> <br>
+          <code> video.pause(); </code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

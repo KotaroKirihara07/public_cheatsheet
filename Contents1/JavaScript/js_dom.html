@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+          <a href="js_index.html"> JavaScript </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> DOM </h2>
+          <p class="blog-post-meta"> 2024/07/21 </p>
+          <p> このページではHTML要素の操作方法について説明を行う。</p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> HTML要素の取得 </h2>
+          <p> #セレクタ名に一致する要素を取得する </p>
+          <code> const element = document.querySelector('.class_name'); </code> <br>
+          <code> const element = document.querySelector('#id_name'); </code> <br>
+          
+          <br>
+          <p> #IDに一致する要素を取得する </p>
+          <code> const element = document.getElementById('id_name');</code> <br>
+
+          <br>
+          <p> #セレクタ名に一致するすべての要素を取得する </p>
+          <code> const element = document.querySelectorAll('.class_name');</code> <br>
+
+          <br>
+          <p> #クラス名に一致するすべての要素を取得する </p>
+          <code> const element = document.getElementByClassName('class_name');</code>
+          <hr>
+
+          <h2> HTMLの要素の操作 </h2>
+          <h4> 要素の取得 </h4> 
+          <p> #プロパティ集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> プロパティ </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> document.documentElement </code> </td>
+                <td> ルート要素 </td>
+                <td> html要素 </td>
+              </tr>
+              <tr>
+                <td> <code> document.head </code> </td>
+                <td> head要素 </td>
+                <td> head要素 </td>
+              </tr>
+              <tr>
+                <td> <code> document.body </code> </td>
+                <td> body要素 </td>
+                <td> body要素 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> 親、子、前後要素の取得 </h4> 
+          <p> #プロパティ集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> プロパティ </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> 親ノード.children </code> </td>
+                <td> 子ノード </td>
+                <td> 要素群 </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.firstElementChild </code> </td>
+                <td> 最初の子ノード </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.lastElementChild </code> </td>
+                <td> 最後の子ノード </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> ノード.nextElementSibling </code> </td>
+                <td> 次(弟)のノード </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> ノード.previousElementSibling </code> </td>
+                <td> 前(兄)のノード </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> 子ノード.parentNode </code> </td>
+                <td> 親のノード </td>
+                <td> ノード </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> 要素の追加・削除 </h4> 
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> 親ノード.appendChild(子ノード) </code> </td>
+                <td> 親ノードの末尾に子ノードを追加する </td>
+                <td> 要素群 </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.insertBefore(子ノード,指定ノード) </code> </td>
+                <td> 親ノード内の指定ノード前に子ノードを追加する </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> ノード1.before(ノード2) </code> </td>
+                <td> ノード1の前にノード2を追加する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> ノード1.after(ノード2) </code> </td>
+                <td> ノード1の後にノード2を追加する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.hasChild(子ノード) </code> </td>
+                <td> 親ノードに子ノードが存在するかどうか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.removeChild(子ノード) </code> </td>
+                <td> 親要素の子要素を取り除く </td>
+                <td> 要素 </td>
+              </tr>
+              <tr>
+                <td> <code> ノード.remove() </code> </td>
+                <td> 要素を取り除く </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> ノード.cloneNode() </code> </td>
+                <td> 要素を複製する </td>
+                <td> ノード </td>
+              </tr>
+              <tr>
+                <td> <code> 親ノード.replaceChild(新ノード,旧ノード) </code> </td>
+                <td> 新ノードと子ノードを置き換える </td>
+                <td> 置き換えられたノード </td>
+              </tr>
+              <tr>
+                <td> <code> 旧ノード.replaceWith(新ノード) </code> </td>
+                <td> 旧ノードと新ノードで置き換える </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> ノード.textContent </code> </td>
+                <td> ノード内のテキスト </td>
+                <td> 文字列 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #HTMLコードを要素として挿入する </p>
+          <code> const newelement = 'HTML'; </code> <br>
+          <code> 親要素.insertAdjacentHTML(挿入位置,newelement); </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 挿入位置 </th>
+                <th scope="col"> 意味 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> 'beforebegin'</code> </td>
+                <td> 親要素の直前 </td>
+              </tr>
+              <tr>
+                <td> <code> 'afterbegin' </code> </td>
+                <td> 親要素内の先頭 </td>
+              </tr>
+              <tr>
+                <td> <code> 'beforeend' </code> </td>
+                <td> 親要素内の末尾 </td>
+              </tr>
+              <tr>
+                <td> <code> 'afterend' </code> </td>
+                <td> 親要素の直後 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> 要素の生成 </h4>
+          <code> const divelement = document.createElement('タグ名'); </code> <br>
+
+          <br>
+          <h4> 要素の操作 </h4>
+
+          <br>
+          <p> #プロパティ集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> プロパティ </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> divelement.innerHTML </code> </td>
+                <td> 要素内のHTML文字列 </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.outerHTML </code> </td>
+                <td> 要素自身のHTML文字列 </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.style.プロパティ名 </code> </td>
+                <td> スタイルの値 </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code> getComputedStyle(divelement).プロパティ名 </code> </td>
+                <td> スタイルの値 </td>
+                <td> 文字列 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> divelement.setAttribute(属性名,値) </code> </td>
+                <td> 要素の属性を設定する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.getAttribute(属性名) </code> </td>
+                <td> 要素の属性を取得する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.hasAttribute(属性名) </code> </td>
+                <td> 要素の属性があるかどうか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.classList.add(クラス1,クラス2,...) </code> </td>
+                <td> クラスを追加する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.classList.remove(クラス1,クラス2,...) </code> </td>
+                <td> クラスを削除する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.classList.contains(クラス) </code> </td>
+                <td> クラスが存在するか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> divelement.classList.toggle(クラス) </code> </td>
+                <td> クラスを切り替える </td>
+                <td> なし </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> formの情報取得 </h2>
+          <p> #formに入力された情報を取得する </p>
+          <code> const element = document.querySelector('#id_name'); </code> <br> 
+          <code> const value = element.value; </code> <br>
+
+          <br>
+          <p> #チェックボックスの情報を取得する (true or false)</p>
+          <code> const element = document.querySelector('#id_name'); </code> <br> 
+          <code> const check = element.checked; </code> <br>
+
+          <br>
+          <p> #ローカルファイルの情報を取得する </p>
+          <code> const element = document.querySelector('#file');</code> <br> 
+          <code> const target = element.target; </code> <br>
+          <code> const files = target.files; </code> <br>
+          <code> const file = files[0]; </code>
+          <hr>     
+          <hr>   
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

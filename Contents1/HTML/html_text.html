@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../css/blog.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      <a href="html_index.html"> HTML </a> 
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> テキスト表現 </h2>
+        <p class="blog-post-meta"> 2024/02/03 </p>
+        <p> このページではテキスト表現に関する説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> &lt;h1&gt; ... &lt;/h1&gt;</h2>
+        <p> &lt;h1&gt;は見出しを作成するためのタグ。 </p> 
+        <p>#見出しを作成</p> 
+        <code> &lt;h1&gt; example text &lt;/h1&gt; </code> 
+        <hr>
+
+        <h2> &lt;p&gt; ... &lt;/p&gt;</h2>
+        <p> &lt;p&gt;はパラグラフを作成するためのタグ。 </p> 
+        <p>#パラグラフを作成</p> 
+        <code> &lt;p&gt; example text &lt;/p&gt; </code> 
+        <hr>
+
+        <h2> &lt;br&gt;</h2>
+        <p> &lt;br&gt;は改行を行うためのタグ。 </p> 
+        <p>#改行</p> 
+        <code> &lt;br&gt; </code>
+        <hr>
+
+        <h2> &lt;hr&gt;</h2>
+        <p> &lt;hr&gt;は水平線を表示するためのタグ。 </p> 
+        <p>#水平線を表示する</p> 
+        <code> &lt;hr&gt; </code>
+        <hr>
+
+        <h2> テキスト装飾 </h2>
+        <P> テキスト装飾に関するタグについて以下の表にまとめる。</P>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col"> タグ </th>
+                <th scope="col"> 出力 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>&lt;big&gt; ... &lt;/big&gt;</code> </td>
+                <td> <big> example text </big> </td>
+                <td> 大きめの文字 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;small&gt; ... &lt;/small&gt;</code> </td>
+                <td> <small> example text </small> </td>
+                <td> 小さめの文字 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;b&gt; ... &lt;/b&gt;</code> </td>
+                <td> <b> example text </b> </td>
+                <td> 太字 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;u&gt; ... &lt;/u&gt;</code> </td>
+                <td> <u> example text </u> </td>
+                <td> 下線 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;i&gt; ... &lt;/i&gt;</code> </td>
+                <td> <i> example text </i> </td>
+                <td> イタリック体 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;em&gt; ... &lt;/em&gt;</code> </td>
+                <td> <em> example text </em> </td>
+                <td> 強調 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;strong&gt; ... &lt;/strong&gt;</code> </td>
+                <td> <strong> example text </strong> </td>
+                <td> より強い強調 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;mark&gt; ... &lt;/mark&gt;</code> </td>
+                <td> <mark> example text </mark> </td>
+                <td> マーカーで強調 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;del&gt; ... &lt;/del&gt;</code> </td>
+                <td> <del> example text </del> </td>
+                <td> 削除されたテキスト </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;ins&gt; ... &lt;/ins&gt;</code> </td>
+                <td> <ins datetime="2020-01-01"> example text </ins> </td>
+                <td> 追加されたテキスト </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;sup&gt; ... &lt;/sup&gt;</code> </td>
+                <td> <sup> example text </sup> </td>
+                <td> 上付き文字 </td>
+              </tr>
+              <tr>
+                <td> <code>&lt;sub&gt; ... &lt;/sub&gt;</code> </td>
+                <td> <sub> example text </sub> </td>
+                <td> 下付き文字 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>   
+
+          <h2> &lt;abbr&gt; ... &lt;/abbr&gt;</h2>
+          <p> &lt;abbr&gt;は略語の正式名称を表示するためのタグ。 </p>
+          <code>&lt;abbr title="正式名称"&gt; 略語 &lt;/abbr&gt; </code> <br>
+          <br>
+          <p>#ICT (Information and Communication Technology)を表示する</p> 
+          <code> &lt;abbr title="Information and Communication Technology"&gt; ICT &lt;/abbr&gt; </code>
+          <hr>
+          
+          <h2> &lt;q&gt; ... &lt;/q&gt;、&lt;blockquote&gt; ... &lt;/blockquote&gt;、&lt;cite&gt; ... &lt;/cite&gt;</h2>
+          <p> &lt;q&gt;,&lt;blockquote&gt;,&lt;cite&gt;は引用を行うためのタグ。 </p>
+          <p>#短文の引用(インライン)</p> 
+          <code> &lt;q&gt; example text &lt;/q&gt; </code> <br>
+
+          <br>
+          <p>#引用元URLとともに引用した部分を表示(インライン)</p> 
+          <code> &lt;q cite="https://www.example.com"&gt; example text &lt;/q&gt; </code> <br>
+
+          <br>
+          <p>#長文の引用(ブロックレベル)</p> 
+          <code> &lt;blockquote&gt; example text &lt;/blockquote&gt; </code> <br>
+
+          <br>
+          <p>#引用元URLとともに引用した部分を表示(ブロックレベル)</p> 
+          <code> &lt;blockquote cite="https://www.example.com"&gt; example text &lt;/blockquote&gt; </code> <br>
+          
+          <br>
+          <p>#引用元(出典、参照先)</p> 
+          <code> &lt;cite&gt; example text &lt;/cite&gt; </code>
+          <hr>
+
+          <h2> &lt;code&gt; ... &lt;/code&gt;、&lt;pre&gt; ... &lt;/pre&gt;</h2>
+          <p> &lt;code&gt;、&lt;pre&gt;はソースコードを表示するためのタグ。 </p>
+          <p>#一行のソースコードを表示</p> 
+          <code> &lt;code&gt; print(777) &lt;/code&gt; </code> <br>
+
+          <br>
+          <p>#複数行のソースコードを表示</p> 
+          <code> &lt;pre&gt; print(777) &lt;/pre&gt; </code>
+          <hr>
+
+          <h2> &lt;time&gt; ... &lt;/time&gt; </h2>
+          <p> &lt;time&gt;は日付や時間を表示するためのタグ。</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 属性 </th>
+                <th scope="col"> 属性値 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> datetime </code> </td>
+                <td> <code> 2020-01-01 </code> </td>
+                <td> 20201年1月1日 </td>
+              </tr>
+              <tr>
+                <td> <code> datetime </code> </td>
+                <td> <code> 2020-01-01T16:30 </code> </td>
+                <td> 20201年1月1日16時30分 </td>
+              </tr>
+              <tr>
+                <td> <code> datetime </code> </td>
+                <td> <code> 2020-01-01T16:30-0900 </code> </td>
+                <td> 20201年1月1日16時30分 (日本時間) </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> &lt;ruby&gt; ... &lt;/ruby&gt;、&lt;rb&gt; ... &lt;/rb&gt;、&lt;rp&gt; ... &lt;/rp&gt;、&lt;rt&gt; ... &lt;/rt&gt; </h2>
+          <p>  &lt;ruby&gt;、&lt;rb&gt;、&lt;rp&gt;、&lt;rt&gt;は漢字にルビを振るためのタグ。</p>
+
+          <p> #ルビを振る </p>
+          <code> &lt;ruby&gt; &lt;rb&gt; 紫陽花 &lt;/rb&gt; &lt;rp&gt;(&lt;/rp&gt; &lt;rt&gt; あじさい &lt;/rt&gt; &lt;rp&gt;)&lt;/rp&gt; &lt;/ruby&gt;</code>
+          <hr>
+
+          <h2> &lt;kbd&gt; ... &lt;/kbd&gt;</h2>
+          <p> &lt;kbd&gt;はキーボードのキーを表示するためのタグ。 </p>
+          <p> #Ctrl + Cを表示する </p> 
+          <code> &lt;kbd&gt; Ctrl &lt;/kbd&gt; + &lt;kbd&gt; C &lt;/kbd&gt; </code> <br>
+          <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

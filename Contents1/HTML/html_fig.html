@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../css/blog.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference materials </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="html_index.html"> HTML </a> 
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> 画像、図、オブジェクト </h2>
+        <p class="blog-post-meta"> 2024/02/03 </p>
+        <p> このページでは画像、図、オブジェクトの説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> &lt;img&gt;</h2>
+        <p> &lt;img&gt;は画像を埋め込むためのタグ。</p>
+        <code> &lt;img src="画像ファイルのパス" alt="代替テキスト" width="画像の横幅" height="画像の縦幅"&gt; </code><br>
+
+        <br>
+        <p> #base64のデータで画像を表示する </p>
+        <code> &lt;img src="data:メディアタイプ;base64,データ"..." alt="代替テキスト"&gt;</code>
+        <hr>
+
+        <h2> &lt;svg&gt; ... &lt;/svg&gt; </h2>
+        <p> &lt;svg&gt;はSVG形式の画像を埋め込むためのタグ。</p>
+        <hr>
+
+        <h2> &lt;figure&gt; ... &lt;/figure&gt;、&lt;figcaption&gt; ... &lt;/figcaption&gt;</h2>
+        <p> &lt;figure&gt;、&lt;figcaption&gt;は図を表示しキャプションを付与するためのタグ。</p> 
+        <code> &lt;figure&gt; ... &lt;figcaption&gt; ... &lt;/figcaption&gt; &lt;/figure&gt; </code> <br>
+
+        <br>
+        <p> #画像の表示 </p>
+        <code> &lt;figure&gt; </code> <br>
+        <code> &nbsp; &lt;img src="sample.png" alt="figure"&gt; </code> <br>
+        <code> &nbsp; &lt;figcaption&gt; 図のキャプション &lt;/figcaption&gt; </code> <br>
+        <code> &lt;/figure&gt; </code> <br> 
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>
