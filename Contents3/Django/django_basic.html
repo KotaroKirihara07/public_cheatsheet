@@ -34,15 +34,35 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 基本 </h2>
-          <p class="blog-post-meta"> 2023/07/02 </p>
-          <p> このページの説明 </p>
+          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p> このページではDjangoの基本事項について説明する。 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> MVC </h2>
-          <p> Model ： データアクセス関係の処理を担当。Webアプリケーションとデータベース間のやりとりを行う。 </p> 
-          <p> View ： 画面に表示されるWebページの作成を担当。</p>
-          <p> Controller ： 全体の制御を担当。</p>
+          <h2> MVT </h2>
+          <p> Model : データアクセス関係の処理を担当する </p> 
+          <p> View : Modelとtemplateの仲介を行い、コントロールを担当する </p>
+          <p> Template : 画面に表示されるWebページの作成を担当する </p>
+          <hr>
+
+
+          <h2> アプリケーション開発の流れ </h2>
+          <ol>
+            <li> プロジェクトを立ち上げる </li>
+            <p> <code> django-admin startproject project_name </code></p>
+            <li> アプリケーションを立ち上げる</li>
+            <p> <code>  django-admin startapp app_name </code></p>
+            <li> <p> <a href="django_setting.html"> 「setting.py」を編集し、アプリケーションを追加する </a> </p> </li>
+            <li> <p> <a href="django_models.html"> 「models.py」を編集し、データベースを定義する </a> </p> </li>
+            
+            <li> マイグレーションファイルを作成し、マイグレーションを実行する </li>
+            <li> <p> <a href="django_database_admin.html"> 「admin.py」を編集し、データベースを管理可能な状態にする </a></p> </li>
+            <li> <p> <a href="django_templates.html"> 「templatesディレクトリ」にhtmlファイルを配置する </a></p> </li>
+            <li> <p> <a href="django_views.html"> 「views.py」で関数を定義する </a> </p> </li>
+            <li> <p> <a href="django_urls.html"> 「urls.py」を編集する </a> </p> </li>
+            <li> 実行 </li>
+            <p> <code> python manage.py runserver </code></p>
+          </ol>
           <hr>
 
           <h2> トップページの作成 </h2>
@@ -65,21 +85,6 @@ def index(request):
             <li>「templates」ディレクトリに「djapp」ディレクトリを作成する</li>
             <li>「djapp」ディレクトリに「index.html」を作成する</li>
             <li>下層のdjappの「setting.py」に<code>import os</code>を追加した後、[TEMPLATES]内の[DIRS]を<code>[os.path.join(BASE_DIR, 'templates')]にする</code></li>
-          </ol>
-          <hr>
-
-          <h2> アプリケーション開発の流れ </h2>
-          <ol>
-            <li> プロジェクトを立ち上げる </li>
-            <li> アプリケーションを立ち上げる</li>
-            <li> 「setting.py」を編集し、アプリケーションを追加する </li>
-            <li> 「models.py」を編集し、データベースを定義する </li>
-            <li> マイグレーションファイルを作成し、マイグレーションを実行する </li>
-            <li> 「admin.py」を編集し、データベースを管理可能な状態にする </li>
-            <li> 「templatesディレクトリ」にhtmlファイルを配置する </li>
-            <li> 「views.py」で関数を定義する </li>
-            <li> 「urls.py」を編集する </li>
-            <li> 実行 </li>
           </ol>
           <hr>
         </article>

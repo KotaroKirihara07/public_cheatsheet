@@ -34,15 +34,15 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> views.py </h2>
-          <p class="blog-post-meta"> 2023/06/25 </p>
-          <p> このページの説明 </p>
+          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p> このページではviews.pyの編集方法ついての説明する。 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> 処理 </h2> 
           <p> 説明 </p>
 
-          <p> #HTMLファイルを表示する (「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する)</p>
+          <p> #HTMLファイルを表示する ( 「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する )</p>
           <code>
             <pre>
 def index(request):
@@ -51,7 +51,7 @@ def index(request):
         'message' : 'メッセージ',
     }
           
-    return render(request,'app_name/index.html',params)
+    return render(request, 'app_name/index.html', params)
             </pre>
           </code> 
 
@@ -71,7 +71,7 @@ def accept(request):
         params['title'] = request.POST['name']
         params['message'] = request.POST['msg']
 
-    return render(request,'app_name/accpet.html',params)
+    return render(request, 'app_name/accpet.html', params)
             </pre>
           </code>
 

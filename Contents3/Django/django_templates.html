@@ -33,15 +33,15 @@
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> templatesディレクトリ </h2>
-          <p class="blog-post-meta"> 2023/06/25 </p>
+          <h2 class="blog-post-title"> templates </h2>
+          <p class="blog-post-meta"> 2024/07/28 </p>
           <p> tempaltesディレクトリはHTMLファイルを配置するためのディレクトリである。ここに配置されるHTMLファイルの書式が通常のHTMLの書式と異なる箇所があるため注意が必要である。 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> 準備 </h2>
           <ol> 
-            <li> アプリケーションディレクトリ内に「templates」ディレクトリを作成する </li> 
+            <li> アプリケーションディレクトリ(app_name)内に「templates」ディレクトリを作成する </li> 
             <li> 「templates」ディレクトリ内にアプリケーション名と同じ名前のディレクトリを作成する </li> 
             <li> アプリケーション名と同じ名前のディレクトリ内に「index.html」を作成する</li>
           </ol> 
@@ -56,30 +56,32 @@
           <code> {{title}}, {{message}}, {{data}}</code> <br>
 
           <br>
-          <p> #他のページへのリンク (「urls.py」の「urlpatterns」のpathのname(=path_name)の値を名前にする)</p> 
-          <code> &lt;a href="{% url path_name %}"&gt; リンク先 &lt;a&gt; </code> <br>
+          <p> #他のページへのリンク ( 「urls.py」の「urlpatterns」のpathのname(=path_name)の値を名前にする ) </p> 
+          <code> &lt;a href="{% url path_name %}"&gt; リンク先 &lt;/a&gt; </code> <br>
 
           <br>
           <p> #for文 </p>
-          <code> {% for item in data %} 処理 {% endfor %} </code> <br> 
+          <code> {% for item in data %}  </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+          <code> {% endfor %} </code> <br> 
 
           <br>
           <p> #if文 </p> 
-          <code> {% if item.id == 1%} 処理 {% endif %} </code> <br>
+          <code> {% if item.id == 1%} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+          <code> {% endif %} </code> <br>
+          <hr>
 
-          <br>
+          <h2> Form </h2>
           <p> #HTMLのタグを直接書いてフォームを作成 (送信先は「view.py」ファイル内のurlpatternsのname='form'というpath)</p>
-          <code>
-            <pre>
-&lt;form action="{% url 'form' %}" method="post"&gt;
-    {% csrf_token %}
-    &lt;label for="msg"&gt; message &lt;/label&gt; 
-    &lt;input id="msg" type="text" name="msg"&gt;
-    &lt;input type="submit" value="送信"&gt;
-&lt;/form&gt;
-            </pre>
-          </code>
-
+          <code> &lt;form action="{% url 'form' %}" method="post"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="msg"&gt; message &lt;/label&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="msg" type="text" name="msg"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+          
+          <br>
           <p> #テーブル型のフォーム </p>
           <code>
             <pre>
@@ -154,6 +156,10 @@
             <li> <code>{% block header %}</code> と <code>{% endblock %}</code> の間にヘッダーを記述する </li>
             <li> <code>{% block content %}</code> と <code>{% endblock %}</code> の間にコンテンツを記述する </li>
           </ol>
+          <hr>
+
+          <h2> cssファイルとjavascriptファイルの適用方法 </h2>
+          <p> <a href="django_static.html"> cssファイルやjavascriptファイルの適用方法 </a></p>
           <hr>
         </article>
       </div>
