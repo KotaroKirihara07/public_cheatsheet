@@ -33,9 +33,9 @@
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> form </h2>
-          <p class="blog-post-meta"> 2023/06/25 </p>
-          <p> このページの説明 </p>
+          <h2 class="blog-post-title"> フォーム </h2>
+          <p class="blog-post-meta"> 2024/07/30 </p>
+          <p> このページではフォームの扱い方法について説明する。 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -70,6 +70,15 @@ class form_name(forms.Form):
           <hr>
 
           <h2> 入力フィールド </h2>
+          <p> #単一の値を取得する </p>
+          <code> answer = 入力フィールド </code> <br>
+
+          <br>
+          <p> #複数の値を取得する </p>
+          <code> answers = 入力フィールド </code> <br>
+
+          <br>
+          <p> #入力フィールド集 </p>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -82,27 +91,27 @@ class form_name(forms.Form):
               <tr>
                 <td> <code>forms.CharField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
                 <td> CharField </td>
-                <td> &lt;input type="text"&gt;というタグを生成 </td>
+                <td> &lt;input type="text"&gt;を生成 </td>
               </tr>
               <tr>
                 <td> <code>forms.EmailField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
                 <td> EmailField </td>
-                <td> &lt;input type="email"&gt;というタグを生成</td>
+                <td> &lt;input type="email"&gt;を生成</td>
               </tr>
               <tr>
                 <td> <code>forms.IntegerField(label='ラベル',required=True,min_value=min,max_value=max)</code> </td>
                 <td> IntegerField </td>
-                <td> &lt;input type="number"&gt;というタグを生成</td>
+                <td> &lt;input type="number"&gt;を生成</td>
               </tr>
               <tr>
                 <td> <code>forms.FloatField(label='ラベル',required=True,min_value=min,max_value=max)</code> </td>
                 <td> FloatField </td>
-                <td> &lt;input type="number"&gt;というタグを生成 </td>
+                <td> &lt;input type="number"&gt;を生成 </td>
               </tr>
               <tr>
                 <td> <code>forms.URLField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
                 <td> URLField </td>
-                <td> &lt;input type="url"&gt;というタグを生成 </td>
+                <td> &lt;input type="url"&gt;を生成 </td>
               </tr>
               <tr>
                 <td> <code> form.DateField(label='DateField',input_formats=['%d'])</code> </td>
@@ -153,16 +162,12 @@ class form_name(forms.Form):
           </table>
 
           <p> #ChoiceFieldにおけるchoices(=data)の設定方法</p>
-          <code>
-            <pre>
-data = [
-    # (値, ラベル)
-    ("1", "one"),
-    ("2", "two"),
-    ("3", "three")
-]
-            </pre>
-          </code>
+          <code> data = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; # (実際に受け渡されるデータ, 画面に表示されるデータ) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("1", "one"), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("2", "two"), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("3", "three"), </code> <br>
+          <code> ] </code> 
           <hr>
 
           <h2> バリデーション </h2>

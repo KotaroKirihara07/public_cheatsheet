@@ -42,21 +42,20 @@
           <h2> 処理 </h2> 
           <p> 説明 </p>
 
-          <p> #HTMLファイルを表示する ( 「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する )</p>
-          <code>
-            <pre>
-def index(request):
-    params = {
-        'title' : 'タイトル',
-        'message' : 'メッセージ',
-    }
-          
-    return render(request, 'app_name/index.html', params)
-            </pre>
-          </code> 
+          <p> #パラメータを設定する </p>
+          <code> params = { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'title' : 'タイトル' , </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'msg' : 'メッセージ' , </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'score' : 100 , </code> <br>
+          <code> } </code> <br>
 
-          <p> #自動でページを移動する</p>
-          <code> return redirect(to='/')</code> <br>
+          <br>
+          <p> #「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する (パラメータparams付き) </p>
+          <code>return render(request, 'app_name/index.html', params) </code> <br>
+
+          <br>
+          <p> #自動でページを移動する ( 「urls.py」のname属性の値を引数として指定する) </p>
+          <code> return redirect('index')</code> <br>
 
           <br>
           <p> #Formで入力されたものを受け取る </p>
@@ -145,9 +144,15 @@ def page(request,num):
 
     return render(request,'app_name/page.html',params)
             </pre>
-          </code>
+          </code>  
+          <hr>
 
-          
+          <h2> フォーム </h2>
+          <p> #POST形式で送信した単一の情報を取得する </p>
+          <code> msg = request.POST['msg'] </code> <br>
+
+          <p> #POST形式で送信した複数の情報をリストとして取得する </p>
+          <code> choices = request.POST.getlist('choice') </code> <br>
           <hr>
 
           <h2> テンプレート (関数方式)</h2>

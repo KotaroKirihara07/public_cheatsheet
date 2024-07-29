@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> staticディレクトリ </h2>
-          <p class="blog-post-meta"> 2023/06/25 </p>
-          <p> このページの説明 </p>
+          <p class="blog-post-meta"> 2024/07/29 </p>
+          <p> このページではcssやjavascriptや画像を扱う方法について説明する。 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -57,6 +57,17 @@
           <hr>
 
           <h2> javascriptファイルを適用させる方法 </h2>
+          <ol>
+            <li> htmlファイルの先頭に<code> {% load static %} </code>を追加する</li>
+            <li> &lt;head&gt;内に<code> &lt;script src="{% static 'app_name/js/sample.js' %}"&gt; &lt;/script&gt;</code>を追加する </li>
+          </ol>
+          <hr>
+
+          <h2> 画像ファイルを読み込む方法 </h2>
+          <ol>
+            <li> htmlファイルの先頭に<code> {% load static %} </code>を追加する</li>
+            <li> 任意の場所に<code> &lt;img src="{% static "app_name/img/sample.png" %}" alt="表示できません"&gt; </code>を追加する </li>
+          </ol>
           <hr>
         </article>
       </div>

@@ -40,52 +40,41 @@
         
           <!-- コンテンツ -->
           <h2> アプリケーションの登録 </h2>
-          <code>
-            <pre>
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    
-    #アプリケーションを追加する (アプリケーションディレクトリ名を追加する)
-    'app_name1',
-    'app_name2',
-]
-            </pre>
-          </code> 
+          <code> INSTALLED_APPS = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.admin',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.auth',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.contenttypes',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.sessions',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.messages',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'django.contrib.staticfiles',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; #アプリケーションを追加する (アプリケーションディレクトリ名を追加する)</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'app_name1',</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'app_name2',</code> <br>
+          <code> ] </code> <br>
           <hr>
 
           <h2> データベースの設定 </h2>
           <h4> SQLite </h4>
-          <code>
-            <pre>
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-            </pre>
-          </code>
+          <code> DATABASES = { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'default': {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ENGINE': 'django.db.backends.sqlite3', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'NAME': BASE_DIR / 'db.sqlite3', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> } </code> <br>
 
+          <br>
           <h4> PostgreSQL </h4>
-          <code>
-            <pre>
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': データベース名,
-    'USER': 'ユーザ名',
-    'PASSWORD': 'パスワード',
-    'HOST': 'ホスト名',
-    'PORT': 'ポート番号',
-    }
-}
-            </pre>
-          </code> 
+          <code> DATABASES = { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'default': {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ENGINE': 'django.db.backends.postgresql', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'NAME': データベース名, </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'USER': 'ユーザ名', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'PASSWORD': 'パスワード', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'HOST': 'ホスト名', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'PORT': 'ポート番号', </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> } </code> <br>
           <hr>
         </article>
       </div>
