@@ -34,26 +34,34 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> datetime </h2>
-        <p class="blog-post-meta"> 2024/02/11 </p>
+        <p class="blog-post-meta"> 2024/08/04 </p>
         <p> このページではdatetimeモジュールについての説明を行う。 </p>
         <hr>
         
         <!-- コンテンツ -->
         <h2> モジュールの読み込み </h2>
         <p> #モジュールの読み込み </p> 
-        <code> from datetime import datetime, date, time, timedelta </code> 
+        <code> import datetime </code> 
         <hr>
 
         <h2> datetime型</h2>
         <p> #2020年1月1日1時10分10秒100ミリ秒のdatetime型を生成 </p>
-        <code> d = datetime(2020,1,1,1,10,10,100)</code> <br>
+        <code> d = datetime.datetime(2020,1,1,1,10,10,100)</code> <br>
 
         <br>
-        <p> #メソッド集 </p>
+        <p> #現在のdatetime型を生成 </p>
+        <code> d = datetime.datetime.now() </code> <br>
+
+        <br>
+        <p> #現在のdatetime型を生成 (UTC) </p>
+        <code> d = datetime.datetime.utcnow() </code> <br>
+
+        <br>
+        <p> #属性集 </p>
         <table class="table table-striped">
             <thead>
                 <tr>
-                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 属性 </th>
                   <th scope="col"> 説明 </th>
                   <th scope="col"> 戻り値の型 </th>
                 </tr>
@@ -96,10 +104,65 @@
                 </tr>
             </tbody>
         </table>
+
+
+        <br>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> d.date() </code> </td>
+                  <td> 日付部分を取得 </td>
+                  <td> datetime.date </td>
+                </tr>
+                <tr>
+                  <td> <code> d.time() </code> </td>
+                  <td> 時刻部分を取得 </td>
+                  <td> datetime.time </td>
+                </tr>
+                <tr>
+                  <td> <code> d.timetz() </code> </td>
+                  <td> 時刻部分を取得 </td>
+                  <td> datetime.time </td>
+                </tr>
+                <tr>
+                  <td> <code> d.timestamp() </code> </td>
+                  <td> タイムスタンプ値を取得 </td>
+                  <td> datetime.timestamp </td>
+                </tr>
+                <tr>
+                  <td> <code> d.toordinal() </code> </td>
+                  <td> 西暦1年1月1日からの通算日を取得する </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.weekday() </code> </td>
+                  <td> 曜日を取得する (0:月曜日, 6:日曜日) </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.isoweekday() </code> </td>
+                  <td> 曜日を取得する (1:月曜日, 7:日曜日) </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.isocalendar() </code> </td>
+                  <td> (ISO年, ISO週番号, ISO曜日)のタプルを取得 </td>
+                  <td> tuple </td>
+                </tr>
+            </tbody>
+        </table>
         
 
         <p> #文字列からdatetime型への変換 </p> 
-        <code> datetime.strptime("日付文字列", "フォーマット文字列") </code> <br>
+        <code> d = datetime.strptime("日付文字列", "フォーマット文字列") </code> <br>
         
         <br>
         <p> #datetimeから文字列への変換 </p> 
@@ -152,39 +215,35 @@
 
         <br>
         <p> #フォーマット文字列の例2 </p> 
-        <code> "%Y-%m-%d %H:%M:%S:%f" </code> <br>
-
-        <br>
-        <p> #現在のdatetimeを取得する </p> 
-        <code> dt = datetime.now() </code>
+        <code> "%Y-%m-%d %H:%M:%S:%f" </code> 
         <hr>
 
         <h2> date型 </h2>
         <p> #2020年1月1日のdate型を生成 </p>
-        <code> d = date(2020,1,1)</code> <br>
+        <code> d = datetime.date(2020,1,1)</code> <br>
 
         <br>
         <p> #現在のdateを取得する </p>
-        <code> dt = date.today() </code> <br>
+        <code> d = datetime.date.today() </code> <br>
         <hr>
 
         <h2> time型 </h2>
         <p> </p>
         <p> #time型の生成 </p>
-        <code> t = time(hour=0, minute=0, second=0, microseconds=0)</code> <br>
+        <code> t = datetime.time(hour=0, minute=0, second=0, microseconds=0)</code> <br>
 
         <br>
         <p> #13時40分30秒のtime型の生成 </p>
-        <code> T = time(13,40,30)</code>
+        <code> t = datetime.time(13,40,30)</code>
         <hr>
 
         <h2> timedelta型 </h2>
         <p> #timedelta型の生成 </p>
-        <code> timedelta = timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)</code> <br>
+        <code> timedelta = datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)</code> <br>
 
         <br>
         <p> #10日後の日付を計算する </p>
-        <code> dt2 = d + timedelta(days=10) </code>
+        <code> d2 = d + datetime.timedelta(days=10) </code>
         <hr>
     </article>
 </div>

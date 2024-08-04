@@ -36,11 +36,10 @@
 
           <article class="blog-post">
             <h2 class="blog-post-title"> 基本構文 </h2>
-            <p class="blog-post-meta"> 2024/07/13 </p>
-            <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#input">標準入力</a>、<a
-                href="#output">標準出力</a>、<a href="#list">リスト</a>、<a href="#tuple">タプル</a>、<a href="#set">集合</a>、<a
-                href="#sentence">文字列</a>、<a href="#dictionary">辞書</a>、<a href="#number">数値処理</a>、<a
-                href="#loop">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#exception">例外処理</a> </p>
+            <p class="blog-post-meta"> 2024/08/04 </p>
+            <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#input">標準入力</a>、<a href="#output">標準出力</a>、<a
+            href="#sentence">文字列</a>、<a href="#number">数値処理</a>、<a
+            href="#loop">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#exception">例外処理</a>、<a href="#module">モジュール</a>、<a href="#package">パッケージ</a> </p>
             <hr>
 
             <!-- コンテンツ -->
@@ -64,8 +63,8 @@
             <code> del i </code> <br>
 
             <br>
-            <p> #変数の出力 </p>
-            <code> print(i) </code> <br>
+            <p> #定数の定義 (変更は可能) </p>
+            <code> FIXED_VALUE = 10 </code> <br>
 
             <br>
             <p> #変数の型を調べる </p>
@@ -92,8 +91,8 @@
                   <td> <code> True </code> or <code> False </code> </td>
                 </tr>
                 <tr>
-                  <td> <code> byte </code> </td>
-                  <td> バイト列 </td>
+                  <td> <code> bytes </code> </td>
+                  <td> バイナリデータ </td>
                   <td> </td>
                 </tr>
                 <tr>
@@ -136,6 +135,11 @@
                   <td> 辞書 </td>
                   <td> {1:"a",2:"b",3:"c"} </td>
                 </tr>
+                <tr>
+                  <td> <code> complex </code> </td>
+                  <td> 複素数 </td>
+                  <td> 1+2j </td>
+                </tr>
               </tbody>
             </table>
             <hr>
@@ -172,181 +176,6 @@
             <code> print(3,end=" ")</code>
             <hr>
 
-            <h2 id="list"> リスト </h2>
-            <p> #リストの生成 </p>
-            <code> list1 = [1,2,3] </code> <br>
-            <code> list2 = [val*2 for val in list1] </code> <br>
-            <code> list3 = [val*2 for val in list1 if val % 2 == 1] </code> <br>
-            <code> list4 = [i for i in range(0,10)]</code> <br>
-
-            <br>
-            <p> #リストの長さを調べる </p>
-            <code> len(list1) </code> <br>
-
-            <br>
-            <p> #スライス </p>
-            <code> list1[1:5] </code> <br>
-
-            <br>
-            <p> #指定したインデックスの要素を削除 </p>
-            <code> del list1[index] </code> <br>
-
-            <br>
-            <p> #ソートして新しいリストを返す </p>
-            <code> list2 = sorted(list1) </code> <br>
-
-            <br>
-            <p> #逆順ソートして新しいリストを返す </p>
-            <code> rev_list = list1[::-1] </code> <br>
-
-            <br>
-            <p> #リスト内の要素を加工して新しいリストを作成する </p>
-            <code> list2 = map(lambda v: v**2, list1) </code> <br>
-
-            <br>
-            <p> #リスト内の要素を特定の条件で絞り込む </p>
-            <code> list2 = filter(lambda v: v < 5, list1) </code> <br>
-
-            <br>
-            <p> #メソッド集 </p>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col"> メソッド </th>
-                  <th scope="col"> 説明 </th>
-                  <th scope="col"> 戻り値の型 </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> <code> list1.append(var) </code> </td>
-                  <td> 末尾に変数を追加 </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.insert(N,var) </code> </td>
-                  <td> N番目に変数を追加 </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.remove(var) </code> </td>
-                  <td> 指定した要素を削除 </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.pop(var) </code> </td>
-                  <td> 指定したインデックスの要素を削除して返す </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.index(var) </code> </td>
-                  <td> 引数で指定した値が格納されているインデックスを返す </td>
-                  <td> int </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.sort() </code> </td>
-                  <td> ソートして元のリストを変更する </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.extend(list2) </code> </td>
-                  <td> リスト1にリスト2を結合させる </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> ",".join(list1) </code> </td>
-                  <td> リストをcsv文字列に変換する </td>
-                  <td> str </td>
-                </tr>
-                <tr>
-                  <td> <code> list1.clear() </code> </td>
-                  <td> リストを削除する </td>
-                  <td> void </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
-
-            <h2 id="tuple"> タプル </h2>
-            <p> #タプルの生成 </p>
-            <code> t = (1,2,3) </code> <br>
-
-            <br>
-            <p> #特定インデックスの要素を取り出す </p>
-            <code> t[2] </code> <br>
-
-            <br>
-            <p> #スライス </p>
-            <code> t[start:stop:step] </code> <br>
-
-            <br>
-            <p> #要素数を調べる </p>
-            <code> len(t) </code> <br>
-            <hr>
-
-            <h2 id="set"> 集合 </h2>
-            <p> #集合の生成 </p>
-            <code> s = {1,2,3,4} </code> <br>
-            <code> s = {val*2 for val in list1} </code> <br>
-            <code> s = {val*2 for val in list1 if val % 2 == 1} </code> <br>
-
-            <br>
-            <p> #リストから集合の生成 </p>
-            <code> s = set(list1)</code> <br>
-
-            <br>
-            <p> #要素が含まれているか(True or False) </p>
-            <code> 4 in s </code> <br>
-
-            <br>
-            <p> #メソッド集</p>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col"> メソッド </th>
-                  <th scope="col"> 説明 </th>
-                  <th scope="col"> 戻り値の型 </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> <code>s.add(5)</code> </td>
-                  <td> 要素の追加 </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code>s.remove(5)</code> </td>
-                  <td> 指定した要素の削除 </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> s1.union(s2) </code> </td>
-                  <td> 和集合 </td>
-                  <td> set </td>
-                </tr>
-                <tr>
-                  <td> <code> s1.intersection(s2) </code> </td>
-                  <td> 積集合 </td>
-                  <td> set </td>
-                </tr>
-                <tr>
-                  <td> <code> s1.difference(s2) </code> </td>
-                  <td> 差集合 </td>
-                  <td> set </td>
-                </tr>
-                <tr>
-                  <td> <code> s1.issubset(s2) </code> </td>
-                  <td> s1がs2に含まれているか </td>
-                  <td> boolean </td>
-                </tr>
-                <tr>
-                  <td> <code> s1.issuperset(s2) </code> </td>
-                  <td> s2がs1に含まれているか </td>
-                  <td> boolean </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
 
             <h2 id="sentence"> 文字列 </h2>
             <p> #変数への代入 </p>
@@ -363,6 +192,11 @@
             <br>
             <p> #nからm番目までの文字列を取り出す </p>
             <code> text[n:m+1] </code> <br>
+
+            <br>
+            <p> #フォーマット文字列 </p>
+            <code> name = "aaa" </code> <br>
+            <code> text = f"Hello!, {name}!" </code> <br>
 
             <br>
             <p> #メソッド集 </p>
@@ -519,98 +353,6 @@
             </table>
             <hr>
 
-            <h2 id="dictionary"> 辞書 </h2>
-            <p> #dictionaryの生成 </p>
-            <code> dic = {1:10,2:20,3:30} </code> <br>
-            <code> dic[4] = 40 </code> <br>
-            <code> dic2 = {val: 0 for val in list1} </code> <br>
-            <code> dic3 = {val: 0 for val in list1 if val % 2 == 0} </code> <br>
-
-            <br>
-            <p> #listからdictionaryの生成 </p>
-            <code> dic = dict(zip(key_list,value_list)) </code> <br>
-
-            <br>
-            <p> #指定したキーに対応する値を取得 </p>
-            <code> dic[2] </code> <br>
-
-            <br>
-            <p> #指定したキーの要素を削除する </p>
-            <code> del dic[3] </code> <br>
-
-            <br>
-            <p> #存在の判定(True or False) </p>
-            <code> 1 in dic.keys() </code> <br>
-            <code> 10 in dic.values() </code> <br>
-            <code> (1,10) in dic.items() </code> <br>
-
-            <br>
-            <p> #valueが最大のkeyの取得 </p>
-            <code> max_val_key = max(dic,key=dic.get) </code> <br>
-
-            <br>
-            <p> #valueが最小のkeyの取得 </p>
-            <code> min_val_key = min(dic,key=dic.get) </code> <br>
-
-            <br>
-            <p> #メソッド集 </p>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col"> メソッド </th>
-                  <th scope="col"> 説明 </th>
-                  <th scope="col"> 戻り値の型 </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> <code> dic.setdefault(6,60) </code> </td>
-                  <td> 指定したキーに値がなければ与える </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> dic1.update(dic2) </code> </td>
-                  <td> 2つの辞書をマージする </td>
-                  <td> void </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.get(5,0) </code> </td>
-                  <td> 指定したキーに対応する値を返す(デフォルトの設定も可能)</td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.keys() </code> </td>
-                  <td> すべてのキーをリスト化 </td>
-                  <td> list </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.values() </code> </td>
-                  <td> すべての値をリスト化 </td>
-                  <td> list </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.items() </code> </td>
-                  <td> すべてのキーと値の組をタプル化 </td>
-                  <td> tuple </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.copy() </code> </td>
-                  <td> 辞書のコピー(ハードコピー) </td>
-                  <td> dict </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.pop(2) </code> </td>
-                  <td> 指定したキーの要素を削除して返す </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> dic.clear() </code> </td>
-                  <td> すべて削除 </td>
-                  <td> void </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
 
             <h2 id="number"> 数値処理 </h2>
             <p> #関数集 </p>
@@ -654,24 +396,9 @@
                   <td> var </td>
                 </tr>
                 <tr>
-                  <td> <code> x**y </code> </td>
-                  <td> xのy乗 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
                   <td> <code> pow(x,y) </code> </td>
                   <td> xのy乗 </td>
                   <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> x % y </code> </td>
-                  <td> x÷yの剰余 </td>
-                  <td> int </td>
-                </tr>
-                <tr>
-                  <td> <code> x // y </code> </td>
-                  <td> x÷yの商 </td>
-                  <td> int </td>
                 </tr>
                 <tr>
                   <td> <code> divmod(x,y) </code> </td>
@@ -812,26 +539,97 @@
 
             <p> #try-except構文 (例外変数を省略可能)</p>
             <code> try: </code> <br>
-            <code> &nbsp; #例外が起こる可能性がある処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#例外が起こる可能性がある処理 </code> <br>
             <code> except 例外クラス1 as 例外変数1: </code> <br>
-            <code> &nbsp; #処理</code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理</code> <br>
 
             <br>
             <p> #try-except-else-finally構文 </p>
             <code> try: </code> <br>
-            <code> &nbsp; #例外が起こる可能性がある処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#例外が起こる可能性がある処理 </code> <br>
             <code> except 例外クラス1 as 例外変数1: </code> <br>
-            <code> &nbsp; #処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
             <code> except 例外クラス2 as 例外変数2: </code> <br>
-            <code> &nbsp; #処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
             <code> else: </code> <br>
-            <code> &nbsp; #例外が発生しなかったときの処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#例外が発生しなかったときの処理 </code> <br>
             <code> finally: </code> <br>
-            <code> &nbsp; #例外の有無に関わらず実行する終了時の処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#例外の有無に関わらず実行する終了時の処理 </code> <br>
 
             <br>
             <p> #例外を投げる </p>
             <code> raise 例外オブジェクト </code>
+            <hr>
+
+            <h2 id="module"> モジュール </h2>
+            <p> #モジュールの作成 (person.pyとした場合、モジュール名はpersonとなる)</p>
+            <code> class Person(): </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;def func1(): </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#処理</code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;def func2(): </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#処理</code> <br>
+            <code> </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;#モジュールが直接呼び出されたときの処理 </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;if __name__ = '__main__': </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func1() </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func2() </code> <br>
+            <code> </code> <br>
+
+            <br>
+            <p> #モジュールのインポートその1 </p>
+            <code> from モジュール名(=拡張子無しファイル名) import クラス名/関数名 </code> <br>
+
+            <br>
+            <p> #モジュールのインポートその2 </p>
+            <code> import モジュール名(=拡張子無しファイル名) as 別名 </code> <br>
+
+            <br>
+            <p> #モジュールのエクスポート </p>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
+
+            <br>
+            <h2 id="package"> パッケージ </h2>
+            <p> パッケージとは複数のモジュールをまとめたもの。実質的にはディレクトリ。</p>
+            <ul>
+              <li> pkg </li>
+                <ul>
+                  <li> __init__.py (パッケージが呼び出されたときの処理を記述しておくためのファイル) </li> 
+                  <li> __main__.py (パッケージをpythonコマンドで実行したときの処理を記述しておくためのファイル) </li> 
+                  <li> app1.py (=モジュール) </li>
+                  <li> app2.py (=モジュール) </li>
+                  <li> subpkg (=サブパッケージ) </li>
+                  <ul>
+                    <li> __init__.py </li>
+                    <li> subapp1.py </li>
+                    <li> subapp2.py </li>
+                  </ul>
+                </ul>
+            </ul>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
+
+            <br>
+            <p> </p>
+            <code> </code> <br>
             <hr>
           </article>
         </div>

@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> math </h2>
-        <p class="blog-post-meta"> 2024/02/13 </p>
+        <p class="blog-post-meta"> 2024/08/04 </p>
         <p> このページではmathモジュールについての説明を行う。 </p>
         <hr>
         
@@ -44,12 +44,12 @@
         <code> import math </code> 
         <hr>
 
-        <h2>数学定数や数学関数</h2>
-        <p> 説明 </p>
+        <h2> 数学定数や数学関数 </h2>
+        <p> #数学定数 </p>
         <table class="table table-striped">
           <thead>
               <tr>
-                <th scope="col"> 書式 </th>
+                <th scope="col"> 定数 </th>
                 <th scope="col"> 説明 </th>
               </tr>
             </thead>
@@ -58,110 +58,106 @@
                 <td> <code> math.pi </code> </td>
                 <td> 3.14..... </td>
               </tr>
-
               <tr>
                 <td> <code> math.e </code> </td>
                 <td> ネイピア数 </td>
               </tr>
-
               <tr>
                 <td> <code> math.inf </code> </td>
                 <td> 正の無限大 </td>
               </tr>
-
               <tr>
                 <td> <code> math.nan </code> </td>
                 <td> NaN(not a number) </td>
               </tr>
+            </tbody>
+          </table>
 
+          <br>
+          <p> #関数集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td> <code> math.exp(x) </code> </td>
                 <td> eのx乗 </td>
               </tr>
-
               <tr>
                 <td> <code> math.radians(180) </code> </td>
                 <td> 度数法から弧度法への変換 </td>
               </tr>
-
               <tr>
                 <td> <code> math.degrees(math.pi) </code> </td>
                 <td> 弧度法から度数法への変換 </td>
               </tr>
-
               <tr>
                 <td> <code> math.sin(x) </code> </td>
                 <td> サイン </td>
               </tr>
-
               <tr>
                 <td> <code> math.cos(x) </code> </td>
                 <td> コサイン </td>
               </tr>
-
               <tr>
                 <td> <code> math.tan(x) </code> </td>
                 <td> タンジェント </td>
               </tr>
-
               <tr>
                 <td> <code> math.asin(x) </code> </td>
                 <td> アークサイン </td>
               </tr>
-
               <tr>
                 <td> <code> math.acos(x) </code> </td>
                 <td> アークコサイン </td>
               </tr>
-
               <tr>
                 <td> <code> math.atan(x) </code> </td>
                 <td> アークタンジェント </td>
               </tr>
-
               <tr>
                 <td> <code> math.sqrt(3) </code> </td>
                 <td> 平方根 </td>
               </tr>
-
               <tr>
-                <td> <code> math.pow(2, 3) </code> </td>
-                <td> 2の3乗 </td>
+                <td> <code> math.pow(x, y) </code> </td>
+                <td> xのy乗 </td>
               </tr>
-
               <tr>
-                <td> <code> math.log(8, 2) </code> </td>
+                <td> <code> math.log(x**3, x) </code> </td>
                 <td> log(真数、底) </td>
               </tr>
-
               <tr>
-                <td> <code> math.gcd(9, 27) </code> </td>
+                <td> <code> math.gcd(x, y) </code> </td>
                 <td> 最大公約数 </td>
               </tr>
-
               <tr>
-                <td> <code> math.lcm(6, 4) </code> </td>
+                <td> <code> math.lcm(x, y) </code> </td>
                 <td> 最小公倍数 </td>
               </tr>
-
               <tr>
-                <td> <code> math.fabs(-5) </code> </td>
+                <td> <code> math.fabs(x) </code> </td>
                 <td> 絶対値 </td>
               </tr>
-
               <tr>
-                <td> <code> math.ceil(4.2) </code> </td>
+                <td> <code> math.ceil(x) </code> </td>
                 <td> 切り上げ </td>
               </tr>
-
               <tr>
-                <td> <code> math.floor(4.2) </code> </td>
+                <td> <code> math.floor(x) </code> </td>
                 <td> 切り下げ </td>
               </tr>
-
               <tr>
-                <td> <code> math.factorial(4) </code> </td>
+                <td> <code> math.factorial(x) </code> </td>
                 <td> 階乗 </td>
+              </tr>
+              <tr>
+                <td> <code> math.isclose(x,y) </code> </td>
+                <td> xとyの差が1e-9以内かどうか (True or False) </td>
               </tr>
             </tbody>
           </table>
