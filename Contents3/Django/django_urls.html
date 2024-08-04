@@ -34,49 +34,42 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> urls.py </h2>
-          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p class="blog-post-meta"> 2024/08/04 </p>
           <p> このページではurls.pyの編集方法について説明する。 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> アプリケーションにおけるpathの設定 </h2>
+          <h2> プロジェクトディレクトリの「urls.py」 </h2>
+          <p> #編集方法 </p> 
+          <code> from django.contrib import admin </code> <br>
+          <code> from django.urls import path, include </code> <br>
+          <code>  </code> <br>
+          <code> urlpatterns = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('admin/', admin.site.urls), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#新規アプリケーションのpathの追加 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('app_name/', include('app_name.urls')),  </code> <br>
+          <code> ] </code> <br>
+          <hr>
+
+
+          <h2> アプリケーションディレクトリの「urls.py」 </h2>
           <p> 基本的にはアプリケーションごとの「urls.py」を編集することでpathの設定を行う。pathの設定は<code> path(アクセスするアドレス,呼び出す関数) </code>のように行う。 </p>
-          <p> #localhost:8000/app_name/にアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「index」という関数を実行できるようにする </p> 
-          <code> path('',views.index,name=index) </code> <br>
 
-          <br>
-          <p> #localhost:8000/app_name/homeにアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「home」という関数を実行できるようにする </p> 
-          <code> path('/home/',views.home,name=home) </code> <br>
-
-          <br>
-          <P> #localhost:8000/app_name/1/addressにアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「address」という関数(引数にint型のidとString型のaddressを渡す)を実行できるようにする</P>
-          <code> path('&lt;int:id&gt;/&lt;address&gt;',views.address,name=address) </code>
-          <hr>
-
-          <h2> プロジェクトにおけるpathの設定 </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
-          <hr>
-
-          <h2> テンプレート </h2>
-          <p> 説明 </p> 
-          <code>
-            <pre>
-from django.contrib import admin
-from django.urls import path, include
-from . import views
-import app_name.views as app_name
-                
-urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    #app_nameディレクトリのviews.pyのindex関数を指定
-    path('app_name/', views.index, name='index'),
-
-    #path('app1/', include('app1.urls')),
-]
-            </pre>
-          </code> 
+          <p> #編集方法 </p> 
+          <code> from django.urls import path </code> <br>
+          <code> from . import views </code> <br>
+          <code> </code> <br>
+          <code> urlpatterns = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/にアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「index」という関数を実行できるようにする</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('', views.index, name=index) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/homeにアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「home」という関数を実行できるようにする </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('/home/', views.home, name=home) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/1/addressにアクセスすると、 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#「app_name」ディレクトリ直下の「view.py」内の「address」という関数(引数にint型のidとString型のaddressを渡す)を実行できるようにする </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('&lt;int:id&gt;/&lt;address&gt;', views.address, name=address) </code> <br>
+          <code> ] </code> <br>
           <hr>
         </article>
       </div>

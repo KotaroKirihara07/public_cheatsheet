@@ -33,7 +33,7 @@
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> フォーム </h2>
+          <h2 class="blog-post-title"> forms.py </h2>
           <p class="blog-post-meta"> 2024/07/30 </p>
           <p> このページではフォームの扱い方法について説明する。 </p>
           <hr>
@@ -43,30 +43,26 @@
           <p> 「app_name」ディレクトリ直下に「forms.py」を作成する </p>
           <hr>
 
-          <h2> forms.py </h2>
-          <p> #forms.ModelFormによるフォームの作成 </p>
-          <code>
-            <pre>
-from django import forms
-form .models import model_name
-                
-class form_name(forms.ModelForm):
-    class Meta:
-        model = model_name
-        fields = ['name', 'age', ... ]
-            </pre>
-          </code>
-          
-          <p> #forms.Formによるフォームの作成 </p>
-          <code>
-            <pre>
-from django import forms
+          <h2> forms.ModelForm </h2>
+          <p> #フォームの作成 </p>
+          <code> from django import forms </code> <br>
+          <code> form .models import model_name </code> <br>
+          <code> </code> <br>
+          <code> class form_name(forms.ModelForm): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;class Meta: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields = ['name', 'age', ... ] </code> <br>
+          <code> </code> <br>
+          <hr>
 
-class form_name(forms.Form):
-    name = forms.CharField(label='name')
-    age = forms.IntegerField(label='age')
-            </pre>
-          </code> 
+          <h2> forms.Form </h2>
+          <p> #フォームの作成 </p>
+          <code> from django import forms </code> <br>
+          <code> </code> <br>
+          <code> class form_name(forms.Form): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;name = forms.CharField(label='name') </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;age = forms.IntegerField(label='age') </code> <br>
+          <code> </code> <br>
           <hr>
 
           <h2> 入力フィールド </h2>
@@ -76,6 +72,11 @@ class form_name(forms.Form):
           <br>
           <p> #複数の値を取得する </p>
           <code> answers = 入力フィールド </code> <br>
+
+
+          <br>
+          <p> #widget </p>
+          <code> text = forms.CharField(label='ラベル', min_length=min, max_length=max, required, widget=forms.TextInput(attrs={'class':'form-control'})) </code> <br>
 
           <br>
           <p> #入力フィールド集 </p>
@@ -89,74 +90,96 @@ class form_name(forms.Form):
             </thead>
             <tbody>
               <tr>
-                <td> <code>forms.CharField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
+                <td> <code>forms.CharField(label='ラベル', min_length=min, max_length=max, required)</code> </td>
                 <td> CharField </td>
                 <td> &lt;input type="text"&gt;を生成 </td>
               </tr>
               <tr>
-                <td> <code>forms.EmailField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
+                <td> <code>forms.EmailField(label='ラベル', min_length=min, max_length=max, required)</code> </td>
                 <td> EmailField </td>
                 <td> &lt;input type="email"&gt;を生成</td>
               </tr>
               <tr>
-                <td> <code>forms.IntegerField(label='ラベル',required=True,min_value=min,max_value=max)</code> </td>
+                <td> <code>forms.IntegerField(label='ラベル', min_value=min, max_value=max, required)</code> </td>
                 <td> IntegerField </td>
                 <td> &lt;input type="number"&gt;を生成</td>
               </tr>
               <tr>
-                <td> <code>forms.FloatField(label='ラベル',required=True,min_value=min,max_value=max)</code> </td>
+                <td> <code>forms.FloatField(label='ラベル', min_value=min, max_value=max, required)</code> </td>
                 <td> FloatField </td>
                 <td> &lt;input type="number"&gt;を生成 </td>
               </tr>
               <tr>
-                <td> <code>forms.URLField(label='ラベル',required=True,min_length=min,max_length=max)</code> </td>
+                <td> <code>forms.URLField(label='ラベル', min_length=min, max_length=max, required)</code> </td>
                 <td> URLField </td>
                 <td> &lt;input type="url"&gt;を生成 </td>
               </tr>
               <tr>
-                <td> <code> form.DateField(label='DateField',input_formats=['%d'])</code> </td>
+                <td> <code> form.DateField(label='ラベル', input_formats=['%d'])</code> </td>
                 <td> DateField </td>
                 <td> </td>
               </tr>
               <tr>
-                <td> <code>form.TimeField(label='TimeField',input_formats=['%H','%M','%S'])</code> </td>
+                <td> <code>form.TimeField(label='ラベル', input_formats=['%H','%M','%S'])</code> </td>
                 <td> TimeField </td>
                 <td> </td>
               </tr>
               <tr>
-                <td> <code>form.DateTimeField(label='DateTimeField',input_formats=['%y','%m','%d','%H','%M','%S'])</code> </td>
+                <td> <code>form.DateTimeField(label='ラベル', input_formats=['%y','%m','%d','%H','%M','%S'])</code> </td>
                 <td> DateTimeField </td>
                 <td> </td>
               </tr>
               <tr>
-                <td> <code> forms.BooleanField(label='ラベル',required=False) </code> </td>
+                <td> <code> forms.BooleanField(label='ラベル', required) </code> </td>
                 <td> BooleanField </td>
                 <td> </td>
               </tr>
               <tr>
-                <td> <code> forms.NullBooleanField(label='ラベル',required=False)</code> </td>
+                <td> <code> forms.NullBooleanField(label='ラベル', required)</code> </td>
                 <td> NullBooleanField </td>
                 <td> </td>
               </tr>
               <tr>
-                <td> <code> forms.ChoiceField(label='ラベル',choices=data) </code> </td>
+                <td> <code> forms.ChoiceField(label='ラベル', choices=data) </code> </td>
                 <td> ChoiceField </td>
                 <td> チョイス </td>
               </tr>
               <tr>
-                <td> <code> forms.ChoiceField(label='ラベル',choices=data,widget=forms.RadioSelect()) </code> </td>
+                <td> <code> forms.ChoiceField(label='ラベル', choices=data, widget=forms.RadioSelect()) </code> </td>
                 <td> ChoiceField  </td>
                 <td> ラジオボタン </td>
               </tr>
               <tr>
-                <td> <code>forms.ChoiceField(label='ラベル',choices=data,widget=forms.Select())</code> </td>
+                <td> <code>forms.ChoiceField(label='ラベル', choices=data, widget=forms.Select())</code> </td>
                 <td> ChoiceField  </td>
                 <td> 単一選択リスト </td>
               </tr>
               <tr>
-                <td> <code>forms.MultiChoiceField(label='ラベル',choices=data,widget=forms.SelectMultiple())</code> </td>
+                <td> <code>forms.MultiChoiceField(label='ラベル', choices=data, widget=forms.SelectMultiple())</code> </td>
                 <td> MultiChoiceField </td>
                 <td> 複数選択リスト </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <br>
+          <p> #widget集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> widget </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>widget=forms.TextInput(attrs={'class':'form-control'})</code> </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.NumberInput(attrs={'class':'form-control'})</code> </td>
+                <td> --- </td>
               </tr>
             </tbody>
           </table>

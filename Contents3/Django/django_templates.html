@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> templates </h2>
-          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p class="blog-post-meta"> 2024/08/04 </p>
           <p> tempaltesディレクトリはHTMLファイルを配置するためのディレクトリである。ここに配置されるHTMLファイルの書式が通常のHTMLの書式と異なる箇所があるため注意が必要である。 </p>
           <hr>
         
@@ -72,51 +72,47 @@
           <code> {% endif %} </code> <br>
           <hr>
 
-          <h2> Form </h2>
+          <h2> フォーム </h2>
           <p> #HTMLのタグを直接書いてフォームを作成 (送信先は「view.py」ファイル内のurlpatternsのname='form'というpath)</p>
-          <code> &lt;form action="{% url 'form' %}" method="post"&gt; </code> <br>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="msg"&gt; message &lt;/label&gt; </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="msg" type="text" name="msg"&gt; </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
           <code> &lt;/form&gt; </code> <br>
+
+
+          <br>
+          <p> #フォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
           
           <br>
-          <p> #テーブル型のフォーム </p>
-          <code>
-            <pre>
-&lt;form action="{% url 'form' %}" method="post"&gt;
-    {% csrf_token %}
-    {{ form.as_table }}
-    &lt;input type="submit" value="送信"&gt;
-&lt;/form&gt;
-            </pre>
-          </code>
+          <p> #テーブル型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_table }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
 
-          <p> #順序つきリスト型のフォーム </p>
-          <code>
-            <pre>
-&lt;form action="{% url 'form' %}" method="post"&gt;
-    {% csrf_token %}
-    {{ form.as_ul }}
-    &lt;input type="submit" value="送信"&gt;
-&lt;/form&gt;
-            </pre>
-          </code>
+          <br>
+          <p> #リスト型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_ul }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
 
-          <p> #パラグラフ型のフォーム </p>
-          <code>
-            <pre>
-&lt;form action="{% url 'form' %}" method="post"&gt;
-    {% csrf_token %}
-    {{ form.as_p }}
-    &lt;input type="submit" value="送信"&gt;
-&lt;/form&gt;
-            </pre>
-          </code>
-
-          <p> #データベースの内容を取り出す (for文で一行ずつ取り出し、各属性にアクセス) </p>
-          <code> {{item.id}} {{item.name}} {{item.age}}</code>
+          <br>
+          <p> #パラグラフ型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_p }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
           <hr>
 
           <h2> ページネーション </h2>

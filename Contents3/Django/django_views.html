@@ -39,25 +39,70 @@
           <hr>
         
           <!-- コンテンツ -->
-          <h2> 処理 </h2> 
-          <p> 説明 </p>
-
-          <p> #パラメータを設定する </p>
-          <code> params = { </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'title' : 'タイトル' , </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'msg' : 'メッセージ' , </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp; 'score' : 100 , </code> <br>
-          <code> } </code> <br>
+          <h2> django.shortcuts </h2>
+          <p> #モジュールの読み込み </p> 
+          <code> from django.shortcuts import render, redirect </code> <br>
 
           <br>
           <p> #「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する (パラメータparams付き) </p>
-          <code>return render(request, 'app_name/index.html', params) </code> <br>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;params = {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'msg' : メッセージ,  </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/index.html', params) </code> <br>
+
 
           <br>
           <p> #自動でページを移動する ( 「urls.py」のname属性の値を引数として指定する) </p>
-          <code> return redirect('index')</code> <br>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return redirect('index') </code> <br>
+          <hr>
+
+          <h2> django.http </h2>
+          <p> #モジュールの読み込み </p> 
+          <code> from django.http import HttpResponse </code> <br>
 
           <br>
+          <p> #テキストを画面に表示する </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return HttpResponse("Hello!") </code> <br>
+          <hr>
+
+          <h2> GET </h2>
+          <p> #URLで「?msg=message」として値を受け取る </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;if 'msg' in request.GET: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = request.GET['msg'] </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;else: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = "No DATA" </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return HttpResponse(result) </code> <br>
+          <hr>
+
+          <h2> POST </h2>
+          <p> #フォームで送信した値を受け取る </p>
+          <code> from django.shortcuts import render </code> <br>
+          <code> from .forms import form_name </code> <br>
+          <code>  </code> <br>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;params = { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' : "名前",</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'msg' : "メッセージ", </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'form' : form_name(), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;if (request.method == 'POST'): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['name'] = request.POST['name']</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['msg'] = request.POST['msg']</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['form'] = form_name(request.POST)</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;else: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = "GET" </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/index.html', params) </code> <br>
+          <hr>
+
+
+          <h2> 処理 </h2> 
           <p> #Formで入力されたものを受け取る </p>
           <code> 
             <pre>
