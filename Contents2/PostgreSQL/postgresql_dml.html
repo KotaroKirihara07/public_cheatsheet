@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> DML (Data Manipulation Language) </h2>
-        <p class="blog-post-meta"> 2024/02/14 </p>
+        <p class="blog-post-meta"> 2024/08/06 </p>
         <p> DML (Data Manipulation Language)はデータ操作言語と呼ばれ、テーブルの行を検索したり、変更したりする。 </p>
         <hr>
         
@@ -190,9 +190,9 @@
 
         <br>
         <h4> ORDER BY句 </h4>
-        <p> 検索結果を並び替える。NULLは先頭または末尾に表示される。 </p>
+        <p> 検索結果を並び替える。NULLは先頭または末尾に表示される。</p>
         <p> #col_name1を基準にして並び替える (昇順) </p>
-        <code> SELECT col_name1, col_name2 FROM Table_name ORDER BY col_name1; </code> <br>
+        <code> SELECT col_name1, col_name2 FROM Table_name ORDER BY col_name1 ASC; </code> <br>
 
         <br>
         <p> #col_name1を基準にして並び替える (降順) </p>
@@ -200,7 +200,22 @@
 
         <br>
         <p> #col_name1を第一基準、col_name2を第二基準にして並び替える (昇順) </p>
-        <code> SELECT col_name1, col_name2, col_name3 FROM Table_name ORDER BY col_name1, col_name2; </code> <br>
+        <code> SELECT col_name1, col_name2, col_name3 FROM Table_name ORDER BY col_name1 ASC, col_name2 ASC; </code> <br>
+
+        <br>
+        <h4> LIMIT句 </h4>
+        <p> 特定の行数のレコードのみ取得する。</p>
+        <p> #先頭の10行のみ取得する </p>
+        <code> SELECT * FROM Table_name LIMIT 10;</code> <br>
+
+        <br>
+        <p> #5行目から10行目のみ取得する </p>
+        <code> SELECT * FROM Table_name LIMIT 4,10;</code> <br>
+
+        <br>
+        <p> #5行目から10行目のみ取得する (OFFSETの使用) </p>
+        <code> SELECT * FROM Table_name LIMIT 4 OFFSET 10;</code> <br>
+        
 
         <br>
         <h4> サブクエリ </h4>

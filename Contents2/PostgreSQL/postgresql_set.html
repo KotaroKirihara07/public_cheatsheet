@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 集合演算 </h2>
-          <p class="blog-post-meta"> 2024/02/16 </p>
+          <p class="blog-post-meta"> 2024/08/06 </p>
           <p> このページでは集合演算についての説明を行う。 </p>
           <p> 注意事項1 : 演算対象となるレコードの列数は同じであること </p>
           <p> 注意事項2 : 演算対象となるレコードの列の型が同一であること </p>
@@ -65,19 +65,23 @@
           <hr>
 
           <h2> INNER JOIN </h2>
-          <p> 内部結合を行う。 </p>
+          <p> 内部結合を行う。処理の高速化のために、基本的に<code>Table_name.column</code>とする。 </p>
           <p> #テーブル1のcol2とテーブル2のcol2を結合キーとして、内部結合を行う</p>
           <code> SELECT T1.col1, T1.col2, T2.col3, T2.col4 FROM Table1 AS T1 INNER JOIN Table2 AS T2 ON T1.col2 = T2.col2; </code> <br>
 
           <br>
           <p> #テーブル1のcol2とテーブル2のcol2とテーブル3のcol2を結合キーとして、内部結合を行う</p>
-          <code> SELECT T1.col1, T1.col2, T2.col3, T3.col4 FROM Table1 AS T1 </code> <br>
-          <code> INNER JOIN Table2 AS T2 ON T1.col2 = T2.col2 </code> <br>
-          <code> INNER JOIN Table3 AS T3 ON T1.col2 = T3.col2; </code>
+          <code> SELECT T1.col1, T1.col2, T2.col3, T3.col4 FROM (Table1 AS T1 </code> <br>
+          <code> INNER JOIN Table2 AS T2 ON T1.col2 = T2.col2) </code> <br>
+          <code> INNER JOIN Table3 AS T3 ON T1.col2 = T3.col2; </code> <br>
+
+          <br>
+          <p> #自己結合 </p>
+          <code> SELECT  FROM Table1 AS T1A INNER JOIN Table1 AS T1B ON T1A.colA = T1B.colB; </code> <br>
           <hr>
 
           <h2> OUTER JOIN </h2>
-          <p> 外部結合を行う。マスタとしたテーブルの情報(レコード)はすべて出力される。 </p>
+          <p> 外部結合を行う。マスタとしたテーブルの情報(レコード)はすべて出力される。処理の高速化のために、基本的に<code>Table_name.column</code>とする。 </p>
           <p>#左側のテーブルをマスタとして、テーブル1のcol2とテーブル2のcol2を結合キーとして外部結合</p>
           <code> SELECT T1.col1, T1.col2, T2.col3, T2.col4 FROM Table1 AS T1 LEFT OUTER JOIN Table2 AS T2 ON T1.col2 = T2.col2; </code> <br>
 
