@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> データベースの管理 </h2>
-          <p class="blog-post-meta"> 2023/07/01 </p>
-          <p> このページの説明 </p>
+          <p class="blog-post-meta"> 2024/08/06 </p>
+          <p> このページではデータベース管理者についての説明を行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -55,16 +55,12 @@
             <li> <code> from .models import モデル名 </code>を追加 </li>
             <li> <code> admin.site.register(モデル名) </code>を追加 </li>
           </ol>
-          <p> 以下テンプレート </p>
-          <code>
-            <pre>
-from django.contrib import admin
-from .models import model_name
-                
-# Register your models here.
-admin.site.register(model_name)
-            </pre>
-          </code> 
+          <p> #以下テンプレート </p>
+          <code> from django.contrib import admin </code> <br>
+          <code> from .models import model_name </code> <br>
+          <code> </code> <br>
+          <code> admin.site.register(model_name) </code> <br>
+          <code> </code> <br>
           <hr>    
 
           <h2> 管理者ツールにログインする </h2>

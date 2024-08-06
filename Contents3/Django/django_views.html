@@ -80,6 +80,14 @@
           <hr>
 
           <h2> POST </h2>
+          <p> #POST形式で送信した単一の情報を取得する </p>
+          <code> msg = request.POST['msg'] </code> <br>
+
+          <br>
+          <p> #POST形式で送信した複数の情報をリストとして取得する </p>
+          <code> choices = request.POST.getlist('choice') </code> <br>
+
+          <br>
           <p> #フォームで送信した値を受け取る </p>
           <code> from django.shortcuts import render </code> <br>
           <code> from .forms import form_name </code> <br>
@@ -101,28 +109,66 @@
           <code> &nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/index.html', params) </code> <br>
           <hr>
 
+          <h2> TemplateView </h2>
+          <code> from django.shortcuts import render </code> <br>
+          <code> from djnago.http import HttpResponse</code> <br>
+          <code> from django.views.generic import TemplateView </code> <br>
+          <code> </code> <br>
+          <code> class View_name(TemplateView): </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def get(selef, request): </code> <br>
+          <code> </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def post(self, request): </code> <br>
+          <code> </code> <br>
+          <code> </code> <br>
+          <code> </code> <br>
+          <hr>
 
-          <h2> 処理 </h2> 
-          <p> #Formで入力されたものを受け取る </p>
-          <code> 
-            <pre>
-def accept(request):
-    params = {
-        'title' : 'タイトル',
-        'message' : 'メッセージ',
-    }
-    if (request.method == 'POST'):
-        params['title'] = request.POST['name']
-        params['message'] = request.POST['msg']
-
-    return render(request, 'app_name/accpet.html', params)
-            </pre>
-          </code>
-
-          <p> #フォームのインスタンスを作成する </p>
-          <code> params['form'] = Form_name(request.POST)</code> <br>
+          <h2> セッション </h2>
+          <p> #セッションに値を保管する </p>
+          <code> request.session['key'] = value </code> <br>
 
           <br>
+          <p> #セッションから値を取り出す (非推奨) </p>
+          <code> value = request.session['key'] </code> <br>
+
+          <br>
+          <p> #セッションから値を取り出す(存在しないときはデフォルト値を返す) (推奨) </p>
+          <code> value = request.session.get('key', 'default') </code> <br>
+
+          <br>
+          <p> #セッションから値を取り出し、セッションから取り除く (推奨) </p>
+          <code> value = request.session.pop('key', 'default') </code> <br>
+
+          <br>
+          <p> #セッションの全キーを取得する </p>
+          <code> key_list = request.keys() </code> <br>
+
+          <br>
+          <p> #セッションの全値を取得する </p>
+          <code> value_list = request.items() </code> <br>
+
+          <br>
+          <p> #セッションの全値を削除する </p>
+          <code> request.clear() </code> <br>
+
+
+          <br>
+          <p> #セッションの全値とクッキーを削除する </p>
+          <code> request.flush() </code> <br>
+
+          <br>
+          <p> #セッションの保持期間を設定する (N秒) </p>
+          <code> request.set_expiry(N) </code> <br>
+          <hr>
+
+          <h2> ミドルウェア </h2>
+          <hr>
+
+          <h2> 処理 </h2> 
           <p> #チェックボックスがON、OFFの場合の処理 </p>
           <code>
             <pre>
@@ -192,13 +238,6 @@ def page(request,num):
           </code>  
           <hr>
 
-          <h2> フォーム </h2>
-          <p> #POST形式で送信した単一の情報を取得する </p>
-          <code> msg = request.POST['msg'] </code> <br>
-
-          <p> #POST形式で送信した複数の情報をリストとして取得する </p>
-          <code> choices = request.POST.getlist('choice') </code> <br>
-          <hr>
 
           <h2> テンプレート (関数方式)</h2>
           <p> 説明 </p> 

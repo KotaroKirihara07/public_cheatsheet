@@ -61,16 +61,28 @@
           <code> </code> <br>
           <code> urlpatterns = [ </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/にアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「index」という関数を実行できるようにする</code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('', views.index, name=index) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('', views.index, name='index') </code> <br>
           <code> </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/homeにアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「home」という関数を実行できるようにする </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('/home/', views.home, name=home) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('/home/', views.home, name='home') </code> <br>
           <code> </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/1/addressにアクセスすると、 </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;#「app_name」ディレクトリ直下の「view.py」内の「address」という関数(引数にint型のidとString型のaddressを渡す)を実行できるようにする </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('&lt;int:id&gt;/&lt;address&gt;', views.address, name=address) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('&lt;int:id&gt;/&lt;address&gt;', views.address, name='address') </code> <br>
           <code> ] </code> <br>
           <hr>
+
+          <h2> TemplateView </h2>
+          <code> from django.urls import path </code> <br>
+          <code> from . import views </code> <br>
+          <code> from .views import View_name </code> <br>
+          <code> </code> <br>
+          <code> urlpatterns = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/にアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「index」という関数を実行できるようにする</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('', views.index, name='index') </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#localhost:8000/app_name/homeにアクセスすると、「app_name」ディレクトリ直下の「view.py」内の「View_name」にアクセスできるようにする </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;path('/home/', View_name.as_view(), name='home') </code> <br>
         </article>
       </div>
     </div>
