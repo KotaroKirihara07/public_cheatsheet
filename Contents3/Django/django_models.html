@@ -34,22 +34,21 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> models.py </h2>
-          <p class="blog-post-meta"> 2023/06/25 </p>
-          <p> models.pyはモデルを定義するためのファイル。モデルを定義することでデータベースも自動的に生成される。 </p>
+          <p class="blog-post-meta"> 2024/08/17 </p>
+          <p> models.pyはモデルを定義するためのファイル。モデルを定義することでデータベースも自動的に生成される。データベースの名前は「<code>アプリ名_モデル名</code>」となる。 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> モデルの作成 </h2>
           <p> 「model.py」を編集する。 </p> 
-          <code>
-            <pre>
-class model_name(models.Model):
-    項目1 = フィールドのインスタンス1
-    項目2 = フィールドのインスタンス2
-    項目3 = フィールドのインスタンス3
-            </pre>
-          </code> 
-
+          <code> from django.db import models </code> <br>
+          <code> </code> <br>
+          <code>class model_name(models.Model): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;項目1 = フィールドのインスタンス1 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;項目2 = フィールドのインスタンス2 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;項目3 = フィールドのインスタンス3 </code> <br>
+          
+          <br>
           <p> #フィールドのインスタンス</p>
           <table class="table table-striped">
             <thead>
@@ -64,7 +63,7 @@ class model_name(models.Model):
                 <td> 文字列 </td>
               </tr>
               <tr>
-                <td> <code> models.IntegerField(default=0,max_length=max) </code> </td>
+                <td> <code> models.IntegerField() </code> </td>
                 <td> 整数 </td>
               </tr>
               <tr>
@@ -79,19 +78,59 @@ class model_name(models.Model):
                 <td> <code> models.DateField() </code> </td>
                 <td> 日付 </td>
               </tr>
+              <tr>
+                <td> <code> models.DateTimeField() </code> </td>
+                <td> 日付日時 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #IntegerFieldのパラメータ </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 設定値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> default </code> </td>
+                <td> デフォルトの値を設定する </td>
+                <td> 数値 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #DateTimeFieldのパラメータ </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 設定値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> auto_now_add </code> </td>
+                <td> 現在の日付日時を自動で登録するかどうか </td>
+                <td> <code>True</code> or <code> False</code></td>
+              </tr>
             </tbody>
           </table>
           <hr>
 
           <h2> バリデーション </h2>
           <p> #CharField (文字数の制限)</p>
-          <code> from django.core.validators import MinLengthValidator,MaxLengthValidator</code> <br>
-          <code> models.CharField(validators=[MinLengthValidator(0),MaxLengthValidator(10))</code> <br>
+          <code> from django.core.validators import MinLengthValidator, MaxLengthValidator</code> <br>
+          <code> models.CharField(validators=[MinLengthValidator(0), MaxLengthValidator(100))</code> <br>
 
           <br>
           <p> #IntegerField (最小値と最大値の設定)</p>
-          <code> from django.core.validators import MinValueValidator,MaxValueValidator</code> <br>
-          <code> models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(10)])</code> <br>
+          <code> from django.core.validators import MinValueValidator, MaxValueValidator</code> <br>
+          <code> models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])</code> <br>
 
           <br>
           <p> #ProhibitNullCharactersvalidator (null文字の禁止)</p>
@@ -102,10 +141,6 @@ class model_name(models.Model):
           <p> #RegexValidator (正規表現パターン)</p>
           <code> from django.core.validators import RegexValidator </code> <br>
           <code> validators=[RegexValidator(正規表現)]</code> <br>
-
-          <br>
-          <p> #バリデータ関数 </p>
-          <code> def ---():</code>
           <hr>
 
           <h2> リレーションシップ </h2>
@@ -116,31 +151,12 @@ class model_name(models.Model):
           <br>
           <p> #1対多対応 </p>
           <p> 1つの「主モデル」に対して複数の「従モデル」を関連づける方式。「主モデル」は特に変更する必要はなく、「従モデル」において以下を追加する。</p>
-          <code> 項目 = models.ForeignKey(主モデル名)</code> <br>
+          <code> 項目 = models.ForeignKey(主モデル名, on_delete=models.CASCADE)</code> <br>
 
           <br>
           <p> #多対多対応 </p>
           <p> 複数の「主モデル」に対して複数の「従モデル」を関連づける方式。「主モデル」は特に変更する必要はなく、「従モデル」において以下を追加する。</p>
           <code> 項目 = models.ManyToManyField(主モデル名)</code> <br>
-          <hr>
-
-          <h2> テンプレート </h2>
-          <code>
-            <pre>
-from django.db import models
-
-# Create your models here.
-class model_name(models.Model):
-    name = models.CharField(max_length=10)
-    mail = models.EmailField(max_length=20)
-    gender = models.BooleanField()
-    age = models.IntegerField(default=0)
-    birthday = models.DateField()
-              
-    def __str__(self):
-        return "&lt;model_name:id = " +str(self.id) + "," + self.name + "(" + str(self.age) + ")&gt;"
-            </pre>
-          </code>
           <hr>
         </article>
       </div>

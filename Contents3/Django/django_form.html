@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> forms.py </h2>
-          <p class="blog-post-meta"> 2024/07/30 </p>
+          <p class="blog-post-meta"> 2024/08/17 </p>
           <p> このページではフォームの扱い方法について説明する。 </p>
           <hr>
         
@@ -46,7 +46,7 @@
           <h2> forms.ModelForm </h2>
           <p> #フォームの作成 </p>
           <code> from django import forms </code> <br>
-          <code> form .models import model_name </code> <br>
+          <code> from .models import model_name </code> <br>
           <code> </code> <br>
           <code> class form_name(forms.ModelForm): </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;class Meta: </code> <br>
@@ -217,15 +217,12 @@
           <br>
           <h4> バリデーション (forms.Form)</h4>
           <p> #バリデーションのチェック </p>
-          <code>
-            <pre>
-if (form.is_valid()):
-    #formにエラーがない場合の処理
-else:
-    #formにエラーがあった場合の処理
-            </pre>
-          </code>
-
+          <code>if (form.is_valid()):</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#formにエラーがない場合の処理</code> <br>
+          <code>else: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#formにエラーがあった場合の処理</code> <br>
+          
+          <br>
           <p> #CharField/EmailField/URLFieldのバリデーション </p>
           <ul>
             <li> <code>required</code> : 必須項目か否か(True or False)</li>

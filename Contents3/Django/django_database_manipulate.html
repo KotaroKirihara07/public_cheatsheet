@@ -34,30 +34,27 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> データベースの操作 </h2>
-          <p class="blog-post-meta"> 2023/07/23 </p>
+          <p class="blog-post-meta"> 2024/08/17 </p>
           <p> データベースの操作は「view.py」の関数内で行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> データベースの操作 (Create) </h2>
           <p> #Formからデータの保存</p>
-          <code>
-            <pre>
-def create(request):
-    if (request.method == 'POST'):
-        obj = model_name()
-        model = form_name(request.POST,instance=obj)
-        model.save()
-        return redirect(to='/')
-
-    params = {
-        'title' : "タイトル",
-        'form' : form_name(),
-    }
-
-    return render(request,'app/create.html',params)
-            </pre>
-          </code>
+          <code>from .forms import form_name </code> <br>
+          <code> </code> <br>
+          <code>def create(request):</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;if (request.method == 'POST'):</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = form_name(request.POST, instance=model_name()) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.save() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return redirect(to='/') </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;params = { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' : "タイトル", </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'form' : form_name(), </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return render(request,'app/create.html',params) </code> <br>
           <hr>
 
           <h2> データベースの操作 (Read) </h2>
@@ -67,48 +64,59 @@ def create(request):
               <tr>
                 <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code> data = model_name.object.all() </code> </td>
-                <td> データベース内のすべてのデータ (QuerySet)を得る </td>
+                <td> <code> model_name.objects.all() </code> </td>
+                <td> データベース内のすべてのデータを得る </td>
+                <td> QuerySet </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.object.all().values()</code> </td>
+                <td> <code> model_name.objects.all().values() </code> </td>
                 <td> データベース内のすべてのデータ (辞書形式)を得る </td>
+                <td> dict </td>
               </tr>
               <tr>
-                <td> <code> data = model_name.object.all().values('id','name') </code> </td>
+                <td> <code> model_name.objects.all().values('id','name') </code> </td>
                 <td> 特定の項目だけを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.object.all().values_list()</code> </td>
+                <td> <code> model_name.objects.all().values_list()</code> </td>
                 <td> データベース内のすべてのデータ (リスト形式)を得る </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>num = model_name.object.all().count() </code> </td>
+                <td> <code> model_name.objects.all().count() </code> </td>
                 <td> レコード数を返す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>first = model_name.object.all().first()</code> </td>
+                <td> <code> model_name.objects.all().first()</code> </td>
                 <td> レコードの先頭のみ取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>last = model_name.object.all().last()</code> </td>
+                <td> <code> model_name.objects.all().last()</code> </td>
                 <td> レコードの末尾のみ取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.all().order_by('age')</code> </td>
-                <td> レコードを並び替える (age基準の場合) </td>
+                <td> <code> model_name.objects.all().order_by('col_name')</code> </td>
+                <td> レコードを昇順に並び替える (col_name基準の場合) </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.all().order_by('age').reverse()</code> </td>
-                <td> レコードを逆順に並び替える (age基準の場合) </td>
+                <td> <code> model_name.objects.all().order_by('col_name').reverse()</code> </td>
+                <td> レコードを降順に並び替える (col_name基準の場合) </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.all()[n:m]</code> </td>
-                <td> 指定範囲内のレコードを取り出す (idがn+1からmまでのレコード) </td>
+                <td> <code> model_name.objects.all()[n:m] </code> </td>
+                <td> 指定範囲内のレコードを取り出す (n+1番目からm番目までのレコード) </td>
+                <td> </td>
               </tr>
             </tbody>
           </table>
@@ -122,35 +130,38 @@ def create(request):
               <tr>
                 <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code>str(model_name.objects.aggregate(Count('age'))['age__count'])</code> </td>
-                <td> レコード数を得る </td>
+                <td> <code> model_name.objects.aggregate(Count('col_name'))['col_name__count'] </code> </td>
+                <td> col_nameのレコード数を得る </td>
+                <td> var </td>
               </tr>
               <tr>
-                <td> <code>str(model_name.objects.aggregate(Sum('age'))['age__sum'])</code> </td>
-                <td> 合計値を得る </td>
+                <td> <code> model_name.objects.aggregate(Sum('col_name'))['col_name__sum'] </code> </td>
+                <td> col_nameの合計値を得る </td>
+                <td> var </td>
               </tr>
               <tr>
-                <td> <code> str(model_name.objects.aggregate(Avg('age'))['age__avg'])</code> </td>
-                <td> 平均値を得る </td>
+                <td> <code> model_name.objects.aggregate(Avg('col_name'))['col_name__avg'] </code> </td>
+                <td> col_nameの平均値を得る </td>
+                <td> var </td>
               </tr>
               <tr>
-                <td> <code>str(model_name.objects.aggregate(Min('age'))['age__min'])</code> </td>
-                <td> 最小値を得る</td>
+                <td> <code> model_name.objects.aggregate(Min('col_name'))['col_name__min'] </code> </td>
+                <td> col_nameの最小値を得る</td>
+                <td> var </td>
               </tr>
               <tr>
-                <td> <code>str(model_name.objects.aggregate(Max('age'))['age__max'])</code> </td>
-                <td> 最大値を得る </td>
+                <td> <code> model_name.objects.aggregate(Max('col_name'))['col_name__max'] </code> </td>
+                <td> col_nameの最大値を得る </td>
+                <td> var </td>
               </tr>
             </tbody>
           </table> 
 
-          <br>
-          <p> #SQL文を実行する (あまり推奨はされない) </p>
-          <code> data = model_name.objects.raw('SQL文') </code> <br>
 
           <br>
           <p> #検索用メソッド集 (for 文字列)</p>
@@ -159,40 +170,49 @@ def create(request):
               <tr>
                 <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code> data = model_name.objects.filter(name=str)</code> </td>
-                <td> nameがstrであるものを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name=str)</code> </td>
+                <td> col_nameがstrであるものを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__contains=str) </code> </td>
-                <td> strをnameに含むデータを取得 </td>
+                <td> <code>model_name.objects.filter(col_name__contains=str) </code> </td>
+                <td> strをcol_nameに含むデータを取得 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__startswith=str)</code> </td>
-                <td> nameがstrで始まるデータを取得</td>
+                <td> <code> model_name.objects.filter(col_name__startswith=str)</code> </td>
+                <td> col_nameがstrで始まるデータを取得</td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__endswith=str)</code> </td>
-                <td> nameがstrで終わるデータを取得 </td>
+                <td> <code> model_name.objects.filter(col_name__endswith=str)</code> </td>
+                <td> col_nameがstrで終わるデータを取得 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__iexact=str)</code> </td>
-                <td> nameがstrであるデータを取り出す (大文字と小文字を区別しない)</td>
+                <td> <code> model_name.objects.filter(col_name__iexact=str)</code> </td>
+                <td> col_nameがstrであるデータを取り出す (大文字と小文字を区別しない)</td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__icontains=str) </code> </td>
-                <td> strをnameに含むデータを取得 (大文字と小文字を区別しない)</td>
+                <td> <code> model_name.objects.filter(col_name__icontains=str) </code> </td>
+                <td> strをcol_nameに含むデータを取得 (大文字と小文字を区別しない)</td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__istartswith=str)</code> </td>
-                <td> nameがstrで始まるデータを取得 (大文字と小文字を区別しない)</td>
+                <td> <code> model_name.objects.filter(col_name__istartswith=str)</code> </td>
+                <td> col_nameがstrで始まるデータを取得 (大文字と小文字を区別しない)</td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(name__iendswith=str)</code> </td>
-                <td> nameがstrで終わるデータを取得 (大文字と小文字を区別しない)</td>
+                <td> <code> model_name.objects.filter(col_name__iendswith=str)</code> </td>
+                <td> col_nameがstrで終わるデータを取得 (大文字と小文字を区別しない)</td>
+                <td> </td>
               </tr>
             </tbody>
           </table> 
@@ -204,36 +224,44 @@ def create(request):
               <tr>
                 <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code>data = model_name.objects.filter(age=20)</code> </td>
-                <td> ageが20のデータを取り出す</td>
+                <td> <code> model_name.objects.filter(col_name=20)</code> </td>
+                <td> col_nameが20のデータを取り出す</td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__gt=20)</code> </td>
-                <td> ageが20より大きいデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__gt=20)</code> </td>
+                <td> col_nameが20より大きいデータを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__gte=20)</code> </td>
-                <td> ageが20以上のデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__gte=20)</code> </td>
+                <td> col_nameが20以上のデータを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__lt=20)</code> </td>
-                <td> ageが20より小さいデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__lt=20)</code> </td>
+                <td> col_nameが20より小さいデータを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__lte=20)</code> </td>
-                <td> ageが20以下のデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__lte=20)</code> </td>
+                <td> col_nameが20以下のデータを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__gte=20,age__lte=30)</code> </td>
-                <td> ageが20以上30以下のデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__gte=20, col_name__lte=30)</code> </td>
+                <td> col_nameが20以上30以下のデータを取り出す </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code>data = model_name.objects.filter(age__gte=20).filter(age__lte=30)</code> </td>
-                <td> ageが20以上30以下のデータを取り出す </td>
+                <td> <code> model_name.objects.filter(col_name__gte=20).filter(col_name__lte=30)</code> </td>
+                <td> col_nameが20以上30以下のデータを取り出す </td>
+                <td> </td>
               </tr>
             </tbody>
           </table>
@@ -241,50 +269,47 @@ def create(request):
           <br>
           <p> #論理和検索 </p>
           <code> from django.db.models import Q </code> <br>
-          <code> data = model_name.objects.filter( Q(1つ目の条件)| Q(2つ目の条件) )</code> <br>
+          <code> data = model_name.objects.filter( Q(1つ目の条件) | Q(2つ目の条件) )</code> <br>
 
           <br>
           <p> #リストによる検索 </p>
-          <code> data = model_name.objects.filter(name__in=namelist)</code>
+          <code> data = model_name.objects.filter(name__in=namelist)</code> <br>
+
+          <br>
+          <p> #SQL文を実行する (あまり推奨はされない) </p>
+          <code> data = model_name.objects.raw('SQL文') </code> <br>
           <hr>
 
           <h2> データベースの操作 (Update) </h2>
-          <p> #データの編集 (id(=n)で指定)</p>
-          <code>
-            <pre>
-def update(request,n):
-    obj = model_name.objects.get(id=n)
-    if (request.method == 'POST'):
-        model = form_name(request.POST,instance=obj)
-        model.save()
-        return redirect(to='/path')
-
-    params = {
-
-    }
-
-    return render(request,'app/xxx.html',params)
-            </pre>
-          </code>
+          <p> #データの編集 (id(=n)で指定) </p>
+          <code>from .forms import form_name </code> <br>
+          <code> </code> <br>
+          <code>def update(request,n): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;if (request.method == 'POST'): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = form_name(request.POST, instance=model_name.objects.get(id=n))</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.save() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return redirect(to='/path') </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;params = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return render(request,'app/xxx.html',params) </code> <br>
           <hr>
 
           <h2> データベースの操作 (Delete) </h2>
           <p> #データの削除 (id(=n)で指定) </p>
-          <code>
-            <pre>
-def delete(request,n):
-    obj = model_name.objects.get(id=n)
-    if (request.method == 'POST'):
-        obj.delete()
-        return redirect(to='/path')
-    
-    params = {
-
-    }
-
-    return render(request,'app/xxx.html',params)
-            </pre>
-          </code>
+          <code>from .forms import form_name </code> <br>
+          <code> </code> <br>
+          <code>def delete(request,n): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;if (request.method == 'POST'): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = form_name(request.POST, instance=model_name.objects.get(id=n))</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.delete() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return redirect(to='/path') </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;params = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return render(request,'app/xxx.html',params) </code> <br>
           <hr>    
         </article>
       </div>

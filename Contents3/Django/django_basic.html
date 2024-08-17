@@ -71,22 +71,13 @@
           <p> 説明 </p> 
           <ol>
             <li>プロジェクト名と同じ名前のディレクトリ内の「urls.py」を開く </li>
-            <li> <code> from djapp import views</code>と<code>path('', views.index, name='index')</code>を追加する</li>
+            <li> <code> from app_name import views</code>と<code>path('', views.index, name='index')</code>を追加する</li>
             <li> djappディレクトリに「views.py」を作成する </li>
-            <li>「views.py」を <br>
-            <br>
-            <code>
-                <pre>
-from django.shortcuts import render
-
-def index(request):
-    return render(request, 'djapp/index.html')
-                </pre>
-            </code>とする</li>
-            <li> 上層のdjappディレクトリ内に「templates」ディレクトリを作成する</li>
-            <li>「templates」ディレクトリに「djapp」ディレクトリを作成する</li>
-            <li>「djapp」ディレクトリに「index.html」を作成する</li>
-            <li>下層のdjappの「setting.py」に<code>import os</code>を追加した後、[TEMPLATES]内の[DIRS]を<code>[os.path.join(BASE_DIR, 'templates')]にする</code></li>
+            <li>「views.py」を編集する </li>
+            <li> 上層のapp_nameディレクトリ内に「templates」ディレクトリを作成する</li>
+            <li>「templates」ディレクトリに「app_name」ディレクトリを作成する</li>
+            <li>「app_name」ディレクトリに「index.html」を作成する</li>
+            <li>下層のapp_nameの「setting.py」に<code>import os</code>を追加した後、[TEMPLATES]内の[DIRS]を<code>[os.path.join(BASE_DIR, 'templates')]にする</code></li>
           </ol>
           <hr>
         </article>

@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> views.py </h2>
-          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p class="blog-post-meta"> 2024/08/17 </p>
           <p> このページではviews.pyの編集方法ついての説明する。 </p>
           <hr>
         
@@ -110,21 +110,23 @@
           <hr>
 
           <h2> TemplateView </h2>
+          <p> 説明 </p>
           <code> from django.shortcuts import render </code> <br>
           <code> from djnago.http import HttpResponse</code> <br>
           <code> from django.views.generic import TemplateView </code> <br>
           <code> </code> <br>
-          <code> class View_name(TemplateView): </code> <br>
-          <code> </code> <br>
+          <code> class templateview_name(TemplateView): </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.params = {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' : "タイトル", </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'form' : form_name,</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;def get(selef, request): </code> <br>
-          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def get(self, request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app/index.html', self.params) </code> <br>
           <code> </code> <br>
           <code> &nbsp;&nbsp;&nbsp;&nbsp;def post(self, request): </code> <br>
-          <code> </code> <br>
-          <code> </code> <br>
-          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app/index.html', self.params) </code> <br>
           <hr>
 
           <h2> セッション </h2>
@@ -168,140 +170,35 @@
           <h2> ミドルウェア </h2>
           <hr>
 
-          <h2> 処理 </h2> 
-          <p> #チェックボックスがON、OFFの場合の処理 </p>
-          <code>
-            <pre>
-#ON時
-if ('check' in request.POST):
-    処理
-#OFF時
-else:
-    処理
-            </pre>
-          </code>
-
-          <p> #クエリパラメータを取得する (URL上で「?msg=hello」とした場合) </p>
-          <code>
-            <pre>
-def hello(request):
-    if 'msg' in request.GET:
-        msg = request.GET['msg']
-    else:
-        msg = 'クエリパラメータがありません'
-            </pre>
-          </code>
-
-          <p> #URLに値が格納されている場合 (localhost:8000/app_name/1/addressとした場合)</p>
-          <code>
-            <pre>
-def address(request,id,address):
-    id = id
-    address = address
-            </pre>
-          </code>
-
-          <p> #レコードを取得する </p>
-          <code>
-            <pre>
-def data_accept(request):
-    data = model_name.objects.all()
-    params = {
-        'title' : 'タイトル',
-        'message' : 'メッセージ',
-        'data' : data,
-    }
-
-    return render(request,'app_name/data_accept.html',params)
-            </pre>
-          </code>
+          <h2> ジェネリックビュー </h2>
+          <code>from django.views.generic import ListView </code> <br>
+          <code>from django.views.generic import DetailView </code> <br>
+          <code> </code> <br>
+          <code>#ListView </code> <br>
+          <code>class model_nameList(ListView): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
+          <code> </code> <br>
+          <code>#DetailView </code> <br>
+          <code>class model_nameList(DetailView): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
           <hr>
 
+          
           <h2> ページネーション </h2>
           <p> #ページネーション用の関数 </p>
-          <code>
-            <pre>
-from django.core.paginator import Paginator
-
-def page(request,num):
-    data = model_name.objects.all()
-    #1ページに3つのデータを表示させる
-    page = Paginator(data,3)
-    params = {
-        'title' : "タイトル",
-        #numページ目の情報のみdataに渡す
-        'data' : page.get_page(num),
-    }
-
-    return render(request,'app_name/page.html',params)
-            </pre>
-          </code>  
-          <hr>
-
-
-          <h2> テンプレート (関数方式)</h2>
-          <p> 説明 </p> 
-          <code>
-            <pre>
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import redirect
-from .models import model_name
-from .form import Form_name
-from django.core.paginator import Paginator
-
-def index(request):
-    #データの取得
-    data = model_name.object.all()
-    #ページネーション
-    page = Paginator(data,3)
-    
-    params = {
-        'title' : 'タイトル',
-        'message' : 'メッセージ',
-        #データ受け取り
-        'data' : data,
-        #フォーム
-        'form' : Form_name(),
-    }
-
-    return render(request,'app_name/index.html',params)
-            </pre>
-          </code> 
-          <hr>
-
-          <h2> テンプレート (TemplateViewクラスの継承方式)</h2>
-          <p> 説明 </p>
-          <code>
-            <pre>
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import redirect
-from django.views.generic. import TemplateView
-from .models import model_name
-from .form import Form_name
-from django.core.paginator import Paginator
-
-class TemView(TemplateView):
-    
-    def __init__(self):
-        self.params = {
-          'title' : 'タイトル',
-          'message' : 'メッセージ',
-          'form' : Form_name,
-        }
-
-    def get(self,request):
-        return render(request,'app_name/index.html',self.params)
-
-    def post(self,request):
-        msg = 'post送信メッセージ'
-        self.params['message'] = msg
-        self.params['form'] = Form_name(request.POST)
-
-        return render(request,'app_name/index.html',self.params)
-            </pre>
-          </code>
+          <code>from django.core.paginator import Paginator </code> <br>
+          <code> </code> <br>
+          <code>def page(request,num): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;data = model_name.objects.all() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#1ページに3つのデータを表示させる </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;page = Paginator(data,3) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;params = { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' : "タイトル", </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Nページ目の情報のみdataに渡す </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'data' : page.get_page(num), </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/page.html', params)</code> <br>
           <hr>
         </article>
       </div>
