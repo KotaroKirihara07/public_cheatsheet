@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> DML (Data Manipulation Language) </h2>
-        <p class="blog-post-meta"> 2024/08/06 </p>
+        <p class="blog-post-meta"> 2024/08/17 </p>
         <p> DML (Data Manipulation Language)はデータ操作言語と呼ばれ、テーブルの行を検索したり、変更したりする。 </p>
         <hr>
         
@@ -124,6 +124,10 @@
         <br>
         <p> #AND演算子とOR演算子を組み合わせる </p>
         <code> SELECT col_name1, col_name2, col_name3 FROM Table_name WHERE col1_name1 > 10 AND (col_name2 = 10 OR col_name3 = 20); </code> <br>
+
+        <br>
+        <p> #行ロックをかける </p>
+        <code> SELECT * FROM Table_name WHERE col1_name1 > 10 FOR UPDATE; </code> <br>
 
         <br>
         <p> #集約関数 </p>
@@ -232,14 +236,16 @@
         <br>
         <p> #スカラ・サブクエリ </p>
         <code> SELECT col_name1, col_name2 </code> <br>
-        <code> &nbsp; FROM Table_name </code> <br>
-        <code> &nbsp; WHERE col_name2 > (SELECT -------); </code> <br>
+        <code> &nbsp; FROM Table_name1 </code> <br>
+        <code> &nbsp; WHERE col_name2 IN </code> <br>
+        <code> &nbsp; (SELECT col_name2 FROM Table_name2); </code> <br>
 
         <br>
         <p> #相関サブクエリ </p>
         <code> SELECT col_name1, col_name2 </code> <br>
-        <code> &nbsp; FROM Table_name </code> <br>
-        <code> &nbsp; WHERE col_name2 > (SELECT -------); </code> <br>
+        <code> &nbsp; FROM Table_name1 </code> <br>
+        <code> &nbsp; WHERE EXISTS </code> <br>
+        <code> &nbsp; (SELECT * FROM Table_name2 WHERE Table_name1.col_name1 = Table_name2.col_name1); </code> <br>
         <hr>
 
         <h2> INSERT </h2>

@@ -178,6 +178,12 @@
         <code> CREATE VIEW View_name2 (col_name1, col_name2) AS SELECT ... FROM View_name1; </code> <br>
 
         <br>
+        <h4> CREATE INDEX </h4> 
+        <p> インデックスを作成する。 </p>
+        <code> CREATE INDEX idx ON Table_name (col_name1, col_name2); </code> <br>
+
+
+        <br>
         <h4> CREATE USER </h4> 
         <p> ユーザを作成する。 </p>
         <code> CREATE USER user_name WITH オプション; </code> <br>
@@ -239,7 +245,13 @@
         <br>
         <h4> DROP VIEW</h4>
         <p> #ビューを削除する </p>
-        <code> DROP VIEW view_name;</code>
+        <code> DROP VIEW view_name;</code> <br>
+
+
+        <br>
+        <h4> DROP INDEX</h4>
+        <p> #インデックスを削除する </p>
+        <code> DROP INDEX idx ON Table_name;</code>
         <hr>
 
         <h2> ALTER </h2>
@@ -248,8 +260,20 @@
         <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約;</code> <br>
 
         <br>
+        <p> #テーブルに列を追加する (col2の前) </p>
+        <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約 BEFORE col2;</code> <br>
+
+        <br>
+        <p> #テーブルに列を追加する (col2の後) </p>
+        <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約 AFTER col2;</code> <br>
+
+        <br>
         <p> #テーブルの列を削除する </p>
         <code> ALTER TABLE Table_name DROP COLUMN col_name;</code> <br>
+
+        <br>
+        <p> #テーブルの列の設定を変更する </p>
+        <code> ALTER TABLE Table_name MODIFY col_name 列の型や列の制約;</code> <br>
 
         <br>
         <p> #テーブル名を変更する </p>
