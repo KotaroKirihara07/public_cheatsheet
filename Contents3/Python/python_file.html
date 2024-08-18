@@ -34,14 +34,14 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> ファイル </h2>
-        <p class="blog-post-meta"> 2024/02/10 </p>
+        <p class="blog-post-meta"> 2024/08/18 </p>
         <p> このページではファイルの取り扱い方法についての説明を行う。 </p>
         <hr>
         
         <!-- コンテンツ -->
         <h2>基本</h2>
         <p> #ファイルを開く </p>
-        <code> f = open("example.txt",読み書きモード) </code> <br>
+        <code> f = open("example.txt", 読み書きモード, encoding="UTF-8") </code> <br>
 
         <br>
         <p> #読み書きモード </p>
@@ -55,11 +55,19 @@
           <tbody>
             <tr>
               <td> <code> "r" </code> </td>
-              <td> 読み込みモードで開く </td>
+              <td> 読み込みモードで開く (デフォルト) </td>
+            </tr>
+            <tr>
+              <td> <code> "r+" </code> </td>
+              <td> 読み書きモードで開く (デフォルト) </td>
             </tr>
             <tr>
               <td> <code> "a" </code> </td>
               <td> 追記モードで開く </td>
+            </tr>
+            <tr>
+              <td> <code> "a+" </code> </td>
+              <td> 読み込み+追記モードで開く </td>
             </tr>
             <tr>
               <td> <code> "w" </code> </td>
@@ -116,7 +124,7 @@
             <tr>
               <td> <code> f.writelines(list1) </code> </td>
               <td> 指定した文字列リストを1つずつ書き込む </td>
-              <td> なし </td>
+              <td> void </td>
             </tr>
           </tbody>
         </table>

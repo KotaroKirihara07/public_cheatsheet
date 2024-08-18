@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> os </h2>
-        <p class="blog-post-meta"> 2024/02/11 </p>
+        <p class="blog-post-meta"> 2024/08/18 </p>
         <p> このページではosモジュールについての説明を行う。 </p>
         <hr>
         
@@ -51,44 +51,54 @@
             <tr>
               <th scope="col"> メソッド </th>
               <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td> <code> os.getcwd() </code> </td>
               <td> 現在のディレクトリを取得 </td>
+              <td> str </td>
             </tr>
             <tr>
               <td> <code> os.path.abspath(path) </code> </td>
               <td> 絶対パスを取得 </td>
+              <td> str </td>
             </tr>
             <tr>
               <td> <code> os.path.relpath(path,起点となるpath) </code> </td>
               <td> 相対パスを取得 </td>
+              <td> str </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.join(path1, path2,..) </code> </td>
+              <td> パスを結合する </td>
+              <td> str </td>
             </tr>
             <tr>
               <td> <code> os.path.exists(path) </code> </td>
-              <td> パスの存在を確認(True or False) </td>
+              <td> パスの存在を確認 </td>
+              <td> boolean </td>
             </tr>
             <tr>
-              <td> <code> os.mkdir("./new_dir) </code> </td>
+              <td> <code> os.makedirs("./new_dir") </code> </td>
               <td> 新規ディレクトリの作成 </td>
+              <td> void </td>
             </tr>
             <tr>
-              <td> <code> os.chdir("C:/data") </code> </td>
+              <td> <code> os.chdir(path) </code> </td>
               <td> ディレクトリの移動 </td>
-            </tr>
-            <tr>
-              <td> <code> os.chdir("/..") </code> </td>
-              <td> 一つ上の階層に移動 </td>
+              <td>  </td>
             </tr>
             <tr>
               <td> <code> os.rmdir("./test1") </code> </td>
               <td> ディレクトリの削除 </td>
+              <td>  </td>
             </tr>
             <tr>
               <td> <code> os.path.isdir(path) </code> </td>
-              <td> 指定したパスがディレクトリかどうか(True or False) </td>
+              <td> 指定したパスがディレクトリかどうか </td>
+              <td> boolean </td>
             </tr>
           </tbody>
         </table>
@@ -101,20 +111,19 @@
             <tr>
               <th scope="col"> メソッド </th>
               <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td> <code> os.remove("./myfile.txt") </code> </td>
               <td> ファイルの削除 </td>
+              <td> void </td>
             </tr>
             <tr>
               <td> <code> os.listdir(path) </code> </td>
               <td> ディレクトリ直下のファイル名のリストを取得する </td>
-            </tr>
-            <tr>
-              <td> <code> file_name = [i for os.listdir(path) if 条件]</code> </td>
-              <td> 特定の条件に合致したファイルのリストを作成する </td>
+              <td> list </td>
             </tr>
           </tbody>
         </table>
@@ -126,36 +135,44 @@
             <tr>
               <th scope="col"> メソッド </th>
               <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td> <code> os.path.exists("./myfile.txt") </code> </td>
-              <td> ファイルが存在するかどうか調べる(True or False) </td>
+              <td> ファイルが存在するかどうか調べる </td>
+              <td> boolean </td>
             </tr>
             <tr>
               <td> <code> os.path.isfile(path) </code> </td>
-              <td> 指定したパスがファイルかどうか(True or False) </td>
+              <td> 指定したパスがファイルかどうか </td>
+              <td> boolean </td>
             </tr>
             <tr>
-              <td> <code> file_name, file_ext = os.path.splitext(path) </code> </td>
-              <td> 拡張子を取得する </td>
-            </tr>
-            <tr>
-              <td> <code> os.path.abspath("./myfile.txt") </code> </td>
-              <td> 絶対パスを取得する </td>
+              <td> <code> os.path.splitext(path) </code> </td>
+              <td> ( 拡張子の手前まで, 拡張子 ) のタプルを取得する </td>
+              <td> tuple </td>
             </tr>
             <tr>
               <td> <code> os.path.getatime("./myfile.txt") </code> </td>
               <td> 最終アクセス時刻を取得する </td>
+              <td> </td>
             </tr>
             <tr>
               <td> <code> os.path.getmtime("./myfile.txt") </code> </td>
               <td> 最終更新時刻を取得する </td>
+              <td> </td>
             </tr>
             <tr>
               <td> <code> os.path.getsize("./myfile.txt") </code> </td>
               <td> サイズ(バイト数)を返す </td>
+              <td> int </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.split(path) </code> </td>
+              <td> ( パスの末尾以外, パスの末尾 ) のタプルを取得する </td>
+              <td> tuple </td>
             </tr>
           </tbody>
         </table>

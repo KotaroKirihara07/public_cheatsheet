@@ -402,7 +402,7 @@
                 </tr>
                 <tr>
                   <td> <code> divmod(x,y) </code> </td>
-                  <td> x÷yの商と剰余のタプル </td>
+                  <td> x÷yの (商 ,剰余) のタプル </td>
                   <td> tuple </td>
                 </tr>
                 <tr>
@@ -558,7 +558,11 @@
 
             <br>
             <p> #例外を投げる </p>
-            <code> raise 例外オブジェクト </code>
+            <code> raise 例外オブジェクト </code> <br>
+
+            <br>
+            <p> #アサートを使用する (条件式が偽の場合、メッセージを出力して、AssertionErrorを発生させる) </p>
+            <code> assert 条件式, "メッセージ" </code>
             <hr>
 
             <h2 id="module"> モジュール </h2>
