@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> Numpy </h2>
-        <p class="blog-post-meta"> 2024/02/11 </p>
+        <p class="blog-post-meta"> 2024/10/09 </p>
         <p> このページではNumpyについての説明を行う。 </p>
         <hr>
         
@@ -327,9 +327,13 @@
 
 
         <h2> 乱数 </h2>
+        <p> #ジェネレータの生成 </p> 
+        <code> rng = np.random.default_rng() </code> <br>
+
+        <br>
         <p> #シードの固定 </p> 
-        <code> np.random.seed(0) </code> <br>
-        
+        <code> rng = np.random.default_rng(12345) </code> <br>
+
         <br>
         <p> #乱数の生成 </p>
         <table class="table table-striped">
@@ -342,52 +346,52 @@
             </thead>
             <tbody>
                 <tr>
-                  <td> <code> np.random(n) </code> </td>
+                  <td> <code> rng.random(n) </code> </td>
                   <td> 0以上1未満の一様分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.randint(0,10,n) </code> </td>
+                  <td> <code> rng.randint(0,10,n) </code> </td>
                   <td> 0以上10以下の離散一様分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.randn(n) </code> </td>
+                  <td> <code> rng.randn(n) </code> </td>
                   <td> 標準正規分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.normal(loc,scale,n)</code> </td>
+                  <td> <code> rng.normal(loc,scale,n)</code> </td>
                   <td> 平均loc、標準偏差scaleの正規分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.binomial(N,p,n)</code> </td>
+                  <td> <code> rng.binomial(N,p,n)</code> </td>
                   <td> 試行回数N、確率pの二項分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.exponential(a,n) </code> </td>
+                  <td> <code> rng.exponential(a,n) </code> </td>
                   <td> パラメータがaの指数分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.beta(a,b,n) </code> </td>
+                  <td> <code> rng.beta(a,b,n) </code> </td>
                   <td> パラメータa,bのベータ分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.gamma(a,b,n) </code> </td>
+                  <td> <code> rng.gamma(a,b,n) </code> </td>
                   <td> 形状母数がa、尺度母数がbのガンマ分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>
-                    <td> <code> np.random.chisquare(a,n) </code> </td>
+                    <td> <code> rng.chisquare(a,n) </code> </td>
                     <td> 自由度aのχ二乗分布に従う乱数をn要素もつndarrayの生成 </td>
                     <td> ndarray </td>
                 </tr>
                 <tr>
-                  <td> <code> np.random.choice(a=value_list,size=n,p=prob_list) </code> </td>
+                  <td> <code> rng.choice(a=value_list,size=n,p=prob_list) </code> </td>
                   <td> value_list[i]である確率がprob_list[i]の確率分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
               </tr>
