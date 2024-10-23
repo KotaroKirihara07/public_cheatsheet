@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> セットアップ </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p class="blog-post-meta"> 2024/10/23 </p>
           <p> このページではDockerのセットアップ方法についての説明を行う。 </p>
           <hr>
         
@@ -50,6 +50,25 @@
             <li> <code> sudo apt-get install docker-ce docker-ce-cli containerd.io </code></li>
             <li> <code> sudo usermod -aG docker $USER </code></li>
             <li> <code> docker --version </code></li>
+          </ol>
+
+          <p> #Amazon LinuxにおけるDocker Engineのインストール方法 </p>
+          <ol>
+            <li> <code> sudo yum update -y </code> </li>
+            <li> <code> sudo yum install docker </code> </li>
+            <li> <code> sudo service docker start </code> </li>
+            <li> <code> sudo usermod -a -G docker ec2-user </code> </li>
+            <li> <code> docker --version </code></li>
+          </ol>
+          <hr>
+
+          <h2> Docker Composeのインストール </h2>
+          <p> #Amazon LinuxにおけるDocker Composeのインストール方法 ( <a href="https://github.com/docker/compose/releases" target="_blank"> https://github.com/docker/compose/releases </a> ) </p>
+          <ol>
+            <li> <code> sudo mkdir -p /usr/local/lib/docker/cli-plugins </code> </li>
+            <li> <code> sudo curl -SL https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose </code> </li>
+            <li> <code> sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose </code> </li>
+            <li> <code> docker compose version </code> </li>
           </ol>
           <hr>
         </article>

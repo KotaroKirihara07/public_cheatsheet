@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> コンテナ </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p class="blog-post-meta"> 2024/10/23 </p>
           <p> このページではコンテナ管理を行うためのコマンドについての説明を行う。 </p>
           <p> <a href="#docker">docker</a>、<a href="#docker container">docker container</a>、<a href="#docker image">docker image</a>、<a href="#docker network">docker network</a>、<a href="#docker volume">docker volume</a>、<a href="#docker commit">docker commit</a>、<a href="#docker build">docker build</a>、<a href="#docker save">docker save</a>、<a href="#option">オプション</a></p>
           <hr>
@@ -71,9 +71,6 @@
               </tr>
             </tbody>
           </table>
-
-          <p> #Dockerのバージョンを表示させる </p> 
-          <code> docker version </code> 
           <hr>
 
           <h2 id="docker container"> docker container </h2>
@@ -129,7 +126,7 @@
           </table>
 
           <p> #コンテナを作成・起動 </p>
-          <code> docker container (オプション) イメージ (引数)</code> <br>
+          <code> docker container (オプション) (イメージ名) (引数)</code> <br>
 
           <br>
           <p> #コンテナを停止する </p>
@@ -157,11 +154,11 @@
 
           <br>
           <p> #ホストからコンテナへファイルをコピーする</p>
-          <code> docker container cp ホスト側パス コンテナ名:コンテナ側パス</code> <br>
+          <code> docker container cp (ホスト側パス) (コンテナ名:コンテナ側パス) </code> <br>
 
           <br>
           <p> #コンテナからホストへファイルをコピーする</p>
-          <code> docker container cp コンテナ名:コンテナ側パス ホスト側パス</code> <br>
+          <code> docker container cp (コンテナ名:コンテナ側パス) (ホスト側パス)</code> <br>
 
           <br>
           <p> #コンテナ内を操作できるようにする </p>
@@ -209,7 +206,11 @@
 
           <br>
           <p> #httpdイメージを削除する </p>
-          <code> docker image rm httpd </code> 
+          <code> docker image rm httpd </code> <br>
+
+          <br>
+          <p> #複数のイメージを削除する </p>
+          <code> docker image rm イメージ名1 イメージ名2 イメージ名3 </code> 
           <hr>
 
           <h2 id="docker network"> docker network </h2>
@@ -303,8 +304,7 @@
           <p> #手順 </p>
           <ol>
             <li> <code>docker volume create volume_name</code> </li>
-            <li> <code>-v volume_name:コンテナの記憶領域パス </code>をオプションとして <code>docker container run</code> を実行</li>
-            <li> <code> docker volume rm volume_name </code> </li>
+            <li> <code>docker container run -v volume_name:コンテナの記憶領域パス</code> </li>
           </ol>
 
           <br>
@@ -314,7 +314,7 @@
           <p> #手順 </p>
           <ol>
             <li> OS上にマウント用のディレクトリを作成する </li>
-            <li> <code>-v OS上のディレクトリのパス:コンテナの記憶領域パス </code>をオプションとして <code>docker container run</code> を実行</li>
+            <li> <code> docker container run -v OS上のディレクトリのパス:コンテナの記憶領域パス </code> </li>
           </ol>
           <hr>
 
@@ -324,7 +324,7 @@
           <hr>
 
           <h2 id="docker build"> docker build </h2>
-          <p> Docker Fileからイメージを作成するためのコマンド。 </p>
+          <p> Dockerfileからイメージを作成するためのコマンド。 </p>
           <code> docker build -t 作成するイメージ名 材料フォルダのパス </code> <br>
 
           <br>
