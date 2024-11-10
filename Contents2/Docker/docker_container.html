@@ -111,7 +111,7 @@
                 <td> 実行中のコンテナ内でプログラムを実行する </td>
               </tr>
               <tr>
-                <td> <code> ls </code> </td>
+                <td> <code> ps </code> </td>
                 <td> コンテナ一覧を表示する </td>
               </tr>
               <tr>
@@ -126,23 +126,27 @@
           </table>
 
           <p> #コンテナを作成・起動 </p>
-          <code> docker container (オプション) (イメージ名) (引数)</code> <br>
+          <code> docker container [オプション] [イメージ名] [引数]</code> <br>
 
           <br>
           <p> #コンテナを停止する </p>
-          <code> docker container stop コンテナ名</code> <br>
+          <code> docker container stop [コンテナID/コンテナ名] </code> <br>
+
+          <br>
+          <p> #すべてのコンテナを停止する </p>
+          <code> docker container stop $(docker container ps) </code> <br>
 
           <br>
           <p> #コンテナを削除する </p>
-          <code> docker container rm コンテナ名</code> <br>
+          <code> docker container rm [コンテナID/コンテナ名] </code> <br>
 
           <br>
           <p> #起動しているコンテナ一覧を表示する </p>
-          <code> docker container ls  </code> <br>
+          <code> docker container ps  </code> <br>
 
           <br>
           <p> #存在するコンテナ一覧を表示する </p>
-          <code> docker container ls -a </code> <br>
+          <code> docker container ps -a </code> <br>
 
           <br>
           <p> #ポート指定してコンテナを作成する </p>
@@ -154,11 +158,11 @@
 
           <br>
           <p> #ホストからコンテナへファイルをコピーする</p>
-          <code> docker container cp (ホスト側パス) (コンテナ名:コンテナ側パス) </code> <br>
+          <code> docker container cp [ホスト側パス] [コンテナ名:コンテナ側パス] </code> <br>
 
           <br>
           <p> #コンテナからホストへファイルをコピーする</p>
-          <code> docker container cp (コンテナ名:コンテナ側パス) (ホスト側パス)</code> <br>
+          <code> docker container cp [コンテナ名:コンテナ側パス] [ホスト側パス] </code> <br>
 
           <br>
           <p> #コンテナ内を操作できるようにする </p>
@@ -191,7 +195,7 @@
                 <td> Dockerイメージを削除する </td>
               </tr>
               <tr>
-                <td> <code> ls </code> </td>
+                <td> <code> ps </code> </td>
                 <td> ダウンロードしたイメージ一覧を表示する </td>
               </tr>
               <tr>
@@ -202,11 +206,15 @@
           </table>
 
           <p> #存在するイメージ一覧を表示する </p>
-          <code> docker image ls </code> <br>
+          <code> docker image ps </code> <br>
 
           <br>
           <p> #httpdイメージを削除する </p>
           <code> docker image rm httpd </code> <br>
+
+          <br>
+          <p> #すべてのイメージを削除する </p>
+          <code> docker image rm $(docker image ps) </code> <br>
 
           <br>
           <p> #複数のイメージを削除する </p>
@@ -214,7 +222,7 @@
           <hr>
 
           <h2 id="docker network"> docker network </h2>
-          <p> コンテナ操作関連コマンド。 </p>
+          <p> ネットワーク操作関連コマンド。 </p>
           <code> docker network 副コマンド オプション</code> <br>
 
           <br>

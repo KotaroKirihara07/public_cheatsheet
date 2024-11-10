@@ -245,6 +245,34 @@
             </tbody>
           </table>
           <hr>
+
+          <h2> Dockerfileテンプレート </h2>
+          <p> 「Dockerfile」と必要なものを格納したディレクトリ「docker-workspace」を同じディレクトリに配置する。</p>
+          <p> #amazon linux </p>
+          <code> FROM [イメージ名] </code> <br>
+          <code> RUN yum update </code> <br>
+          <code> WORKDIR /docker-workspace </code> <br>
+          <code> COPY docker-workspace docker-workspace</code> <br>
+          <code> ENTRYPOINT["docker-workspace/install.sh"] </code> <br>
+  
+          <br>
+          <p> #ubuntu </p>
+          <code> FROM [イメージ名] </code> <br>
+          <code> </code> <br>
+          <code> RUN apt-get update </code> <br>
+          <code> WORKDIR /docker-workspace </code> <br>
+          <code> COPY docker-workspace docker-workspace</code> <br>
+          <code> ENTRYPOINT["docker-workspace/install.sh"] </code> <br>
+          
+          <br>
+          <p> #python </p>
+          <code> FROM [イメージ名] </code> <br>
+          <code> </code> <br>
+          <code> WORKDIR /docker-workspace </code> <br>
+          <code> COPY docker-workspace docker-workspace</code> <br>
+          <code> CMD["python","docker-workspace/execute.py"] </code> <br>
+          <hr>
+
         </article>
       </div>
     </div>
