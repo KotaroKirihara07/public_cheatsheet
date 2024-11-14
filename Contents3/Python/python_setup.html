@@ -34,45 +34,48 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> セットアップ </h2>
-          <p class="blog-post-meta"> 2023/05/25 </p>
+          <p class="blog-post-meta"> 2024/11/01 </p>
           <p> このページの説明 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> Python </h2>
-          <h4> インストール </h4>
+          <h2> インストール </h2>
+          <h4> Python (for Windows)</h4>
           <ol> 
             <li> 公式サイト(<a href="https://www.python.org/" target="_blank"> https://www.python.org/ </a>)からダウンロード </li> 
             <li> パスを自動で通すようにしてインストール </li> 
             <li> <code> python --version</code>と入力してインストールに成功したか確認する</li>
           </ol> 
           
-
-          <h4> 実行 </h4>
+          <h4> Python (for Red Hat Linux)</h4>
           <ol> 
-            <li> ファイルがあるディレクトリへ移動 </li> 
-            <li> <code> python filename.py</code> </li> 
+            <li> <code> sudo yum install python39 </code> <br> </li> 
+            <li> <code> python --version</code>と入力してインストールに成功したか確認する </li> 
           </ol> 
-          <hr>
 
-          <h2> jupyter labのインストール (推奨)</h2>
+          <h4> Python (for Debian Linux)</h4>
+          <ol> 
+            <li> <code> sudo apt-get install python3.9 </code> </li> 
+            <li> <code> python --version</code>と入力してインストールに成功したか確認する </li> 
+          </ol> 
+
+          <h4> jupyter lab (推奨)</h4>
           <ol> 
             <li> <code> python -m pip install --upgrade pip</code> </li> 
             <li> <code> pip install jupyterlab </code> </li>
             <li> <code> jupyter lab</code>で起動 </li> 
           </ol> 
-          <hr>
 
-          <h2> jupyter notebookのインストール (非推奨) </h2>
+          <h4> jupyter notebookのインストール (非推奨) </h4>
           <ol> 
             <li> <code> python -m pip install --upgrade pip</code> </li> 
             <li> <code> python -m pip install jupyter</code> </li>
             <li> <code> jupyter notebook</code>で起動 </li> 
-          </ol> 
+          </ol>
           <hr>
 
-
-          <h2> VSCodeでPythonファイルの実行 </h2>
+          <h2> ファイルの実行 </h2>
+          <h4> @VSCode </h4>
           <ol> 
             <li> VSCodeでPythonの拡張機能をインストールする </li> 
             <li> ディレクトリを作成する </li>
@@ -80,10 +83,47 @@
             <li> [表示]、[ターミナル] の順に選択して、Visual Studio Code 内の組み込みターミナルを開く </li>
             <li> <code> python file_name.py </code></li>
           </ol> 
+
+          <h4> @コマンドプロンプト/ターミナル </h4>
+          <ol> 
+            <li> ファイルがあるディレクトリへ移動 </li> 
+            <li> <code> python filename.py</code> </li> 
+          </ol> 
           <hr>
 
-          <h2> 必要なライブラリの一括取得 </h2>
-          <p> 「pypackage」ファイル内のコードを実行 (Templateディレクトリを参照)</p>
+          <h2> インタプリタの切り替え </h2>
+          <h4> pyenv </h4>
+          <p> #Python (3.11.9)をインストールする </p>
+          <code> pyenv install 3.11.9 </code> <br>
+          
+          <br>
+          <p> #インストール可能なPythonのバージョンを確認する </p>
+          <code> pyenv install --list </code> <br>
+
+          <br>
+          <p> #pyenvを使用してインストールされたPythonのバージョンを確認する </p>
+          <code> pyenv versions </code> <br>
+
+          <br>
+          <p> #pyenvでインストールしたPythonを削除する </p>
+          <code> pyenv uninstall 3.11.9 </code> <br>
+          <hr>
+
+          <h2> パッケージの切り替え </h2>
+          <p> pipによるパッケージの導入状態をプロジェクトごとに独立させることができる。 </p>
+          <h4> venv </h4>
+          <p> #仮想環境のセットアップ (for Linux) </p>
+          <code> python -m venv /path/to/new/virtual/environment </code> <br>
+          <code> source /path/to/new/virtual/environment/bin/activate </code> <br>
+
+          <br>
+          <p> #仮想環境のセットアップ (for Windows) </p>
+          <code> py -m venv /path/to/new/virtual/environment </code> <br> 
+          <code> .\path\to\new\virtual\environment\Scripts\activate </code> <br>
+
+          <br>
+          <p> #deactivate </p>
+          <code> deactivate </code> <br>
           <hr>
         </article>
       </div>
