@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> sklearn </h2>
-          <p class="blog-post-meta"> 2023/05/30 </p>
+          <p class="blog-post-meta"> 2024/11/24 </p>
           <p> このページではsklearnについての説明を行う。 </p>
           <hr>
         
@@ -42,27 +42,23 @@
           <h2> 回帰 </h2>
           <h4> 単回帰分析 </h4>
           <p> 説明 </p>
-          <code>
-            <pre>
-#モジュールの読み込み
-from sklearn.linear_model import LinearRegression 
-
-#オブジェクトの生成
-lr = LinearRegression()  
-
-#fitting(X,YはNumpyの配列)
-lr.fit(X,Y)
-
-#切片と係数
-intercept = lr.intercept
-coefficient = lr.coef_[0]
-
-#回帰直線
-regY = lr.predict(X)
-            </pre>
-          </code>
-          <hr>
-
+          <code> #モジュールの読み込み </code> <br>
+          <code> from sklearn.linear_model import LinearRegression </code> <br>
+          <code> </code> <br>
+          <code> #オブジェクトの生成 </code> <br>
+          <code> lr = LinearRegression() </code> <br>
+          <code> </code> <br>
+          <code> #fitting(X,YはNumpyの配列) </code> <br>
+          <code> lr.fit(X,Y) </code> <br>
+          <code> </code> <br>
+          <code> #切片と係数 </code> <br>
+          <code> intercept = lr.intercept </code> <br>
+          <code> coefficient = lr.coef_[0] </code> <br>
+          <code> </code> <br>
+          <code> #回帰直線 </code> <br>
+          <code> regY = lr.predict(X) </code> <br>
+          
+          <br>
           <h4> 重回帰分析 </h4>
           <p> 説明 </p>
           <hr>
@@ -82,7 +78,7 @@ regY = lr.predict(X)
 
           <h2> 関数推定 </h2>
           <h4> KDE </h4>
-          <p> <code> from sklearn.neighbors import KernelDensity </code></p>
+          <code> from sklearn.neighbors import KernelDensity </code> <br>
           <hr>
         </article>
       </div>

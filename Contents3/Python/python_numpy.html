@@ -63,13 +63,18 @@
               <td> ndarray </td>
             </tr>
             <tr>
-              <td> <code> np.array(n次元リスト)</code> </td>
+              <td> <code> np.array(2次元リスト)</code> </td>
               <td> 行列の生成 </td>
               <td> ndarray </td>
             </tr>
             <tr>
               <td> <code> np.arange(start,stop,step) </code> </td>
-              <td> startからstopまでのstep区切りの1行n列の行列の生成 </td>
+              <td> startから(stop-1)までのstep区切りの1行n列の行列の生成 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.linspace(start,stop,n) </code> </td>
+              <td> startからstopまで等間隔の要素数nの1次元配列 </td>
               <td> ndarray </td>
             </tr>
             <tr>
@@ -91,6 +96,39 @@
               <td> <code> np.ones((N,M)) </code> </td>
               <td> N行M列の要素がすべて1の行列 </td>
               <td> ndarray </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p> #ndarrayの属性 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> 属性 </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> ndarray1.ndim </code> </td>
+              <td> 次元数 </td>
+              <td> int </td>
+            </tr>
+            <tr>
+              <td> <code> ndarray1.shape </code> </td>
+              <td> 行列の形状 </td>
+              <td> tuple </td>
+            </tr>
+            <tr>
+              <td> <code> ndarray1.size </code> </td>
+              <td> 要素数の合計 </td>
+              <td> int </td>
+            </tr>
+            <tr>
+              <td> <code> ndarray1.dtype </code> </td>
+              <td> データタイプ </td>
+              <td> str </td>
             </tr>
           </tbody>
         </table>
@@ -208,12 +246,6 @@
               </tbody>
         </table>
         
-        
-        
-        <br>
-        <p> #行列の形を調べる </p> 
-        <code> ndarray1.shape() </code> <br>
-
         <br>
         <p> #行列の入れ替え (M行N列へ変換) </p> 
         <code> ndarray1.reshape(M,N) </code> <br>
