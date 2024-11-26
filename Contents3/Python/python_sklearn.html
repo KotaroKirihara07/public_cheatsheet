@@ -33,52 +33,144 @@
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> sklearn </h2>
-          <p class="blog-post-meta"> 2024/11/24 </p>
+          <h2 class="blog-post-title"> scikit-learn </h2>
+          <p class="blog-post-meta"> 2024/11/26 </p>
           <p> このページではsklearnについての説明を行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
+          <h2> 機会学習 </h2>
+          <ul>
+            <li> 教師あり学習 </li>
+            <li> 教師なし学習 </li>
+            <li> 強化学習 </li>
+          </ul>
+          <hr>
+
+          <h2> 準備 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.impute.html" target="_blank">sklearn.impute</a> </td>
+                <td> ----のモジュール </td>
+                <td> SimpleImputer () </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.preprocessing.html" target="_blank">sklearn.preprocessing</a> </td>
+                <td> ----のモジュール </td>
+                <td> LabelEncoder ()<br>MinMaxScaler ()<br>StandardScaler () </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.compose.html" target="_blank">sklearn.compose</a> </td>
+                <td> ----のモジュール </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
+                <td> ----のモジュール </td>
+                <td> train_test_split (データの分割)<br>GridSearchCV (ハイパーパラメータ) </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
           <h2> 回帰 </h2>
-          <h4> 単回帰分析 </h4>
-          <p> 説明 </p>
-          <code> #モジュールの読み込み </code> <br>
-          <code> from sklearn.linear_model import LinearRegression </code> <br>
-          <code> </code> <br>
-          <code> #オブジェクトの生成 </code> <br>
-          <code> lr = LinearRegression() </code> <br>
-          <code> </code> <br>
-          <code> #fitting(X,YはNumpyの配列) </code> <br>
-          <code> lr.fit(X,Y) </code> <br>
-          <code> </code> <br>
-          <code> #切片と係数 </code> <br>
-          <code> intercept = lr.intercept </code> <br>
-          <code> coefficient = lr.coef_[0] </code> <br>
-          <code> </code> <br>
-          <code> #回帰直線 </code> <br>
-          <code> regY = lr.predict(X) </code> <br>
-          
-          <br>
-          <h4> 重回帰分析 </h4>
-          <p> 説明 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
+                <td> 線形回帰のモジュール </td>
+                <td> LinearRegression (線形回帰)</td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
+                <td> のモジュール </td>
+                <td> DecisionTreeClassifier (決定木) </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
 
           <h2> 分類 </h2>
-          <p> 説明 </p>
-          <h4> SVM </h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
+                <td> のモジュール </td>
+                <td>  </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
+                <td> のモジュール </td>
+                <td> SVC () </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
+                <td> のモジュール </td>
+                <td> RandomForestClassifier (ランダムフォレスト木) </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
 
           <h2> クラスタリング </h2>
-          <p> 説明 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.cluster.html" target="_blank">sklearn.cluster</a> </td>
+                <td> のモジュール </td>
+                <td> KMeans (---)<br>AgglomerativeClustering (---) </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
 
           <h2> 次元削減 </h2>
-          <p> 説明 </p>
-          <hr>
-
-          <h2> 関数推定 </h2>
-          <h4> KDE </h4>
-          <code> from sklearn.neighbors import KernelDensity </code> <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="" target="_blank">sklearn.</a> </td>
+                <td> のモジュール </td>
+                <td>  </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
         </article>
       </div>

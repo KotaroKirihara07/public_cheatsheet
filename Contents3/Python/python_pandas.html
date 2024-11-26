@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> pandas </h2>
-        <p class="blog-post-meta"> 2024/02/12 </p>
+        <p class="blog-post-meta"> 2024/11/25 </p>
         <p> このページではpandasの説明を行う。 </p>
         <p> Series : pandasで扱うことのできるデータ形式の一種であり、1次元配列で単一の列からなる表のようなイメージ。</p>
         <p> DataFrame: 行と列からなる表形式の配列データであり、Seriesを複数集めたものというイメージ。</p>
@@ -56,8 +56,8 @@
         <code> df = pd.DataFrame(data,index=index_list) </code><br>
 
         <br>
-        <p> #n次元データ配列からDataFrameを生成する (indexは省略可)</p> 
-        <code> df = pd.DataFrame(n次元データ配列,columns=columns_list,index=index_list) </code>
+        <p> #2次元データ配列からDataFrameを生成する (indexは省略可)</p> 
+        <code> df = pd.DataFrame(2次元データ配列,columns=columns_list,index=index_list) </code>
         <hr>
 
         <h2> ファイルからの読み込み・ファイルへの書き込み </h2>
@@ -233,7 +233,7 @@
         <code> df[condition] </code> <br>
 
         <br>
-        <p> #正規表現によるフィルタリング (1行目と3行目のみ抽出) </p>  
+        <p> #正規表現によるフィルタリング </p>  
         <code> condition = df.列名.str.contains('正規表現') </code> <br>
         <code> df[condition] </code> <br>
 
@@ -251,7 +251,11 @@
 
         <br> 
         <p> #indexを削除して検索結果のみString型で取得する </p>
-        <code> s = df[condition1 | condition2].to_string(index=False) </code>
+        <code> s = df[condition1 | condition2].to_string(index=False) </code> <br>
+
+        <br> 
+        <p> #クエリでフィルタリング </p>
+        <code> df.query("条件") </code>
         <hr>
 
         <h2> DataFrameの集計 </h2>
