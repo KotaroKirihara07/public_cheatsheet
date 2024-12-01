@@ -34,47 +34,67 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> scikit-learn </h2>
-          <p class="blog-post-meta"> 2024/11/26 </p>
-          <p> このページではsklearnについての説明を行う。 </p>
+          <p class="blog-post-meta"> 2024/12/01 </p>
+          <p> このページでは<a href="https://scikit-learn.org/1.5/index.html" target="_blank">scikit-learn</a>についての説明を行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> 機会学習 </h2>
+          <h2> 機械学習 </h2>
+          <p> #種類 </p>
           <ul>
             <li> 教師あり学習 </li>
+            <ul>
+              <li> 回帰 (線形回帰) </li>
+              <li> 分類 (SVM、決定木、ランダムフォレスト) </li>
+            </ul>
             <li> 教師なし学習 </li>
+            <ul>
+              <li> クラスタリング (k-means、)</li>
+              <li> 次元削減 (主成分分析)</li>
+            </ul>
             <li> 強化学習 </li>
           </ul>
+
+          <p> #手順 </p>
+          <ol>
+            <li> データの取得 </li>
+            <li> データの下準備 </li>
+            <li> 訓練データとテストデータへの分割 </li>
+            <li> モデルの選択 </li>
+            <li> 学習 </li>
+            <li> 評価 </li>
+          </ol>
+          <a href="https://scikit-learn.org/1.5/machine_learning_map.html" target="_blank"> マップ </a>
           <hr>
 
           <h2> 準備 </h2>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> モジュール </th>
+                <th scope="col"> サブパッケージ </th>
                 <th scope="col"> 説明 </th>
-                <th scope="col"> クラス </th>
+                <th scope="col"> クラス/関数 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.impute.html" target="_blank">sklearn.impute</a> </td>
-                <td> ----のモジュール </td>
+                <td> ----のサブパッケージ </td>
                 <td> SimpleImputer () </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.preprocessing.html" target="_blank">sklearn.preprocessing</a> </td>
-                <td> ----のモジュール </td>
+                <td> ----のサブパッケージ </td>
                 <td> LabelEncoder ()<br>MinMaxScaler ()<br>StandardScaler () </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.compose.html" target="_blank">sklearn.compose</a> </td>
-                <td> ----のモジュール </td>
+                <td> ----のサブパッケージ </td>
                 <td> --- </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
-                <td> ----のモジュール </td>
+                <td> ----のサブパッケージ </td>
                 <td> train_test_split (データの分割)<br>GridSearchCV (ハイパーパラメータ) </td>
               </tr>
             </tbody>
@@ -86,20 +106,20 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> モジュール </th>
+                <th scope="col"> サブパッケージ </th>
                 <th scope="col"> 説明 </th>
-                <th scope="col"> クラス </th>
+                <th scope="col"> クラス/関数 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
-                <td> 線形回帰のモジュール </td>
+                <td> 線形回帰のサブパッケージ </td>
                 <td> LinearRegression (線形回帰)</td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td> DecisionTreeClassifier (決定木) </td>
               </tr>
             </tbody>
@@ -110,25 +130,25 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> モジュール </th>
+                <th scope="col"> サブパッケージ </th>
                 <th scope="col"> 説明 </th>
-                <th scope="col"> クラス </th>
+                <th scope="col"> クラス/関数 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td>  </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td> SVC () </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td> RandomForestClassifier (ランダムフォレスト木) </td>
               </tr>
             </tbody>
@@ -139,15 +159,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> モジュール </th>
+                <th scope="col"> サブパッケージ </th>
                 <th scope="col"> 説明 </th>
-                <th scope="col"> クラス </th>
+                <th scope="col"> クラス/関数 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.cluster.html" target="_blank">sklearn.cluster</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td> KMeans (---)<br>AgglomerativeClustering (---) </td>
               </tr>
             </tbody>
@@ -158,15 +178,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> モジュール </th>
+                <th scope="col"> サブパッケージ </th>
                 <th scope="col"> 説明 </th>
-                <th scope="col"> クラス </th>
+                <th scope="col"> クラス/関数 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td> <a href="" target="_blank">sklearn.</a> </td>
-                <td> のモジュール </td>
+                <td> のサブパッケージ </td>
                 <td>  </td>
               </tr>
             </tbody>

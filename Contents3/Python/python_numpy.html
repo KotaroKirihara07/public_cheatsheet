@@ -34,8 +34,8 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> Numpy </h2>
-        <p class="blog-post-meta"> 2024/10/09 </p>
-        <p> このページではNumpyについての説明を行う。 </p>
+        <p class="blog-post-meta"> 2024/12/01 </p>
+        <p> このページでは<a href="https://numpy.org/ja/" target="_blank">Numpy</a>についての説明を行う。</p>
         <hr>
         
         <!-- コンテンツ -->
@@ -75,6 +75,16 @@
             <tr>
               <td> <code> np.linspace(start,stop,n) </code> </td>
               <td> startからstopまで等間隔の要素数nの1次元配列 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.date_range("YYYY/MM/DD","yyyy/mm/dd",freq="30s") </code> </td>
+              <td> YYYY/MM/DDからyyyy/mm/ddまで30秒間隔の1次元配列 </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> np.full(shape=(N,M),fill_value=3) </code> </td>
+              <td> N行M列の要素のすべてが3の行列 </td>
               <td> ndarray </td>
             </tr>
             <tr>
@@ -133,14 +143,53 @@
           </tbody>
         </table>
 
+        <br>
+        <p> #関数集 </p>
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> np.max(ndarray1) </code> </td>
+                  <td> 最大値 </td>
+                  <td> var </td>
+                </tr> 
+                <tr>
+                  <td> <code> np.min(ndarray1) </code> </td>
+                  <td> 最小値 </td>
+                  <td> var </td>
+                </tr> 
+                <tr>
+                  <td> <code> np.mean(ndarray1) </code> </td>
+                  <td> 平均値 </td>
+                  <td> var </td>
+                </tr> 
+                <tr>
+                  <td> <code> np.var(ndarray1) </code> </td>
+                  <td> 分散 </td>
+                  <td> var </td>
+                </tr> 
+                <tr>
+                  <td> <code> np.std(ndarray1) </code> </td>
+                  <td> 標準偏差 </td>
+                  <td> var </td>
+                </tr> 
+                <tr>
+                  <td colspan="3"> 引数axisの値を0とすると各列ごと、1とすると各行ごとの計算結果を求める </td>
+                </tr>  
+              </tbody>
+        </table>
+
 
         <br>
         <p> #共分散行列 (対格成分は分散) </p> 
         <code> np.cov(x1,x2) </code> <br>
 
-        <br>
-        <p> #標準偏差 </p> 
-        <code> np.std(x) </code> <br>
 
         <br>
         <p> #ndarrayの各要素に対する計算を行うための関数 </p>
@@ -388,6 +437,11 @@
                   <td> ndarray </td>
                 </tr>
                 <tr>
+                  <td> <code> rng.uniform(0,10,n) </code> </td>
+                  <td> 0以上10より小さいの連続一様分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
                   <td> <code> rng.randn(n) </code> </td>
                   <td> 標準正規分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
@@ -395,6 +449,11 @@
                 <tr>
                   <td> <code> rng.normal(loc,scale,n)</code> </td>
                   <td> 平均loc、標準偏差scaleの正規分布に従う乱数をn要素もつndarrayの生成 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> rng.logistic(loc,scale,n)</code> </td>
+                  <td> 平均loc、標準偏差scaleのロジスティック分布に従う乱数をn要素もつndarrayの生成 </td>
                   <td> ndarray </td>
                 </tr>
                 <tr>

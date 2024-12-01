@@ -34,8 +34,8 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> pandas </h2>
-        <p class="blog-post-meta"> 2024/11/25 </p>
-        <p> このページではpandasの説明を行う。 </p>
+        <p class="blog-post-meta"> 2024/12/01 </p>
+        <p> このページでは<a href="https://pandas.pydata.org/" target="_blank">pandas</a>の説明を行う。 </p>
         <p> Series : pandasで扱うことのできるデータ形式の一種であり、1次元配列で単一の列からなる表のようなイメージ。</p>
         <p> DataFrame: 行と列からなる表形式の配列データであり、Seriesを複数集めたものというイメージ。</p>
         <hr>
@@ -74,6 +74,21 @@
         <p> #pickleファイルの読み込み、pickleファイルへの書き込み </p> 
         <code> df = pd.read_pickle("file_name.pkl") </code> <br>
         <code> df.to_pickle("file_name.pkl") </code> <br>
+
+        <br>
+        <p> #Excelファイルの読み込み、Excelファイルへの書き込み </p> 
+        <code> df = pd.read_excel("file_name.xlsx") </code> <br>
+        <code> df.to_excel("file_name.xlsx") </code> <br>
+
+        <br>
+        <p> #JSONファイルの読み込み、JSONファイルへの書き込み (orient = {"split","records","index","columns","values"})</p> 
+        <code> df = pd.read_json("file_name.json",orient="columns") </code> <br>
+        <code> df.to_json("file_name.json") </code> <br>
+
+        <br>
+        <p> #parquetファイルの読み込み、parquetファイルへの書き込み </p> 
+        <code> df = pd.read_parquet("file_name.parquet") </code> <br>
+        <code> df.to_parquet("file_name.parquet") </code> <br>
 
         <br>
         <p> #読み込み用オプションパラメータ </p>
@@ -182,12 +197,32 @@
 
         <br>
         <p> #行・列を指定したデータの取得 </p>
-        <code> df.at[index名,column名] </code> or <code> df.iat[index番号,column番号] </code> or <code> df.column名.index名 </code>
+        <code> df.at[index名,column名] </code> or <code> df.iat[index番号,column番号] </code> or <code> df.column名.index名 </code> <br>
+
+        <br>
+        <p> ある列のユニークな値のリストを取得する </p>
+        <code> unique_list = df["col1"].unique() </code> <br>
+
+        <br>
+        <p> ある列のユニークな値とその値が表れた回数を取得する </p>
+        <code> df["col1"].value_counts() </code> <br>
+
+        <br>
+        <p> ある列のユニークな値の数を取得する </p>
+        <code> df["col1"].nunique() </code> <br>
         <hr>
 
         <h2> DataFrameの加工 </h2>
         <p> #特定の行の削除 </p>
         <code> df.drop(2) </code> <br>
+
+        <br>
+        <p> #特定の列の削除 </p>
+        <code> df.drop(["col1","col2"],axis=1) </code> <br>
+
+        <br>
+        <p> #重複した行の削除 </p>
+        <code> df.drop_duplicates() </code> <br>
 
         <br>
         <p> #値の置換 </p>
@@ -198,8 +233,8 @@
         <code> df.replace(np.Nan,0) </code> <br>
 
         <br>
-        <p> #DataFrameのソート (col1を基準に昇順) </p>
-        <code> df.sort_values(["col1","col2","col3"],ascending=[True,False,False]) </code> <br>
+        <p> #DataFrameのソート (col1を基準に昇順、col2を基準に降順、col3を基準に降順) </p>
+        <code> df.sort_values(by=["col1","col2","col3"],ascending=[True,False,False]) </code> <br>
 
         <br>
         <p> #DataFrameの縦方向の結合 (indexをリセット) </p> 
@@ -212,6 +247,10 @@
         <br>
         <p> #欠損値があるか調べる (True or False) </p> 
         <code> pd.isnull(df).any() </code> <br>
+
+        <br>
+        <p> #列名を変更する </p> 
+        <code> df.rename(columns={"col1":"COL1","col2":"COL2"}) </code> <br>
 
         <br>
         <p> #欠損値のある行の除去 </p> 
