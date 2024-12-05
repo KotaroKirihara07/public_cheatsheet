@@ -71,7 +71,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> サブパッケージ </th>
+                <th scope="col"> モジュール </th>
                 <th scope="col"> 説明 </th>
                 <th scope="col"> クラス/関数 </th>
               </tr>
@@ -79,23 +79,28 @@
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.impute.html" target="_blank">sklearn.impute</a> </td>
-                <td> ----のサブパッケージ </td>
-                <td> SimpleImputer () </td>
+                <td> 欠損値を補完のモジュール </td>
+                <td> SimpleImputer (平均値、中央値、最頻値で値を補完する)<br>KNNImputer (k-最近傍法で予測して値を補完する)<br> </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.preprocessing.html" target="_blank">sklearn.preprocessing</a> </td>
-                <td> ----のサブパッケージ </td>
-                <td> LabelEncoder ()<br>MinMaxScaler ()<br>StandardScaler () </td>
+                <td> ----のモジュール </td>
+                <td> LabelEncoder ()<br>OnrHotEncoder (ワンホットエンコーディング)<hr>MinMaxScaler (min-maxスケール変換)<br>StandardScaler (Zスコア変換)<br>Normalizer (正規化)<br>Binarizer (離散化)<br>RobustScaler (強い外れ値がある場合の中央値や四分位数でのスケーリング)<br>PolynomialFeatures (多項式特徴量の生成) </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.compose.html" target="_blank">sklearn.compose</a> </td>
-                <td> ----のサブパッケージ </td>
+                <td> ----のモジュール </td>
                 <td> --- </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
-                <td> ----のサブパッケージ </td>
+                <td> ----のモジュール </td>
                 <td> train_test_split (データの分割)<br>GridSearchCV (ハイパーパラメータ) </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.covariance.html" target="_blank">sklearn.covariance</a> </td>
+                <td> ----のモジュール </td>
+                <td> EllipticEnvelope (外れ値の検出)<br>GridSearchCV (ハイパーパラメータ) </td>
               </tr>
             </tbody>
           </table>
@@ -106,7 +111,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> サブパッケージ </th>
+                <th scope="col"> モジュール </th>
                 <th scope="col"> 説明 </th>
                 <th scope="col"> クラス/関数 </th>
               </tr>
@@ -114,12 +119,12 @@
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
-                <td> 線形回帰のサブパッケージ </td>
+                <td> 線形回帰のモジュール </td>
                 <td> LinearRegression (線形回帰)</td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
-                <td> のサブパッケージ </td>
+                <td> 決定木のモジュール </td>
                 <td> DecisionTreeClassifier (決定木) </td>
               </tr>
             </tbody>
@@ -130,7 +135,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> サブパッケージ </th>
+                <th scope="col"> モジュール </th>
                 <th scope="col"> 説明 </th>
                 <th scope="col"> クラス/関数 </th>
               </tr>
@@ -138,18 +143,18 @@
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
-                <td> のサブパッケージ </td>
+                <td> 決定木のモジュール </td>
                 <td>  </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
-                <td> のサブパッケージ </td>
+                <td> SVMのモジュール </td>
                 <td> SVC () </td>
               </tr>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
-                <td> のサブパッケージ </td>
-                <td> RandomForestClassifier (ランダムフォレスト木) </td>
+                <td> アンサンブルのモジュール </td>
+                <td> RandomForestClassifier (ランダムフォレスト) </td>
               </tr>
             </tbody>
           </table>
@@ -159,7 +164,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> サブパッケージ </th>
+                <th scope="col"> モジュール </th>
                 <th scope="col"> 説明 </th>
                 <th scope="col"> クラス/関数 </th>
               </tr>
@@ -167,8 +172,8 @@
             <tbody>
               <tr>
                 <td> <a href="https://scikit-learn.org/1.5/api/sklearn.cluster.html" target="_blank">sklearn.cluster</a> </td>
-                <td> のサブパッケージ </td>
-                <td> KMeans (---)<br>AgglomerativeClustering (---) </td>
+                <td> クラスタリングのモジュール </td>
+                <td> KMeans (k-means)<br>AgglomerativeClustering (---) </td>
               </tr>
             </tbody>
           </table>
@@ -178,7 +183,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> サブパッケージ </th>
+                <th scope="col"> モジュール </th>
                 <th scope="col"> 説明 </th>
                 <th scope="col"> クラス/関数 </th>
               </tr>
@@ -186,7 +191,7 @@
             <tbody>
               <tr>
                 <td> <a href="" target="_blank">sklearn.</a> </td>
-                <td> のサブパッケージ </td>
+                <td> のモジュール </td>
                 <td>  </td>
               </tr>
             </tbody>

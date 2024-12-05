@@ -61,35 +61,11 @@
         <hr>
 
         <h2> ファイルからの読み込み・ファイルへの書き込み </h2>
-        <p> #csvファイルの読み込み、csvファイルへの書き込み </p> 
-        <code> df = pd.read_csv("file_name.csv") </code> <br>
-        <code> df.to_csv("file_name.csv",index=False) </code> <br>
+        <p> #xxxファイルの読み込み、xxxファイルへの書き込み ( xxx = [csv, tsv, pickle, excel, json, parquet] )</p> 
+        <code> df = pd.read_xxx("FILE_PATH") </code> <br>
+        <code> df.to_xxx("FILE_PATH") </code> <br>
 
-        <br>
-        <p> #tsvファイルの読み込み、tsvファイルへの書き込み </p> 
-        <code> df = pd.read_csv("file_name.tsv",sep='\t') </code> <br>
-        <code> df.to_csv("file_name.tsv",sep='\t',index=False) </code> <br>
-
-        <br>
-        <p> #pickleファイルの読み込み、pickleファイルへの書き込み </p> 
-        <code> df = pd.read_pickle("file_name.pkl") </code> <br>
-        <code> df.to_pickle("file_name.pkl") </code> <br>
-
-        <br>
-        <p> #Excelファイルの読み込み、Excelファイルへの書き込み </p> 
-        <code> df = pd.read_excel("file_name.xlsx") </code> <br>
-        <code> df.to_excel("file_name.xlsx") </code> <br>
-
-        <br>
-        <p> #JSONファイルの読み込み、JSONファイルへの書き込み (orient = {"split","records","index","columns","values"})</p> 
-        <code> df = pd.read_json("file_name.json",orient="columns") </code> <br>
-        <code> df.to_json("file_name.json") </code> <br>
-
-        <br>
-        <p> #parquetファイルの読み込み、parquetファイルへの書き込み </p> 
-        <code> df = pd.read_parquet("file_name.parquet") </code> <br>
-        <code> df.to_parquet("file_name.parquet") </code> <br>
-
+      
         <br>
         <p> #読み込み用オプションパラメータ </p>
         <table class="table table-striped">
@@ -189,76 +165,123 @@
         
         <h2> DataFrameのデータの取得 </h2>
         <p> #列データの取得 </p>
-        <code> df["column名"] </code> or <code> df.column名 </code> <br>
+        <code> df["col1"] </code> or <code> df.col1 </code> or <code> df.loc[:,col1] </code><br>
 
         <br>
         <p> #行データの取得 </p>
-        <code> df.loc[index名] </code> or <code> df.iloc[index番号] </code> <br>
+        <code> df.loc[idx,:] </code> or <code> df.iloc[idx,:] </code> <br>
 
         <br>
         <p> #行・列を指定したデータの取得 </p>
-        <code> df.at[index名,column名] </code> or <code> df.iat[index番号,column番号] </code> or <code> df.column名.index名 </code> <br>
+        <code> df.at[index名,column名] </code> or <code> df.iat[index番号,column番号] </code> or <code> </code> <br>
 
         <br>
-        <p> ある列のユニークな値のリストを取得する </p>
-        <code> unique_list = df["col1"].unique() </code> <br>
-
-        <br>
-        <p> ある列のユニークな値とその値が表れた回数を取得する </p>
-        <code> df["col1"].value_counts() </code> <br>
-
-        <br>
-        <p> ある列のユニークな値の数を取得する </p>
-        <code> df["col1"].nunique() </code> <br>
+        <p> #特定の列に対するメソッド集 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> df["col1"].values </code> </td>
+              <td> ある列をndarray型に変換して返す </td>
+              <td> ndarray </td>
+            </tr>
+            <tr>
+              <td> <code> df["col1"].unique() </code> </td>
+              <td> ある列のユニークな値のリストを取得する </td>
+              <td> list </td>
+            </tr>
+            <tr>
+              <td> <code> df["col1"].value_counts() </code> </td>
+              <td> ある列のユニークな値とその値が表れた回数を取得する </td>
+              <td> ??? </td>
+            </tr>
+            <tr>
+              <td> <code> df["col1"].nunique() </code> </td>
+              <td> ある列のユニークな値の数を取得する </td>
+              <td> int </td>
+            </tr>
+          </tbody>
+        </table>
         <hr>
 
         <h2> DataFrameの加工 </h2>
-        <p> #特定の行の削除 </p>
-        <code> df.drop(2) </code> <br>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> df.drop(idx) </code> </td>
+              <td> 特定の行の削除 </td>
+            </tr>
+            <tr>
+              <td> <code> df.drop(["col1","col2"],axis=1) </code> </td>
+              <td> 特定の列の削除 </td>
+            </tr>
+            <tr>
+              <td> <code> df.drop_duplicates() </code> </td>
+              <td> 重複した行の削除 </td>
+            </tr>
+            <tr>
+              <td> <code> df.replace(old_value,new_value) </code> </td>
+              <td> 値の置換 </td>
+            </tr>
+            <tr>
+              <td> <code> df.sort_values(by=["col1","col2"],ascending=[True,False]) </code> </td>
+              <td> DataFrameのソート (col1を基準に昇順、col2を基準に降順) </td>
+            </tr>
+            <tr>
+              <td> <code> df.reset_index(drop=True) </code> </td>
+              <td> インデックスをリセットする </td>
+            </tr>
+            <tr>
+              <td> <code> df.dropna() </code> </td>
+              <td> 欠損値のある行の除去 (subset=["col1","col2"]として特定列のみに限定可能) </td>
+            </tr>
+            <tr>
+              <td> <code> df.rename(columns={"old_col1":"new_col1","old_col2":"new_col2"}) </code> </td>
+              <td> 列名を変更する </td>
+            </tr>
+          </tbody>
+        </table>
 
-        <br>
-        <p> #特定の列の削除 </p>
-        <code> df.drop(["col1","col2"],axis=1) </code> <br>
-
-        <br>
-        <p> #重複した行の削除 </p>
-        <code> df.drop_duplicates() </code> <br>
-
-        <br>
-        <p> #値の置換 </p>
-        <code> df.replace(置換前,置換後) </code> <br>
-
-        <br>
-        <p> #欠損値を0に置換する </p>
-        <code> df.replace(np.Nan,0) </code> <br>
-
-        <br>
-        <p> #DataFrameのソート (col1を基準に昇順、col2を基準に降順、col3を基準に降順) </p>
-        <code> df.sort_values(by=["col1","col2","col3"],ascending=[True,False,False]) </code> <br>
-
-        <br>
-        <p> #DataFrameの縦方向の結合 (indexをリセット) </p> 
-        <code> df5 = pd.concat([df3,df4]).reset_index(drop=True) </code> <br>
-
-        <br>
-        <p> #DataFrameの横方向の結合 </p> 
-        <code> df5 = pd.concat([df3,df4],axis = 1) </code> <br>
-
-        <br>
-        <p> #欠損値があるか調べる (True or False) </p> 
-        <code> pd.isnull(df).any() </code> <br>
-
-        <br>
-        <p> #列名を変更する </p> 
-        <code> df.rename(columns={"col1":"COL1","col2":"COL2"}) </code> <br>
-
-        <br>
-        <p> #欠損値のある行の除去 </p> 
-        <code> df.dropna() </code> <br>
-
-        <br>
-        <p> #特定の列に欠損値がある行の削除 </p> 
-        <code> df.dropna(subset=["列名1","列名2"]) </code> <br>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> pd.isnull(df) </code> </td>
+              <td> 欠損値があるか調べる </td>
+              <td> boolean </td>
+            </tr>
+            <tr>
+              <td> <code> pd.concat([df1,df2]) </code> </td>
+              <td> DataFrameの縦方向の結合 (axis = 1とすると横結合)</td>
+              <td> DataFrame </td>
+            </tr>
+            <tr>
+              <td> <code> pd.merge(df1,df2,on="col1")</code> </td>
+              <td> col1で内部結合 (how="outer"とすると外部結合)</td>
+              <td> void </td>
+            </tr>
+          </tbody>
+        </table>
         <hr> 
 
         <h2> DataFrameのフィルタリング </h2>
@@ -309,32 +332,32 @@
           </thead>
           <tbody>
             <tr>
-              <td> <code> df.groupby([column名]).min() </code> </td>
+              <td> <code> df.groupby(["col1"]).min() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の最小値を出力 </td>
               <td> DataFrame </td>
             </tr>
             <tr>
-              <td> <code> df.groupby([column名]).max() </code> </td>
+              <td> <code> df.groupby(["col1"]).max() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の最大値を出力 </td>
               <td> DataFrame </td>
             </tr>
             <tr>
-              <td> <code> df.groupby([column名]).sum() </code> </td>
+              <td> <code> df.groupby(["col1"]).sum() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の合計値を出力 </td>
               <td> DataFrame </td>
             </tr>
             <tr>
-              <td> <code> df.groupby([column名]).mean() </code> </td>
+              <td> <code> df.groupby(["col1"]).mean() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の平均値を出力 </td>
               <td> DataFrame </td>
             </tr>
             <tr>
-              <td> <code> df.groupby([column名]).var() </code> </td>
+              <td> <code> df.groupby(["col1"]).var() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の分散を出力 </td>
               <td> DataFrame </td>
             </tr>
             <tr>
-              <td> <code> df.groupby([column名]).std() </code> </td>
+              <td> <code> df.groupby(["col1"]).std() </code> </td>
               <td> 指定したcolumn名でグループ化し、他のそれぞれの列の標準偏差を出力 </td>
               <td> DataFrame </td>
             </tr>
