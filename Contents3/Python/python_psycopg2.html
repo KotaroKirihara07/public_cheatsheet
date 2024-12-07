@@ -34,13 +34,13 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> psycopg2 </h2>
-          <p class="blog-post-meta"> 2023/05/08 </p>
+          <p class="blog-post-meta"> 2024/12/08 </p>
           <p> psycopg2はPostgreSQLへの接続モジュール。 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> ライブラリの読み込み </h2>
-          <p> #ライブラリの読み込み </p> 
+          <h2> モジュールの読み込み </h2>
+          <p> #モジュールの読み込み </p> 
           <code> import psycopg2 </code> 
           <hr>
 
@@ -91,7 +91,7 @@
             </thead>
             <tbody>
               <tr>
-                <td> <code> with psycopg2.connect(**con_info) as conn: </code></td>
+                <td> <code> psycopg2.connect(**con_info) </code></td>
                 <td> 接続 </td>
               </tr>
               <tr>
@@ -107,7 +107,7 @@
                 <td> ロールバック </td>
               </tr>
               <tr>
-                <td> <code> with conn.cursor() as cur: </code></td>
+                <td> <code> conn.cursor() </code></td>
                 <td> カーソルの取得 </td>
               </tr>
             </tbody>
@@ -144,22 +144,21 @@
           <hr>
 
           <h2> テンプレート </h2>
-          <code>
-            <pre>
-import psycopg2
-
-#接続情報
-con_info = {"user":"db user", "password":"db password", "host":"localhost", "dbname":"sample"}
-
-#接続
-with psycopg2.connect(**con_info) as con:
-    #カーソルの取得
-    with con.cursor() as cur:
-
-        sql = "SQL文"
-        cur.execute(sql)
-            </pre>
-          </code> 
+          <code> import psycopg2 </code> <br>
+          <code> </code> <br>
+          <code> #接続情報 </code> <br>
+          <code> con_info = {"user":"db user", "password":"db password", "host":"localhost", "dbname":"sample"} </code> <br>
+          <code> </code> <br>
+          <code> #接続 </code> <br>
+          <code> with psycopg2.connect(**con_info) as con: </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; #カーソルの取得 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; with con.cursor() as cur: </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sql = "SQL文" </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cur.execute(sql) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #結果の取得 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rows = cur.fetchall() </code> <br>
           <hr>
         </article>
       </div>

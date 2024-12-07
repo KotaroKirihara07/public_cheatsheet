@@ -37,9 +37,7 @@
           <article class="blog-post">
             <h2 class="blog-post-title"> 基本構文 </h2>
             <p class="blog-post-meta"> 2024/08/04 </p>
-            <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#input">標準入力</a>、<a href="#output">標準出力</a>、<a
-            href="#sentence">文字列</a>、<a href="#number">数値処理</a>、<a
-            href="#loop">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#exception">例外処理</a>、<a href="#module">モジュール</a>、<a href="#package">パッケージ</a> </p>
+            <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#func">関数</a>、<a href="#input">標準入力</a>、<a href="#output">標準出力</a>、<a href="#sentence">文字列</a>、<a href="#loop">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#exception">例外処理</a>、<a href="#module">モジュール</a>、<a href="#package">パッケージ</a> </p>
             <hr>
 
             <!-- コンテンツ -->
@@ -65,14 +63,6 @@
             <br>
             <p> #定数の定義 (変更は可能) </p>
             <code> FIXED_VALUE = 10 </code> <br>
-
-            <br>
-            <p> #変数の型を調べる </p>
-            <code> type(var) </code> <br>
-
-            <br>
-            <p> #変数のidを調べる </p>
-            <code> id(var) </code> <br>
 
             <br>
             <p> #変数の型 </p>
@@ -144,6 +134,107 @@
             </table>
             <hr>
 
+            <h2 id="func"> 関数 </h2>
+            <p> #関数集 </p> 
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> type(var) </code> </td>
+                  <td> 変数の型を調べる </td>
+                  <td> str </td>
+                </tr>
+                <tr>
+                  <td> <code> id(var) </code> </td>
+                  <td> 変数のidを調べる</td>
+                  <td> str </td>
+                </tr>
+                <tr>
+                  <td> <code> len(var) </code> </td>
+                  <td> コレクションの要素数を返す </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> abs(x) </code> </td>
+                  <td> 絶対値 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> sum(list1) </code> </td>
+                  <td> 合計値 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> max(list1) </code> </td>
+                  <td> 最大値 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> min(list1) </code> </td>
+                  <td> 最小値 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> round(x) </code> </td>
+                  <td> 整数に丸めた数値 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> round(x, n) </code> </td>
+                  <td> 少数点第n以下に丸めた数値(nはマイナスも可) </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> pow(x, y) </code> </td>
+                  <td> xのy乗 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> divmod(x, y) </code> </td>
+                  <td> x÷yの (商 ,剰余) のタプル </td>
+                  <td> tuple </td>
+                </tr>
+                <tr>
+                  <td> <code> int(var) </code> </td>
+                  <td> 整数に変換する </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> float(var) </code> </td>
+                  <td> 浮動小数に変換する </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> str(var) </code> </td>
+                  <td> 文字列に変換する </td>
+                  <td> str </td>
+                </tr>
+                <tr>
+                  <td> <code> bin(var) </code> </td>
+                  <td> 2進数に変換する </td>
+                  <td> str (プレフィックスは0b) </td>
+                </tr>
+                <tr>
+                  <td> <code> oct(var) </code> </td>
+                  <td> 8進数に変換する </td>
+                  <td> str (プレフィックスは0o) </td>
+                </tr>
+                <tr>
+                  <td> <code> hex(var) </code> </td>
+                  <td> 16進数に変換する </td>
+                  <td> str (プレフィックスは0x) </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+
+
             <h2 id="input"> 標準入力 </h2>
             <p> #文字列を入力する </p>
             <code> text = input("文字列を入力してください") </code> <br>
@@ -167,13 +258,28 @@
 
             <br>
             <p> #出力 (改行なし) </p>
-            <code> print(var,end="")</code> <br>
+            <code> print(var, end=" ")</code> <br>
 
             <br>
-            <p> #1行に半角スペース間隔で出力 (例 : 1 2 3)</p>
-            <code> print(1,end=" ")</code> <br>
-            <code> print(2,end=" ")</code> <br>
-            <code> print(3,end=" ")</code>
+            <p> #オプション </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> オプション </th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> sep </code> </td>
+                  <td> 区切り文字 </td>
+                </tr>
+                <tr>
+                  <td> <code> end </code> </td>
+                  <td> 終端文字 </td>
+                </tr>
+              </tbody>
+            </table>
             <hr>
 
 
@@ -195,8 +301,7 @@
 
             <br>
             <p> #フォーマット文字列 </p>
-            <code> name = "aaa" </code> <br>
-            <code> text = f"Hello!, {name}!" </code> <br>
+            <code> text = "Hello! {}さん!".format(name) </code> <br>
 
             <br>
             <p> #メソッド集 </p>
@@ -348,92 +453,6 @@
                   <td> <code> str1.count(str2)</code> </td>
                   <td> 部分文字列の登場回数を取得する </td>
                   <td> int </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
-
-
-            <h2 id="number"> 数値処理 </h2>
-            <p> #関数集 </p>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col"> 関数 </th>
-                  <th scope="col"> 説明 </th>
-                  <th scope="col"> 戻り値の型 </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> <code> abs(x) </code> </td>
-                  <td> 絶対値 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> sum(list1) </code> </td>
-                  <td> 合計値 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> max(list1) </code> </td>
-                  <td> 最大値 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> min(list1) </code> </td>
-                  <td> 最小値 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> round(x) </code> </td>
-                  <td> 整数に丸めた数値 </td>
-                  <td> int </td>
-                </tr>
-                <tr>
-                  <td> <code> round(x,n) </code> </td>
-                  <td> 少数点第n以下に丸めた数値(nはマイナスも可) </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> pow(x,y) </code> </td>
-                  <td> xのy乗 </td>
-                  <td> var </td>
-                </tr>
-                <tr>
-                  <td> <code> divmod(x,y) </code> </td>
-                  <td> x÷yの (商 ,剰余) のタプル </td>
-                  <td> tuple </td>
-                </tr>
-                <tr>
-                  <td> <code> int(var) </code> </td>
-                  <td> 整数に変換する </td>
-                  <td> int </td>
-                </tr>
-                <tr>
-                  <td> <code> float(var) </code> </td>
-                  <td> 浮動小数に変換する </td>
-                  <td> float </td>
-                </tr>
-                <tr>
-                  <td> <code> str(var) </code> </td>
-                  <td> 文字列に変換する </td>
-                  <td> str </td>
-                </tr>
-                <tr>
-                  <td> <code> bin(var) </code> </td>
-                  <td> 2進数に変換する </td>
-                  <td> str (プレフィックスは0b) </td>
-                </tr>
-                <tr>
-                  <td> <code> oct(var) </code> </td>
-                  <td> 8進数に変換する </td>
-                  <td> str (プレフィックスは0o) </td>
-                </tr>
-                <tr>
-                  <td> <code> hex(var) </code> </td>
-                  <td> 16進数に変換する </td>
-                  <td> str (プレフィックスは0x) </td>
                 </tr>
               </tbody>
             </table>
@@ -592,18 +611,6 @@
             <code> </code> <br>
 
             <br>
-            <p> </p>
-            <code> </code> <br>
-
-            <br>
-            <p> </p>
-            <code> </code> <br>
-
-            <br>
-            <p> </p>
-            <code> </code> <br>
-
-            <br>
             <h2 id="package"> パッケージ </h2>
             <p> パッケージとは複数のモジュールをまとめたもの。実質的にはディレクトリ。</p>
             <ul>
@@ -621,19 +628,6 @@
                   </ul>
                 </ul>
             </ul>
-            <code> </code> <br>
-
-            <br>
-            <p> </p>
-            <code> </code> <br>
-
-            <br>
-            <p> </p>
-            <code> </code> <br>
-
-            <br>
-            <p> </p>
-            <code> </code> <br>
             <hr>
           </article>
         </div>

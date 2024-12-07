@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> クラス・関数 </h2>
-        <p class="blog-post-meta"> 2024/08/04 </p>
+        <p class="blog-post-meta"> 2024/12/08 </p>
         <p> このページではクラスや関数についての説明を行う。 </p>
         <hr>
         
@@ -43,9 +43,9 @@
         <p> #クラスの定義 </p> 
         <code> class Person(): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラスがもつことができるインスタンス変数の固定 </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;__slots__ = ['a','b','c'] </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;__slots__ = ['a', 'b', 'c'] </code> <br>
         <code> </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラス変数の定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラス定数の定義 </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;FIXED_VALUE = 100 </code> <br>
         <code> </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;#プライベートなインスタンス変数の定義 </code> <br>
@@ -57,13 +57,13 @@
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.b = 1 </code> <br>
         <code> </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;#インスタンスメソッドの定義 </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func1(self,num): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func1(self, num): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.c = num </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(self.c) </code> <br>
         <code> </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラスメソッドの定義 (クラス(cls)にアクセスできる and インスタンス化しなくても使用可能なメソッド)</code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;@classmethod </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func2(cls,value): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func2(cls, value): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return cls.FIXED_VALUE * value </code> <br>
         <code> </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;#スタティックメソッド (インスタンス化しなくても使用可能なメソッド) の定義 </code> <br>
@@ -92,7 +92,7 @@
         <br>
         <p> #継承 (複数の基底クラスを継承することができる) </p>
         <code> class SalesPerson(Person): </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self,var): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, var): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(var): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;def func3(self): </code> <br>
@@ -102,13 +102,13 @@
 
         <h2> 関数 </h2>
         <p> #関数の定義 (位置引数) </p>
-        <code> def func(a,b): </code> <br>
+        <code> def func(a, b): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;c = a + b </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;return c </code> <br>
 
         <br>
         <p> #関数の定義 (キーワード引数) </p>
-        <code> def func(a=10 ,b=20): </code> <br>
+        <code> def func(a=10, b=20): </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;c = a + b </code> <br>
         <code> &nbsp;&nbsp;&nbsp;&nbsp;return c </code> <br>
 

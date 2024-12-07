@@ -36,7 +36,7 @@
 
           <article class="blog-post">
             <h2 class="blog-post-title"> コレクション </h2>
-            <p class="blog-post-meta"> 2024/08/04 </p>
+            <p class="blog-post-meta"> 2024/12/08 </p>
             <p> <a href="#list">リスト</a>、<a href="#tuple">タプル</a>、<a href="#set">集合</a>、<a href="#dictionary">辞書</a> </p>
             <hr>
 
@@ -48,9 +48,6 @@
             <code> list3 = [val*2 for val in list1 if val % 2 == 1] </code> <br>
             <code> list4 = [i for i in range(0,10)]</code> <br>
 
-            <br>
-            <p> #リストの長さを調べる </p>
-            <code> len(list1) </code> <br>
 
             <br>
             <p> #スライス (nからmまで) </p>
@@ -163,18 +160,6 @@
             <code> t[start:stop:step] </code> <br>
 
             <br>
-            <p> #要素数を調べる </p>
-            <code> len(t) </code> <br>
-
-            <br>
-            <p> #要素の最小値を返す </p>
-            <code> min(t) </code> <br>
-
-            <br>
-            <p> #要素の最大値を返す </p>
-            <code> max(t) </code> <br>
-
-            <br>
             <p> #包含 (True or False) </p>
             <code> x in t </code> <br>
             <code> x not in t </code> <br>
@@ -259,7 +244,7 @@
 
             <br>
             <p> #listからdictionaryの生成 </p>
-            <code> dic = dict(zip(key_list,value_list)) </code> <br>
+            <code> dic = dict(zip(key_list, value_list)) </code> <br>
 
             <br>
             <p> #指定したキーに対応する値を取得 </p>
@@ -295,7 +280,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> <code> dic.setdefault(6,60) </code> </td>
+                  <td> <code> dic.setdefault(key, value) </code> </td>
                   <td> 指定したキーに値がなければ与える </td>
                   <td> void </td>
                 </tr>
@@ -305,7 +290,7 @@
                   <td> void </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.get(5,0) </code> </td>
+                  <td> <code> dic.get(key, default) </code> </td>
                   <td> 指定したキーに対応する値を返す(デフォルトの設定も可能)</td>
                   <td> var </td>
                 </tr>
@@ -330,7 +315,7 @@
                   <td> dict </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.pop(2) </code> </td>
+                  <td> <code> dic.pop(key) </code> </td>
                   <td> 指定したキーの要素を削除して返す </td>
                   <td> var </td>
                 </tr>
