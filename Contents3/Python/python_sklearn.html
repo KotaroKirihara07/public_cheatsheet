@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> scikit-learn </h2>
-          <p class="blog-post-meta"> 2024/12/01 </p>
-          <p> このページでは<a href="https://scikit-learn.org/1.5/index.html" target="_blank">scikit-learn</a>についての説明を行う。 </p>
+          <p class="blog-post-meta"> 2024/12/12 </p>
+          <p> このページでは<a href="https://scikit-learn.org/stable/index.html" target="_blank">scikit-learn</a>についての説明を行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -62,9 +62,9 @@
             <li> 訓練データとテストデータへの分割 </li>
             <li> モデルの選択 </li>
             <li> 学習 </li>
-            <li> 評価 </li>
+            <li> モデルの評価 </li>
           </ol>
-          <a href="https://scikit-learn.org/1.5/machine_learning_map.html" target="_blank"> マップ </a>
+          <a href="https://scikit-learn.org/stable/machine_learning_map.html" target="_blank"> マップ </a>
           <hr>
 
           <h2> 準備 </h2>
@@ -78,27 +78,27 @@
             </thead>
             <tbody>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.impute.html" target="_blank">sklearn.impute</a> </td>
-                <td> 欠損値を補完のモジュール </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.impute.html" target="_blank">sklearn.impute</a> </td>
+                <td> 欠損値補完のモジュール </td>
                 <td> SimpleImputer (平均値、中央値、最頻値で値を補完する)<br>KNNImputer (k-最近傍法で予測して値を補完する)<br> </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.preprocessing.html" target="_blank">sklearn.preprocessing</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.preprocessing.html" target="_blank">sklearn.preprocessing</a> </td>
                 <td> ----のモジュール </td>
-                <td> LabelEncoder ()<br>OnrHotEncoder (ワンホットエンコーディング)<hr>MinMaxScaler (min-maxスケール変換)<br>StandardScaler (Zスコア変換)<br>Normalizer (正規化)<br>Binarizer (離散化)<br>RobustScaler (強い外れ値がある場合の中央値や四分位数でのスケーリング)<br>PolynomialFeatures (多項式特徴量の生成) </td>
+                <td> LabelEncoder ()<br>OnrHotEncoder (ワンホットエンコーディング)<hr>MinMaxScaler (min-maxスケール変換)<br>StandardScaler (Zスコア変換)<br>Normalizer (正規化)<br>Binarizer (離散化)<br>RobustScaler (強い外れ値がある場合の中央値や四分位数でのスケーリング)<br>PolynomialFeatures (多項式特徴量、交互作用の生成) </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.compose.html" target="_blank">sklearn.compose</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.compose.html" target="_blank">sklearn.compose</a> </td>
                 <td> ----のモジュール </td>
                 <td> --- </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
                 <td> ----のモジュール </td>
-                <td> train_test_split (データの分割)<br>GridSearchCV (ハイパーパラメータ) </td>
+                <td> train_test_split (データの分割)<br>GridSearchCV (グリッドサーチ)<br>RandomizedSearchCV (???)<br>SelectFromModel (特徴量の選択) </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.covariance.html" target="_blank">sklearn.covariance</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.covariance.html" target="_blank">sklearn.covariance</a> </td>
                 <td> ----のモジュール </td>
                 <td> EllipticEnvelope (外れ値の検出)<br>GridSearchCV (ハイパーパラメータ) </td>
               </tr>
@@ -118,14 +118,24 @@
             </thead>
             <tbody>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
                 <td> 線形回帰のモジュール </td>
-                <td> LinearRegression (線形回帰)</td>
+                <td> LinearRegression (線形回帰)<br>Ridge (リッジ回帰)<br>Lasso (ラッソ回帰)<br>LogisticRegression (ロジスティック回帰)</td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
                 <td> 決定木のモジュール </td>
-                <td> DecisionTreeClassifier (決定木) </td>
+                <td> DecisionTreeRegressor (決定木) </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
+                <td> SVMのモジュール </td>
+                <td> SVR (SVM) </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
+                <td> アンサンブル学習のモジュール </td>
+                <td> RandomForestRegressor (ランダムフォレスト)<br>AdaBoostRegressor (adaboost決定木)</td>
               </tr>
             </tbody>
           </table>
@@ -142,19 +152,34 @@
             </thead>
             <tbody>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.linear_model.html" target="_blank">sklearn.linear_model</a> </td>
+                <td> 線形回帰のモジュール </td>
+                <td> LogisticRegression (ロジスティック回帰)<br>LogisticRegressionCV (??) </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.tree.html" target="_blank">sklearn.tree</a> </td>
                 <td> 決定木のモジュール </td>
-                <td>  </td>
+                <td> DecisionTreeClassifier (決定木) </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.svm.html" target="_blank">sklearn.svm</a> </td>
                 <td> SVMのモジュール </td>
-                <td> SVC () </td>
+                <td> SVC (SVM)<br>LinearSVC (???) </td>
               </tr>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
-                <td> アンサンブルのモジュール </td>
-                <td> RandomForestClassifier (ランダムフォレスト) </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.ensemble.html" target="_blank">sklearn.ensemble</a> </td>
+                <td> アンサンブル学習のモジュール </td>
+                <td> RandomForestClassifier (ランダムフォレスト)<br>AdaBoostClassifier (adaboost決定木)</td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.neighbors.html" target="_blank">sklearn.neighbors</a> </td>
+                <td> のモジュール </td>
+                <td> NearestNeighbors (???)<br>KNeighborsClassifier (k-最近傍法)<br>RadiusNeighborsClassifier (???)</td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.naive_bayes.html" target="_blank">sklearn.naive_bayes</a> </td>
+                <td> のモジュール </td>
+                <td> GaussianNB (ガウシアンナイーブベイズ)<br>MultinomialNB (多項ナイーブベイズ)<br>BernoulliNB (ベルヌーイナイーブベイズ)</td>
               </tr>
             </tbody>
           </table>
@@ -171,9 +196,9 @@
             </thead>
             <tbody>
               <tr>
-                <td> <a href="https://scikit-learn.org/1.5/api/sklearn.cluster.html" target="_blank">sklearn.cluster</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.cluster.html" target="_blank">sklearn.cluster</a> </td>
                 <td> クラスタリングのモジュール </td>
-                <td> KMeans (k-means)<br>AgglomerativeClustering (---) </td>
+                <td> KMeans (k-means)<br>AgglomerativeClustering (凝集型クラスタリング)<br>MinBatchKMeans (ミニバッチk-means)<br>MeanShift (平均シフト法)<br>DBSCAN (DBSCAN) </td>
               </tr>
             </tbody>
           </table>
@@ -190,9 +215,49 @@
             </thead>
             <tbody>
               <tr>
-                <td> <a href="" target="_blank">sklearn.</a> </td>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.decomposition.html" target="_blank">sklearn.decomposition</a> </td>
                 <td> のモジュール </td>
-                <td>  </td>
+                <td> PCA (主成分分析)<br>PCA (カーネル主成分分析)<br>NMF (非負行列因子分解)<br>TSVD (打ち切り特異値分解)<br></td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.discriminant_analysis.html" target="_blank">sklearn.discriminant_analysis</a> </td>
+                <td> のモジュール </td>
+                <td> LinearDiscriminantAnalysis (線形判別分析)<br> </td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.feature_selection.html" target="_blank">sklearn.feature_selection</a> </td>
+                <td> 特徴量選択のモジュール </td>
+                <td> VarianceThreshold (分散による閾値処理)<br>SelectKBest (???)<br>chi2 (???)<br>f_classif (???)<br>SelectPercentile (???)<br>RFECV (再帰的特徴量除去)<br> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> モデルの評価 </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> モジュール </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> クラス/関数 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.metrics.html" target="_blank">sklearn.metrics</a> </td>
+                <td> モデル評価指標のモジュール </td>
+                <td> roc_curve (ROC曲線)<br>roc_auc_score (AUC)<br>confusion_matrix (混合行列)<br>silhouettte (シルエット係数)<br>make_scorer (独自指標の作成)<br>r2_score (???)<br>classification_report (クラス分類器の評価指標)<br></td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.model_selection.html" target="_blank">sklearn.model_selection</a> </td>
+                <td> ???のモジュール </td>
+                <td> cross_val_score (交差検証)<br>KFold (???)<br>learning_curve (学習曲線)<br>validation_curve (検証曲線)<br></td>
+              </tr>
+              <tr>
+                <td> <a href="https://scikit-learn.org/stable/api/sklearn.calibration.html" target="_blank">sklearn.calibration</a> </td>
+                <td> ???のモジュール </td>
+                <td> CalibratedClassifierCV (???)</td>
               </tr>
             </tbody>
           </table>
