@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> itertools </h2>
-          <p class="blog-post-meta"> 2024/10/05 </p>
+          <p class="blog-post-meta"> 2024/12/14 </p>
           <p> このページでは<a href="https://docs.python.org/ja/3/library/itertools.html" target="_blank">itertools</a>についての説明を行う。</p>
           <hr>
         
@@ -55,19 +55,19 @@
 
           <h2> 組合せイテレータ </h2>
           <p> #デカルト積 (ネストしたforループ) [ 例：("ABCD",repeat=2) → AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD ] </p> 
-          <code> itertools.product(list1,repeat=2) </code> <br>
+          <code> itertools.product(list1, repeat=2) </code> <br>
 
           <br>
           <p> #長さrのタプル列 (重複なしのあらゆる並び)  [ 例：("ABCD",2) → AB AC AD BA BC BD CA CB CD DA DB DC ] </p> 
-          <code> itertools.permutations(list1,r) </code> <br>
+          <code> itertools.permutations(list1, r) </code> <br>
 
           <br>
           <p> #長さrのタプル列 (ソートされた順で重複なし)  [ 例：("ABCD",2) → AB AC AD BC BD CD ] </p> 
-          <code> itertools.combinations(list1,r) </code> <br>
+          <code> itertools.combinations(list1, r) </code> <br>
 
           <br>
           <p> #長さrのタプル列 (ソートされた順で重複あり)  [ 例：("ABCD",2) → AA AB AC AD BB BC BD CC CD DD ] </p> 
-          <code> itertools.combinations_with_replacement(list1,r) </code> <br>
+          <code> itertools.combinations_with_replacement(list1, r) </code> <br>
           <hr>
 
           <h2> 見出し </h2>
