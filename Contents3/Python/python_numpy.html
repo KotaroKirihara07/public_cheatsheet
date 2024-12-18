@@ -37,7 +37,7 @@
 
           <article class="blog-post">
             <h2 class="blog-post-title"> Numpy </h2>
-            <p class="blog-post-meta"> 2024/12/01 </p>
+            <p class="blog-post-meta"> 2024/12/18 </p>
             <p> このページでは<a href="https://numpy.org/ja/" target="_blank">Numpy</a>についての説明を行う。</p>
             <hr>
 
@@ -214,7 +214,17 @@
                 <tr>
                   <td> <code> np.cov(ndarray1, ndarray2) </code> </td>
                   <td> 共分散行列 (対格成分は分散) </td>
-                  <td> var </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.corrcoef(ndarray1, ndarray2) </code> </td>
+                  <td> 相関係数行列 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.unique(ndarray1, return_counts=True) </code> </td>
+                  <td> (ユニークな値を格納したndarray, ユニークな値の登場回数のndarray) </td>
+                  <td> tuple </td>
                 </tr>
               </tbody>
             </table>
@@ -319,6 +329,11 @@
                 <tr>
                   <td> <code> np.tan(ndarray1)</code> </td>
                   <td> ndarray1の各要素の正接 </td>
+                  <td> ndarray </td>
+                </tr>
+                <tr>
+                  <td> <code> np.where(ndarray1 < condition, true_value, false_value) </code> </td>
+                  <td> 条件によって値を分岐させたndarrayを作成する </td>
                   <td> ndarray </td>
                 </tr>
               </tbody>

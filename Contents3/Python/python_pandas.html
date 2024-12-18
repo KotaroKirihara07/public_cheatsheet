@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> pandas </h2>
-        <p class="blog-post-meta"> 2024/12/08 </p>
+        <p class="blog-post-meta"> 2024/12/18 </p>
         <p> このページでは<a href="https://pandas.pydata.org/" target="_blank">pandas</a>の説明を行う。 </p>
         <p> Series : pandasで扱うことのできるデータ形式の一種であり、1次元配列で単一の列からなる表のようなイメージ。</p>
         <p> DataFrame: 行と列からなる表形式の配列データであり、Seriesを複数集めたものというイメージ。</p>
@@ -286,6 +286,16 @@
               <td> <code> df["col1"].astype("データ型名") </code> </td>
               <td> データ型を変換する </td>
               <td> Series </td>
+            </tr>
+            <tr>
+              <td> <code> df["col1"].skew() </code> </td>
+              <td> 歪度 (3次モーメント) </td>
+              <td> float </td>
+            </tr>
+            <tr>
+              <td> <code> df["col1"].kurt() </code> </td>
+              <td> 尖度 (4次モーメント) </td>
+              <td> float </td>
             </tr>
           </tbody>
         </table>
