@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> scikit-learn </h2>
-          <p class="blog-post-meta"> 2024/12/12 </p>
+          <p class="blog-post-meta"> 2024/12/22 </p>
           <p> このページでは<a href="https://scikit-learn.org/stable/index.html" target="_blank">scikit-learn</a>についての説明を行う。 </p>
           <hr>
         
@@ -44,29 +44,31 @@
           <ul>
             <li> 教師あり学習 </li>
             <ul>
-              <li> 回帰 (線形回帰) </li>
+              <li> 回帰 (単回帰、重回帰、ラッソ回帰、リッジ回帰、Elastic Net回帰、多項式回帰、ロバスト回帰、SVR) </li>
               <li> 分類 (SVM、決定木、ランダムフォレスト) </li>
+              <li> アンサンブル学習 (バギング、ブースティング、スタッキング) </li>
             </ul>
             <li> 教師なし学習 </li>
             <ul>
-              <li> クラスタリング (k-means、)</li>
+              <li> クラスタリング </li>
               <ul>
                 <li> 階層的クラスタリング </li>
-                <li> 非階層的クラスタリング </li>
+                <li> 非階層的クラスタリング  (k-means、混合ガウス分布) </li>
               </ul>
-              <li> 次元削減 (主成分分析)</li>
+              <li> 次元削減 (主成分分析、独立成分分析) </li>
             </ul>
             <li> 強化学習 </li>
           </ul>
 
           <p> #手順 </p>
           <ol>
-            <li> データの取得 </li>
+            <li> データの収集 </li>
+            <li> アルゴリズムの選択 </li>
             <li> データの前処理 </li>
-            <li> 訓練データとテストデータへの分割 </li>
-            <li> モデルの選択 </li>
-            <li> 学習 </li>
-            <li> モデルの評価 </li>
+            <li> モデルの学習 </li>
+            <li> 予測結果の検証 </li>
+            <li> 予測結果の評価 </li>
+            <li> ハイパーパラメータの調整 </li>
           </ol>
           <a href="https://scikit-learn.org/stable/machine_learning_map.html" target="_blank"> マップ </a>
           <hr>
