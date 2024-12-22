@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="java_index.html"> Java </a> 
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> java FX </h2>
+          <p class="blog-post-meta"> 2023/12/10 </p>
+          <p> javaFXとはリッチインターネットアプリケーションを作成するためのGUIライブラリである。FXMLとCSSを併用してデザインを記述する。<a href="https://zenn.dev/uinoue/articles/cb93c2d50f9c28" target="_blank">https://zenn.dev/uinoue/articles/cb93c2d50f9c28</a> </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 概要 </h2>
+          <p> ステージ内にシーン。シーン内にペイン。ペインをルートノードとして複数のコントロールがリーフノードして連結している。</p>
+          <hr>
+
+          <h2> ステージ </h2>
+          <p> 画面表示されるウインドウになる最上位のJavaFXコンテナ。ステージはウインドウに対応するクラスで、1つのアプリケーションで複数のステージを開くことができます。なお、アプリケーション起動時にプライマリステージが生成されるので、1つのウインドウだけで処理が完結する場合は新たなステージを生成する必要はありません。 </p> 
+          
+          <h4> <u> Stageクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> javafx.stage.Stage; </code> <br>
+
+          <br>
+          <p> #新しいウインドウを作成する </p>
+          <code> Stage new_Stage = new Stage(); </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>setScene(Scene value)</code> </td>
+                <td> ウインドウに表示するシーンを設定する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code>setTitle(String text)</code> </td>
+                <td> 指定したテキストをウインドウのタイトルに設定する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> show() </code> </td>
+                <td> ウインドウを表示する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> close() </code> </td>
+                <td> ウインドウを閉じる </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> hide() </code> </td>
+                <td> ウインドウを閉じる </td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> シーン </h2>
+          <p> ステージに表示するすべての内容を木構造で保持するコンテナ。シーンは、ステージに表示する内容をシーングラフと呼ばれる木構造で保持します。１つのステージに表示できるシーンは１つだけですが、別のシーンに切り替えることが可能です。 </p> 
+          
+          <h4> <u> Sceneクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> javafx.scene.Scene; </code> <br>
+
+          <br>
+          <p> #シーンを作成する </p>
+          <code> Scene scene = new Scene(vbox); </code>
+          <hr>
+
+          <h2> ペイン </h2>
+          <p> 表示するノードのレイアウトを管理するコンテナ。ペインはレイアウトペインとも呼ばれ、表示するノードのレイアウトを制御します。なお、ノードはシーングラフの構成要素となるもので、ペインとコントロールはノードの下位クラスです。１つのシーンで複数のペインを使用できますが、木構造のルートとなるペインは１つだけです。 </p> 
+
+          <h4> <u> VBoxクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> javafx.scene.layout.VBox; </code> <br>
+
+          <br>
+          <p> #VBoxペインを作成し、作成した部品を配置する </p>
+          <code> VBox vbox = new VBox(label, textField, button); </code> <br>
+
+          <br>
+          <h4> <u> HBoxクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> javafx.scene.layout.HBox; </code> <br>
+
+          <br>
+          <p> #HBoxペインを作成し、作成した部品を配置する </p>
+          <code> HBox hbox = new HBox(label, textField, button); </code> <br>
+          <hr>
+
+          <h2> コントロール </h2>
+          <p> ユーザが画面上で操作できるノード。コントロールは、エンドユーザが画面上で認識して、マウスやキーボードで操作できる部品の総称です。ラベル、ボタン、テキストフィールド、ポップアップリスト、メニューなど、非常に多くの部品があります。１つのペインに複数のコントロールを配置できます。 </p> 
+
+          <h4> <u> Labelクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> import javafx.scene.control.Label; </code> <br>
+
+          <br>
+          <p> #ラベルを作成する </p>
+          <code> Label label = new Label("ラベル名"); </code> <br>
+
+          <br>
+          <p> #指定したテキストをラベルに設定する </p>
+          <code> label.setText(String text); </code> <br>
+
+          <br>
+          <h4> <u> Buttonクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> import javafx.scene.control.Button; </code> <br>
+
+          <br>
+          <p> #ボタンを作成する </p>
+          <code> Button button = new Button("ボタン名"); </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>setText(String text) </code> </td>
+                <td> 指定したテキストをボタンに表示する</td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code>setOnAction(EventHandler&lt;ActionEvent&gt; value)  </code> </td>
+                <td> ボタンがクリックされた際に実行するアクションを設定する</td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #EventHandler </p>
+
+          <p> #ActionEvent </p>
+
+          <br>
+          <h4> <u> TextFieldクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> import javafx.scene.control.TextField; </code> <br>
+
+          <br>
+          <p> #テキストフィールドを作成する </p>
+          <code> TextField textField = new TextField("ここに入力してください");; </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>textField.getText();</code> </td>
+                <td> テキストフィールドに入力されたテキストを取得する </td>
+                <td> String </td>
+              </tr>
+              <tr>
+                <td> <code>textField.setText(String text);</code> </td>
+                <td> 指定したテキストでテキストフィールドを上書きする </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code>setPrefColumnCount(int value);</code> </td>
+                <td> テキストフィールドの優先列数（領域の表示幅を決めるための基準値）を設定する </td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> イベント </h2>
+          <p> 主にユーザの操作によって発生するイベント。エンドユーザがマウスでボタンをクリックしたり、キーボードから文字を入力したりするとイベントが発生します。ボタンやテキストフィールドにイベントハンドラと呼ばれるメソッドを定義しておくことにより、ユーザは発生したイベントを自由に処理できます。 </p> 
+
+          <h4> <u> EventHandlerインタフェース </u> </h4>
+          <p> #import宣言 </p>
+          <code> import javafx.event.EventHandler; </code> <br>
+
+          <br>
+          <h4> <u> ActionEventクラス </u> </h4>
+          <p> #import宣言 </p>
+          <code> import javafx.event.ActionEvent; </code> <br>
+          <hr>
+
+          <h2> テンプレート </h2>
+          <code>
+            <pre>
+import javafx.application.Application;
+import javafx.stage.Stage;
+              
+public class MyApp extends Application {
+              
+  @Override
+  public void start(Stage primaryStage) {
+  
+   // 以下にアプリの内容を記述する
+   primaryStage.show(); // 画面を表示する
+  }
+              
+  public static void main(String[] args) {
+    // アプリを起動する
+    Application.launch(args); 
+  }
+              
+}
+            </pre>
+          </code>
+          <hr>
+
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code></code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
