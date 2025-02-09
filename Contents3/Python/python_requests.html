@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> requests </h2>
-          <p class="blog-post-meta"> 2024/12/08 </p>
-          <p> このページの説明 </p>
+          <p class="blog-post-meta"> 2025/02/09 </p>
+          <p>  </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -44,46 +44,157 @@
           <code> import requests </code> 
           <hr>
 
-
-          <h2> 関数 </h2>
+          <h2> HTTPメソッド </h2>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> 関数 </th>
-                <th scope="col"> HTTPメソッド </th>
+                <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code> requests.get("URL") </code> </td>
                 <td> <code> GET </code> </td>
-                <td> GETリクエストの実行 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code> requests.post("URL") </code> </td>
                 <td> <code> POST </code> </td>
-                <td> POSTリクエストの実行 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code> requests.put() </code> </td>
                 <td> <code> PUT </code> </td>
-                <td> PUTリクエストの実行 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code> requests.head() </code> </td>
                 <td> <code> HEAD </code> </td>
-                <td> HEADリクエストの実行 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code> requests.delete() </code> </td>
                 <td> <code> DELETE </code> </td>
-                <td> DELETEリクエストの実行 </td>
+                <td> </td>
               </tr>
               <tr>
-                <td> <code> requests.patch() </code> </td>
                 <td> <code> PATCH </code> </td>
-                <td> PATCHリクエストの実行 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code> OPTIONS </code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> response </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 属性 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> r.url </code> </td>
+                <td> URL </td>
+              </tr>
+              <tr>
+                <td> <code> r.status_code </code> </td>
+                <td> ステータスコード </td>
+              </tr>
+              <tr>
+                <td> <code> r.text </code> </td>
+                <td> テキスト形式のレスポンスボディ </td>
+              </tr>
+              <tr>
+                <td> <code> r.content </code> </td>
+                <td> バイト形式のレスポンスボディ </td>
+              </tr>
+              <tr>
+                <td> <code> r.encoding </code> </td>
+                <td> エンコーディング </td>
+              </tr>
+              <tr>
+                <td> <code> r.headers </code> </td>
+                <td> レスポンスヘッダ </td>
+              </tr>
+              <tr>
+                <td> <code> r.history </code> </td>
+                <td>  </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> GETメソッド </h2>
+          <p> #GETメソッドの実行 </p>
+          <code> r = requests.get() </code> <br>
+
+          <br>
+          <p> #パラメータ </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> URL </code> </td>
+                <td> URL </td>
+                <td> string </td>
+              </tr>
+              <tr>
+                <td> <code> params </code> </td>
+                <td> パラメータ </td>
+                <td> dict </td>
+              </tr>
+              <tr>
+                <td> <code> headers </code> </td>
+                <td> リクエストヘッダーの追加 </td>
+                <td> dict </td>
+              </tr>
+              <tr>
+                <td> <code> proxies </code> </td>
+                <td> 経由するプロキシサーバの指定 </td>
+                <td> string </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> POSTメソッド </h2>
+          <p> ##POSTメソッドの実行 </p>
+          <code> r = requests.post() </code> <br>
+
+          <br>
+          <p> #パラメータ </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> パラメータ </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> URL </code> </td>
+                <td> URL </td>
+                <td> String </td>
+              </tr>
+              <tr>
+                <td> <code> data </code> </td>
+                <td> dict型のパラメータ </td>
+                <td> dict </td>
+              </tr>
+              <tr>
+                <td> <code> json </code> </td>
+                <td> json型のパラメータ </td>
+                <td> json </td>
               </tr>
             </tbody>
           </table>
