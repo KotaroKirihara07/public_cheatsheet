@@ -19,7 +19,6 @@
 
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
-        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference  </a></li>
       </ul>
     </header>
   </div>
@@ -34,7 +33,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> datetime </h2>
-        <p class="blog-post-meta"> 2024/08/04 </p>
+        <p class="blog-post-meta"> 2025/02/11 </p>
         <p> このページではdatetimeモジュールについての説明を行う。 </p>
         <hr>
         
@@ -244,6 +243,11 @@
         <br>
         <p> #10日後の日付を計算する </p>
         <code> d2 = d + datetime.timedelta(days=10) </code>
+        <hr>
+
+        <h2> timezone型 </h2>
+        <p> #日本時間 </p>
+        <code> tz = datetime.timezone(datetime.timedelta(hours=+9), 'Asia/Tokyo') </code>
         <hr>
     </article>
 </div>

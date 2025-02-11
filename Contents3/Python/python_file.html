@@ -19,7 +19,6 @@
 
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
-        <li class="nav-item"><a href="../../Navigator/ref_material.html" class="nav-link"> Reference  </a></li>
       </ul>
     </header>
   </div>
@@ -34,7 +33,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> ファイル </h2>
-        <p class="blog-post-meta"> 2024/08/18 </p>
+        <p class="blog-post-meta"> 2025/02/11 </p>
         <p> このページではファイルの取り扱い方法についての説明を行う。 </p>
         <hr>
         
@@ -132,12 +131,31 @@
         <br>
         <p> #ファイルを閉じる </p>
         <code> f.close() </code> <br>
+
+        <br>
+        <p> #ファイルの開閉の自動化 (ファイルのclose処理が必要ない) </p>
+        <code> with open("data/example.csv") as f:  </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
         <hr>
        
         <h2>csv</h2>
-        <p> csvを扱うためのモジュール。ただし、pandasを使用した方が便利。</p>
+        <p> csvを扱うための標準モジュール。ただし、pandasを使用した方が便利。ただし、AWS Lambdaを使用する際には、csvの方が楽かもしれない。 </p>
         <p> #モジュールの読み込み </p> 
-        <code> import csv </code>
+        <code> import csv </code> <br>
+
+        <br>
+        <p> #csvの読み込み </p>
+        <code> with open("data/example.csv") as f: </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;reader = csv.reader(f) </code> <br>
+
+        <br>
+        <p> #csvファイルへの書き込み </p>
+        <code> with open("data/example.csv", "w") as f: </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(f) </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#単一行の書き込み </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([0, 1, 2]) </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#複数行の一括書き込み </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer.writerows([[1, 2, 3],[4, 5, 6],[7, 8, 9]])</code> <br>
         <hr>
 
         <h2>json</h2>
