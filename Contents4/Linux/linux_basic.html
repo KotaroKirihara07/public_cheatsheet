@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+    <!-- ヘッダー -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4"> Cheatsheet </span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+
+        <body>
+            <div class="row g-5">
+                <div class="col-md-12">
+                    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                        <a href="linux_index.html"> Linux </a>
+                    </h3>
+
+                    <article class="blog-post">
+                        <h2 class="blog-post-title"> 基本 </h2>
+                        <p class="blog-post-meta"> 2025/02/12 </p>
+                        <p> このページの説明 </p>
+                        <hr>
+
+                        <!-- コンテンツ -->
+                        <h2> ディストリビューション </h2>
+                        <p> 主なLinuxのディストリビューションは「Red Hat系」、「Debian系」の2種類存在する。 </p>
+
+                        <h4> Red Hat系 </h4>
+                        <ul>
+                            <li> Red Hat Enterprise Linux </li>
+                            <li> Cent OS / Cent OS Stream</li>
+                            <li> Fedora </li>
+                            <li> Alma Linux </li>
+                        </ul>
+
+                        <h4> Debian系 </h4>
+                        <ul>
+                            <li> Debian GNU/Linux </li>
+                            <li> Ubuntu </li>
+                        </ul>
+                        <hr>
+
+                        <h2> ユーザ </h2>
+                        <p> Linuxにおけるユーザは「rootユーザ」、「一般ユーザ」に分けられる。 </p>
+
+                        <h4> rootユーザ </h4>
+                        <p> システム管理が可能であるユーザ。</p>
+
+                        <h4> 一般ユーザ </h4>
+                        <p> 操作に制限があるユーザ。</p>
+                        <hr>
+
+                        <h2> ディレクトリ構造 </h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> ディレクトリ名 </th>
+                                    <th scope="col"> 用途 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code> /etc </code> </td>
+                                    <td> 設定ファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /home </code> </td>
+                                    <td> 一般ユーザ用のホームディレクトリ </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /root </code> </td>
+                                    <td> rootユーザ用のホームディレクトリ </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /boot </code> </td>
+                                    <td> 起動に関するファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /bin </code> </td>
+                                    <td> 一般ユーザが実行可能なコマンドの実行ファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /sbin </code> </td>
+                                    <td> rootユーザのみが実行可能なコマンドの実行ファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /lib </code> </td>
+                                    <td> ライブラリファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /proc </code> </td>
+                                    <td> プロセスやカーネルについての情報 </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /dev </code> </td>
+                                    <td> デバイスファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /usr </code> </td>
+                                    <td> インストールされたプログラムやコマンドに関するファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /var </code> </td>
+                                    <td> ログファイルやWeb公開用のドキュメントなど </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /tmp </code> </td>
+                                    <td> 一時的なファイル </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /mnt </code> </td>
+                                    <td> ファイルシステム用のマウントポイント </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> /media </code> </td>
+                                    <td> メディアファイルのマウントポイント </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                    </article>
+                </div>
+            </div>
+
+            <footer class="text-muted py-5">
+                <div class="container">
+                    <hr>
+                    <p class="mb-1"> フッターコメント </p>
+                </div>
+            </footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+
+        </body>
+    </div>
+</main>
+
+</html>
