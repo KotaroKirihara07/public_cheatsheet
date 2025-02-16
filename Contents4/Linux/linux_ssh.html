@@ -47,7 +47,15 @@
 
                         <br>
                         <p> #file.txtを192.168.0.10のホームディレクトリにコピーする </p>
-                        <code> scp file.txt 192.168.0.10:~ </code>
+                        <code> scp file.txt 192.168.0.10:~ </code> <br>
+
+                        <br>
+                        <p> #file1をdir1にコピーする </p>
+                        <code> scp -i ".ssh/key-pair.pem" file1 ec2-user@ec2-??-???-??-???.ap-northeast-1.compute.amazonaws.com:~/dir1/ </code> <br>
+
+                        <br>
+                        <p> #dir1をdir2にコピーする </p>
+                        <code> scp -i ".ssh/key-pair.pem" -r dir1 ec2-user@ec2-??-???-??-???.ap-northeast-1.compute.amazonaws.com:~/dir2/ </code> <br>
                         <hr>
 
                         <h2> ssh </h2>
@@ -65,6 +73,10 @@
                         <br>
                         <p> #192.168.0.10にポート22を指定してSSH接続する </p>
                         <code> ssh -p 22 192.168.0.10 </code> <br>
+
+                        <br>
+                        <p> #EC2インスタンスにSSH接続 </p>
+                        <code> ssh -i ".ssh/key-pair.pem" ec2-user@ec2-??-???-??-??.ap-northeast-1.compute.amazonaws.com </code> <br>
                         <hr>
 
                         <h2> ssh-copy-id </h2>
