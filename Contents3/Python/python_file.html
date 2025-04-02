@@ -32,7 +32,7 @@
     </h3>
 
     <article class="blog-post">
-        <h2 class="blog-post-title"> ファイル </h2>
+        <h2 class="blog-post-title"> file </h2>
         <p class="blog-post-meta"> 2025/02/11 </p>
         <p> このページではファイルの取り扱い方法についての説明を行う。 </p>
         <hr>
@@ -172,6 +172,21 @@
         <p> #辞書形式のデータをJSON形式に変換してファイルに書き込む </p> 
         <code> with open('./file_name.json', 'w') as f: </code> <br>
         <code> &nbsp; json.dump(sample_dict, f, indent=4) </code> <br>
+        <hr>
+
+        <h2> shutil </h2>
+        <p> ファイルやファイルの集まりを操作するためのモジュール。 </p>
+        <p> ファイルのコピー </p>
+        <p> #モジュールの読み込み </p> 
+        <code> import shutil </code> <br>
+
+        <br>
+        <p> #targetディレクトリ直下に"sample.txt"をコピー </p>
+        <code> shutil.copy("../source/sample.txt", "../target/") </code> <br>
+
+        <br>
+        <p> #sample.txtの内容をtest.txtにコピー </p>
+        <code> shutil.copy("../source/sample.txt", "../target/test.txt") </code> <br>
         <hr>
     </article>  
 </div>
