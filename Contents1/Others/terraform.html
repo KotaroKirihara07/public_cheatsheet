@@ -38,27 +38,229 @@
         
           <!-- コンテンツ -->
           <h2> 概要 </h2>
-          <p> 説明 </p>
-          <code> コード </code> 
+          <p> Docker、AWS、GCP、Azureの環境の構築 </p>
+
+          <h4> 用語 </h4>
+          <p> HCL (HashiCorp Configuration Language) : Terraformでの設定ファイルを記述するための言語。 </p>
+          <p> terraform.tfstate : Terraformが構築・管理している対象のインフラの状態を保存するためのファイルであり、ステートファイルと呼ばれる。このファイルを手動で削除したり、編集したりしてはいけない。</p>
           <hr>
 
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
+          <h2> セットアップ </h2>
+          <ol>
+            <li> <a href="https://developer.hashicorp.com/terraform/install" target="_blank"> 公式サイト </a>からバイナリをダウンロードする。or パッケージマネージャーを利用してインストールする。 </li>
+            <li> <code>terraform -v</code>でバージョンを確認する。 </li>
+            <li> <code>terraform -install-autocomplete</code>でタブ補完機能を有効化する。 </li>
+          </ol>
+          <hr>
+
+          <h2> リソースの作成 </h2>
+          <h4> 手順 </h4>
+          <ol>
+            <li> プロジェクトディレクトリを作成して移動する </li>
+            <li> 必要なファイルを作成し、編集する </li>
+            <li> <code>terraform init</code>で初期化を行う </li>
+            <li> <code>terraform plan</code>で構築プランの確認を行う </li>
+            <li> <code>terraform apply</code>で環境の構築を行う </li>
+            <li> <code>terraform destroy</code>で環境の削除を行う </li>
+          </ol>
+
+          <h4> ファイル構成 </h4>
+          <p> ファイル構成は<a href="https://developer.hashicorp.com/terraform/language/style" target="_blank">Terraform公式Style Guide</a>に従う。</p>
+          <code>PROJECT_NAME</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ backend.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ main.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ outputs.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ providers.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ terraform.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ terraform.tfvars</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ variables.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ locals.tf</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;├ override.tf</code> <br>
+          <hr>
+
+          <h2> providers.tf </h2>
+          <p> providerブロックはproviderの設定を記述するためのブロック。</p>
+
+          <h4> AWS用テンプレート </h4>
+          <code># Configure the AWS Provider</code> <br>
+          <code>provider "aws" {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;region = "ap-northeast-1"</code> <br>
+          <code>}</code> <br>
+          <hr>
+
+
+          <h2> terraform.tf </h2>
+          <p> terraformブロックはTerraform自体の設定や依存関係の設定を記述するブロック。</p>
+
+          <h4> AWS用テンプレート </h4>
+          <code>terraform {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;required_providers {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aws = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source = "hashicorp/aws"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version = "~> 5.0"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
+          <code>}</code> <br>
+          <hr>
+
+          
+          <h2> terraform.tfvars </h2>
+          <p> 変数に具体的な値を設定するためのファイル。 </p>
+          <code>VARIABLE_NAME_1 = "hello"</code> <br>
+          <code>VARIABLE_NAME_2 = 100</code> <br>
+          <code>VARIABLE_NAME_3 = true</code> <br>
+          <hr>
+
+
+          <h2> variables.tf </h2>
+          <p> 変数の定義を行うためのファイル。 </p>
+          <code>variable "VARIABLE_NAME_1" {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#変数の型 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;type = string|number|bool|list(&lt;TYPE&gt;)|set(&lt;TYPE&gt;)|map(&lt;TYPE&gt;)|tuple([&lt;TYPE&gt;, ...])|object({&lt;ATTR NAME&gt; = &lt;TYPE&gt;, ... }) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#変数の説明 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;description = "The description of the variable." </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#デフォルト値 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;default = </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#値のバリデーション </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;validation = </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#センシティブな値かどうかのフラグ </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;sensitive = true|false </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#nullを許容するかどうかのフラグ </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;nullable = true|false </code> <br>
+          <code>}</code> <br>
+          <hr>
+
+
+          <h2> outputs.tf </h2>
+          <p> 説明-------------------- </p>
+          <code>output "VALUE_NAME_1" {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;description = "The description of the value" </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;value = </code> <br>
+          <code>}</code> <br>
+          <hr>
+
+          <h2> main.tf </h2>
+          <p> 説明----------------------------- </p>
+          <code>#resourceブロック : 個々のインフラオブジェクトの設定を記述するためのブロック</code> <br>
+          <code>resource "RESOURCE_TYPE_NAME" "LOCAL_RESOURCE_NAME" {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY1 = VALUE1 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY2 = VALUE2 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY3 = VALUE3 </code> <br>
+          <code>}</code>
+          <hr>
+
+          <h2> Terraformの主要なコマンド一覧 </h2>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> メソッド </th>
+                <th scope="col"> コマンド </th>
                 <th scope="col"> 説明 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code></code> </td>
+                <td> <code>terraform init</code> </td>
+                <td> 作業ディレクトリの初期化 </td>
+              </tr>
+              <tr>
+                <td> <code>terraform plan</code> </td>
                 <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform apply</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform destroy </code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform validate</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform console</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform fmt</code> </td>
+                <td> HCLを標準スタイルに整形する </td>
+              </tr>
+              <tr>
+                <td> <code>terraform import</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform login</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform refresh</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform state</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform test</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>terraform -v</code> </td>
+                <td> バージョンを確認する </td>
+              </tr>
+              <tr>
+                <td> <code>terraform -help</code> </td>
+                <td> コマンドを確認する </td>
               </tr>
             </tbody>
           </table>
-          <hr>    
+          <hr>
+
+          <h2> Providers </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> provider </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> リンク </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> AWS </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank">AWS Provider公式ドキュメント</a> </td>
+              </tr>
+              <tr>
+                <td> Azure </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs" target="_blank">Azure Provider公式ドキュメント</a> </td>
+              </tr>
+              <tr>
+                <td> GCP </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs" target="_blank">Terraform provider for Google Cloud公式ドキュメント</a> </td>
+              </tr>
+              <tr>
+                <td> Kubernetes </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs" target="_blank">Kubernetes Provider公式ドキュメント</a> </td>
+              </tr>
+              <tr>
+                <td> Docker </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs" target="_blank">Docker Provider公式ドキュメント</a> </td>
+              </tr>
+              <tr>
+                <td> Random </td>
+                <td> 説明</td>
+                <td> <a href="https://registry.terraform.io/providers/hashicorp/random/latest/docs" target="_blank">Random Provider公式ドキュメント</a> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
         </article>
       </div>
     </div>
