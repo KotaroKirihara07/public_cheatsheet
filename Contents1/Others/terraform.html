@@ -32,19 +32,10 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Terraform </h2>
-          <p class="blog-post-meta"> 2025/04/26 </p>
-          <p> ---- </p>
+          <p class="blog-post-meta"> 2025/05/02 </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> 概要 </h2>
-          <p> Docker、AWS、GCP、Azureの環境の構築 </p>
-
-          <h4> 用語 </h4>
-          <p> HCL (HashiCorp Configuration Language) : Terraformでの設定ファイルを記述するための言語。 </p>
-          <p> terraform.tfstate : Terraformが構築・管理している対象のインフラの状態を保存するためのファイルであり、ステートファイルと呼ばれる。このファイルを手動で削除したり、編集したりしてはいけない。</p>
-          <hr>
-
           <h2> セットアップ </h2>
           <ol>
             <li> <a href="https://developer.hashicorp.com/terraform/install" target="_blank"> 公式サイト </a>からバイナリをダウンロードする。or パッケージマネージャーを利用してインストールする。 </li>
@@ -85,6 +76,10 @@
           <code># Configure the AWS Provider</code> <br>
           <code>provider "aws" {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;region = "ap-northeast-1"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#AWS CLI設定ファイルを利用して権限を渡す</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;shared_config_files = ["~/.aws/config"]</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;shared_credentials_files = ["~/.aws/credentials"]</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;profile = "PROFILE_NAME"</code> <br>
           <code>}</code> <br>
           <hr>
 
@@ -132,7 +127,7 @@
 
 
           <h2> outputs.tf </h2>
-          <p> 説明-------------------- </p>
+          <p> 出力する変数の定義を行うためのファイル。 </p>
           <code>output "VALUE_NAME_1" {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;description = "The description of the value" </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;value = </code> <br>
@@ -140,12 +135,23 @@
           <hr>
 
           <h2> main.tf </h2>
-          <p> 説明----------------------------- </p>
+          <p> 構築するリソース情報を定義するためのファイル。 </p>
           <code>#resourceブロック : 個々のインフラオブジェクトの設定を記述するためのブロック</code> <br>
           <code>resource "RESOURCE_TYPE_NAME" "LOCAL_RESOURCE_NAME" {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY1 = VALUE1 </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY2 = VALUE2 </code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY3 = VALUE3 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#「terraform.tfvars」で設定した変数の使用 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY3 = var.VARIABLE_NAME_3 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY4 = "${var.PREFIX}-VALUE4" </code> <br>
+          <code>}</code>
+          <hr>
+
+          <h2> locals.tf </h2>
+          <p> 式や関数を使用した変数の設定を行うためのファイル。 </p>
+          <p> <a href="https://developer.hashicorp.com/terraform/language/functions" target="_blank"> Built-in Functions </a> </p>
+          <code>locals {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY1 = max(var.num1, var.num2, var.num3) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY2 = "${var.PREFIX}-VALUE2" </code> <br>
           <code>}</code>
           <hr>
 
@@ -160,27 +166,31 @@
             <tbody>
               <tr>
                 <td> <code>terraform init</code> </td>
-                <td> 作業ディレクトリの初期化 </td>
+                <td> 初期化処理の実行 </td>
               </tr>
               <tr>
                 <td> <code>terraform plan</code> </td>
-                <td> </td>
+                <td> 実行プランの表示 </td>
               </tr>
               <tr>
                 <td> <code>terraform apply</code> </td>
-                <td> </td>
+                <td> 環境を構築 </td>
+              </tr>
+              <tr>
+                <td> <code>terraform output</code> </td>
+                <td> 「outputs.tf」に記述した変数の値を出力する </td>
               </tr>
               <tr>
                 <td> <code>terraform destroy </code> </td>
-                <td> </td>
+                <td> 環境を削除 </td>
               </tr>
               <tr>
                 <td> <code>terraform validate</code> </td>
-                <td> </td>
+                <td> configが正しいか確認 </td>
               </tr>
               <tr>
                 <td> <code>terraform console</code> </td>
-                <td> </td>
+                <td> Terraformの文法を対話的に実行して試す </td>
               </tr>
               <tr>
                 <td> <code>terraform fmt</code> </td>
@@ -188,23 +198,23 @@
               </tr>
               <tr>
                 <td> <code>terraform import</code> </td>
-                <td> </td>
+                <td> 既存のリソースをTerraformリソースに紐づける </td>
               </tr>
               <tr>
                 <td> <code>terraform login</code> </td>
-                <td> </td>
+                <td> HCP Terraformにログインする </td>
               </tr>
               <tr>
                 <td> <code>terraform refresh</code> </td>
-                <td> </td>
+                <td> リモートの状態と整合性をとるようにステートファイルを更新 </td>
               </tr>
               <tr>
                 <td> <code>terraform state</code> </td>
-                <td> </td>
+                <td> ステートファイルの操作 </td>
               </tr>
               <tr>
                 <td> <code>terraform test</code> </td>
-                <td> </td>
+                <td> Terraformモジュールのテストを実行 </td>
               </tr>
               <tr>
                 <td> <code>terraform -v</code> </td>
@@ -260,6 +270,22 @@
               </tr>
             </tbody>
           </table>
+          <hr>
+
+          <h2> モジュール </h2>
+          <p> <a href="https://developer.hashicorp.com/terraform/tutorials/modules/module" target="_blank"> Modules overview </a> </p>
+          <hr>
+
+          <h2> HCP Terraform </h2>
+          <p> <a href="https://developer.hashicorp.com/terraform/cloud-docs" target="_blank"> What is HCP Terraform? </a> </p>
+          <p> HCP(HashiCorp Cloud Platform) TerraformはHashiCorpが提供するマネージドサービス。</p>
+          <ul>
+            <li> ステートファイルの共有と管理 </li>
+            <li> Terraformコードのリモート実行 </li>
+            <li> Gitとの連携 </li>
+            <li> パスワードやクレデンシャルなどの管理 </li>
+          </ul>
+          <p> が可能。</p>
           <hr>
         </article>
       </div>
