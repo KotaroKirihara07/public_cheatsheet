@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="../Others/other_index.html"> Others </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> DB </h2>
+          <p class="blog-post-meta"> 2025/05/05 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 基本 </h2>
+          <p> #設計の分類と順番 </p> 
+          <ol>
+            <li> 論理設計 </li>
+            <p> 正規化やER図を用いたモデル設計。概念スキーマの設計。 </p>
+
+            <li> 物理設計 </li>
+            <p> サーバやストレージ等の物理的なハードウェアレベルの設計。内部スキーマの設計。 </p>
+
+            <li> 実装設計 </li>
+            <p> 特定のデータベース製品における具体的な構築の手順の決定。 </p>
+          </ol>
+
+          <p> #3層スキーマ </p>
+          <p> データの独立性を保証するための仕組み。内部スキーマと外部スキーマが互いに直接影響を及ぼしあわないようするために概念スキーマが存在する。</p>
+          <ul>
+            <li> 外部スキーマ </li>
+            <p> システム利用者から見える機能等を定義するスキーマ。ビューが対象。 </p>
+
+            <li> 概念スキーマ </li>
+            <p> データベースに保持するデータの要素やデータ同士の関係を記述するスキーマ。テーブルが対象。 </p>
+
+            <li> 内部スキーマ </li>
+            <p> DBMSにどのように格納するか定義するスキーマ。ファイルが対象。 </p>
+          </ul>
+          <hr>
+
+          <h2> 論理設計 </h2>
+          <p> 概念スキーマを定義する設計。 </p>
+          <ol>
+            <li> エンティティの抽出 </li>
+            <p> エンティティ (実体)を抽出する。つまり、テーブル名となり得るものを挙げる。 </p>
+
+            <li> エンティティの定義 </li>
+            <p> エンティティの属性や主キーなどを定義する。 </p>
+            
+            
+            <li> 正規化 </li>
+            <p> エンティティのフォーマットを整理する。無損失分解である第3正規形に到達すれば十分。 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 正規形 </th>
+                  <th scope="col"> 状態 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> 第1正規形 </td>
+                  <td> 一つのセルに一つの値のみ含む状態 </td>
+                </tr>
+                <tr>
+                  <td> 第2正規形 </td>
+                  <td> 主キーの一部から非キー属性への関数従属(部分関数従属)が解消された状態 </td>
+                </tr>
+                <tr>
+                  <td> 第3正規形 </td>
+                  <td> 非キー属性から非キー属性への関数従属(推移的関数従属)が解消された状態 </td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <li> ER図の作成 </li>
+            <p> --- </p>
+          </ol>
+          <hr>
+
+          <h2> 物理設計 </h2>
+          <p> 内部スキーマを定義する設計。 </p>
+          <ol>
+            <li> テーブル定義 </li>
+            <p> 論理設計のアウトプットをもとにテーブルを定義する。 </p>
+
+            <li> インデックス定義 </li>
+            <p> </p>
+
+            <li> ハードウェアのサイジング </li>
+            <p> 必要なストレージの容量、ストレージのディスクI/O性能、CPUの性能、メモリの性能を決定する。</p>
+
+            <li> ストレージの冗長構成決定 </li>
+            <p> 求められる性能と信頼性から、RAIDのレベルとハードディスクの数を決定する。 </p>
+
+            <li> ファイルの物理配置決定 </li>
+            <p> データファイル、インデックスファイル、システムファイル、一時ファイル、ログファイルをどのように配置するか決定する。 </p>
+          </ol>
+          <hr>
+
+          <h2> バックアップ設計 </h2>
+          <p> #バックアップ方式 </p> 
+          <ul>
+            <li> フルバックアップ </li>
+            <p> --- </p>
+
+            <li> 差分バックアップ </li>
+            <p> --- </p>
+
+            <li> 増分バックアップ </li>
+            <p> --- </p>
+          </ul> 
+          <hr>
+
+          <h2> リカバリ設計 </h2>
+          <p> #--- </p> 
+          <ul>
+            <li> リカバリ </li>
+            <p> --- </p>
+
+            <li> リストア </li>
+            <p> --- </p>
+
+            <li> ロールフォワード </li>
+            <p> --- </p>
+          </ul> 
+          <hr>
+
+          <h2> DBMSの機能 </h2>
+          <h4> 整合性制約 </h4> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 制約 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> 一意性制約 </td>
+                <td> テーブル内の指定した列または列の組み合わせが一意である </td>
+              </tr>
+              <tr>
+                <td> 参照制約 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> NOT NULL制約 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 存在制約 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 更新制約 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 形式制約 (ドメイン制約) </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 検査制約 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 一般制約 </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> セキュリティ管理 </h4> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 制御 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> アクセス権限による制御 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> ビューによる制御 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> ロールによる制御 </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> トランザクション管理 </h4> 
+          <p> 同時実行制御 : </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 制御方法 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> ロック制御 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 時刻印制御 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 楽観的制御 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> トランザクションスケジューリング </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 多版同時実行制御 (MVCC : Multi-Version Concurrency Control) </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> 障害回復管理 </h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 障害 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> トランザクション障害 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> システム障害 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 媒体障害 </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> 人的障害 </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code></code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
