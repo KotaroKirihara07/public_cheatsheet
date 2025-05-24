@@ -140,9 +140,13 @@
           <code>resource "RESOURCE_TYPE_NAME" "LOCAL_RESOURCE_NAME" {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY1 = VALUE1 </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY2 = VALUE2 </code> <br>
+          <code> </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;#「terraform.tfvars」で設定した変数の使用 </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY3 = var.VARIABLE_NAME_3 </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;KEY4 = "${var.PREFIX}-VALUE4" </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#記述したリソースの作成完了後にこのリソースを作成する </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;depends_on = [RESOURCE_TYPE_NAME.LOCAL_RESOURCE_NAME]</code> <br>
           <code>}</code>
           <hr>
 
@@ -267,6 +271,11 @@
               </tr>
             </tbody>
           </table>
+          <hr>
+
+          <h2> Expressions </h2>
+          <p> Terraformにおける変数、for文、if文などの扱い </p>
+          <p> <a href="https://developer.hashicorp.com/terraform/language/expressions" target="_blank"> Expressions </a> </p>
           <hr>
 
           <h2> モジュール </h2>
