@@ -32,7 +32,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Snowflake </h2>
-          <p class="blog-post-meta"> 2025/05/15 </p>
+          <p class="blog-post-meta"> 2025/05/25 </p>
           <p> <a href="https://docs.snowflake.com/ja/guides" target="_blank"> 公式ユーザーガイド </a> </p>
           <hr>
         
@@ -40,98 +40,6 @@
           <h2> 見出し </h2>
           <p> 説明 </p> 
           <code> コード </code> 
-          <hr>
-
-          <h2> 実証環境の作成 </h2>
-          <code>#データベースの作成</code> <br>
-          <code>CREATE DATABASE IF NOT EXISTS tech2025_database; </code> <br>
-          <code>  </code> <br>
-          <code>#スキーマの作成</code> <br>
-          <code>CREATE SCHEMA IF NOT EXISTS tech2025_database.tech2025_schema;</code> <br>
-          <code>  </code> <br>
-          <code>#テーブルの作成</code> <br>
-          <code>CREATE TABLE IF NOT EXISTS tech2025_database.tech2025_schema.tech2025_table( </code> <br>
-          <code>&nbsp;&nbsp;id INT PRIMARY KEY, </code> <br>
-          <code>&nbsp;&nbsp;name VARCHAR(100) </code> <br>
-          <code>&nbsp;&nbsp;score INT </code> <br>
-          <code>); </code> <br>
-          <code>  </code> <br>
-          <code>#ウェアハウスの作成</code> <br>
-          <code>CREATE WAREHOUSE IF NOT EXISTS tech2025_WH </code> <br>
-          <code>&nbsp;&nbsp;WAREHOUSE_TYPE = STANDARD</code> <br>
-          <code>&nbsp;&nbsp;WAREHOUSE_SIZE = XSMALL</code> <br>
-          <code>&nbsp;&nbsp;INITIALLY_SUSPENDED = TRUE;</code> <br>
-          <code>  </code> <br>
-          <code>#ロールの作成</code> <br>
-          <code>CREATE DATABASE ROLE IF NOT EXISTS tech2025_dbrole;</code> <br>
-          <code>  </code> <br>
-          <code>#ロールに権限を付与</code> <br>
-          <code>GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA tech2025_database.tech2025_schema to ROLE tech2025_dbrole;</code> <br>
-          <code>  </code> <br>
-          <code>#ネットワークポリシーの作成</code> <br>
-          <code>CREATE NETWORK POLICY IF NOT EXISTS tech2025_nw_policy</code> <br>
-          <code>&nbsp;&nbsp;ALLOWED_IP_LIST = ([192.168.100.0/32]);</code> <br>
-          <code>  </code> <br>
-          <code>#PERSON USERの作成</code> <br>
-          <code>CREATE USER IF NOT EXISTS tech2025_person_user</code> <br>
-          <code>&nbsp;&nbsp;PASSWORD = ''</code> <br>
-          <code>&nbsp;&nbsp;MUST_CHANGE_PASSWORD = FALSE</code> <br>
-          <code>&nbsp;&nbsp;DISABLED = FALSE</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_WAREHOUSE = tech2025_WH</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_NAMESPACE = tech2025_database.tech2025_schema</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_ROLE = tech2025_dbrole</code> <br>
-          <code>&nbsp;&nbsp;TYPE = PERSON;</code> <br>
-          <code>&nbsp;&nbsp;NETWORK_POLICY = tech2025_nw_policy;</code> <br>
-          <code>  </code> <br>
-          <code>#PERSON USERにロールを付与する</code> <br>
-          <code>GRANT ROLE tech2025_dbrole TO USER tech2025_person_user;</code> <br>
-          <code>  </code> <br>
-          <code>#SERVICE USERの作成</code> <br>
-          <code>CREATE USER IF NOT EXISTS tech2025_service_user</code> <br>
-          <code>&nbsp;&nbsp;DISABLED = FALSE</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_WAREHOUSE = tech2025_WH</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_NAMESPACE = tech2025_database.tech2025_schema</code> <br>
-          <code>&nbsp;&nbsp;DEFAULT_ROLE = tech2025_dbrole</code> <br>
-          <code>&nbsp;&nbsp;RSA_PUBLIC_KEY = </code> <br>
-          <code>&nbsp;&nbsp;RSA_PUBLIC_KEY_FP =</code> <br>
-          <code>&nbsp;&nbsp;TYPE = SERVICE;</code> <br>
-          <code>&nbsp;&nbsp;NETWORK_POLICY = tech2025_nw_policy;</code> <br>
-          <code>  </code> <br>
-          <code>#SERVICE USERにロールを付与する</code> <br>
-          <code>GRANT ROLE tech2025_dbrole TO USER tech2025_service_user;</code> <br>
-          <code>  </code> <br>
-          <code>#データの登録</code> <br>
-          <code>INSERT INTO tech2025_table VALUES</code> <br>
-          <code>&nbsp;&nbsp;(1,'a-001',10),</code> <br>
-          <code>&nbsp;&nbsp;(2,'a-002',20),</code> <br>
-          <code>&nbsp;&nbsp;(3,'a-003',30),</code> <br>
-          <code>&nbsp;&nbsp;(4,'a-004',40),</code> <br>
-          <code>&nbsp;&nbsp;(5,'a-005',50),</code> <br>
-          <code>&nbsp;&nbsp;(6,'a-006',60),</code> <br>
-          <code>&nbsp;&nbsp;(7,'a-007',70),</code> <br>
-          <code>&nbsp;&nbsp;(8,'a-008',80),</code> <br>
-          <code>&nbsp;&nbsp;(9,'a-009',90),</code> <br>
-          <code>&nbsp;&nbsp;(10,'a-010',100);</code> <br>
-          <hr>
-
-          <h2> 実証環境の削除 </h2>
-          <code>#ネットワークポリシーの削除</code> <br>
-          <code>DROP NETWORK POLICY IF EXISTS tech2025_nw_policy;</code> <br>
-          <code> </code> <br>
-          <code>#ロールの削除</code> <br>
-          <code>DROP DATABASE ROLE IF EXISTS tech2025_dbrole;</code> <br>
-          <code>  </code> <br>
-          <code>#ウェアハウスの削除</code> <br>
-          <code>DROP WAREHOUSE IF EXISTS tech2025_WH;</code> <br>
-          <code>  </code> <br>
-          <code>#テーブルの削除</code> <br>
-          <code>DROP TABLE IF EXISTS tech2025_database.tech2025_schema.tech2025_table CASCADE;</code> <br>
-          <code>  </code> <br>
-          <code>#スキーマの削除</code> <br>
-          <code>DROP SCHEMA IF EXISTS tech2025_schema CASCADE;</code> <br>
-          <code>  </code> <br>
-          <code>#データベースの削除</code> <br>
-          <code>DROP DATABASE IF EXISTS tech2025_database CASCADE;</code> <br>
           <hr>
 
           <h2> 見出し </h2>
