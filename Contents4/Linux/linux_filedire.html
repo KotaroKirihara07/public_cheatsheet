@@ -36,9 +36,18 @@
 
                     <article class="blog-post">
                         <h2 class="blog-post-title"> file/directory </h2>
-                        <p class="blog-post-meta"> 2025/02/12 </p>
+                        <p class="blog-post-meta"> 2025/05/25 </p>
                         <p> このページの説明 </p>
-                        <p> <a href="#awk"> awk </a>、<a href="#bzip2"> bzip2 </a>、<a href="#cat"> cat </a>、<a href="#cd"> cd </a>、<a href="#cp"> cp </a>、<a href="#cut"> cut </a>、<a href="#diff"> diff </a>、<a href="#find"> find </a>、<a href="#gedit"> gedit </a>、<a href="#grep"> grep </a>、<a href="#gzip"> gzip </a>、<a href="#head"> head </a>、<a href="#less"> less </a>、<a href="#locate"> locate </a>、<a href="#ls"> ls </a>、<a href="#mkdir"> mkdir </a>、<a href="#mv"> mv </a>、<a href="#pwd"> pwd </a>、<a href="#rm"> rm </a>、<a href="#rmdir"> rmdir </a>、<a href="#sed"> sed </a>、<a href="#sort"> sort </a>、<a href="#tail"> tail </a>、<a href="#tar"> tar </a>、<a href="#touch"> touch </a>、<a href="#tr"> tr </a>、<a href="#tree"> tree </a>、<a href="#unique"> unique </a>、<a href="#updatedb"> updatedb </a>、<a href="#wc"> wc </a>、<a href="#zip"> zip </a> </p>
+                        <p> <a href="#awk"> awk </a>、<a href="#bzip2"> bzip2 </a>、<a href="#cat"> cat </a>、<a
+                                href="#cd"> cd </a>、<a href="#cp"> cp </a>、<a href="#cut"> cut </a>、<a href="#diff">
+                                diff </a>、<a href="#find"> find </a>、<a href="#gedit"> gedit </a>、<a href="#grep"> grep
+                            </a>、<a href="#gzip"> gzip </a>、<a href="#head"> head </a>、<a href="#less"> less </a>、<a
+                                href="#locate"> locate </a>、<a href="#ls"> ls </a>、<a href="#mkdir"> mkdir </a>、<a
+                                href="#mv"> mv </a>、<a href="#pwd"> pwd </a>、<a href="#rm"> rm </a>、<a href="#rmdir">
+                                rmdir </a>、<a href="#sed"> sed </a>、<a href="#sort"> sort </a>、<a href="#tail"> tail
+                            </a>、<a href="#tar"> tar </a>、<a href="#touch"> touch </a>、<a href="#tr"> tr </a>、<a
+                                href="#tree"> tree </a>、<a href="#unique"> unique </a>、<a href="#updatedb"> updatedb
+                            </a>、<a href="#wc"> wc </a>、<a href="#zip"> zip </a> </p>
                         <hr>
 
                         <!-- コンテンツ -->
@@ -54,7 +63,7 @@
 
                         <h2 id="bzip2"> bzip2 </h2>
                         <p> ファイルの圧縮, 展開するためのコマンド。 </p>
-                        <code> bzip2 [オプション] <圧縮元ファイル>  </code> <br>
+                        <code> bzip2 [オプション] <ファイル/ディレクトリ>  </code> <br>
 
                         <br>
                         <p> #圧縮する </p>
@@ -71,32 +80,20 @@
 
                         <br>
                         <p> #ファイルの内容を表示 </p>
-                        <code> cat tetx.txt </code> <br>
+                        <code> cat text.txt </code> <br>
 
                         <br>
                         <p> #行数付きでファイルの内容を表示 </p>
-                        <code> cat -n tetx.txt </code> <br>
+                        <code> cat -n text.txt </code> <br>
 
                         <br>
-                        <p> #ヘルプを表示 </p>
-                        <code> cat --help </code>
+                        <p> #表示した内容を他のファイルの末尾に書き込む </p>
+                        <code> cat text1.txt >> text2.txt </code>
                         <hr>
 
                         <h2 id="cd"> cd </h2>
                         <p> ディレクトリを変更するためのコマンド。 </p>
                         <code> cd <ディレクトリ名> </code> <br>
-
-                        <br>
-                        <p> #一つ上の階層へ移動 </p>
-                        <code> cd .. </code> <br>
-
-                        <br>
-                        <p> #特定のディレクトリに移動する </p>
-                        <code> cd /home/usr/aaa </code> <br>
-
-                        <br>
-                        <p> #ホームディレクトリへ移動する </p>
-                        <code> cd ~ </code>
                         <hr>
 
                         <h2 id="cp"> cp </h2>
@@ -136,10 +133,6 @@
                         <h2 id="diff"> diff </h2>
                         <p> ファイルの差分を表示するためのコマンド。 </p>
                         <code> diff [オプション] <比較元ファイル> <比較先ファイル> </code> <br>
-
-                        <br>
-                        <p> #差分を表示 </p>
-                        <code> diff file1 file2 </code>
                         <hr>
 
                         <h2 id="find"> find </h2>
@@ -158,10 +151,6 @@
                         <h2 id="gedit"> gedit </h2>
                         <p> ファイルを編集するためのコマンド。 </p>
                         <code> gedit <ファイル名> </code> <br>
-
-                        <br>
-                        <p> #ファイルの編集 </p>
-                        <code> gedit text.txt </code>
                         <hr>
 
                         <h2 id="grep"> grep </h2>
@@ -207,7 +196,7 @@
 
                         <h2 id="gzip"> gzip </h2>
                         <p> ファイルの圧縮, 展開をするためのコマンド。 </p>
-                        <code> gzip [オプション] <圧縮元ファイル> </code> <br>
+                        <code> gzip [オプション] <ファイル/ディレクトリ> </code> <br>
 
                         <br>
                         <p> #圧縮する </p>
@@ -250,20 +239,24 @@
                         <code> ls [オプション] [ディレクトリ/ファイル] </code> <br>
 
                         <br>
-                        <p> #直下のファイル名,ディレクトリ名を表示する </p>
-                        <code> ls </code> <br>
-
-                        <br>
-                        <p> #隠しファイルも表示 </p>
-                        <code> ls -a </code> <br>
-
-                        <br>
-                        <p> #ファイル種別の表示 </p>
-                        <code> ls -F </code> <br>
-
-                        <br>
-                        <p> #特定の行まで表示 </p>
-                        <code> ls -w 30 </code>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> オプション </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code>-a</code> </td>
+                                    <td> 隠しファイルを含むすべてのディレクトリ/ファイルを表示</td>
+                                </tr>
+                                <tr>
+                                    <td> <code>-F</code> </td>
+                                    <td> ファイル種別の表示 </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <hr>
 
                         <h2 id="mkdir"> mkdir </h2>
@@ -271,12 +264,20 @@
                         <code> mkdir [オプション] <作成するディレクトリ> </code> <br>
 
                         <br>
-                        <p> #ディレクトリの作成 </p>
-                        <code> mkdir sample </code> <br>
-
-                        <br>
-                        <p> #途中のディレクトリとともに新しいディレクトリを作成する </p>
-                        <code> mkdir -p sample1/sample2 </code>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> オプション </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code>-p</code> </td>
+                                    <td> 途中のディレクトリとともに新しいディレクトリを作成</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <hr>
 
                         <h2 id="mv"> mv </h2>
@@ -307,44 +308,36 @@
                         <h2 id="pwd"> pwd </h2>
                         <p> 現在のディレクトリを表示するためのコマンド。 </p>
                         <code> pwd </code> <br>
-
-                        <br>
-                        <p> #現在のディレクトリを表示 </p>
-                        <code> pwd </code>
                         <hr>
 
                         <h2 id="rm"> rm </h2>
                         <p> ファイル,ディレクトリ削除のためのコマンド。 </p>
-                        <code> rm [オプション] <削除するファイル,ディレクトリ> <削除するファイル,ディレクトリ> ...  </code> <br>
+                        <code> rm [オプション] <削除するファイル/ディレクトリ> <削除するファイル/ディレクトリ> ...  </code> <br>
 
                         <br>
-                        <p> #ファイルの削除 </p>
-                        <code> rm text.txt </code> <br>
-
-                        <br>
-                        <p> #複数ファイルの削除 </p>
-                        <code> rm text1.txt text2.txt text3.txt </code> <br>
-
-                        <br>
-                        <p> #特定の拡張子をもつファイルの削除 </p>
-                        <code> rm *.html </code> <br>
-
-                        <br>
-                        <p> #ディレクトリの削除 </p>
-                        <code> rm -r sample </code> <br>
-
-                        <br>
-                        <p> #確認した後ファイルを削除 </p>
-                        <code> rm -i file1.txt </code>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> オプション </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code>-r</code> </td>
+                                    <td> ディレクトリを削除 </td>
+                                </tr>
+                                <tr>
+                                    <td> <code>-i</code> </td>
+                                    <td> 確認後にファイルを削除 </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <hr>
 
                         <h2 id="rmdir"> rmdir </h2>
                         <p> 空のディレクトリを削除するためのコマンド。 </p>
                         <code> rmdir <ディレクトリ名> </code> <br>
-
-                        <br>
-                        <p> #空のディレクトリの削除 </p>
-                        <code> rmdir sample </code>
                         <hr>
 
                         <h2 id="sed"> sed </h2>
@@ -381,16 +374,24 @@
                         <code> sort [オプション] <ファイル名> </code> <br>
 
                         <br>
-                        <p> #アルファベット順に並べる </p>
-                        <code> sort file1 </code> <br>
-
-                        <br>
-                        <p> #数値順に並べる </p>
-                        <code> sort -n file1 </code> <br>
-
-                        <br>
-                        <p> #逆順に並べる </p>
-                        <code> sort -r file1 </code>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> オプション </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code>-n</code> </td>
+                                    <td> 数値順に並べる </td>
+                                </tr>
+                                <tr>
+                                    <td> <code>-r</code> </td>
+                                    <td> 逆順に並べる </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <hr>
 
                         <h2 id="tail"> tail </h2>
@@ -430,14 +431,6 @@
                         <h2 id="touch"> touch </h2>
                         <p> ファイル作成のためのコマンド。 </p>
                         <code> touch <新しいファイル名1> <新しいファイル名2> ... </code> <br>
-
-                        <br>
-                        <p> #新しいファイルの作成 </p>
-                        <code> touch newfile.txt </code> <br>
-
-                        <br>
-                        <p> #複数の新しいファイルの作成 </p>
-                        <code> touch newfile1.txt newfile2.txt </code>
                         <hr>
 
                         <h2 id="tr"> tr </h2>
