@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> psycopg2 </h2>
-          <p class="blog-post-meta"> 2024/12/08 </p>
-          <p> psycopg2はPostgreSQLへの接続モジュール。 </p>
+          <p class="blog-post-meta"> 2025/06/01 </p>
+          <p> <a href="https://www.psycopg.org/docs/index.html" target="_blank">psycopg2</a>はPostgreSQLへの接続モジュール。</p>
           <hr>
         
           <!-- コンテンツ -->
@@ -82,6 +82,10 @@
           <hr>
 
           <h2> コネクション操作 </h2>
+          <p> #コネクションの確立 </p>
+          <code> conn = psycopg2.connect(**con_info) </code> <br>
+
+          <br>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -90,10 +94,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td> <code> psycopg2.connect(**con_info) </code></td>
-                <td> 接続 </td>
-              </tr>
               <tr>
                 <td> <code> conn.commit() </code></td>
                 <td> コミット </td>
@@ -124,7 +124,7 @@
             </thead>
             <tbody>
               <tr>
-                <td> <code> cur.execute(SQL文,オプション) </code></td>
+                <td> <code> cur.execute(SQL文, オプション) </code></td>
                 <td> SQLの実行 </td>
               </tr>
               <tr>
@@ -146,19 +146,12 @@
           <h2> テンプレート </h2>
           <code> import psycopg2 </code> <br>
           <code> </code> <br>
-          <code> #接続情報 </code> <br>
           <code> con_info = {"user":"db user", "password":"db password", "host":"localhost", "dbname":"sample"} </code> <br>
           <code> </code> <br>
-          <code> #接続 </code> <br>
           <code> with psycopg2.connect(**con_info) as con: </code> <br>
-          <code> </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp; #カーソルの取得 </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp; with con.cursor() as cur: </code> <br>
-          <code> </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sql = "SQL文" </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cur.execute(sql) </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #結果の取得 </code> <br>
-          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rows = cur.fetchall() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;with con.cursor() as cur: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smt = sql.SQL("SELECT {} FROM {}").format(sql.Identifier("name", "Tabele_name"))</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rows = cur.execute(smt).fetchall() </code> <br>
           <hr>
         </article>
       </div>
