@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+            <a href="css_index.html"> CSS </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 背景 </h2>
+          <p class="blog-post-meta"> 2023/05/10 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> background： </h2>
+          <p> 背景に関する指定をまとめて行う </p>
+          <code> background: 背景の設定; </code>
+          <hr>
+          
+          <h2> background-color： </h2>
+          <p> 背景色を指定する </p>
+          <code> background-color: 色;  </code>
+          <hr>
+
+          <h2> background-image： </h2>
+          <p> 背景画像を指定する </p>
+          <code> background-image: url(画像のパス); </code> <br>
+
+          <br>
+          <p> #線状グラデーション </p>
+          <code> background-image: linear-gradient(角度, 開始色, 終了色); </code> <br>
+
+          <br>
+          <p> #放射状グラデーション </p>
+          <code> background-image: radial-gradient(開始色, 終了色); </code>
+          <hr>
+
+          <h2> background-position： </h2>
+          <p> 背景画像の表示開始位置を指定する </p>
+          <code> background-position: 横方向の位置 距離 縦方向の位置 距離; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 位置 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> left </code></td>
+                <td> 左 </td>
+              </tr>
+              <tr>
+                <td> <code> center</code></td>
+                <td> 中央 </td>
+              </tr>
+              <tr>
+                <td> <code> right</code></td>
+                <td> 右 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> background-repeat： </h2>
+          <p> 背景画像の繰り返しを指定する </p>
+          <code> background-repeat: 値; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 値 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> repeat </code></td>
+                <td> 縦横に繰り返す </td>
+              </tr>
+              <tr>
+                <td> <code> no-repeat </code></td>
+                <td> 繰り返さない </td>
+              </tr>
+              <tr>
+                <td> <code> repeat-x </code></td>
+                <td> 横方向に繰り返す </td>
+              </tr>
+              <tr>
+                <td> <code> repeat-y </code></td>
+                <td> 縦方向に繰り返す</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> background-size： </h2>
+          <p> 背景画像を表示するサイズを指定する </p>
+          <code> background-size: 値; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 値 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> cover</code></td>
+                <td> 表示されない部分がある</td>
+              </tr>
+              <tr>
+                <td> <code> contain</code></td>
+                <td> 全体を表示する</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> background-attachment： </h2>
+          <p> 背景画像の位置 </p>
+          <code> background-attachment: 値; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 値 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> scroll</code></td>
+                <td> スクロール </td>
+              </tr>
+              <tr>
+                <td> <code> fixed </code></td>
+                <td> 固定 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr> 
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

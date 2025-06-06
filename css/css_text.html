@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+            <a href="css_index.html"> CSS </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> テキスト </h2>
+          <p class="blog-post-meta"> 2023/05/10 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> text-align： </h2>
+          <p> 内包する要素に対して横位置の揃え方を指定する </p>
+          <code> text-align: 行揃え; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 行揃え </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> left </code> </td>
+                <td> 左 </td>
+              </tr>
+              <tr>
+                <td> <code> center </code> </td>
+                <td> 中央 </td>
+              </tr>
+              <tr>
+                <td> <code> right </code> </td>
+                <td> 右 </td>
+              </tr>
+              <tr>
+                <td> <code> justify </code> </td>
+                <td> 両端揃え </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> text-decoration： </h2>
+          <p> 文字列に装飾線や点滅を指定する </p>
+          <code> text-decoration: 線を引く位置; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 線を引く位置 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> overline </code> </td>
+                <td> 上 </td>
+              </tr>
+              <tr>
+                <td> <code> underline </code> </td>
+                <td> 下 </td>
+              </tr>
+              <tr>
+                <td> <code> line-through </code> </td>
+                <td> テキスト上 </td>
+              </tr>
+              <tr>
+                <td> <code> none </code> </td>
+                <td> なし </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> text-indent： </h2>
+          <p> 文章のインデント幅を指定する </p>
+          <code> text-indent: 幅; </code>
+          <hr>
+
+          <h2> text-overflow： </h2>
+          <p> はみ出たテキストを扱いを指定する </p>
+          <code> text-overflow: 表示方法; </code>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 表示方法 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> ellipsis </code> </td>
+                <td> ・・・ </td>
+              </tr>
+              <tr>
+                <td> <code> clip </code> </td>
+                <td> なし </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> quotes： </h2>
+          <p> 引用文の前後につけるかっこを定義する </p>
+          <code> quotes: "開始かっこ" "終了かっこ"; </code>
+          <hr>
+
+          <h2> white-space：</h2>
+          <p> 改行を制御する </p>
+          <code> white-space: キーワード; </code>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
