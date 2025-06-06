@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a> 
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> forms.py </h2>
+          <p class="blog-post-meta"> 2024/08/17 </p>
+          <p> このページではフォームの扱い方法について説明する。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 準備</h2>
+          <p> 「app_name」ディレクトリ直下に「forms.py」を作成する </p>
+          <hr>
+
+          <h2> forms.ModelForm </h2>
+          <p> #フォームの作成 </p>
+          <code> from django import forms </code> <br>
+          <code> from .models import model_name </code> <br>
+          <code> </code> <br>
+          <code> class form_name(forms.ModelForm): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;class Meta: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields = ['name', 'age', ... ] </code> <br>
+          <code> </code> <br>
+          <hr>
+
+          <h2> forms.Form </h2>
+          <p> #フォームの作成 </p>
+          <code> from django import forms </code> <br>
+          <code> </code> <br>
+          <code> class form_name(forms.Form): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;name = forms.CharField(label='name') </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;age = forms.IntegerField(label='age') </code> <br>
+          <code> </code> <br>
+          <hr>
+
+          <h2> 入力フィールド </h2>
+          <p> #単一の値を取得する </p>
+          <code> answer = 入力フィールド </code> <br>
+
+          <br>
+          <p> #複数の値を取得する </p>
+          <code> answers = 入力フィールド </code> <br>
+
+
+          <br>
+          <p> #入力フィールド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 入力フィールド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>forms.CharField(label='ラベル', min_length=min, max_length=max, required=True) </code> </td>
+                <td> &lt;input type="text"&gt;を生成 </td>
+              </tr>
+              <tr>
+                <td> <code>forms.EmailField(label='ラベル', min_length=min, max_length=max, required=True)</code> </td>
+                <td> &lt;input type="email"&gt;を生成</td>
+              </tr>
+              <tr>
+                <td> <code>forms.IntegerField(label='ラベル', min_value=min, max_value=max, required=True)</code> </td>
+                <td> &lt;input type="number"&gt;を生成</td>
+              </tr>
+              <tr>
+                <td> <code>forms.FloatField(label='ラベル', min_value=min, max_value=max, required=True)</code> </td>
+                <td> &lt;input type="number"&gt;を生成 </td>
+              </tr>
+              <tr>
+                <td> <code>forms.URLField(label='ラベル', min_length=min, max_length=max, required=True)</code> </td>
+                <td> &lt;input type="url"&gt;を生成 </td>
+              </tr>
+              <tr>
+                <td> <code> form.DateField(label='ラベル', required=True)</code> </td>
+                <td> &lt;input type="date"&gt; </td>
+              </tr>
+              <tr>
+                <td> <code>form.TimeField(label='ラベル', required=True)</code> </td>
+                <td> &lt;input type="time"&gt; </td>
+              </tr>
+              <tr>
+                <td> <code>form.DateTimeField(label='ラベル', required=True)</code> </td>
+                <td> &lt;input type="datetime-local"&gt; </td>
+              </tr>
+              <tr>
+                <td> <code> forms.BooleanField(label='ラベル', required=False) </code> </td>
+                <td> &lt;input type="checkbox"&gt;</td>
+              </tr>
+              <tr>
+                <td> <code> forms.NullBooleanField(label='ラベル', required=False)</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code> forms.ChoiceField(label='ラベル', choices=data) </code> </td>
+                <td> チョイス </td>
+              </tr>
+              <tr>
+                <td> <code>forms.MultiChoiceField(label='ラベル', choices=data, widget=forms.SelectMultiple())</code> </td>
+                <td> 複数選択リスト </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <br>
+          <p> #widget集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> widget </th>
+                <th scope="col"> フィールド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>widget=forms.TextInput(attrs={'class':'form-control'})</code> </td>
+                <td> CharField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.EmailInput(attrs={'class':'form-control'})</code> </td>
+                <td> EmailField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.NumberInput(attrs={'class':'form-control'})</code> </td>
+                <td> IntegerField/FloatField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.URLInput(attrs={'class':'form-control'})</code> </td>
+                <td> URLField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.DateInput(attrs={'class':'form-control'})</code> </td>
+                <td> DateField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.TimeInput(attrs={'class':'form-control'})</code> </td>
+                <td> TimeField </td>
+                <td> --- </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.DatetimeInput(attrs={'class':'form-control'})</code> </td>
+                <td> DateTimeField </td>
+                <td>  </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.RadioSelect(attrs={'class':'form-control'})</code> </td>
+                <td> ChoiceField </td>
+                <td> ラジオボタン </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.Select(attrs={'class':'form-control'})</code> </td>
+                <td> ChoiceField </td>
+                <td> 単一選択リスト </td>
+              </tr>
+              <tr>
+                <td> <code>widget=forms.SelectMultiple(attrs={'class':'form-control'})</code> </td>
+                <td> MultiChoiceField </td>
+                <td> 複数選択リスト </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #ChoiceField/MultiChoiceFieldにおけるchoices(=data)の設定方法</p>
+          <code> data = [ </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; # (実際に受け渡されるデータ, 画面に表示されるデータ) </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("1", "one"), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("2", "two"), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; ("3", "three"), </code> <br>
+          <code> ] </code> 
+          <hr>
+
+          <h2> バリデーション </h2>
+          <br>
+          <h4> バリデーション (forms.ModelForm) </h4>
+          <p> forms.ModelFormにおけるバリデーションは「models.py」で設定する。</p>
+
+          <br>
+          <h4> バリデーション (forms.Form)</h4>
+          <p> #バリデーションのチェック </p>
+          <code>if (form.is_valid()):</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#formにエラーがない場合の処理</code> <br>
+          <code>else: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#formにエラーがあった場合の処理</code> <br>
+          
+          <br>
+          <p> #CharField/EmailField/URLFieldのバリデーション </p>
+          <ul>
+            <li> <code>required</code> : 必須項目か否か(True or False)</li>
+            <li> <code>min_length</code> : 最小文字数(整数値) </li>
+            <li> <code>max_length</code> : 最大文字数(整数値) </li>
+            <li> <code>empty_value</code> : 空の入力を許可するか否か(True or False)</li>
+          </ul>
+
+          <p> #IntegerField/FloatFieldのバリデーション </p>
+          <ul>
+            <li> <code>required</code> : 必須項目か否か(True or False)</li>
+            <li> <code>min_value</code> : 最小値(整数値) </li>
+            <li> <code>max_value</code> : 最大値(整数値) </li>
+          </ul>
+
+          <p> #DateField/TimeField/DateTimeFieldのバリデーション </p>
+          <ul>
+            <li> <code>input_formats=[フォーマット1, フォーマット2, ...]</code> : フォーマット形式を指定する</li>
+          </ul>
+
+          <p> #DateField/TimeField/DateTimeFieldのフォーマット形式 </p>
+          <ul>
+            <li><code>'%y'</code> : 年 </li>
+            <li><code>'%m'</code> : 月 </li>
+            <li><code>'%d'</code> : 日 </li>
+            <li><code>'%H'</code> : 時 </li>
+            <li><code>'%M'</code> : 分 </li>
+            <li><code>'%S'</code> : 秒 </li>
+          </ul>
+
+          <p> #エラーを発生させる </p>
+          <code> raise form.ValidationError('エラーメッセージ')</code>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

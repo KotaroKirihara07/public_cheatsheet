@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> views.py </h2>
+          <p class="blog-post-meta"> 2024/08/17 </p>
+          <p> このページではviews.pyの編集方法ついての説明する。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> django.shortcuts </h2>
+          <p> #モジュールの読み込み </p> 
+          <code> from django.shortcuts import render, redirect </code> <br>
+
+          <br>
+          <p> #「templates/app_name」ディレクトリ直下の「index.html」ファイルを表示する (パラメータparams付き) </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;params = {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'msg' : メッセージ,  </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/index.html', params) </code> <br>
+
+
+          <br>
+          <p> #自動でページを移動する ( 「urls.py」のname属性の値を引数として指定する) </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return redirect('index') </code> <br>
+          <hr>
+
+          <h2> django.http </h2>
+          <p> #モジュールの読み込み </p> 
+          <code> from django.http import HttpResponse </code> <br>
+
+          <br>
+          <p> #テキストを画面に表示する </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return HttpResponse("Hello!") </code> <br>
+          <hr>
+
+          <h2> GET </h2>
+          <p> #URLで「?msg=message」として値を受け取る </p>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;if 'msg' in request.GET: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = request.GET['msg'] </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;else: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = "No DATA" </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return HttpResponse(result) </code> <br>
+          <hr>
+
+          <h2> POST </h2>
+          <p> #POST形式で送信した単一の情報を取得する </p>
+          <code> msg = request.POST['msg'] </code> <br>
+
+          <br>
+          <p> #POST形式で送信した複数の情報をリストとして取得する </p>
+          <code> choices = request.POST.getlist('choice') </code> <br>
+
+          <br>
+          <p> #フォームで送信した値を受け取る </p>
+          <code> from django.shortcuts import render </code> <br>
+          <code> from .forms import form_name </code> <br>
+          <code>  </code> <br>
+          <code> def func(request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;params = { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' : "名前",</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'msg' : "メッセージ", </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'form' : form_name(), </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;if (request.method == 'POST'): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['name'] = request.POST['name']</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['msg'] = request.POST['msg']</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;params['form'] = form_name(request.POST)</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;else: </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = "GET" </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/index.html', params) </code> <br>
+          <hr>
+
+          <h2> TemplateView </h2>
+          <p> 説明 </p>
+          <code> from django.shortcuts import render </code> <br>
+          <code> from djnago.http import HttpResponse</code> <br>
+          <code> from django.views.generic import TemplateView </code> <br>
+          <code> </code> <br>
+          <code> class templateview_name(TemplateView): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.params = {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' : "タイトル", </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'form' : form_name,</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def get(self, request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app/index.html', self.params) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;def post(self, request): </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app/index.html', self.params) </code> <br>
+          <hr>
+
+          <h2> セッション </h2>
+          <p> #セッションに値を保管する </p>
+          <code> request.session['key'] = value </code> <br>
+
+          <br>
+          <p> #セッションから値を取り出す (非推奨) </p>
+          <code> value = request.session['key'] </code> <br>
+
+          <br>
+          <p> #セッションから値を取り出す(存在しないときはデフォルト値を返す) (推奨) </p>
+          <code> value = request.session.get('key', 'default') </code> <br>
+
+          <br>
+          <p> #セッションから値を取り出し、セッションから取り除く (推奨) </p>
+          <code> value = request.session.pop('key', 'default') </code> <br>
+
+          <br>
+          <p> #セッションの全キーを取得する </p>
+          <code> key_list = request.keys() </code> <br>
+
+          <br>
+          <p> #セッションの全値を取得する </p>
+          <code> value_list = request.items() </code> <br>
+
+          <br>
+          <p> #セッションの全値を削除する </p>
+          <code> request.clear() </code> <br>
+
+
+          <br>
+          <p> #セッションの全値とクッキーを削除する </p>
+          <code> request.flush() </code> <br>
+
+          <br>
+          <p> #セッションの保持期間を設定する (N秒) </p>
+          <code> request.set_expiry(N) </code> <br>
+          <hr>
+
+          <h2> ミドルウェア </h2>
+          <hr>
+
+          <h2> ジェネリックビュー </h2>
+          <code>from django.views.generic import ListView </code> <br>
+          <code>from django.views.generic import DetailView </code> <br>
+          <code> </code> <br>
+          <code>#ListView </code> <br>
+          <code>class model_nameList(ListView): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
+          <code> </code> <br>
+          <code>#DetailView </code> <br>
+          <code>class model_nameList(DetailView): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;model = model_name </code> <br>
+          <hr>
+
+          
+          <h2> ページネーション </h2>
+          <p> #ページネーション用の関数 </p>
+          <code>from django.core.paginator import Paginator </code> <br>
+          <code> </code> <br>
+          <code>def page(request,num): </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;data = model_name.objects.all() </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;#1ページに3つのデータを表示させる </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;page = Paginator(data,3) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;params = { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' : "タイトル", </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Nページ目の情報のみdataに渡す </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'data' : page.get_page(num), </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return render(request, 'app_name/page.html', params)</code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

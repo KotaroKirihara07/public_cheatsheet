@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 基本 </h2>
+          <p class="blog-post-meta"> 2024/07/28 </p>
+          <p> このページではDjangoの基本事項について説明する。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> MVT </h2>
+          <p> Model : データアクセス関係の処理を担当する </p> 
+          <p> View : Modelとtemplateの仲介を行い、コントロールを担当する </p>
+          <p> Template : 画面に表示されるWebページの作成を担当する </p>
+          <hr>
+
+
+          <h2> アプリケーション開発の流れ </h2>
+          <ol>
+            <li> プロジェクトを立ち上げる </li>
+            <p> <code> django-admin startproject project_name </code></p>
+            <li> アプリケーションを立ち上げる</li>
+            <p> <code> django-admin startapp app_name </code> or <code> python manage.py startapp app_name </code> </p>
+            <li> <p> <a href="django_setting.html"> 「setting.py」を編集し、アプリケーションを追加する </a> </p> </li>
+            <li> <p> <a href="django_models.html"> 「models.py」を編集し、データベースを定義する </a> </p> </li>
+            
+            <li> マイグレーションファイルを作成し、マイグレーションを実行する </li>
+            <p> <code> python manage.py makemigrations </code> </p> 
+            <p> <code> python manage.py migrate </code> </p>
+            <li> <p> <a href="django_database_admin.html"> 「admin.py」を編集し、データベースを管理可能な状態にする </a></p> </li>
+            <li> <p> <a href="django_templates.html"> 「templatesディレクトリ」にhtmlファイルを配置する </a></p> </li>
+            <li> <p> <a href="django_views.html"> 「views.py」で関数を定義する </a> </p> </li>
+            <li> <p> <a href="django_urls.html"> 「urls.py」を編集する </a> </p> </li>
+            <li> 実行 </li>
+            <p> <code> python manage.py runserver </code></p>
+          </ol>
+          <hr>
+
+          <h2> トップページの作成 </h2>
+          <p> 説明 </p> 
+          <ol>
+            <li>プロジェクト名と同じ名前のディレクトリ内の「urls.py」を開く </li>
+            <li> <code> from app_name import views</code>と<code>path('', views.index, name='index')</code>を追加する</li>
+            <li> djappディレクトリに「views.py」を作成する </li>
+            <li>「views.py」を編集する </li>
+            <li> 上層のapp_nameディレクトリ内に「templates」ディレクトリを作成する</li>
+            <li>「templates」ディレクトリに「app_name」ディレクトリを作成する</li>
+            <li>「app_name」ディレクトリに「index.html」を作成する</li>
+            <li>下層のapp_nameの「setting.py」に<code>import os</code>を追加した後、[TEMPLATES]内の[DIRS]を<code>[os.path.join(BASE_DIR, 'templates')]にする</code></li>
+          </ol>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

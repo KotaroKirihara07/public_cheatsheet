@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="django_index.html"> Django </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> templates </h2>
+          <p class="blog-post-meta"> 2024/08/17 </p>
+          <p> tempaltesディレクトリはHTMLファイルを配置するためのディレクトリである。ここに配置されるHTMLファイルの書式が通常のHTMLの書式と異なる箇所があるため注意が必要である。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 準備 </h2>
+          <ol> 
+            <li> アプリケーションディレクトリ(app_name)内に「templates」ディレクトリを作成する </li> 
+            <li> 「templates」ディレクトリ内にアプリケーション名と同じ名前のディレクトリを作成する </li> 
+            <li> アプリケーション名と同じ名前のディレクトリ内に「index.html」を作成する</li>
+          </ol> 
+          <hr>
+          
+          <h2> HTMLファイルの編集 </h2>
+          <p> #コメント </p>
+          <code> {% comment %} コメント {% endcomment %} </code> <br>
+
+          <br>
+          <p> #「views.py」の<code>params</code>で指定した変数を扱う </p>
+          <code> {{title}}, {{message}}, {{data}}</code> <br>
+
+          <br>
+          <p> #他のページへのリンク ( 「urls.py」の「urlpatterns」のpathのname(=path_name)の値を名前にする ) </p> 
+          <code> &lt;a href="{% url path_name %}"&gt; リンク先 &lt;/a&gt; </code> <br>
+
+          <br>
+          <p> #for文 </p>
+          <code> {% for item in data %}  </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+          <code> {% endfor %} </code> <br> 
+
+          <br>
+          <p> #if文 </p> 
+          <code> {% if item.id == 1%} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+          <code> {% endif %} </code> <br>
+
+          <br>
+          <p> #ジェネリックビューで取り出したレコードのリスト </p>
+          <code> {{object_list}} </code><br>
+          <hr>
+
+          <h2> フォーム </h2>
+          <p> #HTMLのタグを直接書いてフォームを作成 (送信先は「view.py」ファイル内のurlpatternsのname='form'というpath)</p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="msg"&gt; message &lt;/label&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="msg" type="text" name="msg"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+
+
+          <br>
+          <p> #フォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+          
+          <br>
+          <p> #テーブル型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_table }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+
+          <br>
+          <p> #リスト型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_ul }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+
+          <br>
+          <p> #パラグラフ型のフォームの自動生成 </p>
+          <code> &lt;form action="{% url 'form' %}" method="POST"&gt; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{% csrf_token %} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_p }} </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="送信"&gt; </code> <br>
+          <code> &lt;/form&gt; </code> <br>
+          <hr>
+
+          <h2> ページネーション </h2>
+          <p> #ページ移動用のリンク </p>
+          <code>&lt;ul class="pagination justify-content-center"&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% if data.has_previous %} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link" href="{% url 'page' %}"&gt; &laquo; first &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link" href="{% url 'page' %}{{data.previous_page_number}}"&gt; &laquo; prev &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% else %} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link"&gt; &laquo; first &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link"&gt; &laquo; prev &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% endif %} </code> <br>
+          <code> </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link"&gt; {{data.number}}/{{data.paginator.num_pages}} &raquo;  &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code></code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% if data.has_next %} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link" href="{% url 'page' %}{{data.next_page_number}}"&gt; next &raquo;  &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link" href="{% url 'page' %}{{data.paginator.num_pages}}"&gt; last &raquo;  &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% else %} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link"&gt; next &raquo; &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="page-item"&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="page-link"&gt; last &raquo; &lt;/a&gt;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{% endif %} </code> <br>
+          <code>&lt;/ul&gt;</code> <br>
+          <hr>
+
+          <h2> レイアウト用テンプレート </h2>
+          <p> #layout用のHTMLファイル</p>
+          <code> {% block title %} {% endblock %}</code> <br>
+          <code> {% block header %} {% endblock %}</code> <br>
+          <code> {% block content %} {% endblock %}</code> <br>
+
+          <br>
+          <p> #テンプレート用HTMLファイル </p>
+          <ol>
+            <li> <code> {% extends 'app_name/layout.html' %} </code>を先頭に追加する</li>
+            <li> <code>{% block title %}</code> と <code>{% endblock %}</code> の間にタイトルを記述する </li>
+            <li> <code>{% block header %}</code> と <code>{% endblock %}</code> の間にヘッダーを記述する </li>
+            <li> <code>{% block content %}</code> と <code>{% endblock %}</code> の間にコンテンツを記述する </li>
+          </ol>
+          <hr>
+
+          <h2> cssファイルとjavascriptファイルの適用方法 </h2>
+          <p> <a href="django_static.html"> cssファイルやjavascriptファイルの適用方法 </a></p>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
