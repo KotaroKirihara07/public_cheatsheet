@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+    <!-- ヘッダー -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4"> Cheatsheet </span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+
+        <body>
+            <div class="row g-5">
+                <div class="col-md-12">
+                    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                        <a href="linux_index.html"> Linux </a>
+                    </h3>
+
+                    <article class="blog-post">
+                        <h2 class="blog-post-title"> SSH </h2>
+                        <p class="blog-post-meta"> 2025/06/07 </p>
+                        <p> このページの説明 </p>
+                        <hr>
+
+                        <!-- コンテンツ -->
+                        <h2> scp </h2>
+                        <p> SSHによりリモートホスト上にまたはリモートホスト上からファイルをコピーするためのコマンド。 </p>
+                        <code> scp [オプション] <コピー元> <コピー先> </code> <br>
+
+                        <br>
+                        <p> #file.txtを192.168.0.10のホームディレクトリにコピーする </p>
+                        <code> scp file.txt 192.168.0.10:~ </code> <br>
+
+                        <br>
+                        <p> #file1をdir1にコピーする </p>
+                        <code> scp -i ".ssh/key-pair.pem" file1 ec2-user@ec2-??-???-??-???.ap-northeast-1.compute.amazonaws.com:~/dir1/ </code> <br>
+
+                        <br>
+                        <p> #dir1をdir2にコピーする </p>
+                        <code> scp -i ".ssh/key-pair.pem" -r dir1 ec2-user@ec2-??-???-??-???.ap-northeast-1.compute.amazonaws.com:~/dir2/ </code> <br>
+                        <hr>
+
+                        <h2> ssh </h2>
+                        <p> SSHによるリモート接続を行うためのコマンド。 </p>
+                        <code> ssh [オプション] <ユーザ@>ホスト <コマンド> </code> <br>
+
+                        <br>
+                        <p> #192.168.0.10にSSH接続する </p>
+                        <code> ssh 192.168.0.10 </code> <br>
+
+                        <br>
+                        <p> #192.168.0.10のuser2にSSH接続する </p>
+                        <code> ssh user2@192.168.0.10 </code> <br>
+
+                        <br>
+                        <p> #192.168.0.10にポート22を指定してSSH接続する </p>
+                        <code> ssh -p 22 192.168.0.10 </code> <br>
+
+                        <br>
+                        <p> #EC2インスタンスにSSH接続 </p>
+                        <code> ssh -i ".ssh/key-pair.pem" ec2-user@ec2-??-???-??-??.ap-northeast-1.compute.amazonaws.com </code> <br>
+                        <hr>
+
+                        <h2> ssh-copy-id </h2>
+                        <p> SSh接続で利用する公開鍵を接続先にコピーして配置するためのコマンド。 </p>
+                        <code> ssh-copy-id [オプション] <ユーザ名@>接続先 </code> <br>
+
+                        <br>
+                        <p> #生成した公開鍵を192.168.0.10にコピーして配置する </p>
+                        <code> ssh-copy-id 192.168.0.10 </code> <br>
+
+                        <br>
+                        <p> #生成した公開鍵を192.168.0.10のユーザuser4にコピーして配置する </p>
+                        <code> ssh-copy-id user4@192.168.0.10 </code>
+                        <hr>
+
+                        <h2> ssh-keygen </h2>
+                        <p> SSH接続で利用するキーペアを生成するためのコマンド。 </p>
+                        <code> ssh-keygen [オプション] </code> <br>
+
+                        <br>
+                        <p> #SSH接続で利用する2048ビットRSAのキーペアを生成する (秘密鍵: ~/.ssh/ssh-key、公開鍵: ~/.ssh/ssh-key.pub)</p>
+                        <code> ssh-keygen -b 2048 -t rsa -f ~/.ssh/ssh-key </code>
+                        <hr>
+
+                        <h2> openssl </h2>
+                        <p> TLS/SSLプロトコルを実装するためのコマンド。 </p>
+                        <code> openssl [オプション] </code> <br>
+
+                        <br>
+                        <p> #2048ビット秘密キーを作成する (非暗号化バージョン) </p>
+                        <code> openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 des3 -inform PEM -out ~/.config/rsa_key.p8 </code> <br>
+
+                        <br>
+                        <p> #2048ビット秘密キーを作成する (暗号化バージョン) </p>
+                        <code> openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 des3 -inform PEM -out ~/.config/rsa_key.p8 </code> <br>
+
+                        <br>
+                        <p> #公開キーを作成する </p>
+                        <code> openssl rsa -in ~/.config/rsa_key.p8 -pubout -out ~/.config/rsa_key.pub </code>
+                        <hr>
+                    </article>
+                </div>
+            </div>
+
+            <footer class="text-muted py-5">
+                <div class="container">
+                    <hr>
+                    <p class="mb-1"> フッターコメント </p>
+                </div>
+            </footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+
+        </body>
+    </div>
+</main>
+
+</html>
