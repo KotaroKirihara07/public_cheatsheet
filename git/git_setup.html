@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="git_index.html"> Git </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> セットアップ </h2>
+          <p class="blog-post-meta"> 2024/11/14 </p>
+          <p> このページではGitのセットアップ方法について説明する。 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> インストール</h2>
+          <h4> Linux (Redhat) </h4>
+          <code> sudo yum install git-all </code> <br>
+
+          <br>
+          <h4> Linux (Debian) </h4>
+          <code> sudo apt-get install git-all </code> <br>
+
+          <br>
+          <h4> Windows </h4>
+          <ol> 
+            <li> <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>で該当OSを選択する</li> 
+            <li> "Click here to download"をクリックしてインストール </li> 
+          </ol> 
+          <hr>
+
+          <h2> GitHubとSSH通信をするための設定 </h2>
+          <p> 説明 </p> 
+          <ol> 
+            <li> <code> cd ~/.ssh </code> </li> 
+            <li> <code> ssh-keygen -t rsa </code> </li>
+            <li> 1つ目の質問を<code> id_github_rsa</code>としてEnter</li>
+            <li> GitHubにログイン </li>
+            <li> 「Add SSH key」のボタンを押す </li>
+            <li> titleを「id_github_rsa」にする </li>
+            <li> Keyは「id_github_rsa.pub」の中身をコピペする </li> 
+            <li> ~/.ssh/configを作成する </li>
+            <li> 「config」ファイルに「g_config」ファイルの内容をコピペ (Templateディレクトリを参照)</li>
+            <li> ~/.gitconfigを作成</li>
+            <li> 「.gitconfig」ファイルに「git_config」ファイルの内容をコピペ (Templateディレクトリを参照)  </li>
+            <li> <code>ssh -T github</code>と入力して接続を確認</li>
+          </ol> 
+          <hr>
+
+          <h2> GitlabとSSH通信をするための設定 </h2>
+          <p> 説明 </p> 
+          <ol> 
+            <li> <code> cd ~/.ssh </code> </li> 
+            <li> <code> ssh-keygen -t rsa -C アドレス@example.com </code> </li>
+            <li> 1つ目の質問を<code> id_gitlab_rsa</code>としてEnter</li>
+            <li> GitHubにログイン </li>
+            <li> 「Add SSH key」のボタンを押す </li>
+            <li> titleを「id_gitlab_rsa」にする </li>
+            <li> Keyは「id_gitlab_rsa.pub」の中身をコピペする </li> 
+            <li> ~/.ssh/configを作成する </li>
+            <li> 「config」ファイルに「g_config」ファイルの内容をコピペ (Templateディレクトリを参照) </li>
+          </ol> 
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
