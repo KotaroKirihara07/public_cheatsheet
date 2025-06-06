@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="docker_index.html"> Docker </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> コンテナ </h2>
+          <p class="blog-post-meta"> 2024/10/23 </p>
+          <p> このページではコンテナ管理を行うためのコマンドについての説明を行う。 </p>
+          <p> <a href="#docker">docker</a>、<a href="#docker container">docker container</a>、<a href="#docker image">docker image</a>、<a href="#docker network">docker network</a>、<a href="#docker volume">docker volume</a>、<a href="#docker commit">docker commit</a>、<a href="#docker build">docker build</a>、<a href="#docker save">docker save</a>、<a href="#option">オプション</a></p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id="docker"> docker </h2>
+          <p> 単独コマンド。 </p>
+          <code> docker コマンド</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> login </code> </td>
+                <td> Dockerレジストリにログインする </td>
+              </tr>
+              <tr>
+                <td> <code> logout </code> </td>
+                <td> Dockerレジストリからログアウトする </td>
+              </tr>
+              <tr>
+                <td> <code> search </code> </td>
+                <td> Dockerレジストリで検索する </td>
+              </tr>
+              <tr>
+                <td> <code> version </code> </td>
+                <td> Docker Engineおよびコマンドのバージョンを表示する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="docker container"> docker container </h2>
+          <p> コンテナ操作関連コマンド。 </p>
+          <code> docker container 副コマンド オプション</code> <br>
+          
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 副コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> start</code> </td>
+                <td> コンテナを開始する </td>
+              </tr>
+              <tr>
+                <td> <code> stop </code> </td>
+                <td> コンテナを停止する </td>
+              </tr>
+              <tr>
+                <td> <code> create </code> </td>
+                <td> Dockerイメージからコンテナを作成する </td>
+              </tr>
+              <tr>
+                <td> <code> run</code> </td>
+                <td> Dockerイメージをダウンロードし、コンテナを作成して起動する </td>
+              </tr>
+              <tr>
+                <td> <code> rm</code> </td>
+                <td> 停止したコンテナを削除する </td>
+              </tr>
+              <tr>
+                <td> <code> exec </code> </td>
+                <td> 実行中のコンテナ内でプログラムを実行する </td>
+              </tr>
+              <tr>
+                <td> <code> ps </code> </td>
+                <td> コンテナ一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code> cp</code> </td>
+                <td> DockerコンテナとDockerホスト間でファイルをコピーする </td>
+              </tr>
+              <tr>
+                <td> <code> commit</code> </td>
+                <td> Dockerコンテナをイメージに変換する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #コンテナを作成・起動 </p>
+          <code> docker container [オプション] [イメージ名] [引数]</code> <br>
+
+          <br>
+          <p> #コンテナを停止する </p>
+          <code> docker container stop [コンテナID/コンテナ名] </code> <br>
+
+          <br>
+          <p> #すべてのコンテナを停止する </p>
+          <code> docker container stop $(docker container ps) </code> <br>
+
+          <br>
+          <p> #コンテナを削除する </p>
+          <code> docker container rm [コンテナID/コンテナ名] </code> <br>
+
+          <br>
+          <p> #起動しているコンテナ一覧を表示する </p>
+          <code> docker container ps  </code> <br>
+
+          <br>
+          <p> #存在するコンテナ一覧を表示する </p>
+          <code> docker container ps -a </code> <br>
+
+          <br>
+          <p> #ポート指定してコンテナを作成する </p>
+          <code> docker container run -p 8080:80 </code> <br>
+
+          <br>
+          <p> #「net1」というネットワーク上にコンテナを作成する </p>
+          <code> docker container run -net=net1 </code> <br>
+
+          <br>
+          <p> #ホストからコンテナへファイルをコピーする</p>
+          <code> docker container cp [ホスト側パス] [コンテナ名:コンテナ側パス] </code> <br>
+
+          <br>
+          <p> #コンテナからホストへファイルをコピーする</p>
+          <code> docker container cp [コンテナ名:コンテナ側パス] [ホスト側パス] </code> <br>
+
+          <br>
+          <p> #コンテナ内を操作できるようにする </p>
+          <code> docker container run --name test1 -p 8080:80 httpd /bin/bash</code> <br>
+
+          <br>
+          <p> #コンテナ内の操作を停止 </p>
+          <code> exit </code>
+          <hr>
+
+          <h2 id="docker image"> docker image </h2>
+          <p> イメージ操作関連コマンド。 </p>
+          <code> docker image 副コマンド オプション</code> <br>
+          
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 副コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> pull</code> </td>
+                <td> Docker Hubなどのリポジトリからイメージをダウンロードする </td>
+              </tr>
+              <tr>
+                <td> <code> rm </code> </td>
+                <td> Dockerイメージを削除する </td>
+              </tr>
+              <tr>
+                <td> <code> ps </code> </td>
+                <td> ダウンロードしたイメージ一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code> build </code> </td>
+                <td> Dockerイメージを作成する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #存在するイメージ一覧を表示する </p>
+          <code> docker image ps </code> <br>
+
+          <br>
+          <p> #httpdイメージを削除する </p>
+          <code> docker image rm httpd </code> <br>
+
+          <br>
+          <p> #すべてのイメージを削除する </p>
+          <code> docker image rm $(docker image ps) </code> <br>
+
+          <br>
+          <p> #複数のイメージを削除する </p>
+          <code> docker image rm イメージ名1 イメージ名2 イメージ名3 </code> 
+          <hr>
+
+          <h2 id="docker network"> docker network </h2>
+          <p> ネットワーク操作関連コマンド。 </p>
+          <code> docker network 副コマンド オプション</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 副コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> connect </code> </td>
+                <td> コンテナをネットワークに接続する </td>
+              </tr>
+              <tr>
+                <td> <code> disconnect </code> </td>
+                <td> コンテナをネットワークから切断する </td>
+              </tr>
+              <tr>
+                <td> <code> create </code> </td>
+                <td> ネットワークをつくる </td>
+              </tr>
+              <tr>
+                <td> <code> inspect </code> </td>
+                <td> ネットワークの詳細情報を表示する </td>
+              </tr>
+              <tr>
+                <td> <code> ls </code> </td>
+                <td> ネットワークの一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code> prune </code> </td>
+                <td> 現在コンテナがつながっていないネットワークをすべて削除する </td>
+              </tr>
+              <tr>
+                <td> <code> rm </code> </td>
+                <td> 指定したネットワークを削除する </td>
+              </tr>
+            </tbody>
+          </table> 
+
+          <p> #「net1」というネットワークを作成する </p>
+          <code> docker network create net1 </code>
+          <hr>
+
+          <h2 id="docker volume"> docker volume </h2>
+          <p> ボリュームマウントを行うためのコマンド </p>
+          <code> docker volume 副コマンド オプション</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 副コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>create</code> </td>
+                <td> ボリュームをつくる </td>
+              </tr>
+              <tr>
+                <td> <code>inspect</code> </td>
+                <td> ボリュームの詳細情報を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>ls</code> </td>
+                <td> ボリュームの一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>prune</code> </td>
+                <td> 現在マウントされていないボリュームをすべて削除する </td>
+              </tr>
+              <tr>
+                <td> <code>rm</code> </td>
+                <td> 指定したボリュームを削除する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h4> ボリュームマウント </h4>
+          <p> Docker Engineが管理している領域内にボリュームを作成して、ディスクとしてコンテナにマウントする。手軽に扱える半面、直接操作しづらい。</p>
+
+          <p> #手順 </p>
+          <ol>
+            <li> <code>docker volume create volume_name</code> </li>
+            <li> <code>docker container run -v volume_name:コンテナの記憶領域パス</code> </li>
+          </ol>
+
+          <br>
+          <h4> バインドマウント</h4>
+          <p> Dcoker Engineの管理外であるOS上にボリュームを作成して、ディスクとしてコンテナにマウントする。直接操作しやすいという利点がある。</p>
+
+          <p> #手順 </p>
+          <ol>
+            <li> OS上にマウント用のディレクトリを作成する </li>
+            <li> <code> docker container run -v OS上のディレクトリのパス:コンテナの記憶領域パス </code> </li>
+          </ol>
+          <hr>
+
+          <h2 id="docker commit"> docker commit </h2>
+          <p> コンテナをイメージ化するためのコマンド。 </p>
+          <code> docker commit コンテナ名 作成するイメージ名</code>
+          <hr>
+
+          <h2 id="docker build"> docker build </h2>
+          <p> Dockerfileからイメージを作成するためのコマンド。 </p>
+          <code> docker build -t 作成するイメージ名 材料フォルダのパス </code> <br>
+
+          <br>
+          <p> #手順 </p>
+          <ol>
+            <li> 材料用ディレクトリを作成する </li>
+            <li> 材料用ディレクトリに必要なものを格納する </li>
+            <li> Dockerfileを作成する </li>
+            <li> Dockerfileを材料用ディレクトリに格納する</li>
+            <li> <code>docker build -t 作成するイメージ名 材料フォルダのパス</code></li>
+          </ol>
+          <hr>
+
+          <h2 id="docker save"> docker save </h2>
+          <p> 作成したイメージをtarファイルにして持ち運び可能にするためのコマンド。 </p>
+          <code> docker save -o ファイル名.tar 作成したイメージ名 </code> 
+          <hr>
+
+          <h2 id="option"> オプション </h2>
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> オプション </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> --name コンテナ名 </code> </td>
+                <td> コンテナ名を指定する </td>
+              </tr>
+              <tr>
+                <td> <code> -p ホストのポート番号:コンテナのポート番号 </code> </td>
+                <td> ポート番号を指定する </td>
+              </tr>
+              <tr>
+                <td> <code> -v ホストのディスク:コンテナのディレクトリ </code> </td>
+                <td> ボリュームをマウントする </td>
+              </tr>
+              <tr>
+                <td> <code> --net=ネットワーク名 </code> </td>
+                <td> コンテナをネットワークに接続する </td>
+              </tr>
+              <tr>
+                <td> <code> -e 環境変数=値 </code> </td>
+                <td> 環境変数を指定する </td>
+              </tr>
+              <tr>
+                <td> <code> -d </code> </td>
+                <td> バックグラウンドで実行する </td>
+              </tr>
+              <tr>
+                <td> <code> -i </code> </td>
+                <td> コンテナに操作端末をつなぐ </td>
+              </tr>
+              <tr>
+                <td> <code> -t </code> </td>
+                <td> 特殊キーを使用可能にする </td>
+              </tr>
+              <tr>
+                <td> <code> -help </code> </td>
+                <td> 使い方を表示する </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

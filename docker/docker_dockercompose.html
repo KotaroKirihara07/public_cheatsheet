@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="docker_index.html"> Docker </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> Docker Compose </h2>
+          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p> このページではDocker Composeについての説明を行う。 </p>
+          <p> Docker Composeとはコンテナの構築に関わるコマンド文の内容を1つのテキストファイルに書き込んで、一気に実行したり、停止したり、破棄したりすることを可能にするもの。</p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> コンテナの起動 </h2>
+          <p> #手順 </p>
+          <ol>
+            <li> OS上にディレクトリを作成する </li>
+            <li> 上記ディレクトリに「docker-compose.yml」というファイルを作成する</li>
+            <li> 上記ディレクトリに移動する </li>
+            <li> <code> docker compose up -d </code></li>
+          </ol>
+          <hr>
+
+          <h2> docker-compose.ymlの設定項目 </h2>
+          <p> #大項目 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 項目 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> version </code> </td>
+                <td> dockercomposeのバージョンを指定する </td>
+              </tr>
+              <tr>
+                <td> <code> services </code> </td>
+                <td> コンテナに関する定義をする </td>
+              </tr>
+              <tr>
+                <td> <code> networks </code> </td>
+                <td> ネットワークに関する定義をする </td>
+              </tr>
+              <tr>
+                <td> <code> volumes </code> </td>
+                <td> ボリュームに関する定義をする </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #services内の設定項目 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 項目 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> image </code> </td>
+                <td> 利用するイメージを指定する </td>
+              </tr>
+              <tr>
+                <td> <code> networks </code> </td>
+                <td> 接続するネットワークを指定する </td>
+              </tr>
+              <tr>
+                <td> <code> volumes </code> </td>
+                <td> 記憶領域のマウントを設定する </td>
+              </tr>
+              <tr>
+                <td> <code> ports </code> </td>
+                <td> ポートのマッピングを設定する </td>
+              </tr>
+              <tr>
+                <td> <code> environment </code> </td>
+                <td> 環境変数を設定する </td>
+              </tr>
+              <tr>
+                <td> <code> depends_on </code> </td>
+                <td> 別のサービスに依存することを示す </td>
+              </tr>
+              <tr>
+                <td> <code> restart </code> </td>
+                <td> コンテナが停止したときの再試行ポリシーを設定する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #restartの設定値 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 項目 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> no </code> </td>
+                <td> 何もしない </td>
+              </tr>
+              <tr>
+                <td> <code> always </code> </td>
+                <td> 必ず再起動する </td>
+              </tr>
+              <tr>
+                <td> <code> on-failure </code> </td>
+                <td> プロセスが0以外のステータスで終了したときは再起動する </td>
+              </tr>
+              <tr>
+                <td> <code> unless-stopped </code> </td>
+                <td> 停止していたときは再起動しない。それ以外は再起動する。</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> docker compose </h2>
+          <p> #コンテナや周辺環境の起動 </p>
+          <code> docker compose -f [ymlファイルのパス] up [オプション] </code> <br>
+
+          <br>
+          <p> #up用オプション </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> オプション </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> -d </code> </td>
+                <td> バックグラウンドで実行する </td>
+              </tr>
+              <tr>
+                <td> <code> --no-color </code> </td>
+                <td> 白黒画面として表示する</td>
+              </tr>
+              <tr>
+                <td> <code> --no-deps </code> </td>
+                <td> リンクしたサービスを表示しない </td>
+              </tr>
+              <tr>
+                <td> <code> --force-recreate </code> </td>
+                <td> 設定やイメージに変更がなくてもコンテナを再生成する </td>
+              </tr>
+              <tr>
+                <td> <code> --no-create </code> </td>
+                <td> コンテナがすでに存在していれば再生成しない </td>
+              </tr>
+              <tr>
+                <td> <code> --no-build </code> </td>
+                <td> イメージが見つからなくてもビルドしない </td>
+              </tr>
+              <tr>
+                <td> <code> --build </code> </td>
+                <td> コンテナを開始前にビルドする </td>
+              </tr>
+              <tr>
+                <td> <code> --abort-on-container-exit </code> </td>
+                <td> コンテナが1つでも停止したらすべてのコンテナを停止させる</td>
+              </tr>
+              <tr>
+                <td> <code> -t, --timeout </code> </td>
+                <td> コンテナを停止するときのタイムアウト数 (既定は10秒)</td>
+              </tr>
+              <tr>
+                <td> <code> --remove-orphans </code> </td>
+                <td> 定義ファイルで定義されていないサービス用のコンテナを削除する </td>
+              </tr>
+              <tr>
+                <td> <code> --scale </code> </td>
+                <td> コンテナの数を数える </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #コンテナを停止させる </p>
+          <code> docker compose -f [ymlファイルのパス] stop [オプション] </code> <br>
+
+          <br>
+          <p> #コンテナとネットワークの削除 </p>
+          <code> docker compose -f [ymlファイルのパス] down [オプション] </code> <br>
+
+          <br>
+          <p> #down用オプション </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> オプション </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> -rmi all </code> </td>
+                <td> 利用した全イメージを削除する </td>
+              </tr>
+              <tr>
+                <td> <code> -rmi local </code> </td>
+                <td> imageにカスタムタグがないイメージのみを削除する </td>
+              </tr>
+              <tr>
+                <td> <code> -v, --volumes </code> </td>
+                <td> volumesに記述されているボリュームを削除する (externalを除く)</td>
+              </tr>
+              <tr>
+                <td> <code> --remove-orphans </code> </td>
+                <td> 定義ファイルで定義されていないサービス用のコンテナを削除する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> テンプレート </h2>
+          <p> #ymlファイル</p>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
