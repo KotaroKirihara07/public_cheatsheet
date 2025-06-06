@@ -36,7 +36,7 @@
 
                     <article class="blog-post">
                         <h2 class="blog-post-title"> SSH </h2>
-                        <p class="blog-post-meta"> 2025/02/12 </p>
+                        <p class="blog-post-meta"> 2025/06/07 </p>
                         <p> このページの説明 </p>
                         <hr>
 
@@ -93,12 +93,29 @@
                         <hr>
 
                         <h2> ssh-keygen </h2>
-                        <p> SSH接続で利用する公開鍵ペアを生成するためのコマンド。 </p>
+                        <p> SSH接続で利用するキーペアを生成するためのコマンド。 </p>
                         <code> ssh-keygen [オプション] </code> <br>
 
                         <br>
-                        <p> #SSH接続で利用する公開鍵ペアを生成する </p>
-                        <code> ssh-keygen </code>
+                        <p> #SSH接続で利用する2048ビットRSAのキーペアを生成する (秘密鍵: ~/.ssh/ssh-key、公開鍵: ~/.ssh/ssh-key.pub)</p>
+                        <code> ssh-keygen -b 2048 -t rsa -f ~/.ssh/ssh-key </code>
+                        <hr>
+
+                        <h2> openssl </h2>
+                        <p> TLS/SSLプロトコルを実装するためのコマンド。 </p>
+                        <code> openssl [オプション] </code> <br>
+
+                        <br>
+                        <p> #2048ビット秘密キーを作成する (非暗号化バージョン) </p>
+                        <code> openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 des3 -inform PEM -out ~/.config/rsa_key.p8 </code> <br>
+
+                        <br>
+                        <p> #2048ビット秘密キーを作成する (暗号化バージョン) </p>
+                        <code> openssl genrsa 2048 | openssl pkcs8 -topk8 -v2 des3 -inform PEM -out ~/.config/rsa_key.p8 </code> <br>
+
+                        <br>
+                        <p> #公開キーを作成する </p>
+                        <code> openssl rsa -in ~/.config/rsa_key.p8 -pubout -out ~/.config/rsa_key.pub </code>
                         <hr>
                     </article>
                 </div>
