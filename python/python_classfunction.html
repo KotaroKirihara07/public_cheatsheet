@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> クラス・関数 </h2>
+        <p class="blog-post-meta"> 2024/12/08 </p>
+        <p> このページではクラスや関数についての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> クラス </h2>
+        <p> #クラスの定義 </p> 
+        <code> class Person(): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラスがもつことができるインスタンス変数の固定 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;__slots__ = ['a', 'b', 'c'] </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラス定数の定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;FIXED_VALUE = 100 </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#プライベートなインスタンス変数の定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;__private_value = 777 </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#コンストラクタ </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.a = 0 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.b = 1 </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#インスタンスメソッドの定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func1(self, num): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.c = num </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(self.c) </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#クラスメソッドの定義 (クラス(cls)にアクセスできる and インスタンス化しなくても使用可能なメソッド)</code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;@classmethod </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func2(cls, value): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return cls.FIXED_VALUE * value </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#スタティックメソッド (インスタンス化しなくても使用可能なメソッド) の定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;@staticmethod </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func3(value): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return value*2  </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#アブストラクトメソッド (派生クラスでオーバーライドを強制するメソッド)の定義 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;@abstractmethod </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func4(self): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass  </code> <br>
+        <code> </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;#pythonコマンドで実行されたときの処理 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;if __name__ == '__main__': </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+      
+        <br>
+        <p> #インスタンス化 and メソッドの実行 </p>
+        <code> Bob = Person(4) </code> <br>
+        <code> Bob.func1("Bob") </code> <br>
+
+        <br>
+        <p> #スタティックメソッドの実行 (インスタンス化しなくても使用可能) </p>
+        <code> Person.func2(100) </code> <br> 
+
+        <br>
+        <p> #継承 (複数の基底クラスを継承することができる) </p>
+        <code> class SalesPerson(Person): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, var): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(var): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;def func3(self): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#基底クラスの関数の呼び出す </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.func2(2) </code> <br>
+        <hr>
+
+        <h2> 関数 </h2>
+        <p> #関数の定義 (位置引数) </p>
+        <code> def func(a, b): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;c = a + b </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;return c </code> <br>
+
+        <br>
+        <p> #関数の定義 (キーワード引数) </p>
+        <code> def func(a=10, b=20): </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;c = a + b </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp;return c </code> <br>
+
+        <br>
+        <p> #グローバル変数 </p>
+        <code> global var </code> <br>
+
+        <br>
+        <p> #ラムダ式 (引数なし)</p>
+        <code> func = lambda : print("出力") </code> <br>
+        <code> func() </code> <br>
+
+        <br>
+        <p> #ラムダ式 (引数あり)</p>
+        <code> func = lambda n : n**2 </code> <br>
+        <code> func(2) </code> <br>
+
+        <br>
+        <p> #ラムダ式 (if文つき) </p>
+        <code> func = lambda n,m : "Good" if n*m > 10 else "Bad"</code> <br>
+        <code> func(1,2) </code> <br>
+
+        <br>
+        <p> #デコレーター </p>
+        <code> </code> <br>
+
+        <br>
+        <p> #ジェネレーター </p>
+        <code> def genfunc():</code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp; yield 1 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp; yield 2 </code> <br>
+        <code> &nbsp;&nbsp;&nbsp;&nbsp; yield 3 </code> <br>
+      
+        <br>
+        <p> #ジェネレーターのメソッド集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> genfunc.close() </code> </td>
+                  <td> ジェネレーターを正常に終了する </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> genfunc.throw(例外クラス) </code> </td>
+                  <td> 例外を投げる </td>
+                  <td> exception </td>
+                </tr>
+                <tr>
+                  <td> <code> d.timetz() </code> </td>
+                  <td> 時刻部分を取得 </td>
+                  <td> datetime.time </td>
+                </tr>
+            </tbody>
+        </table>
+      </article> 
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width = device-width">
+  <title> Cheatsheet </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+  <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー -->
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+    <body>
+      <div class="row g-5">
+        <div class="col-md-12">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            <a href="python_index.html"> Python </a>
+          </h3>
+
+          <article class="blog-post">
+            <h2 class="blog-post-title"> container </h2>
+            <p class="blog-post-meta"> 2024/12/14 </p>
+            <p> <a href="#list">list</a>、<a href="#tuple">tuple</a>、<a href="#set">set</a>、<a href="#dictionary">dict</a> </p>
+            <hr>
+
+            <!-- コンテンツ -->
+            <h2 id="list"> リスト </h2>
+            <p> #リストの生成 </p>
+            <code> list1 = [1,2,3] </code> <br>
+            <code> list2 = [val*2 for val in list1] </code> <br>
+            <code> list3 = [val*2 for val in list1 if val % 2 == 1] </code> <br>
+            <code> list4 = [i for i in range(0,10)]</code> <br>
+
+
+            <br>
+            <p> #スライス (nからmまで) </p>
+            <code> list1[n:m+1] </code> <br>
+
+            <br>
+            <p> #指定したインデックスの要素を削除 </p>
+            <code> del list1[index] </code> <br>
+
+            <br>
+            <p> #ソートして新しいリストを返す </p>
+            <code> list2 = sorted(list1) </code> <br>
+
+            <br>
+            <p> #逆順のリストを返す </p>
+            <code> rev_list = list1[::-1] </code> <br>
+
+            <br>
+            <p> #リスト内の要素を加工して新しいリストを作成する </p>
+            <code> list2 = map(lambda v: v**2, list1) </code> <br>
+
+            <br>
+            <p> #リスト内の要素を特定の条件で絞り込む </p>
+            <code> list2 = filter(lambda v: v < 5, list1) </code> <br>
+
+            <br>
+            <p> #リスト内の要素を順に処理して1つにまとめる </p>
+            <code> list2 = reduce(lambda result, v : result*v , list1) </code> <br>
+
+            <br>
+            <p> #メソッド集 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> list1.append(var) </code> </td>
+                  <td> 末尾に変数を追加 </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.insert(N, var) </code> </td>
+                  <td> N番目に変数を追加 </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.remove(var) </code> </td>
+                  <td> 指定した要素を削除 </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.pop(idx) </code> </td>
+                  <td> 指定したインデックスの要素を削除して返す (引数なしの場合は末尾の要素を返す) </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.index(var) </code> </td>
+                  <td> 引数で指定した値が格納されているインデックスを返す </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.sort() </code> </td>
+                  <td> ソートして元のリストを変更する </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.extend(list2) </code> </td>
+                  <td> リスト1にリスト2を結合させる </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> ",".join(list1) </code> </td>
+                  <td> リストをcsv文字列に変換する </td>
+                  <td> str </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.clear() </code> </td>
+                  <td> リストを削除する </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.count(var) </code> </td>
+                  <td> リストにvarが何回登場するか </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> list1.reverse() </code> </td>
+                  <td> リストの内容を逆順にする </td>
+                  <td> void </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+
+            <h2 id="tuple"> タプル </h2>
+            <p> #タプルの生成 </p>
+            <code> t = (1,2,3) </code> <br>
+
+            <br>
+            <p> #特定インデックスの要素を取り出す </p>
+            <code> t[2] </code> <br>
+
+            <br>
+            <p> #スライス </p>
+            <code> t[start:stop:step] </code> <br>
+
+            <br>
+            <p> #包含 (True or False) </p>
+            <code> x in t </code> <br>
+            <code> x not in t </code> <br>
+            <hr>
+
+            <h2 id="set"> 集合 </h2>
+            <p> #集合の生成 </p>
+            <code> s = {1,2,3,4} </code> <br>
+            <code> s = {val*2 for val in list1} </code> <br>
+            <code> s = {val*2 for val in list1 if val % 2 == 1} </code> <br>
+
+            <br>
+            <p> #リストから集合の生成 </p>
+            <code> s = set(list1)</code> <br>
+
+            <br>
+            <p> #要素が含まれているか(True or False) </p>
+            <code> 4 in s </code> <br>
+
+            <br>
+            <p> #メソッド集</p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code>s.add(5)</code> </td>
+                  <td> 要素の追加 </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code>s.remove(5)</code> </td>
+                  <td> 指定した要素の削除 </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> s.pop() </code> </td>
+                  <td> 末尾の要素を返して削除 </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> s1.union(s2) </code> </td>
+                  <td> 和集合 </td>
+                  <td> set </td>
+                </tr>
+                <tr>
+                  <td> <code> s1.intersection(s2) </code> </td>
+                  <td> 積集合 </td>
+                  <td> set </td>
+                </tr>
+                <tr>
+                  <td> <code> s1.difference(s2) </code> </td>
+                  <td> 差集合 </td>
+                  <td> set </td>
+                </tr>
+                <tr>
+                  <td> <code> s1.issubset(s2) </code> </td>
+                  <td> s1がs2に含まれているか </td>
+                  <td> boolean </td>
+                </tr>
+                <tr>
+                  <td> <code> s1.issuperset(s2) </code> </td>
+                  <td> s2がs1に含まれているか </td>
+                  <td> boolean </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+
+
+            <h2 id="dictionary"> 辞書 </h2>
+            <p> #dictionaryの生成 </p>
+            <code> dic = {1:10,2:20,3:30} </code> <br>
+            <code> dic[4] = 40 </code> <br>
+            <code> dic2 = {val: 0 for val in list1} </code> <br>
+            <code> dic3 = {val: 0 for val in list1 if val % 2 == 0} </code> <br>
+
+            <br>
+            <p> #listからdictionaryの生成 </p>
+            <code> dic = dict(zip(key_list, value_list)) </code> <br>
+
+            <br>
+            <p> #指定したキーに対応する値を取得 </p>
+            <code> dic[2] </code> <br>
+
+            <br>
+            <p> #指定したキーの要素を削除する </p>
+            <code> del dic[3] </code> <br>
+
+            <br>
+            <p> #存在の判定(True or False) </p>
+            <code> 1 in dic.keys() </code> <br>
+            <code> 10 in dic.values() </code> <br>
+            <code> (1,10) in dic.items() </code> <br>
+
+            <br>
+            <p> #valueが最大のkeyの取得 </p>
+            <code> max_val_key = max(dic,key=dic.get) </code> <br>
+
+            <br>
+            <p> #valueが最小のkeyの取得 </p>
+            <code> min_val_key = min(dic,key=dic.get) </code> <br>
+
+            <br>
+            <p> #辞書をキーでソートしたリストを返す </p>
+            <code> sorted_bykey_list = sorted(dic.items(), key=lambda x: (x[0])) </code> <br>
+
+            <br>
+            <p> #辞書を値でソートしたリストを返す </p>
+            <code> sorted_byvalue_list = sorted(dic.items(), key=lambda x: (x[1])) </code> <br>
+
+            <br>
+            <p> #メソッド集 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> dic.setdefault(key, value) </code> </td>
+                  <td> 指定したキーに値がなければ与える </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> dic1.update(dic2) </code> </td>
+                  <td> 2つの辞書をマージする </td>
+                  <td> void </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.get(key, default) </code> </td>
+                  <td> 指定したキーに対応する値を返す(デフォルトの設定も可能)</td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.keys() </code> </td>
+                  <td> すべてのキーをリスト化 </td>
+                  <td> list </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.values() </code> </td>
+                  <td> すべての値をリスト化 </td>
+                  <td> list </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.items() </code> </td>
+                  <td> すべてのキーと値の組をタプル化 </td>
+                  <td> tuple </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.copy() </code> </td>
+                  <td> 辞書のコピー(ハードコピー) </td>
+                  <td> dict </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.pop(key) </code> </td>
+                  <td> 指定したキーの要素を削除して返す </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> dic.clear() </code> </td>
+                  <td> すべて削除 </td>
+                  <td> void </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+          </article>
+        </div>
+      </div>
+
+      <footer class="text-muted py-5">
+        <div class="container">
+          <hr>
+          <p class="mb-1"> フッターコメント </p>
+        </div>
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    </body>
+  </div>
+</main>
+
+</html>

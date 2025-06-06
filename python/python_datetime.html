@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> datetime </h2>
+        <p class="blog-post-meta"> 2025/02/11 </p>
+        <p> このページではdatetimeモジュールについての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> モジュールの読み込み </h2>
+        <p> #モジュールの読み込み </p> 
+        <code> import datetime </code> 
+        <hr>
+
+        <h2> datetime型</h2>
+        <p> #2020年1月1日1時10分10秒100ミリ秒のdatetime型を生成 </p>
+        <code> d = datetime.datetime(2020,1,1,1,10,10,100)</code> <br>
+
+        <br>
+        <p> #現在のdatetime型を生成 </p>
+        <code> d = datetime.datetime.now() </code> <br>
+
+        <br>
+        <p> #現在のdatetime型を生成 (UTC) </p>
+        <code> d = datetime.datetime.utcnow() </code> <br>
+
+        <br>
+        <p> #属性集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> 属性 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> d.year </code> </td>
+                  <td> 年 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.month </code> </td>
+                  <td> 月 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.day </code> </td>
+                  <td> 日 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.hour </code> </td>
+                  <td> 時間 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.minute </code> </td>
+                  <td> 分 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.second </code> </td>
+                  <td> 秒 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.milisecond </code> </td>
+                  <td> マイクロ秒 </td>
+                  <td> int </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <br>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> メソッド </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> d.date() </code> </td>
+                  <td> 日付部分を取得 </td>
+                  <td> datetime.date </td>
+                </tr>
+                <tr>
+                  <td> <code> d.time() </code> </td>
+                  <td> 時刻部分を取得 </td>
+                  <td> datetime.time </td>
+                </tr>
+                <tr>
+                  <td> <code> d.timetz() </code> </td>
+                  <td> 時刻部分を取得 </td>
+                  <td> datetime.time </td>
+                </tr>
+                <tr>
+                  <td> <code> d.timestamp() </code> </td>
+                  <td> タイムスタンプ値を取得 </td>
+                  <td> datetime.timestamp </td>
+                </tr>
+                <tr>
+                  <td> <code> d.toordinal() </code> </td>
+                  <td> 西暦1年1月1日からの通算日を取得する </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.weekday() </code> </td>
+                  <td> 曜日を取得する (0:月曜日, 6:日曜日) </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.isoweekday() </code> </td>
+                  <td> 曜日を取得する (1:月曜日, 7:日曜日) </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> d.isocalendar() </code> </td>
+                  <td> (ISO年, ISO週番号, ISO曜日)のタプルを取得 </td>
+                  <td> tuple </td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+        <p> #文字列からdatetime型への変換 </p> 
+        <code> d = datetime.strptime("日付文字列", "フォーマット文字列") </code> <br>
+        
+        <br>
+        <p> #datetimeから文字列への変換 </p> 
+        <code> d.strftime("フォーマット文字列") </code> <br>
+
+        <br>
+        <p> #フォーマット文字列 </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> フォーマット文字列 </th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> <code> "%Y" </code> </td>
+                  <td> 西暦4桁 </td>
+                </tr>
+                <tr>
+                  <td> <code> "%m" </code> </td>
+                  <td> 2桁でゼロ埋めした月 </td>
+                </tr>
+                <tr>
+                  <td> <code> "%d" </code>  </td>
+                  <td> 2桁でゼロ埋めした日 </td>
+                </tr>
+                <tr>
+                  <td> <code> "%H" </code>  </td>
+                  <td> 2桁でゼロ埋めした時(24時間表記) </td>
+                </tr>
+                <tr>
+                  <td> <code> "%M" </code>  </td>
+                  <td> 2桁でゼロ埋めした分 </td>
+                </tr>
+                <tr>
+                  <td> <code> "%S" </code> </td>
+                  <td> 2桁でゼロ埋めした秒 </td>
+                </tr>
+                <tr>
+                  <td> <code> "%f" </code> </td>
+                  <td> 6桁でゼロ埋めしたマイクロ秒 </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <p> #フォーマット文字列の例1 </p> 
+        <code> "%Y/%m/%d %H:%M:%S:%f" </code> <br>
+
+        <br>
+        <p> #フォーマット文字列の例2 </p> 
+        <code> "%Y-%m-%d %H:%M:%S:%f" </code> 
+        <hr>
+
+        <h2> date型 </h2>
+        <p> #2020年1月1日のdate型を生成 </p>
+        <code> d = datetime.date(2020,1,1)</code> <br>
+
+        <br>
+        <p> #現在のdateを取得する </p>
+        <code> d = datetime.date.today() </code> <br>
+        <hr>
+
+        <h2> time型 </h2>
+        <p> </p>
+        <p> #time型の生成 </p>
+        <code> t = datetime.time(hour=0, minute=0, second=0, microseconds=0)</code> <br>
+
+        <br>
+        <p> #13時40分30秒のtime型の生成 </p>
+        <code> t = datetime.time(13,40,30)</code>
+        <hr>
+
+        <h2> timedelta型 </h2>
+        <p> #timedelta型の生成 </p>
+        <code> timedelta = datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)</code> <br>
+
+        <br>
+        <p> #10日後の日付を計算する </p>
+        <code> d2 = d + datetime.timedelta(days=10) </code>
+        <hr>
+
+        <h2> timezone型 </h2>
+        <p> #日本時間 </p>
+        <code> tz = datetime.timezone(datetime.timedelta(hours=+9), 'Asia/Tokyo') </code>
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width = device-width">
+  <title> Cheatsheet </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+  <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー -->
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+    <body>
+      <div class="row g-5">
+        <div class="col-md-12">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            <a href="python_index.html"> Python </a>
+          </h3>
+
+          <article class="blog-post">
+            <h2 class="blog-post-title"> random </h2>
+            <p class="blog-post-meta"> 2024/12/08 </p>
+            <p> このページではrandomモジュールについての説明を行う。 </p>
+            <hr>
+
+            <!-- コンテンツ -->
+            <h2> モジュールの読み込み </h2>
+            <p> #モジュールの読み込み </p>
+            <code> import random </code>
+            <hr>
+
+            <h2> 乱数の生成 </h2>
+            <p> #関数集 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> random.random() </code> </td>
+                  <td> 0以上1未満の乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.uniform(a, b) </code> </td>
+                  <td> a以上b以下の乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.randint(a, b) </code> </td>
+                  <td> a以上b以下の乱数を生成 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> random.randrange(a, b, n) </code> </td>
+                  <td> a以上b以下のうちnステップごとのリストから一様分布に従う乱数を生成 </td>
+                  <td> int </td>
+                </tr>
+                <tr>
+                  <td> <code> random.betavariate(alpha, beta) </code> </td>
+                  <td> ベータ分布に従う乱数を生成する </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.expovariate(lambda) </code> </td>
+                  <td> 指数分布(lambdaは平均の逆数)に従う乱数を生成する </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.gammavariate(alpha, beta) </code> </td>
+                  <td> ガンマ分布に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.gauss(mu, sigma) </code> </td>
+                  <td> ガウス分布(muが平均、sigmaが標準偏差)に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.lognormvariate(mu, sigma) </code> </td>
+                  <td> 対数正規分布に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.normalvariate(mu, sigma) </code> </td>
+                  <td> 正規分布に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.paretovariate(alpha) </code> </td>
+                  <td> パレート分布(形状パラメータがalpha)に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.weibullvariate(alpha, beta) </code> </td>
+                  <td> ワイブル分布(尺度パラメータがalpha、形状パラメータがbeta)に従う乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+                <tr>
+                  <td> <code> random.triangular(low, high, mode) </code> </td>
+                  <td> 最頻値modeをもつlow以上high以下の乱数を生成 </td>
+                  <td> float </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+
+            <h2> リストの操作 </h2>
+            <p> #関数集 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> random.choice(list1) </code> </td>
+                  <td> リストのうちランダムな要素1つを返す </td>
+                  <td> var </td>
+                </tr>
+                <tr>
+                  <td> <code> random.sample(list1, len(list1)) </code> </td>
+                  <td> リストをシャッフルして新しいリストを返す </td>
+                  <td> list </td>
+                </tr>
+                <tr>
+                  <td> <code> random.shuffle(list1) </code> </td>
+                  <td> リストをシャッフルする </td>
+                  <td> void </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+          </article>
+        </div>
+      </div>
+
+      <footer class="text-muted py-5">
+        <div class="container">
+          <hr>
+          <p class="mb-1"> フッターコメント </p>
+        </div>
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    </body>
+  </div>
+</main>
+
+</html>

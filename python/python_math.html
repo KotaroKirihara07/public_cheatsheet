@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> math </h2>
+        <p class="blog-post-meta"> 2024/08/04 </p>
+        <p> このページではmathモジュールについての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> モジュールの読み込み </h2>
+        <p> #モジュールの読み込み </p> 
+        <code> import math </code> 
+        <hr>
+
+        <h2> 数学定数や数学関数 </h2>
+        <p> #数学定数 </p>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col"> 定数 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> math.pi </code> </td>
+                <td> 3.14..... </td>
+              </tr>
+              <tr>
+                <td> <code> math.e </code> </td>
+                <td> ネイピア数 </td>
+              </tr>
+              <tr>
+                <td> <code> math.inf </code> </td>
+                <td> 正の無限大 </td>
+              </tr>
+              <tr>
+                <td> <code> math.nan </code> </td>
+                <td> NaN(not a number) </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #関数集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 関数 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> math.exp(x) </code> </td>
+                <td> eのx乗 </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.radians(180) </code> </td>
+                <td> 度数法から弧度法への変換 </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.degrees(math.pi) </code> </td>
+                <td> 弧度法から度数法への変換 </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.sin(x) </code> </td>
+                <td> サイン </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.cos(x) </code> </td>
+                <td> コサイン </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.tan(x) </code> </td>
+                <td> タンジェント </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.asin(x) </code> </td>
+                <td> アークサイン </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.acos(x) </code> </td>
+                <td> アークコサイン </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.atan(x) </code> </td>
+                <td> アークタンジェント </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.sqrt(3) </code> </td>
+                <td> 平方根 </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.pow(x, y) </code> </td>
+                <td> xのy乗 </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.log(x**3, x) </code> </td>
+                <td> log(真数、底) </td>
+                <td> float </td>
+              </tr>
+              <tr>
+                <td> <code> math.gcd(x, y) </code> </td>
+                <td> 最大公約数 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.lcm(x, y) </code> </td>
+                <td> 最小公倍数 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.fabs(x) </code> </td>
+                <td> 絶対値 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.ceil(x) </code> </td>
+                <td> 切り上げ </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.floor(x) </code> </td>
+                <td> 切り下げ </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.factorial(x) </code> </td>
+                <td> 階乗 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> math.isclose(x, y) </code> </td>
+                <td> xとyの差が1e-9以内かどうか  </td>
+                <td> boolean </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>   
+      </article> 
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>

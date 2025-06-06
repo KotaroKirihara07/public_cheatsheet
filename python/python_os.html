@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="python_index.html"> Python </a>
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> os </h2>
+        <p class="blog-post-meta"> 2024/08/18 </p>
+        <p> このページではosモジュールについての説明を行う。 </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> モジュールの読み込み </h2>
+        <p> #モジュールの読み込み </p> 
+        <code> import os </code> 
+        <hr>
+
+        <h2> ディレクトリ操作 </h2>
+        <p> #メソッド集 </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> os.getcwd() </code> </td>
+              <td> 現在のディレクトリを取得 </td>
+              <td> str </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.abspath(path) </code> </td>
+              <td> 絶対パスを取得 </td>
+              <td> str </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.relpath(path,起点となるpath) </code> </td>
+              <td> 相対パスを取得 </td>
+              <td> str </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.join(path1, path2,..) </code> </td>
+              <td> パスを結合する </td>
+              <td> str </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.exists(path) </code> </td>
+              <td> パスの存在を確認 </td>
+              <td> boolean </td>
+            </tr>
+            <tr>
+              <td> <code> os.makedirs("./new_dir") </code> </td>
+              <td> 新規ディレクトリの作成 </td>
+              <td> void </td>
+            </tr>
+            <tr>
+              <td> <code> os.chdir(path) </code> </td>
+              <td> ディレクトリの移動 </td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td> <code> os.rmdir("./test1") </code> </td>
+              <td> ディレクトリの削除 </td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.isdir(path) </code> </td>
+              <td> 指定したパスがディレクトリかどうか </td>
+              <td> boolean </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+
+        <h2> ファイル操作 </h2>
+        <p> #メソッド集 (os) </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> os.remove("./myfile.txt") </code> </td>
+              <td> ファイルの削除 </td>
+              <td> void </td>
+            </tr>
+            <tr>
+              <td> <code> os.listdir(path) </code> </td>
+              <td> ディレクトリ直下のファイル名のリストを取得する </td>
+              <td> list </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br>
+        <p> #メソッド集 (os.path) </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> メソッド </th>
+              <th scope="col"> 説明 </th>
+              <th scope="col"> 戻り値の型 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> os.path.exists("./myfile.txt") </code> </td>
+              <td> ファイルが存在するかどうか調べる </td>
+              <td> boolean </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.isfile(path) </code> </td>
+              <td> 指定したパスがファイルかどうか </td>
+              <td> boolean </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.splitext(path) </code> </td>
+              <td> ( 拡張子の手前まで, 拡張子 ) のタプルを取得する </td>
+              <td> tuple </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.getatime("./myfile.txt") </code> </td>
+              <td> 最終アクセス時刻を取得する </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.getmtime("./myfile.txt") </code> </td>
+              <td> 最終更新時刻を取得する </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.getsize("./myfile.txt") </code> </td>
+              <td> サイズ(バイト数)を返す </td>
+              <td> int </td>
+            </tr>
+            <tr>
+              <td> <code> os.path.split(path) </code> </td>
+              <td> ( パスの末尾以外, パスの末尾 ) のタプルを取得する </td>
+              <td> tuple </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>
