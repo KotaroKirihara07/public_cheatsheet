@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+          <a href="js_index.html"> JavaScript </a>
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> 基本構文 </h2>
+          <p class="blog-post-meta"> 2024/08/19 </p>
+          <p> <a href="#comment">コメント</a>、<a href="#dtype">データの型</a>、<a href="#var">変数</a>、<a href="#array">配列</a>、<a href="#obj">オブジェクト</a>、<a href="#for">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#class">クラス</a>、<a href="#func">関数</a>、<a href="#map"> Map </a>、<a href="#set"> Set </a>、<a href="#error"> Error </a> </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id ='comment'> コメント </h2>
+          <p> #単一行コメント</p>
+          <code> // ここはコメント </code><br>
+
+          <br>
+          <p> #複数行コメント </p>
+          <code>/* ここはコメント */ </code>
+          <hr>
+
+          <h2 id ='dtype'> データの型 </h2>
+          <p> データはプリミティブ型とオブジェクト型の2つがある。プリミティブ型のデータは不変であるのに対して、とオブジェクト型の変数は可変である 。</p>
+
+          <p> #データの型を調べる </p>
+          <code> typeof var1; </code> <br>
+
+          <br>
+          <p> #オブジェクトのインスタンスかどうかを調べる (true or false)</p>
+          <code> suzuki instanceof Person; </code> <br>
+
+          <br>
+          <p> #プリミティブ型 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> データ型 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Boolean </code> </td>
+                <td> 真偽値 (プリミティブ型) </td>
+                <td> <code> true, false </code> </td>
+              </tr>
+              <tr>
+                <td> <code> String </code> </td>
+                <td> 文字列 (プリミティブ型) </td>
+                <td> 'aaa', "bbb" </td>
+              </tr>
+              <tr>
+                <td> <code> Number </code> </td>
+                <td> 数値 (プリミティブ型) </td>
+                <td> 100 </td>
+              </tr>
+              <tr>
+                <td> <code> BigInt </code> </td>
+                <td> 巨大な整数 (プリミティブ型) </td>
+                <td> 12345678910h </td>
+              </tr>
+              <tr>
+                <td> <code> undefined </code> </td>
+                <td> 未定義 (プリミティブ型) </td>
+                <td> <code> undefined </code> </td>
+              </tr>
+              <tr>
+                <td> <code> null </code> </td>
+                <td> ヌル (プリミティブ型) </td>
+                <td> <code> null </code> </td>
+              </tr>
+              <tr>
+                <td> <code> Symbol </code> </td>
+                <td> シンボル (プリミティブ型) </td>
+                <td> Symbol </td>
+              </tr>
+              <tr>
+                <td> <code> Object </code> </td>
+                <td> オブジェクト (非プリミティブ型) </td>
+                <td> Array,Object,Date等のプリミティブ型以外のすべて </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #型の変換</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Boolean(値) </code> </td>
+                <td> 値を真偽値に変換する </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> String(値) </code> </td>
+                <td> 値を文字列に変換する </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code> Number(値) </code> </td>
+                <td> 値を数値型に変換する </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> parseInt(文字列) </code> </td>
+                <td> 文字列を数値型(整数)に変換する </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> parseFloat(文字列) </code> </td>
+                <td> 文字列を数値型(浮動小数点)に変換する </td>
+                <td> 数値 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="var"> 変数 </h2>
+          <p> #変数の宣言 </p>
+          <code> let var1 = 1; </code> <br>
+          <code> let var2 = "aaa"; </code> <br>
+          <code> let a = 1, b = 2, c = 3; </code> <br>
+
+          <br>
+          <p> #定数の宣言 </p>
+          <code> const var1 = 1; </code> <br>
+          <code> const var2 = "aaa"; </code> <br>
+          <code> const a = 1, b = 2, c = 3; </code> 
+          <hr>
+
+          <h2 id="array"> 配列 </h2>
+          <p> #配列を定義する </p>
+          <code> let array1 = []; </code> <br>
+          <code> const array2 = [1,2,3]; </code> <br>
+          <code> const array3 = ['a','b']; </code> <br>
+          <code> const array4 = [[1,2,3],[4,5,6]]; </code> <br>
+          <code> let array5 = [{id: 1, name: 'a'},{id:2, name: 'b'}]; </code> <br>
+
+          <br>
+          <p> #配列の各要素に対して処理をする </p>
+          <code> array1.forEach((value,index) => { </code> <br>
+          <code> &nbsp; console.log(index,value); </code> <br>
+          <code> }); </code> <br>
+          
+          <br>
+          <p> #配列から条件を満たす要素を取得する </p>
+          <code> const target_element = array1.find((element) => element == "aaa"); </code> <br>
+
+          <br>
+          <p> #配列から条件を満たす要素の最初のインデックスを取得する </p>
+          <code>const target_index = array1.findIndex((element) => element == "aaa"); </code> <br>
+
+          <br>
+          <p> #ある配列から別の配列を作成する </p>
+          <code>const Id_list = array1.map((value,index) => ${index}_${value}); </code> <br>
+
+          <br>
+          <p> #ある配列から条件を満たす別の配列を作成する </p>
+          <code> let array2 = array1.filter((value) => value >= 10); </code> <br>
+
+          <br>
+          <p> #メソッド集</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> array1.length; </code> </td>
+                <td> 配列の長さを取得する </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.unshift(var1,var2,...) </code> </td>
+                <td> 先頭に要素を追加する </td>
+                <td> 追加後の個数 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.push(var1,var2,...)</code> </td>
+                <td> 末尾に要素を追加する </td>
+                <td> 追加後の個数 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.shift()</code> </td>
+                <td> 先頭の要素を取り除く </td>
+                <td> 取り除かれた要素 </td>
+              </tr>
+              <tr>
+                <td> <code> arrary1.pop() </code> </td>
+                <td> 末尾の要素を取り除く </td>
+                <td> 取り除かれた要素 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.splice(追加位置,取り出す数,var1, var2,...) </code> </td>
+                <td> 指定位置から要素を取り出し、要素を追加する </td>
+                <td> 配列 </td>
+              </tr>
+              <tr>
+                <td> <code> arrary1.concat(array2,array3,...)</code> </td>
+                <td> 配列1に配列2,配列3を結合する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> array1.join('')</code> </td>
+                <td> 配列の各要素を結合して文字列にする </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.indexOf(var1) </code> </td>
+                <td> 要素のインデックスを調べる </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.lastindexOf(var1)</code> </td>
+                <td> 要素の末尾からのインデックスを調べる </td>
+                <td> 数値 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.includes(var1) </code> </td>
+                <td> 要素が含まれているかどうか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> array1.reverse() </code> </td>
+                <td> 配列の並び順を反転する </td>
+                <td> 配列 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="obj"> オブジェクト </h2>
+          <p> #オブジェクトの定義 </p>
+          <code> const object1 = {};</code> <br>
+          <code> const object2 = {id:1, name:'a', func : function(){ return this.name }}; </code> <br>
+
+          <br>
+          <p> #オブジェクトのプロパティの値を得る </p>
+          <code> const var1 = object2[id]; </code> <br>
+          <code> const var2 = object2.name; </code> <br>
+
+          <br>
+          <p> #オブジェクトのプロパティの値を更新する </p>
+          <code> object2[id] = 2; </code> <br>
+          <code> object2.name = 'b';</code> <br>
+
+          <br>
+          <p> #オブジェクトのプロパティを削除する </p>
+          <code> delete object1.id; </code> <br>
+          <code> delete object1["id"];</code> <br>
+
+          <br>
+          <p> #オブジェクトのメソッドを実行する </p>
+          <code> object.func(); </code> <br>
+          <code> object["func"](); </code> <br>
+
+          <br>
+          <p> #オブジェクトのメソッドを上書きする </p>
+          <code> object.func = function() { //処理 }; </code> <br>
+          <code> object["func"] = function() { //処理 }; </code> <br>
+
+          <br>
+          <p> #プロパティを持っているかどうか (true or false) </p>
+          <code> object1.hasOwnProperty("プロパティ名"); </code> <br>
+
+          <br>
+          <p> #メソッド集</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 意味 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Object.assign({},object1) </code> </td>
+                <td> オブジェクトをコピーする </td>
+                <td> オブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> Object.keys(object1) </code> </td>
+                <td> オブジェクトの各キーの配列 </td>
+                <td> 配列 </td>
+              </tr>
+              <tr>
+                <td> <code> Object.values(object1) </code> </td>
+                <td> オブジェクトの各値の配列 </td>
+                <td> 配列 </td>
+              </tr>
+              <tr>
+                <td> <code> Object.entries(object1) </code> </td>
+                <td> オブジェクトの各プロパティの配列 </td>
+                <td> 配列 </td>
+              </tr>
+              <tr>
+                <td> <code> Object.freeze(object1) </code> </td>
+                <td> オブジェクトを変更不可能にする </td>
+                <td> オブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> Object.isFrozen(object1) </code> </td>
+                <td> オブジェクトが変更不可能かどうか </td>
+                <td> 真偽値 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+        
+          <h2 id="for"> 繰り返し </h2>
+          <p> #for文 (index=0,...,9)</p>
+          <code> for (let index=0; index < 10; index++){ </code> <br>
+          <code> &nbsp; 処理; </code> <br>
+          <code> &nbsp; if (index == 5) { </code> <br>
+          <code> &nbsp; &nbsp; continue;  </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> } </code> <br>
+          
+          <br>
+          <p> #for文 (配列用) </p>
+          <code> for (const value of array){ </code> <br>
+          <code> &nbsp; 処理; </code> <br>
+          <code> } </code> <br> 
+
+          <br>
+          <p> #for文 (オブジェクト用) </p>
+          <code> for (const key in object1){ </code> <br>
+          <code> &nbsp; 処理; </code> <br>
+          <code> } </code> <br> 
+          
+          <br>
+          <p> #while文 </p>
+          <code> while (var1 < 10) { </code> <br>
+          <code> &nbsp; 処理; </code> <br>
+          <code> &nbsp; var1 += 1; </code> <br>
+          <code> } </code> <br> 
+          <hr>
+
+          <h2 id="if"> 条件分岐 </h2>
+          <p> #if文 </p>
+          <code> if (var1 >= 10) { </code> <br>
+          <code> &nbsp; 処理1; </code> <br>
+          <code> } else if (var1 <= 5){ </code> <br>
+          <code> &nbsp; 処理2; </code> <br>
+          <code> } else { </code> <br>
+          <code> &nbsp; 処理3; </code> <br>
+          <code> } </code> <br>
+
+          <br>
+          <p> #switch文 (var1の値が1のとき処理1、2のとき処理2、その他は処理3)</p>
+          <code> switch (var1) { </code> <br>
+          <code> &nbsp; case 1: </code> <br>
+          <code> &nbsp; &nbsp; 処理1; </code> <br>
+          <code> &nbsp; &nbsp; break; </code> <br>
+          <code> &nbsp; case 2: </code> <br>
+          <code> &nbsp; &nbsp; 処理2; </code> <br>
+          <code> &nbsp; &nbsp; break; </code> <br>
+          <code> &nbsp; default: </code> <br>
+          <code> &nbsp; &nbsp; 処理3; </code> <br>
+          <code> &nbsp; &nbsp; break; </code> <br>
+          <code> } </code> <br>
+
+          <br>
+          <p> #三項演算子 </p>
+          <code> (num == 1) ? console.log(true) : console.log(false); </code>
+          <hr>
+
+          <h2 id="class"> クラス </h2>
+          <p> #クラスの定義1 </p>
+          <code> class MyClass { </code> <br>
+          <code> &nbsp; constructor() { </code> <br>
+          <code> &nbsp; &nbsp; console.log("a"); </code> <br>
+          <code> &nbsp; &nbsp; console.log("b"); </code> <br>
+          <code> &nbsp; &nbsp; this.value1 = 100; </code> <br>
+          <code> &nbsp; }</code> <br>
+          <code> &nbsp; Mymethod1() { </code> <br>
+          <code> &nbsp; &nbsp; console.log("www"); </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> &nbsp; //スタティックメソッド </code> <br>
+          <code> &nbsp; static Mymethod2() { </code> <br>
+          <code> &nbsp; &nbsp; this.Mymethod1(); </code> <br>
+          <code> &nbsp; &nbsp; console.log("static method"); </code> <br>
+          <code> &nbsp; }</code> <br>
+          <code> } </code> <br>
+          
+          <br>
+          <p> #クラスの定義2 (継承) </p>
+          <code> class Childclass extends MyClass { </code> <br>
+          <code> &nbsp; constructor() { </code> <br>
+          <code> &nbsp; &nbsp; super(); </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> &nbsp; Mymethod3() { </code> <br>
+          <code> &nbsp; &nbsp; console.log("???"); </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> } </code> <br>
+          
+          <br>
+          <p> #クラスの定義3 </p>
+          <code> class MyClass { </code> <br>
+          <code> &nbsp; //スタティックフィールド </code> <br>
+          <code> &nbsp; static STATIC_VALUE = "static value"; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp; //セッター </code> <br>
+          <code> &nbsp; set name(value) { </code> <br>
+          <code> &nbsp; &nbsp; this.name = value; </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp; //ゲッター </code> <br>
+          <code> &nbsp; get name() { </code> <br>
+          <code> &nbsp; &nbsp; return this.name; </code> <br>
+          <code> &nbsp; } </code> <br>
+          <code> } </code> <br>
+
+          <br>
+          <p> #インスタンス化 </p>
+          <code> const myclass = new Myclass(); </code> <br>
+
+          <br>
+          <p> #スタティックフィールドを呼び出す </p>
+          <code> const st_value = Myclass.STATIC_VALUE; </code> <br>
+
+          <br>
+          <p> #スタティックメソッドを呼び出す </p>
+          <code> Myclass.Mymethod2(); </code> <br>
+
+          <br>
+          <p> #モジュールをexportする </p>
+          <code> export モジュール; </code> <br>
+
+          <br>
+          <p> #モジュールをimportする </p> 
+          <code> import {モジュール名} from 'script.js' </code>
+          <hr>
+
+          <h2 id="func"> 関数 </h2>
+          <p> #関数の定義1 </p>
+          <code> function func(a,b,c){ </code> <br>
+          <code> &nbsp; const sum = a + b + c; </code> <br>
+          <code> &nbsp; return sum; </code> <br>
+          <code> } </code> <br>
+          
+          <br>
+          <p> #関数の定義2 (アロー関数) </p>
+          <code> const func = (a,b,c) => { </code> <br>
+          <code> &nbsp; const sum = a + b + c; </code> <br>
+          <code> &nbsp; return sum;</code> <br>
+          <code> } </code> <br>
+          <hr>
+
+          <h2 id="map"> Map </h2>
+          <p> #Mapオブジェクトを初期化する </p>
+          <code> const map_list = new Map() </code> <br>
+
+          <br>
+          <p> #メソッド集</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> map_list.set(key,value) </code> </td>
+                <td> キーと値のセットをマップに登録する </td>
+                <td> Mapオブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.get(key) </code> </td>
+                <td> キーを指定して値を取り出す </td>
+                <td> 値 </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.has(key) </code> </td>
+                <td> キーの値が存在するか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.delete(key) </code> </td>
+                <td> キーの値を削除する </td>
+                <td> 真偽値(削除成功かどうか) </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.clear() </code> </td>
+                <td> キーと値をすべて削除する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.keys() </code> </td>
+                <td> キーからなるIteratorオブジェクト </td>
+                <td> Iteratorオブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.values() </code> </td>
+                <td> 値からなるIteratorオブジェクト </td>
+                <td> Iteratorオブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> map_list.entries() </code> </td>
+                <td> キーと値の配列からなるIteratorオブジェクト </td>
+                <td> Iteratorオブジェクト </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #キーと値のペア数 </p>
+          <code> let length = map_list.size </code> <br>
+
+          <br>
+          <p> #各ペアに対して処理を行う </p>
+          <code> map_list.forEach((value,key) => { </code> <br> 
+          <code> &nbsp; console.log(${key} : ${value}); </code> <br> 
+          <code> }) </code> <br> 
+          <hr>
+
+          <h2 id="set"> Set </h2>
+          <p> Setオブジェクトを初期化する </p>
+          <code> const set_list = new Set() </code> <br>
+
+          <br>
+          <p> #メソッド集</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> set_list.add(value) </code> </td>
+                <td> 値を登録する </td>
+                <td> Setオブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> set_list.has(value) </code> </td>
+                <td> 値が存在するか </td>
+                <td> 真偽値 </td>
+              </tr>
+              <tr>
+                <td> <code> set_list.delete(value) </code> </td>
+                <td> 値を削除する </td>
+                <td> 真偽値(削除成功かどうか) </td>
+              </tr>
+              <tr>
+                <td> <code> set_list.clear() </code> </td>
+                <td> 値をすべて削除する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> set_list.keys() </code> </td>
+                <td> 各値を返す </td>
+                <td> Iteratorオブジェクト </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #要素の数 </p>
+          <code> let length = set_list.size </code> <br>
+
+          <br>
+          <p> #各値について処理する </p>
+          <code> set_list.forEach((value) => { </code> <br>
+          <code> &nbsp; console.log(${value}); </code> <br>
+          <code> }) </code> <br>
+          <hr>
+
+          <h2 id="error"> Error </h2>
+          <p> #Errorインスタンスを生成する </p>
+          <code> const error = new Error('エラーが発生しました'); </code> <br>
+
+          <br>
+          <p> #エラー内容を取得する </p>
+          <code> const er_string = error.message; </code> <br>
+
+          <br>
+          <p> #エラーを投げる </p>
+          <code> throw error; </code> <br>
+
+          <br>
+          <p> #try-catch-finally構文 </p>
+          <code> try { </code> <br>
+          <code> &nbsp; #通常時の処理 </code> <br>
+          <code> } catch (error) {</code> <br>
+          <code> &nbsp; #エラー時の処理 </code> <br>
+          <code> } finally {</code> <br>
+          <code> &nbsp; #エラーの有無に関わらずに実行する処理 </code> <br>
+          <code> } </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> console.log(var1,var2,..) </code> </td>
+                <td> ログを表示する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> console.info(var1,var2,..) </code> </td>
+                <td> 情報を表示する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> console.warn(var1,var2,..) </code> </td>
+                <td> 警告を表示する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> console.error(var1,var2,..) </code> </td>
+                <td> エラーを表示する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> console.dir(オブジェクト) </code> </td>
+                <td> オブジェクトの構造を出力する </td>
+                <td> なし </td>
+              </tr>
+              <tr>
+                <td> <code> console.table(オブジェクト) </code> </td>
+                <td> オブジェクトの構造を表組みで表示する </td>
+                <td> なし </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #エラーの種類 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> エラーの種類 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> RangeError </code> </td>
+                <td> 値が許容範囲にない </td>
+              </tr>
+              <tr>
+                <td> <code> ReferenceError </code> </td>
+                <td> 宣言されていない変数を読みだそうとした </td>
+              </tr>
+              <tr>
+                <td> <code> SyntaxError </code> </td>
+                <td> 言語の構文が不正 </td>
+              </tr>
+              <tr>
+                <td> <code> TypeError </code> </td>
+                <td> データ型が不正 </td>
+              </tr>
+              <tr>
+                <td> <code> URIError </code> </td>
+                <td> URIが不正 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
