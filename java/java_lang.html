@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="java_index.html"> Java </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> java.lang </h2>
+          <p class="blog-post-meta"> 2024/02/18 </p>
+          <p> <a href="#Sysytem"> Systemクラス </a>、<a href="#String"> Stringクラス </a>、
+              <a href="#Math"> Mathクラス </a> </p>
+          <p> インスタンス化の必要がない。</p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id="System"> Systemクラス </h2>
+          <p> 出力を扱うためのクラス。 </p> 
+          <P> #出力 (改行あり) </P>
+          <code> System.out.println(12345); </code> <br>
+
+          <br>
+          <P> #出力 (改行なし) </P>
+          <code> System.out.print(12345); </code>
+          <hr>
+
+          <h2 id="String"> Stringクラス </h2>
+          <p> 文字列を扱うためのクラス。 </p> 
+
+          <p> #文字列の生成 </p> 
+          <code> String str = "abcde"; </code> <br> 
+          <code> var str1 = new String("abcde"); </code> <br>
+          <code> var str2 = "abcde"; </code> <br>
+
+          <br>
+          <p> #文字列への変換 </p> 
+          <code> String str1 = String.valueOf(123); </code> <br> 
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> str1.codePointCount(0,str1.length()) </code> </td>
+                <td> 文字列の長さを調べる </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.isEmpty() </code> </td>
+                <td> 文字列が空であるかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.isBlank() </code> </td>
+                <td> 空文字列または空白のみかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.indexOf(str2) </code> </td>
+                <td> 特定の文字列が最初に登場する文字列のインデックスを返す (存在しなければ-1を返す) </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.indexOf(str2,n) </code> </td>
+                <td> 特定の文字列が最初に登場する文字列のインデックスを返す (検索開始位置をnとする, 存在しなければ-1を返す) </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.lastIndexOf(str2) </code> </td>
+                <td> 特定の文字列が最後に登場する文字列のインデックスを返す (存在しなければ-1を返す) </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.contains(str2) </code> </td>
+                <td> 文字列を含むかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.startsWith(str2) </code> </td>
+                <td> str1先頭の文字列がstr2と一致するかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.endsWith(str2) </code> </td>
+                <td> str1末尾の文字列がstr2一致するかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.compareTo(str2) </code> </td>
+                <td> 文字列が一致しているかどうか (0で一致) </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.compareToIgnoreCase(str2) </code> </td>
+                <td> 大文字小文字区別しないで文字列が一致しているかどうか (0で一致) </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> str1.equals(str2) </code> </td>
+                <td> 文字列が一致しているかどうか (true or false) </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.equalsIgnoreCase(str2) </code> </td>
+                <td> 大文字小文字区別しないで文字列が一致しているかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> str1.strip() </code> </td>
+                <td> 文字列の前後の空白を除去する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> str1.stripLeading() </code> </td>
+                <td> 文字列の前の空白を除去する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> str1.stripTrailing() </code> </td>
+                <td> 文字列の後の空白を除去する </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> str1.substring(2,5) </code> </td>
+                <td> 部分文字列を取得する </td>
+                <td> String </td>
+              </tr>
+              <tr>
+                <td> <code> str1.split(",") </code> </td>
+                <td> 特定の区切り文字で分割する (カンマ区切り) </td>
+                <td> String </td>
+              </tr>
+              <tr>
+                <td> <code> String.join(",",str1) </code> </td>
+                <td> 特定の区切り文字で連結する (カンマで連結) </td>
+                <td> String </td>
+              </tr>
+              <tr>
+                <td> <code> str1.replaceAll(String a, String b) </code> </td>
+                <td> str1の"a"をすべて"b"に変換する。(第一引数を正規表現にすることも可能) </td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #Formatメソッド </p>
+          <code> String.format("%sは%d歳です。","私","20") </code> <br>
+
+          <br>
+          <p> #変換文字 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 変換文字 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> %b,%B</code> </td>
+                <td> ブール値 </td>
+              </tr>
+              <tr>
+                <td> <code>%h,%H</code> </td>
+                <td> ハッシュコードを16進数に変換 </td>
+              </tr>
+              <tr>
+                <td> <code>%s,%S</code> </td>
+                <td> 文字列 </td>
+              </tr>
+              <tr>
+                <td> <code>%c,%C</code> </td>
+                <td> Unicode文字 </td>
+              </tr>
+              <tr>
+                <td> <code>%d</code> </td>
+                <td> 10進数 </td>
+              </tr>
+              <tr>
+                <td> <code>%o</code> </td>
+                <td> 8進数 </td>
+              </tr>
+              <tr>
+                <td> <code>%x,%X</code> </td>
+                <td> 16進数 </td>
+              </tr>
+              <tr>
+                <td> <code>%e,%E</code> </td>
+                <td> 浮動小数点数形式の10進数 </td>
+              </tr>
+              <tr>
+                <td> <code>%f</code> </td>
+                <td> 10進小数点数</td>
+              </tr>
+              <tr>
+                <td> <code> %t,%T</code> </td>
+                <td> 日付、時刻変換文字の接頭辞</td>
+              </tr>
+              <tr>
+                <td> <code> %% </code> </td>
+                <td> '%' </td>
+              </tr>
+              <tr>
+                <td> <code> %n </code> </td>
+                <td> プラットフォーム固有の行区切り文字 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="Math"> Mathクラス </h2>
+          <p> 数学的演算を行うためのクラス。 </p> 
+
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Math.abs(x) </code> </td>
+                <td> 絶対値 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> Math.min(a,b) </code> </td>
+                <td> 最小値 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> Math.max(a,b) </code> </td>
+                <td> 最大値 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> Math.ceil(x) </code> </td>
+                <td> 数値の切り上げ </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.floor(x) </code> </td>
+                <td> 数値の切り捨て </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.round(x) </code> </td>
+                <td> 数値を四捨五入 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> Math.sqrt(x) </code> </td>
+                <td> 平方根 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.cbrt(x) </code> </td>
+                <td> 立方根 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.pow(x,y) </code> </td>
+                <td> xのy乗 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.sin(x) </code> </td>
+                <td> サイン </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.sin(x) </code> </td>
+                <td> サイン </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.cos(x) </code> </td>
+                <td> コサイン </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.tan(x) </code> </td>
+                <td> タンジェント </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.asin(x) </code> </td>
+                <td> アークサイン </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.acos(x) </code> </td>
+                <td> アークコサイン </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.atan(x) </code> </td>
+                <td> アークタンジェント </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.toRadians(x) </code> </td>
+                <td> 角度をラジアンに変換 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.toDegrees(x)</code> </td>
+                <td> ラジアンを度に変換 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.exp(x)</code> </td>
+                <td> eのx乗 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.log(x)</code> </td>
+                <td> 自然対数 </td>
+                <td> double </td>
+              </tr>
+              <tr>
+                <td> <code> Math.log10(x)</code> </td>
+                <td> 底が10の対数 </td>
+                <td> double </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="java_index.html"> Java </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> java.text </h2>
+          <p class="blog-post-meta"> 2024/06/08 </p>
+          <p> <a href="#NumberFormat"> NumberFormatクラス </a>、<a href="#SimpleDateFormat"> SimpleDateFormatクラス </a> </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id="NumberFormat"> NumberFormatクラス </h2>
+          <p> 数値を成形するためのクラス。 </p>
+
+          <p> #import宣言 </p>
+          <code> import java.text.NumberFormat; </code> <br>
+
+          <br>
+          <p> #汎用数値フォーマット </p>
+          <code> var nf = NumberFormat.getNumberInstance();</code> <br>
+          <code> var fnum = nf.format(num); </code> <br>
+
+          <br>
+          <p> #通貨フォーマット </p>
+          <code> var nf = NumberFormat.getCurrencyInstance(Locale.JAPAN);</code> <br>
+          <code> var fnum = nf.format(num); </code> <br>
+
+          <br>
+          <p> #整数フォーマット </p>
+          <code> var nf = NumberFormat.getIntegerInstance();</code> <br>
+          <code> var fnum = nf.format(num); </code> <br>
+
+          <br>
+          <p> #パーセントフォーマット </p>
+          <code> var nf = NumberFormat.getPercentInstance();</code> <br>
+          <code> var fnum = nf.format(num); </code> <br>
+
+          <br>
+          <p> #フォーマット設定のためのメソッド </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> nf.setCurrency(Currency currency)</code> </td>
+                <td> 通貨 </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> nf.setGroupingUsed(boolean tf)</code> </td>
+                <td> 桁区切り文字(,)を使用するか </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> nf.setMaximumFractionDigits(int max) </code> </td>
+                <td> 小数部分の最大桁数 </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> nf.setMaximumIntegerDigits(int max) </code> </td>
+                <td> 整数部分の最大桁数 </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> nf.setMinimumFractionDigits(int min) </code> </td>
+                <td> 小数部分の最小桁数 </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> nf.setMinimumIntegerDigits(int min) </code> </td>
+                <td> 整数部分の最大桁数 </td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="SimpleDateFormat"> SimpleDateFormatクラス </h2>
+          <p> </p>
+
+          <p> #import宣言 </p>
+          <code> import java.text.SimpleDateFormat; </code> <br>
+
+          <br>
+          <p> #インスタンス化 </p>
+          <code> SimpleDateFormat sdf = new SimpleDateFormat(”フォーマットパターン”) </code> <br>
+
+          <br>
+          <p> #フォーマットパターン </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> フォーマットパターン </th>
+                <th scope="col"> 出力例 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> yyyy-MM-dd </code> </td>
+                <td> 2020-01-01 </td>
+              </tr>
+              <tr>
+                <td> <code> yyyy年 MM月 dd日 </code> </td>
+                <td> 2020年 01月 01日 </td>
+              </tr>
+              <tr>
+                <td> <code> yyyy-MM-dd-HH-mm-ss.SSS </code> </td>
+                <td> 2020-01-01-13-30-40.509 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #タイムゾーンを設定 </p>
+          <code> setTimeZone </code> <br>
+
+          <br>
+          <p> #指定されたDateを日付文字列にフォーマットする </p>
+          <code> Date date = new Date(); </code> <br>
+          <code> String str = sdf.format(date); </code> <br>
+
+          <br>
+          <p> #文字列から解析してDateオブジェクトを生成する </p>
+          <code> Date date = sdf.parse(str); </code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

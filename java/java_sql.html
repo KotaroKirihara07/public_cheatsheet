@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="java_index.html"> Java </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> java.sql </h2>
+          <p class="blog-post-meta"> 2024/05/25 </p>
+          <p> このページではjava.sqlパッケージについての説明を行う。 </p>
+          <p> <a href="#CandD"> Connection、DriverManager </a>、<a href="#PreparedStatement"> PreparedStatement </a>、
+              <a href="#ResultSet"> ResultSet </a>、<a href="#SQLException"> SQLException </a>
+          </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 基本事項 </h2>
+          <p> 
+            java.sqlパッケージはJDBCのコアを提供している。 しかし、このパッケージはの大部分はデータベース接続の
+            管理とインターフェース等を定義しているだけにすぎない。実際のデータベースに対する接続や操作等は
+            JDBCドライバーが行う。
+          </p>  
+          <hr>
+
+          <h2> JDBCのインストール </h2>
+          <p> #PostgreSQL JDBC Driverのインストール方法 </p>  
+          <ol>
+            <li> <a href="https://jdbc.postgresql.org/" target="_blank"> https://jdbc.postgresql.org/ </a> にアクセス。</li>
+            <li> Downloadする。 </li>
+            <li> バージョンを指定する。 </li>
+            <li> 「postgresql-42.7.3.jar」がダウンロードされる。 </li>
+            <li> バージョンを指定する。 </li>
+          </ol>
+          <hr>
+
+
+          <h2> 準備 (for Eclipse)</h2>
+          <p> #ユーザライブラリ設定 </p>  
+          <ol>
+            <li> 「ウィンドウ」→「設定」 </li>
+            <li> 「ビルドパス」→「ユーザー・ライブラリー」→「新規」 </li>
+            <li>  任意のユーザー・ライブラリーをつける (例: JDBC_LIB) </li>
+            <li> 「OK」 </li>
+            <li>  「外部JARの追加」</li>
+            <li> 「postgresql-42.7.3.jar」を指定して「開く」 </li>
+            <li> 「適用して閉じる」 </li>
+          </ol>
+
+          <p> #Javaプロジェクトの設定 </p>
+          <ol>
+            <li> 「パッケージエクスプローラー」でプロジェクト右クリック </li>
+            <li> 「ビルドパス」→「ライブラリーの追加」 </li>
+            <li> 「ユーザーライブラリー」 </li>
+            <li> ユーザーライブラリー(JDBC_LIB)にチェックをいれる </li>
+            <li> 完了 </li>
+          </ol>
+          <hr>
+
+          <h2> JDBCドライバのロード </h2>
+          <p> #JDBCドライバをロードする </p>
+          <code> try {</code> <br>
+          <code> &nbsp;&nbsp; Class.forName("org.postgresql.Driver"); </code> <br>
+          <code> } catch (ClassNotFoundException e) {</code> <br>
+          <code> &nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> }</code> <br>
+          <hr>
+
+          <h2 id="CandD"> Connection、DriverManager </h2>
+          <p> データベースに接続するためのクラス。 </p>
+          <p> #import宣言</p>
+          <code> import java.sql.Connection; </code> <br>
+          <code> import java.sql.DriverManager; </code> <br>
+
+          <br>
+          <p> #Connectionのメソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> prepareStatement(SQL) </code> </td>
+                <td> パラメータ付きのSQL文をデータベースに送るためのPreparedStatementオブジェクトを生成する </td>
+                <td> PreparedStatement </td>
+              </tr>
+              <tr>
+                <td> <code> prepareStatement(SQL, new String{"id"}) </code> </td>
+                <td> 自動採番の列名の配列を指定してSQL文を送る </td>
+                <td> PreparedStatement </td>
+              </tr>
+              <tr>
+                <td> <code> setAutoCommit(boolean tf) </code> </td>
+                <td> 自動コミットモードを設定 (true or false) </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> commit() </code> </td>
+                <td> commit </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> rollback </code> </td>
+                <td> rollback </td>
+                <td> void </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #DriverManagerのメソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> getConnection(URL, USER, PASS) </code> </td>
+                <td> データベースに接続するためのConnectionオブジェクトを生成する </td>
+                <td> Connection </td>
+              </tr>
+            </tbody>
+          </table>
+         
+          <br>
+          <p> # データベースに接続する </p>
+          <code> final String URL = "jdbc:postgresql://localhost:5432/Table_name"; </code> <br>
+          <code> final String USER = "postgres"; </code> <br>
+          <code> final String PASS = "password"; </code> <br>
+          <code> </code> <br>
+          <code> try (Connection con = DriverManager.getConnection(URL, USER, PASS);) {</code> <br>
+          <code> &nbsp;&nbsp; //接続後の処理 </code> <br>
+          <code> } catch (SQLException e) {</code> <br>
+          <code> &nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> } </code> <br>
+          <hr>
+
+
+          <h2 id="PreparedStatement"> PreparedStatement </h2>
+          <p> プリコンパイル済みのSQL文を扱うためのクラス。 </p>
+          <p> #import宣言</p>
+          <code> import java.sql.PreparedStatement; </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> setXxx(n, value) </code> </td>
+                <td> SQL文のn番目の?にvalueの値を埋め込む </td>
+                <td> void </td>
+              </tr>
+              <tr>
+                <td> <code> executeQuery() </code> </td>
+                <td> 単一のResultSetオブジェクトを返すSQL文(SELECT)を実行する </td>
+                <td> ResultSet </td>
+              </tr>
+              <tr>
+                <td> <code> executeUpadte() </code> </td>
+                <td> 指定されたSQL文(INSERT, UPDATE, DELETE)を実行する。更新した行数を戻り値として返す </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> getGeneratedKeys() </code> </td>
+                <td> 自動採番を実行して、値を設定する (INSERT文専用) </td>
+                <td> ResultSet </td>
+              </tr>
+              <tr>
+                <td colspan="3"> ＊ <code> Xxx </code>= {<code>Int</code>, <code>String</code>, <code>Date</code>, <code>Double</code>,<code>TimeStamp</code>,
+                                    <code>Object</code>} 等 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #フォームから直接値をデータベースに設定する (<a href="../../Contents3/JSP_Servlet/jsps_servbasic.html#HttpServletRequest"> HttpServletRequest </a>を参照) </p>
+          <code> pstmt.setString(1, request.getParameter("name");); </code>
+          <hr>
+
+          
+          <h2 id="ResultSet"> ResultSet </h2>
+          <p> SELECT文の実行結果を扱うためのクラス。 </p>
+          <p> #import宣言</p>
+          <code> import java.sql.ResultSet; </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> next() </code> </td>
+                <td> カーソルを次の行に移動する </td>
+                <td> boolean</td>
+              </tr>
+              <tr>
+                <td> <code> getXxx("col_name") </code> </td>
+                <td> 列名col_nameの値を取得する </td>
+                <td> Xxx </td>
+              </tr>
+              <tr>
+                <td colspan="3"> ＊ <code> Xxx </code>= {<code>Int</code>, <code>String</code>, <code>Date</code>, <code>Double</code>, <code>TimeStamp</code>,
+                                    <code>Object</code>} 等 </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="SQLException"> SQLException </h2>
+          <p> SQLに関する例外を扱うためのクラス。 </p>
+          <p> #import宣言</p>
+          <code> import java.sql.SQLException; </code> <br>
+          <p> </p>
+          <hr>
+
+          
+
+          <h2> テンプレート (main メソッド)</h2>
+          <code> import java.sql.Connection; </code> <br>
+          <code> import java.sql.DriverManager; </code> <br>
+          <code> import java.sql.ResultSet; </code> <br>
+          <code> import java.sql.SQLException; </code> <br>
+          <code> import java.sql.Statement; </code> <br>
+          <code> </code> <br>
+          <code> public class GetConnection() {</code> <br>
+          <code> &nbsp;&nbsp; static String URL = "jdbc:postgresql://localhost:5432/database_name" </code> <br>
+          <code> &nbsp;&nbsp; static String USER = "postgres" </code> <br>
+          <code> &nbsp;&nbsp; static String PASS = "password" </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; public static void main(String[] args) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class.forName("org.postgresql.Driver"); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch(ClassNotFoundException e) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try (Connection con = DriverManager.getConnection(URL, USER, PASS)) {</code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //INSERT用のメソッドの実行 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int result = InsertMethod(classname, con) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //UPDATE用のメソッドの実行 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int result = UpdateMethod(con) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //DELETE用のメソッドの実行 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int result = DeleteMethod(con) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //SELECT用のメソッドの実行 </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SelectMethod(con) </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch(SQLException e) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //INSERT </code> <br>
+          <code> &nbsp;&nbsp; public int InsertMethod(Table_name_Class table_name_Class, Connection con) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; int result = 0; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; String SQL = "iNSERT INTO Table_name (name, price) VALUES (?,?)"; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try (PreparedStatement pstmt = con.prepareStatement(SQL, new String[]{"id"})) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table_name_Class table_name_Class = new Table_name_Class(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table_name_Class.setName(1, "aaa"); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table_name_Class.setPrice(2, 1000); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = pstmt.executeUpdate(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResultSet rs = pstmt.getGeneratedKeys(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (rs.next()) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table_name_Class.setId(rs.getInt("id")); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch (SQLException e) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //UPDATE </code> <br>
+          <code> &nbsp;&nbsp; public int UpdateMethod(Connection con) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; int result = 0; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; String SQL = "UPDATE Table_name SET price = price + ? WHERE id = ? "; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try (PreparedStatement pstmt = con.prepareStatement(SQL)) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pstmt.setInt(1, value); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pstmt.setInt(2, id); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = pstmt.executeUpdate(); </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch (SQLException e) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; return result; </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //DELETE </code> <br>
+          <code> &nbsp;&nbsp; public int DeleteMethod(Connection con) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; int result = 0; </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; String SQL = "DELETE FROM Table_name WHERE id = ? "; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try (PreparedStatement pstmt = con.prepareStatement(SQL)) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pstmt.setInt(1, 101); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = pstmt.executeUpadte(); </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch (SQLException e) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; return result; </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //SELECT </code> <br>
+          <code> &nbsp;&nbsp; public void SelectMethod(Connection con) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; String SQL = "SELECT * FROM Table_name WHERE id = ? "; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; try (PreparedStatement pstmt = con.prepareStatement(SQL)) {</code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pstmt.setInt(1, 101); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResultSet rs = pstmt.executeQuery(); </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (rs.next()) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String row = rs.getInt("id) + " " + rs.getString("name") + " " + rs.getInt("price"); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(row); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } catch (SQLException e) { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace(); </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; } </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> }</code> <br>
+          <hr>
+
+
+          <h2> テンプレート (テーブルの属性を定義したクラス) </h2>
+          <code> public class Table_name_Class {</code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //フィールド (idは自動採番) </code> <br>
+          <code> &nbsp;&nbsp; private int id; </code> <br>
+          <code> &nbsp;&nbsp; private String name; </code> <br>
+          <code> &nbsp;&nbsp; private int price; </code> <br>
+          <code> </code> <br>
+          <code> &nbsp;&nbsp; //setterとgetter </code> <br>
+          <code> &nbsp;&nbsp; public void setId(int id) { this.id = id; } </code> <br>
+          <code> &nbsp;&nbsp; public int getId() { return this.id; } </code> <br>
+          <code> &nbsp;&nbsp; public void setName(String name) { this.name = name; } </code> <br>
+          <code> &nbsp;&nbsp; public String getName() { return this.name; } </code> <br>
+          <code> &nbsp;&nbsp; public void setPrice(int price) { this.price = price; } </code> <br>
+          <code> &nbsp;&nbsp; public int getPrice() { return this.price; } </code> <br>
+          <code> &nbsp;&nbsp; </code> <br>
+          <code> &nbsp;&nbsp; @Override </code> <br>
+          <code> &nbsp;&nbsp; public String toString() { </code> <br>
+          <code> &nbsp;&nbsp;&nbsp;&nbsp; return this.id + " , " + this.name + " , " + this.price; </code> <br>
+          <code> &nbsp;&nbsp; } </code> <br>
+          <code> } </code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

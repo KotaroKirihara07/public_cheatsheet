@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="java_index.html"> Java </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> java.time </h2>
+          <p class="blog-post-meta"> 2024/05/05 </p>
+          <p> <a href="#LocalDateTime">LocalDateTimeクラス</a>、<!-- <a>OffsetDateTimeクラス</a>、<a>ZonedDateTimeクラス</a>、<a>LocalDateクラス</a>、<a>LocalTimeクラス</a>、<a>OffsetTimeクラス</a> </p> -->
+          <p> <a href="#period"> Periodクラス</a>、<a href="duration"> Durationクラス</a>、</p>
+          <p>temporalパッケージ：<a href="#ChronoUnit">ChronoUnitクラス</a></p>
+          <p> <a>Monthクラス</a></p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id="LocalDateTime"> LocalDateTimeクラス </h2>
+          <p> 日付や時刻を操作するためのクラス。 </p>
+
+          <p> #import宣言 </p>
+          <code> import java.time.LocalDateTime; </code> <br>
+
+          <br>
+          <p> #現在の時刻を生成する </p>
+          <code> var T = LocalDateTime.now(); </code> <br>
+
+          <br>
+          <p> #任意の時刻 (2020年1月1日13時20分30.123456789秒)を生成する </p>
+          <code> var T = LocalDateTime.of(2020,1,1,13,20,30,123456789); </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> t1.equals(t2) </code> </td>
+                <td> t1とt2が等しいかどうか </td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> t1.isBefore(t2) </code> </td>
+                <td> t1 < t2かどうか</td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> t1.isAfter(t2) </code> </td>
+                <td> t1 > t2かどうか</td>
+                <td> boolean </td>
+              </tr>
+              <tr>
+                <td> <code> T.getYear() </code> </td>
+                <td> 年を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getMonthValue() </code> </td>
+                <td> 月を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getDayOfMonth() </code> </td>
+                <td> 日を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getDayOfWeek() </code> </td>
+                <td> 曜日を取得 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.getDayOfYear() </code> </td>
+                <td> その年の何日目か取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getHour() </code> </td>
+                <td> 時を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getMinute() </code> </td>
+                <td> 分を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getSecond() </code> </td>
+                <td> 秒を取得 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> T.getNano() </code> </td>
+                <td> ナノ秒を取得 </td>
+                <td> int </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <!--
+          <h2> OffsetDateTimeクラス </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+          -->
+
+          <!--
+          <h2> ZonedDateTimeクラス </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+          -->
+
+          <!--
+          <h2> LocalDateクラス </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+          -->
+
+          <!--
+          <h2> LocalTimeクラス </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+          -->
+
+          <!--
+          <h2> OffsetTimeクラス </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+          -->
+
+          <h2 id="period"> Periodクラス </h2>
+          <p> 日付間隔を扱うためのクラス。</p>
+
+          <p> #import宣言 </p>
+          <code> import java.time.Period; </code> <br>
+
+          <br>
+          <p> #Periodオブジェクトを生成 </p>
+          <code> var period = Period.between(t1.toLocalDate(),t2.toLocalDate()); </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> period.getYears() </code> </td>
+                <td> 年数 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> period.getMonths() </code> </td>
+                <td> 月数 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> period.getDays() </code> </td>
+                <td> 日数 </td>
+                <td> int </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="duration"> Durationクラス </h2>
+          <p> 時間間隔を扱うためのクラス。</p>
+
+          <p> #import宣言 </p>
+          <code> import java.time.Duration; </code> <br>
+
+          <br>
+          <p> #Durationメソッドの生成 </p>
+          <code> var duration = Duration.between(t1,t2); </code> <br>
+
+          <br>
+          <p> #メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> duration.toDays() </code> </td>
+                <td> 日数 </td>
+                <td> long </td>
+              </tr>
+              <tr>
+                <td> <code> duration.toHours() </code> </td>
+                <td> 時間数 </td>
+                <td> long </td>
+              </tr>
+              <tr>
+                <td> <code> duration.toMinutes() </code> </td>
+                <td> 分数 </td>
+                <td> long </td>
+              </tr>
+              <tr>
+                <td> <code> duration.toSeconds() </code> </td>
+                <td> 秒数 </td>
+                <td> long </td>
+              </tr>
+              <tr>
+                <td> <code> duration.toMillis() </code> </td>
+                <td> ミリ秒数 </td>
+                <td> long </td>
+              </tr>
+              <tr>
+                <td> <code> duration.toNanos() </code> </td>
+                <td> ナノ秒数 </td>
+                <td> long </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="ChronoUnit"> ChronoUnitクラス </h2>
+          <p> 日付や時刻に対し演算するためのクラス。</p>
+
+          <p> #import宣言 </p>
+          <code> import java.time.temporal.ChronoUnit; </code> <br>
+
+          <br>
+          <p> #加算メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> T.plusYears(n) </code> </td>
+                <td> n年加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusMonths(n)</code> </td>
+                <td> n月加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusWeeks(n) </code> </td>
+                <td> n週加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusDays(n) </code> </td>
+                <td> n日加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusHours(n) </code> </td>
+                <td> n時間加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusMinutes(n) </code> </td>
+                <td> n分加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusSeconds(n) </code> </td>
+                <td> n秒加算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.plusNanos(n) </code> </td>
+                <td> nナノ秒加算 </td>
+                <td> var </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #減算メソッド集 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> T.minusYears(n) </code> </td>
+                <td> n年減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusMonths(n) </code> </td>
+                <td> n月減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusWeeks(n) </code> </td>
+                <td> n週減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusDays(n) </code> </td>
+                <td> n日減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusHours(n) </code> </td>
+                <td> n時間減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusMinutes(n) </code> </td>
+                <td> n分減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusSeconds(n) </code> </td>
+                <td> n秒減算 </td>
+                <td> var </td>
+              </tr>
+              <tr>
+                <td> <code> T.minusNanos(n) </code> </td>
+                <td> nナノ秒減算 </td>
+                <td> var </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> フッターコメント </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
