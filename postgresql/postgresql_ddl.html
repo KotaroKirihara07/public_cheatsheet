@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+        
+      </ul>
+    </header>
+  </div>
+
+<div class="container">
+<body>
+<div class="row g-5">
+<div class="col-md-12">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom"> 
+      <a href="postgresql_index.html"> PostgreSQL </a> 
+    </h3>
+
+    <article class="blog-post">
+        <h2 class="blog-post-title"> DDL (Data Definition Language) </h2>
+        <p class="blog-post-meta"> 2024/08/06 </p>
+        <p> DDL (Data Definition Language)はデータ定義言語と呼ばれ、データベースやテーブルを作成したり、削除したり、構成の変更を行ったりする。
+        </p>
+        <hr>
+        
+        <!-- コンテンツ -->
+        <h2> CREATE </h2>
+        <p> データベースやテーブルなどを作成する。 </p>
+        
+        <h4> CREATE DATABASE </h4>
+        <p> #データベースの作成 </p>
+        <code> CREATE DATABASE database_name; </code> <br>
+
+        <br>
+        <h4> CREATE TABLE </h4>
+        <p> #テーブルの作成 (テーブル名の頭文字は大文字にする)</p>
+        <code> CREATE TABLE Table_name ( </code> <br>
+        <code> &nbsp;&nbsp; col_name1 データ型 列名1の制約, </code> <br>
+        <code> &nbsp;&nbsp; col_name2 データ型 列名2の制約, </code> <br>
+        <code> &nbsp;&nbsp; テーブルの制約1, </code> <br>
+        <code> &nbsp;&nbsp; テーブルの制約2 </code> <br>
+        <code> ); </code> <br>
+
+        <br>
+        <P> #データ型 </P>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> データ型</th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 例 </th>
+                  <th scope="col"> 記述方法 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> INTEGER型 </td>
+                  <td> 整数のデータ型 </td>
+                  <td> 100 </td>
+                  <td> <code>INTEGER</code> </td>
+                </tr>
+                <tr>
+                  <td> NUMERIC型 </td>
+                  <td> 小数のデータ型。引数は(全体の桁数,小数の桁数) </td>
+                  <td> 0.054 </td>
+                  <td> <code>NUMERIC(4,3)</code> </td>
+                </tr>
+                <tr>
+                  <td> CHAR型 </td>
+                  <td> 固定長文字列であり、最大長を引数で与える。余りは半角スペースで埋められる。</td>
+                  <td> 'aaaa' </td>
+                  <td> <code>CHAR(4)</code> </td>
+                </tr>
+                <tr>
+                  <td> VARCHAR型 </td>
+                  <td> 可変長文字列であり、最大長を引数で与える。</td>
+                  <td> 'aaaa' </td>
+                  <td> <code> VARCHAR(4) </code> </td>
+                </tr>
+                <tr>
+                  <td> DATE型 </td>
+                  <td> 日付(年月日)のデータ型。''で囲む必要がある。</td>
+                  <td> '2020-01-01' </td>
+                  <td> <code> DATE </code> </td>
+                </tr>
+                <tr>
+                  <td> SERIAL型 </td>
+                  <td> 自動採番 (呼び出すときは<code>INTEGER</code>型を使用する) </td>
+                  <td> 10 </td>
+                  <td> <code> SERIAL </code> </td>
+                </tr>
+              </tbody>
+        </table>
+
+        <br>
+        <P> #列の制約 </P>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> 列の制約 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 記述方法 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> NOT NULL </td>
+                  <td> 無記入を許可しない </td>
+                  <td> <code>NOT NULL</code></td>
+                </tr>
+                <tr>
+                  <td> DEFAULT </td>
+                  <td> デフォルトの値を設定する </td>
+                  <td> <code>DEFAULT 0</code></td>
+                </tr>
+                <tr>
+                  <td> UNIQUE </td>
+                  <td> 一意制約 </td>
+                  <td> <code> UNIQUE </code></td>
+                </tr>
+                <tr>
+                  <td> CHECK(式) </td>
+                  <td> 指定した式を満たさない場合、追加や更新を許可しない検査制約 </td>
+                  <td> <code> CHECK (col_name1 &gt; 0 AND col_name1 &lt;=100)</code></td>
+                </tr>
+                <tr>
+                  <td> REFERENCES 表 (列) </td>
+                  <td> 外部キーとして定義する </td>
+                  <td> <code> REFERENCES Table2 (col_name3) </code></td>
+                </tr>
+              </tbody>
+        </table>
+
+        <br>
+        <P> #テーブルの制約 </P>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> テーブルの制約 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 記述方法 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> PRIMARY KEY </td>
+                  <td> 主キー制約。一意に行を特定できるようなキーを指定する。 </td>
+                  <td> <code>PRIMARY KEY (key_name)</code></td>
+                </tr>
+              </tbody>
+        </table> 
+        <br>
+
+        <h4> CREATE VIEW </h4> 
+        <p> 「ORDER BY句は使えない」、「更新可能な場合と更新不可能な場合がある」といった制限がある。また、viewの上にviewに重ねることも可能だが、パフォーマンス低下を招くため推奨はされない。 </p>
+
+        <p> #ビューを作成する </p>
+        <code> CREATE VIEW View_name (col_name1, col_name2) AS SELECT ... ; </code> <br>
+
+        <br>
+        <p> #ビューからビューを作成する </p>
+        <code> CREATE VIEW View_name2 (col_name1, col_name2) AS SELECT ... FROM View_name1; </code> <br>
+
+        <br>
+        <h4> CREATE INDEX </h4> 
+        <p> インデックスを作成する。 </p>
+        <code> CREATE INDEX idx ON Table_name (col_name1, col_name2); </code> <br>
+
+
+        <br>
+        <h4> CREATE USER </h4> 
+        <p> ユーザを作成する。 </p>
+        <code> CREATE USER user_name WITH オプション; </code> <br>
+
+        <br>
+        <P> #オプション </P>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> オプション </th>
+                  <th scope="col"> 説明 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code>  SUPERUSER </code></td>
+                  <td> スーパーユーザとする </td>
+                </tr>
+                <tr>
+                  <td> <code> NOSUPERUSER </code></td>
+                  <td> スーパーユーザとしない </td>
+                </tr>
+                <tr>
+                  <td> <code> CREATEDB </code></td>
+                  <td> データベース作成権限を与える </td>
+                </tr>
+                <tr>
+                  <td> <code> NOCREATEDB </code></td>
+                  <td> データベース作成権限を与えない </td>
+                </tr>
+                <tr>
+                  <td> <code> LOGIN </code></td>
+                  <td>  ログイン可能にする </td>
+                </tr>
+                <tr>
+                  <td> <code> NOLOGIN </code></td>
+                  <td> ログイン不可にする  </td>
+                </tr>
+                <tr>
+                  <td> <code> PASSWORD 'pass1234'</code></td>
+                  <td> パスワードを設定する (pass1234というパスワードを設定する) </td>
+                </tr>
+              </tbody>
+        </table> 
+        <hr>
+
+        <h2> DROP </h2>
+        <p> データベースやテーブルなどを削除する。 </p>
+        <h4> DROP DATABASE </h4>
+        <p> #データベースの削除 </p>
+        <code> DROP DATABASE database_name; </code> <br>
+
+        <br>
+        <h4> DROP TABLE </h4>
+        <p> #テーブルの削除 </p>
+        <code> DROP TABLE Table_name;</code> <br>
+
+
+        <br>
+        <h4> DROP VIEW</h4>
+        <p> #ビューを削除する </p>
+        <code> DROP VIEW view_name;</code> <br>
+
+
+        <br>
+        <h4> DROP INDEX</h4>
+        <p> #インデックスを削除する </p>
+        <code> DROP INDEX idx ON Table_name;</code>
+        <hr>
+
+        <h2> ALTER </h2>
+        <p> データベースやテーブルなどの構成を変更する。 </p>
+        <p> #テーブルに列を追加する </p>
+        <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約;</code> <br>
+
+        <br>
+        <p> #テーブルに列を追加する (col2の前) </p>
+        <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約 BEFORE col2;</code> <br>
+
+        <br>
+        <p> #テーブルに列を追加する (col2の後) </p>
+        <code> ALTER TABLE Table_name ADD COLUMN col_name データ型 列名の制約 AFTER col2;</code> <br>
+
+        <br>
+        <p> #テーブルの列を削除する </p>
+        <code> ALTER TABLE Table_name DROP COLUMN col_name;</code> <br>
+
+        <br>
+        <p> #テーブルの列の設定を変更する </p>
+        <code> ALTER TABLE Table_name MODIFY col_name 列の型や列の制約;</code> <br>
+
+        <br>
+        <p> #テーブル名を変更する </p>
+        <code> ALTER TABLE Old_Table_name RENAME TO New_Table_name;</code>
+        <hr>
+    </article>
+</div>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="container">
+      <hr>
+      <p class="mb-1"> フッターコメント </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</div>
+</main>
+</html>
