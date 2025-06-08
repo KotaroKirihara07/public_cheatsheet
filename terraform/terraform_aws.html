@@ -33,12 +33,12 @@
         <article class="blog-post">
           <h2 class="blog-post-title"> AWS Provider </h2>
           <p class="blog-post-meta"> 2025/06/07 </p>
-          <p> <a href="#VPC">VPC</a>、<a href="#private subnet">private subnet</a>、<a href="#public subnet">public subnet</a> </p>
+          <p> <a href="#VPC">VPC</a>、<a href="#private subnet">private subnet</a>、<a href="#public subnet">public subnet</a>、<a href="#EC2">EC2</a>、<a href="#ECS">ECS</a>、<a href="#RDS">RDS</a>、 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2 id="VPC"> VPC </h2>
-          <p> VPC + セキュリティグループ </p> 
+          <p> VPC </p> 
           <code>#VPC</code> <br>
           <code>resource "aws_vpc" "vpc" {</code> <br>
           <code>&nbsp;&nbsp;cidr_block = "192.168.0.0/16"</code> <br>
@@ -46,6 +46,23 @@
           <code>&nbsp;&nbsp;tags = {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;Name = "${var.prefix}_vpc"</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;owner = "your_name"</code> <br>
+          <code>&nbsp;&nbsp;}</code> <br>
+          <code>}</code> <br> 
+          <code></code> <br> 
+          <code>#security group</code> <br> 
+          <code>resource "aws_default_security_group" "security_group" {</code> <br> 
+          <code>&nbsp;&nbsp;vpc_id = aws_vpc.vpc.id</code> <br>
+          <code>&nbsp;&nbsp;ingress {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;protocol = "tcp"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;from_port = 443 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;to_port = 443</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;cidr_blocks = ["?.?.?.?/32"]</code> <br>
+          <code>&nbsp;&nbsp;}</code> <br>
+          <code>&nbsp;&nbsp;egress {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;protocol = "tcp"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;from_port = -1 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;to_port = -1</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;cidr_blocks = ["0.0.0.0/0"]</code> <br>
           <code>&nbsp;&nbsp;}</code> <br>
           <code>}</code> <br> 
           <hr>
@@ -105,45 +122,40 @@
           <code>}</code> <br> 
           <hr>
 
-          <h2>EC2</h2>
+          <h2 id="EC2">EC2</h2>
+          <code>#EC2</code> <br>
+          <code>resource "aws_instance" "ec2" {</code> <br>
+          <code>&nbsp;&nbsp;ami =</code> <br>
+          <code>&nbsp;&nbsp;instance_type = "t2.micro" </code> <br>
+          <code>&nbsp;&nbsp;key_name = aws_key_pair.key_pair.id</code> <br>
+          <code>&nbsp;&nbsp;subnet_id = aws_subnet.public_subnet.id</code> <br>
+          <code>&nbsp;&nbsp;ebs_block_device = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;device_name = "${prefix}_ec2_ebs"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;iops = "gp3"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;volume_size = 5</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;volume_type = "gp2"</code> <br>
+          <code>&nbsp;&nbsp;}</code> <br>
+          <code>&nbsp;&nbsp;tags = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;Name = "${var.prefix}_ec2"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;owner = "your_name"</code> <br>
+          <code>&nbsp;&nbsp;}</code> <br>
+          <code>}</code> <br>
+          <code></code> <br>
+          <code>#key pair</code> <br>
+          <code>resource "aws_key_pair" "key_pair" {</code> <br>
+          <code>&nbsp;&nbsp;key_name = "ec2-pubkey"</code> <br>
+          <code>&nbsp;&nbsp;public_key = "ssh-rsaAAABBBCCC..."" </code> <br>
+          <code>&nbsp;&nbsp;tags = {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;Name = "${var.prefix}_key_pair"</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;owner = "your_name"</code> <br>
+          <code>&nbsp;&nbsp;}</code> <br>
+          <code>}</code> <br>
           <hr>
 
-          <h2>Role/Policy</h2>
+          <h2 id="ECS">ECS</h2>
           <hr>
 
-          <h2>Lambda</h2>
-          <hr>
-
-          <h2>ECS</h2>
-          <hr>
-
-          <h2>RDS</h2>
-          <hr>
-
-          <h2>Role/Policy</h2>
-          <hr>
-
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
-          <hr>
-
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> メソッド </th>
-                <th scope="col"> 説明 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code></code> </td>
-                <td> </td>
-              </tr>
-            </tbody>
-          </table>
+          <h2 id="RDS">RDS</h2>
           <hr>    
         </article>
       </div>
