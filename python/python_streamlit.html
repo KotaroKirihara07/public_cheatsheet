@@ -43,6 +43,42 @@
           <hr>
 
 
+          <h2> コマンド </h2>
+          <p> #実行 </p> 
+          <code> streamlit run file_name.py </code> <br>
+
+          <br>
+          <p>#設定されているパラメータとその値を確認する</p>
+          <code> streamlit config show </code>
+          <hr>
+
+
+          <h2> サーバの設定 </h2>
+          <p> #設定ファイルの種類 </p>
+          <ul>
+            <li>グローバル設定ファイル : ~./streamlit/config.toml or %userprofile%/streamlit/config.toml</li>
+            <li>アプリケーション個別の設定ファイル : 実行するアプリケーションファイルと同じディレクトリ内の.streamlitディレクトリに配置する。./.streamlit/config.toml</li>
+          </ul>
+          
+          <p> #設定ファイル内のセクション </p>
+          <ul>
+            <li>[global] : ----</li>
+            <li>[logger] : ----</li>
+            <li>[client] : ----</li>
+            <li>[server] : ----</li>
+            <li>[mapbox] : ---</li>
+            <li>[theme] : --- </li>
+          </ul>
+
+          <p> #config.tomlのテンプレート</p>
+          <code>[server]</code> <br>
+          <code>address = "192.168.16.0"</code> <br>
+          <code>port = 8080</code> <br>
+          <code>sslCertFile = </code> <br>
+          <code>sslKeyFile = </code> <br>
+          <code> </code> <br>
+          <hr>
+
           <h2> 見出し </h2>
           <p> 説明 </p> 
           <code> コード </code> 
