@@ -36,7 +36,7 @@
 
           <article class="blog-post">
             <h2 class="blog-post-title"> セットアップ </h2>
-            <p class="blog-post-meta"> 2024/11/01 </p>
+            <p class="blog-post-meta"> 2025/06/15 </p>
             <p> このページの説明 </p>
             <hr>
 
@@ -91,6 +91,49 @@
               <li> ファイルがあるディレクトリへ移動 </li>
               <li> <code> python filename.py</code> </li>
             </ol>
+            <hr>
+
+            <h2> Pythonライブラリの作成 </h2>
+            <p> #ディレクトリ構成 </p>
+            <code>library_name/</code> <br>
+            <code>&nbsp;&nbsp;├── module_name</code> <br>
+            <code>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py </code> <br>
+            <code>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── module.py </code> <br>
+            <code>&nbsp;&nbsp;├── setup.py </code> <br>
+
+            <br>
+            <p> __init__.py : Pythonがディレクトリをパッケージとして認識するためのファイル。</p>
+
+            <br>
+            <p> module.py : ライブラリの機能が記述されたファイル。</p>
+
+            <br>
+            <p> setup.py : ライブラリの情報を設定するファイル。</p>
+            <code>from setuptools import setup, find_packages</code> <br>
+            <code></code> <br>
+            <code>setup(</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;name="my_library",</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;version="0.1.0",</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;packages=find_packages(),</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;author="Your Name",</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;author_email="your.email@example.com",</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;description="A sample Python library",</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;long_description=open("README.md").read(), </code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;PYTHON_REQUIRES = ">=3.6"</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;INSTALL_REQUIRES = [</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'numpy >=1.20.3',</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'pandas>=1.2.4',</code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;]</code> <br>
+            <code>)</code> <br>
+
+            <br>
+            <p> #インストール (「library_name」ディレクトリで実行)</p>
+            <code> pip install . </code> <br>
+
+            <br>
+            <p> #パッケージング (「dist」、「パッケージ名.egg-info」、「build」が作成される)</p>
+            <code>python setup.py sdist</code> <br>
+            <code>python setup.py bdist_wheel</code> <br>
             <hr>
           </article>
         </div>
