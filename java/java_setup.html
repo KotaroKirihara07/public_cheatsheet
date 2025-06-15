@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> セットアップ </h2>
-          <p class="blog-post-meta"> 2024/05/05 </p>
+          <p class="blog-post-meta"> 2025/06/15 </p>
           <p> このページではJava環境のセットアップ方法についての説明を行う。 </p>
           <hr>
         
@@ -62,6 +62,7 @@
 
 
           <h2> プロジェクトの開始 (for VSCode) </h2>
+          <p> #JDKの設定 </p>
           <ol>
             <li> Javaの拡張機能 (Extension Pack for Java)をインストール </li>
             <li> 「JAVA PROJECTS」のプルダウンにある「Create new javaproject」</li>
@@ -69,13 +70,20 @@
             <li> settings.jsonを"java.jdt.ls.java.home":"C:\\jdk-17.0_3"とする </li>
           </ol>
 
-          <p> 「No build tools」で作成 </p>
+          <p> #ビルドツールを使用しない場合 </p>
           <ol>
             <li> 「View」→「Command Paltte」→「Java: Create Java Project」→「No build tools」</li>
             <li> ディレクトリを選択する </li>
             <li> プロジェクト名を決定する </li>
             <li> srcディレクトリ内にパッケージディレクトリを作成する </li>
             <li> パッケージディレクトリ内に「*.java」というファイルを作成する </li>
+          </ol>
+
+          <p> #ビルドツールを使用する場合 </p>
+          <ol>
+            <li> 「View」→「Command Paltte」→「Java: Create Java Project」→「Mavenプロジェクト/Gradleプロジェクト」</li>
+            <li> ディレクトリを選択する </li>
+            <li> プロジェクト名を決定する </li>
           </ol>
           <hr>
 
@@ -118,6 +126,26 @@
            「java.test.pkg1」のとあるクラス(C1)から「java.test.pkg2」のとあるクラス(C2)を呼び出すには、
             C1クラス内で「import java.test.pkg2.C2」として、C2を呼び出すことができるようになる。
           </p>  
+          <hr>
+
+          <h2> ビルドツール </h2>
+          <p>Javaのビルドツールとは、Javaプロジェクトのコンパイル、テスト、パッケージング、デプロイメントなど、ビルドプロセスを自動化するツール。</p>
+
+          <h4> <a href="https://ant.apache.org/" target="_blank">Apache Ant</a> </h4>
+          <p> Javaで記述されたビルドツールで、XMLベースの構成ファイルでタスクを定義する。</p>
+
+          <h4> <a href="https://maven.apache.org/index.html" target="_blank">Apache Maven (メイヴン)</a></h4>
+          <p> Javaプロジェクトのビルドと管理に広く使用されるツールで、「pom.xml」でプロジェクト設定を管理する。</p>
+
+          <p> #インストール </p>
+          <ol>
+            <li> 「C:\maven」に必要なファイルを... </li>
+            <li> 環境変数に「C:\maven\bin」を追加します</li>
+            <li> <code>mvn -version</code> </li>
+          </ol>
+
+          <h4> <a href="https://gradle.org/" target="_blank">Gradle (グレイドル)</a></h4>
+          <p> Java, Scala, Androidなど、複数の言語とプラットフォームをサポートするビルドツールで、柔軟性と拡張性に優れている。「build.gradle」にプロジェクトの設定を記述する。</p>
           <hr>
         </article>
       </div>
