@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> regular expression </h2>
-          <p class="blog-post-meta"> 2025/05/25 </p>
+          <p class="blog-post-meta"> 2025/06/21 </p>
           <p> このページでは正規表現についての説明を行う。 </p>
           <hr>
         
@@ -44,13 +44,199 @@
           <code> import re </code> 
           <hr>
 
-          <h2> 見出し </h2>
-          <p>  </p> 
-          <code> ptn = re.compile(r"正規表現") </code> 
+          <h2> 正規表現パターン </h2>
+          <p> #正規表現パターンを準備 </p> 
+          <code> ptn = re.compile(r"正規表現パターン", 検索オプション) </code> <br>
+
+          <br>
+          <p> #正規表現パターン </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 正規表現パターン </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> XYZ </code> </td>
+                <td> XYZという文字列に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> [XYZ] </code> </td>
+                <td> X、Y、Zのいずれかの1文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> [^XYZ] </code> </td>
+                <td> X、Y、Z以外のいずれかの1文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> [X-Z] </code> </td>
+                <td> X～Zの範囲の中の1文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> [X|Y|Z] </code> </td>
+                <td> X、Y、Zのいずれかに一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X* </code> </td>
+                <td> 0文字以上のXと一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X? </code> </td>
+                <td> 0文字か1文字のXと一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X+ </code> </td>
+                <td> 1文字以上のXと一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X{n} </code> </td>
+                <td> Xとn回一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X{n,} </code> </td>
+                <td> Xとn回以上一致 </td>
+              </tr>
+              <tr>
+                <td> <code> X{m,n} </code> </td>
+                <td> Xとm～n回一致 </td>
+              </tr>
+              <tr>
+                <td> <code> ^ </code> </td>
+                <td> 行の先頭に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> $ </code> </td>
+                <td> 行の末尾に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> . </code> </td>
+                <td> 任意の1文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \w </code> </td>
+                <td> Unicode単語文字、数字、アンダースコアに一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \W </code> </td>
+                <td> 文字以外に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \d </code> </td>
+                <td> Unicode10進数値に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \D </code> </td>
+                <td> 数字以外に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \n </code> </td>
+                <td> 改行 (ラインフィードに一致) </td>
+              </tr>
+              <tr>
+                <td> <code> \r </code> </td>
+                <td> 復帰 (キャリッジリターンに一致) </td>
+              </tr>
+              <tr>
+                <td> <code> \t </code> </td>
+                <td> タブ文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \s </code> </td>
+                <td> Unicode空白文字に一致 </td>
+              </tr>
+              <tr>
+                <td> <code> \S </code> </td>
+                <td> 空白以外の文字に一致 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #検索オプション (複数の検索オプションを設定する場合は <code>検索オプション | 検索オプション</code> とする)</p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 検索オプション </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> re.IGNORECASE </code> </td>
+                <td> 大文字小文字を区別しない </td>
+              </tr>
+              <tr>
+                <td> <code> re.MULTILINE </code> </td>
+                <td> 複数行モードの有効化 </td>
+              </tr>
+              <tr>
+                <td> <code> re.DOTALL </code> </td>
+                <td> 「.」が行末記号を含む任意の文字にマッチ (単一行モード) </td>
+              </tr>
+              <tr>
+                <td> <code> re.VERVOSE </code> </td>
+                <td> 空白とコメントの有効化 </td>
+              </tr>
+              <tr>
+                <td> <code> re.ASCII </code> </td>
+                <td> \w、\W、\b、\B、\d、\D、\s、\SでASCII文字に限定したマッチ </td>
+              </tr>
+              <tr>
+                <td> <code> re.LOCALE </code> </td>
+                <td> \w、\Wなどをロケールに従って処理する </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
 
-          <h2> 見出し </h2>
-          <p> #関数集 </p> 
+          <h2> Matchオブジェクト </h2>
+          <p> #最初にマッチした文字列1つをMatchオブジェクトとして返す </p> 
+          <code> mtch = ptn.search(str1) </code> <br>
+
+          <br>
+          <p> #最初にマッチした文字列1つをMatchオブジェクトとして返す </p> 
+          <code> mtch = ptn.match(str1) </code> <br>
+
+          <br>
+          <p> #マッチしたすべての文字列をリストとして返す </p> 
+          <code> mtchs = ptn.findall(str1) </code> <br>
+
+          <br>
+          <p> #マッチしたすべての文字列をリストとして返す </p> 
+          <code> mtchs = ptn.finditer(str1) </code> <br>
+
+          <br>
+          <p> #属性集 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 属性 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> ptn.pos </code> </td>
+                <td> 検索時に指定された開始位置 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.endpos </code> </td>
+                <td> 検索時に指定された終了位置 </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.lastindex </code> </td>
+                <td> 最後にマッチしたインデックス </td>
+                <td> int </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> #メソッド集 </p> 
           <table class="table table-striped">
             <thead>
               <tr>
@@ -61,97 +247,38 @@
             </thead>
             <tbody>
               <tr>
-                <td> <code> findall() </code> </td>
-                <td> マッチする文字列をリストで返す </td>
-                <td> list </td>
-              </tr>
-              <tr>
-                <td> <code> split() </code> </td>
-                <td> マッチする文字列で元の文字列を分割したリストを返す </td>
-                <td> list </td>
-              </tr>
-              <tr>
-                <td> <code> sub() </code> </td>
-                <td> マッチする文字列を置換した文字列を返す </td>
+                <td> <code> ptn.group(N) </code> </td>
+                <td> マッチした文字列を返す (N=0のとき文字列全体、N>=1のときサブマッチ文字列)</td>
                 <td> str </td>
               </tr>
               <tr>
-                <td> <code> search() </code> </td>
-                <td> マッチする文字列がある場合、Matchオブジェクトを返す</td>
-                <td> Match </td>
+                <td> <code> ptn.start() </code> </td>
+                <td> 開始位置を返す </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.end() </code> </td>
+                <td> 終了位置を返す </td>
+                <td> int </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.span() </code> </td>
+                <td> (開始位置, 終了位置)のタプルを返す </td>
+                <td> tuple </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.sub("new", str1) </code> </td>
+                <td> str1内の正規表現にマッチする箇所を"new"に置き換える </td>
+                <td> str </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.split(str1) </code> </td>
+                <td> str1を分割する </td>
+                <td> list </td>
               </tr>
             </tbody>
           </table>
-
-
-          <p> #正規表現 </p> 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> 正規表現 </th>
-                <th scope="col"> 説明 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code> . </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> ^ </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> $ </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> * </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> + </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> ? </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> | </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> () </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> \ </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> [] </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> [^] </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> {n} </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> {n,} </code> </td>
-                <td>  </td>
-              </tr>
-              <tr>
-                <td> <code> {n,m} </code> </td>
-                <td>  </td>
-              </tr>
-            </tbody>
-          </table>
-          <hr>    
+          <hr> 
         </article>
       </div>
     </div>

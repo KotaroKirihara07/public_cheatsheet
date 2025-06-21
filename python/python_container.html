@@ -34,8 +34,8 @@
           </h3>
 
           <article class="blog-post">
-            <h2 class="blog-post-title"> container </h2>
-            <p class="blog-post-meta"> 2024/12/14 </p>
+            <h2 class="blog-post-title"> containers </h2>
+            <p class="blog-post-meta"> 2025/06/21 </p>
             <p> <a href="#list">list</a>、<a href="#tuple">tuple</a>、<a href="#set">set</a>、<a href="#dictionary">dict</a> </p>
             <hr>
 
@@ -65,16 +65,43 @@
             <code> rev_list = list1[::-1] </code> <br>
 
             <br>
-            <p> #リスト内の要素を加工して新しいリストを作成する </p>
-            <code> list2 = map(lambda v: v**2, list1) </code> <br>
-
-            <br>
-            <p> #リスト内の要素を特定の条件で絞り込む </p>
-            <code> list2 = filter(lambda v: v < 5, list1) </code> <br>
-
-            <br>
-            <p> #リスト内の要素を順に処理して1つにまとめる </p>
-            <code> list2 = reduce(lambda result, v : result*v , list1) </code> <br>
+            <p> #関数集 </p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"> 関数 </th>
+                  <th scope="col"> 説明 </th>
+                  <th scope="col"> 戻り値の型 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <code> all(list1) </code> </td>
+                  <td> リスト内のすべての要素がTrueか </td>
+                  <td> bool </td>
+                </tr>
+                <tr>
+                  <td> <code> any(list1) </code> </td>
+                  <td> リスト内の要素に少なくとも1つTrueがあるか </td>
+                  <td> bool </td>
+                </tr>
+                <tr>
+                  <td> <code> map(lambda v: v**2, list1) </code> </td>
+                  <td> リスト内の要素を加工してリストを返す </td>
+                  <td> list </td>
+                </tr>
+                <tr>
+                  <td> <code> filter(lambda v: v < 5, list1) </code> </td>
+                  <td> 特定の条件を満たす要素のみのリストを返す </td>
+                  <td> list </td>
+                </tr>
+                <tr>
+                  <td> <code> reduce(lambda result, v : result*v , list1) </code> </td>
+                  <td> リスト内の要素を順に処理して1つにまとめる </td>
+                  <td> list </td>
+                </tr>
+              </tbody>
+            </table>
 
             <br>
             <p> #メソッド集 </p>
@@ -88,39 +115,39 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> <code> list1.append(var) </code> </td>
+                  <td> <code> list1.append(x) </code> </td>
                   <td> 末尾に変数を追加 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code> list1.insert(N, var) </code> </td>
+                  <td> <code> list1.insert(N, x) </code> </td>
                   <td> N番目に変数を追加 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code> list1.remove(var) </code> </td>
+                  <td> <code> list1.remove(x) </code> </td>
                   <td> 指定した要素を削除 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
                   <td> <code> list1.pop(idx) </code> </td>
                   <td> 指定したインデックスの要素を削除して返す (引数なしの場合は末尾の要素を返す) </td>
-                  <td> var </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code> list1.index(var) </code> </td>
+                  <td> <code> list1.index(x) </code> </td>
                   <td> 引数で指定した値が格納されているインデックスを返す </td>
                   <td> int </td>
                 </tr>
                 <tr>
                   <td> <code> list1.sort() </code> </td>
                   <td> ソートして元のリストを変更する </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
                   <td> <code> list1.extend(list2) </code> </td>
                   <td> リスト1にリスト2を結合させる </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
                   <td> <code> ",".join(list1) </code> </td>
@@ -130,17 +157,17 @@
                 <tr>
                   <td> <code> list1.clear() </code> </td>
                   <td> リストを削除する </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code> list1.count(var) </code> </td>
-                  <td> リストにvarが何回登場するか </td>
+                  <td> <code> list1.count(x) </code> </td>
+                  <td> リストにxが何回登場するか </td>
                   <td> int </td>
                 </tr>
                 <tr>
                   <td> <code> list1.reverse() </code> </td>
                   <td> リストの内容を逆順にする </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
               </tbody>
             </table>
@@ -157,11 +184,6 @@
             <br>
             <p> #スライス </p>
             <code> t[start:stop:step] </code> <br>
-
-            <br>
-            <p> #包含 (True or False) </p>
-            <code> x in t </code> <br>
-            <code> x not in t </code> <br>
             <hr>
 
             <h2 id="set"> 集合 </h2>
@@ -175,10 +197,6 @@
             <code> s = set(list1)</code> <br>
 
             <br>
-            <p> #要素が含まれているか(True or False) </p>
-            <code> 4 in s </code> <br>
-
-            <br>
             <p> #メソッド集</p>
             <table class="table table-striped">
               <thead>
@@ -190,14 +208,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> <code>s.add(5)</code> </td>
+                  <td> <code>s.add(x)</code> </td>
                   <td> 要素の追加 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code>s.remove(5)</code> </td>
+                  <td> <code>s.remove(x)</code> </td>
                   <td> 指定した要素の削除 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
                   <td> <code> s.pop() </code> </td>
@@ -222,12 +240,12 @@
                 <tr>
                   <td> <code> s1.issubset(s2) </code> </td>
                   <td> s1がs2に含まれているか </td>
-                  <td> boolean </td>
+                  <td> bool </td>
                 </tr>
                 <tr>
                   <td> <code> s1.issuperset(s2) </code> </td>
                   <td> s2がs1に含まれているか </td>
-                  <td> boolean </td>
+                  <td> bool </td>
                 </tr>
               </tbody>
             </table>
@@ -236,44 +254,44 @@
 
             <h2 id="dictionary"> 辞書 </h2>
             <p> #dictionaryの生成 </p>
-            <code> dic = {1:10,2:20,3:30} </code> <br>
-            <code> dic[4] = 40 </code> <br>
+            <code> dic1 = {1:10,2:20,3:30} </code> <br>
+            <code> dic1[4] = 40 </code> <br>
             <code> dic2 = {val: 0 for val in list1} </code> <br>
             <code> dic3 = {val: 0 for val in list1 if val % 2 == 0} </code> <br>
 
             <br>
             <p> #listからdictionaryの生成 </p>
-            <code> dic = dict(zip(key_list, value_list)) </code> <br>
+            <code> dic1 = dict(zip(key_list, value_list)) </code> <br>
 
             <br>
             <p> #指定したキーに対応する値を取得 </p>
-            <code> dic[2] </code> <br>
+            <code> dic1[2] </code> <br>
 
             <br>
             <p> #指定したキーの要素を削除する </p>
-            <code> del dic[3] </code> <br>
+            <code> del dic1[3] </code> <br>
 
             <br>
             <p> #存在の判定(True or False) </p>
-            <code> 1 in dic.keys() </code> <br>
-            <code> 10 in dic.values() </code> <br>
-            <code> (1,10) in dic.items() </code> <br>
+            <code> 1 in dic1.keys() </code> <br>
+            <code> 10 in dic1.values() </code> <br>
+            <code> (1,10) in dic1.items() </code> <br>
 
             <br>
             <p> #valueが最大のkeyの取得 </p>
-            <code> max_val_key = max(dic,key=dic.get) </code> <br>
+            <code> max_val_key = max(dic1, key=dic1.get) </code> <br>
 
             <br>
             <p> #valueが最小のkeyの取得 </p>
-            <code> min_val_key = min(dic,key=dic.get) </code> <br>
+            <code> min_val_key = min(dic1, key=dic1.get) </code> <br>
 
             <br>
             <p> #辞書をキーでソートしたリストを返す </p>
-            <code> sorted_bykey_list = sorted(dic.items(), key=lambda x: (x[0])) </code> <br>
+            <code> sorted_bykey_list = sorted(dic1.items(), key=lambda x: (x[0])) </code> <br>
 
             <br>
             <p> #辞書を値でソートしたリストを返す </p>
-            <code> sorted_byvalue_list = sorted(dic.items(), key=lambda x: (x[1])) </code> <br>
+            <code> sorted_byvalue_list = sorted(dic1.items(), key=lambda x: (x[1])) </code> <br>
 
             <br>
             <p> #メソッド集 </p>
@@ -287,49 +305,49 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> <code> dic.setdefault(key, value) </code> </td>
+                  <td> <code> dic1.setdefault(key, value) </code> </td>
                   <td> 指定したキーに値がなければ与える </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
                   <td> <code> dic1.update(dic2) </code> </td>
                   <td> 2つの辞書をマージする </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.get(key, default) </code> </td>
-                  <td> 指定したキーに対応する値を返す(デフォルトの設定も可能)</td>
+                  <td> <code> dic1.get(key, default) </code> </td>
+                  <td> 指定したキーに対応する値を返す (デフォルトの設定も可能)</td>
                   <td> var </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.keys() </code> </td>
+                  <td> <code> dic1.keys() </code> </td>
                   <td> すべてのキーをリスト化 </td>
                   <td> list </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.values() </code> </td>
+                  <td> <code> dic1.values() </code> </td>
                   <td> すべての値をリスト化 </td>
                   <td> list </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.items() </code> </td>
+                  <td> <code> dic1.items() </code> </td>
                   <td> すべてのキーと値の組をタプル化 </td>
                   <td> tuple </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.copy() </code> </td>
-                  <td> 辞書のコピー(ハードコピー) </td>
+                  <td> <code> dic1.copy() </code> </td>
+                  <td> 辞書のコピー(シャローコピー) </td>
                   <td> dict </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.pop(key) </code> </td>
+                  <td> <code> dic1.pop(key) </code> </td>
                   <td> 指定したキーの要素を削除して返す </td>
                   <td> var </td>
                 </tr>
                 <tr>
-                  <td> <code> dic.clear() </code> </td>
+                  <td> <code> dic1.clear() </code> </td>
                   <td> すべて削除 </td>
-                  <td> void </td>
+                  <td> - </td>
                 </tr>
               </tbody>
             </table>

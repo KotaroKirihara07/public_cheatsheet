@@ -33,50 +33,18 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> file </h2>
-        <p class="blog-post-meta"> 2025/02/11 </p>
+        <p class="blog-post-meta"> 2025/06/21 </p>
         <p> このページではファイルの取り扱い方法についての説明を行う。 </p>
         <hr>
         
         <!-- コンテンツ -->
         <h2>基本</h2>
-        <p> #ファイルを開く </p>
-        <code> f = open("example.txt", 読み書きモード, encoding="UTF-8") </code> <br>
+        <p> #ファイルの操作 (with命令を使用することでファイルのclose処理をしなくていい) </p>
+        <code>with open("data/example.txt", mode=モード, encoding="UTF-8") as f:  </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
 
         <br>
-        <p> #読み書きモード </p>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"> 読み書きモード </th>
-              <th scope="col"> 説明 </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> <code> "r" </code> </td>
-              <td> 読み込みモードで開く (デフォルト) </td>
-            </tr>
-            <tr>
-              <td> <code> "r+" </code> </td>
-              <td> 読み書きモードで開く (デフォルト) </td>
-            </tr>
-            <tr>
-              <td> <code> "a" </code> </td>
-              <td> 追記モードで開く </td>
-            </tr>
-            <tr>
-              <td> <code> "a+" </code> </td>
-              <td> 読み込み+追記モードで開く </td>
-            </tr>
-            <tr>
-              <td> <code> "w" </code> </td>
-              <td> 書き込みモード開く(ファイルが存在しなかった場合は新しく作成) </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <br>
-        <p> #ファイル読み込みのメソッド集 </p>
+        <p> #メソッド集 </p>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -101,20 +69,6 @@
               <td> データを行単位で分割したリストとして格納する </td>
               <td> list </td>
             </tr>
-          </tbody>
-        </table>
-
-        <br>
-        <p> #ファイル書き込みのメソッド集 </p>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"> メソッド </th>
-              <th scope="col"> 説明 </th>
-              <th scope="col"> 戻り値 </th>
-            </tr>
-          </thead>
-          <tbody>
             <tr>
               <td> <code> f.write("wwww") </code> </td>
               <td> 指定した文字列を書き込み、書き込まれた文字数を返す </td>
@@ -123,43 +77,87 @@
             <tr>
               <td> <code> f.writelines(list1) </code> </td>
               <td> 指定した文字列リストを1つずつ書き込む </td>
-              <td> void </td>
+              <td> - </td>
             </tr>
           </tbody>
         </table>
 
         <br>
-        <p> #ファイルを閉じる </p>
-        <code> f.close() </code> <br>
-
-        <br>
-        <p> #ファイルの開閉の自動化 (ファイルのclose処理が必要ない) </p>
-        <code> with open("data/example.csv") as f:  </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;#処理 </code> <br>
+        <p> #オープンモード </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"> モード </th>
+              <th scope="col"> 説明 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <code> "r" </code> </td>
+              <td> 読み込みモードで開く (デフォルト) </td>
+            </tr>
+            <tr>
+              <td> <code> "r+" </code> </td>
+              <td> 読み書きモードで開く (デフォルト) </td>
+            </tr>
+            <tr>
+              <td> <code> "a" </code> </td>
+              <td> 追記モードで開く </td>
+            </tr>
+            <tr>
+              <td> <code> "a+" </code> </td>
+              <td> 読み込み+追記モードで開く </td>
+            </tr>
+            <tr>
+              <td> <code> "w" </code> </td>
+              <td> 書き込みモード開く(ファイルが存在しなかった場合は新しく作成) </td>
+            </tr>
+            <tr>
+              <td> <code> "w+" </code> </td>
+              <td> 読み書きモード開く(ファイルが存在しなかった場合は新しく作成) </td>
+            </tr>
+            <tr>
+              <td> <code> "x" </code> </td>
+              <td> 書き込みモード開く(ファイルが存在する場合はエラー) </td>
+            </tr>
+            <tr>
+              <td> <code> "x+" </code> </td>
+              <td> 読み書きモード開く(ファイルが存在する場合はエラー) </td>
+            </tr>
+            <tr>
+              <td> <code> "b" </code> </td>
+              <td> バイナリモード </td>
+            </tr>
+            <tr>
+              <td> <code> "t" </code> </td>
+              <td> テキストモード </td>
+            </tr>
+          </tbody>
+        </table>
         <hr>
        
-        <h2>csv</h2>
-        <p> csvを扱うための標準モジュール。ただし、pandasを使用した方が便利。ただし、AWS Lambdaを使用する際には、csvの方が楽かもしれない。 </p>
+        <h2>CSV</h2>
+        <p> CSVファイルを扱うための標準モジュール。ただし、pandasを使用した方が便利。ただし、AWS Lambdaを使用する際には、csvの方が楽かもしれない。 </p>
         <p> #モジュールの読み込み </p> 
         <code> import csv </code> <br>
 
         <br>
-        <p> #csvの読み込み </p>
-        <code> with open("data/example.csv") as f: </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;reader = csv.reader(f) </code> <br>
+        <p> #CSVファイルの読み込み </p>
+        <code>with open("data/example.csv") as f: </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;reader = csv.reader(f) </code> <br>
 
         <br>
-        <p> #csvファイルへの書き込み </p>
-        <code> with open("data/example.csv", "w") as f: </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(f) </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;#単一行の書き込み </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([0, 1, 2]) </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;#複数行の一括書き込み </code> <br>
-        <code> &nbsp;&nbsp;&nbsp;&nbsp;writer.writerows([[1, 2, 3],[4, 5, 6],[7, 8, 9]])</code> <br>
+        <p> #CSVファイルへの書き込み </p>
+        <code>with open("data/example.csv", "w") as f: </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(f) </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;#単一行の書き込み </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([0, 1, 2]) </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;#複数行の一括書き込み </code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;writer.writerows([[1, 2, 3],[4, 5, 6],[7, 8, 9]])</code> <br>
         <hr>
 
-        <h2>json</h2>
-        <p> jsonファイルを扱うためモジュール。</p>
+        <h2>JSON</h2>
+        <p> JSONファイルを扱うためモジュール。</p>
         <p> #モジュールの読み込み </p> 
         <code> import json </code> <br>
 
