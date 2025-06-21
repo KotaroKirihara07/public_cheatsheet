@@ -34,14 +34,14 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 基本構文 </h2>
-          <p class="blog-post-meta"> 2024/05/19 </p>
+          <p class="blog-post-meta"> 2025/06/19 </p>
           <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#str">文字リテラル</a>、<a href="#operator">演算子</a>、<a href="#list">配列</a>、<a href="#if">条件分岐</a>、<a href="#for"> 繰り返し</a>、<a href="#wrapper">ラッパークラス </a>、<a href="#exception">例外処理 </a>、<a href="#template"> テンプレート </a> </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2 id ="comment"> コメント </h2>
           <p> #単一行コメント </p> 
-          <code> //コメント </code> <br>
+          <code> // コメント </code> <br>
 
           <br>
           <p> #複数行コメント </p>
@@ -51,27 +51,22 @@
 
           <h2 id="var"> 変数 </h2>
           <p> #変数の宣言 </p>
-          <code> int a = 1; </code> <br>
-          <code> double b = 3.14; </code> <br>
-          <code> String c ="Hello"; </code> <br>
-          <code> int data; </code> <br>
+          <code> int id = 0; </code> <br>
+          <code> String name = "alex"; </code> <br>
+          <code> var age = 30; </code> <br>
 
           <br>
           <p> #定数の宣言 </p>
-          <code> final int d = 1; </code> <br>
-          <code> final double e = 3.14; </code> <br>
-          <code> final String f ="Hello"; </code> <br>
-
-          <br>
-          <p> #型推論 </p>
-          <code> var i = 1234; </code> <br>
+          <code> final int id = 1; </code> <br>
+          <code> final String name = "alex"; </code> <br>
+          <code> final var age = 30; </code> <br>
 
           <br>
           <p> #型の変換 </p>
           <code> int i = (int)b; </code> <br>
 
           <br>
-          <p> #データ型とその説明 </p>
+          <p> #基本型のデータ型 </p>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -82,27 +77,27 @@
             <tbody>
               <tr>
                 <td> <code> byte </code> </td>
-                <td> 1バイト、整数値 (-2<sup>7</sup> ~ 2<sup>7</sup> - 1) </td>
+                <td> 1バイト整数値 (-2<sup>7</sup> ~ 2<sup>7</sup> - 1) </td>
               </tr>
               <tr>
                 <td> <code> short </code> </td>
-                <td> 2バイト、整数値 (-2<sup>15</sup> ~ 2<sup>15</sup> - 1) </td>
+                <td> 2バイト整数値 (-2<sup>15</sup> ~ 2<sup>15</sup> - 1) </td>
               </tr>
               <tr>
                 <td> <code> int </code> </td>
-                <td> 4バイト、整数値 (-2<sup>31</sup> ~ 2<sup>31</sup> - 1)</td>
+                <td> 4バイト整数値 (-2<sup>31</sup> ~ 2<sup>31</sup> - 1)</td>
               </tr>
               <tr>
                 <td> <code> long </code> </td>
-                <td> 8バイト、整数値 (-2<sup>63</sup> ~ 2<sup>63</sup> - 1)</td>
+                <td> 8バイト整数値 (-2<sup>63</sup> ~ 2<sup>63</sup> - 1)</td>
               </tr>
               <tr>
                 <td> <code> float </code> </td>
-                <td> 4バイト、浮動小数点 </td>
+                <td> 4バイト浮動小数点 </td>
               </tr>
               <tr>
                 <td> <code> double </code> </td>
-                <td> 8バイト、浮動小数点 </td>
+                <td> 8バイト浮動小数点 </td>
               </tr>
               <tr>
                 <td> <code> boolean </code> </td>
@@ -110,11 +105,36 @@
               </tr>
               <tr>
                 <td> <code> char </code> </td>
-                <td> 2バイト、Unicode文字1文字 </td>
+                <td> 2バイトUnicode文字1文字 </td>
               </tr>
               <tr>
                 <td> <code> String </code> </td>
                 <td> 文字列 </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #参照型のデータ型 </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> データ型 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> クラス型 </code> </td>
+                <td> オブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> インターフェース </code> </td>
+                <td>  </td>
+              </tr>
+              <tr>
+                <td> <code> 配列型 </code> </td>
+                <td> 配列 </td>
               </tr>
             </tbody>
           </table>
@@ -275,69 +295,67 @@
 
           <h2 id="if"> 条件分岐 </h2>
           <p> #if文 </p>
-          <code> if (条件1) { </code> <br>
-          <code> &nbsp; 処理1 </code> <br>
-          <code> } else if (条件2) { </code> <br>
-          <code> &nbsp; 処理2 </code> <br>
-          <code> } else { </code> <br>
-          <code> &nbsp; 処理3 </code> <br>
-          <code> } </code> <br>
+          <code>if (条件1) {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>} else if (条件2) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>} else { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>} </code> <br>
 
           <br>
           <p> #switch文 </p>
-          <code> switch (value) { </code> <br>
-          <code> &nbsp; case 1: </code> <br>
-          <code> &nbsp; &nbsp; //value==1のときの処理 </code> <br>
-          <code> &nbsp; &nbsp; break; </code> <br>
-          <code> &nbsp; case 2: </code> <br>
-          <code> &nbsp; &nbsp; //value==2のときの処理 </code> <br>
-          <code> &nbsp; &nbsp; break; </code> <br>
-          <code> &nbsp; default: </code> <br>
-          <code> &nbsp; &nbsp; //上記以外の場合の処理 </code> <br>
-          <code> &nbsp; &nbsp; break; </code> <br>
-          <code> } </code> <br>
+          <code>switch (value) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 1: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//value==1のときの処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 2: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//value==2のときの処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;default: </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//上記以外の場合の処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; </code> <br>
+          <code>} </code> <br>
 
           <br>
           <p> #条件演算子 </p>
-          <code> int age = 20; </code> <br>
-          <code> String value = (age >= 20 ? "成年" : "未成年"); </code>
+          <code>String value = (age >= 20 ? "成年" : "未成年"); </code>
           <hr>
 
           <h2 id="for"> 繰り返し </h2>
           <p> #for文</p>
-          <code> for (int i = 1; i < 6; i++) { </code> <br>
-          <code> &nbsp; //処理</code> <br>
-          <code> } </code> <br>
+          <code>for (int i = 1; i < 6; i++) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理</code> <br>
+          <code>} </code> <br>
           
           <br>
           <p> #拡張for文 (配列やコレクション)</p>
-          <code> int[] data = {1,2,3,4,5}; </code> <br>
-          <code> for (int val : data) { </code> <br>
-          <code> &nbsp; //処理 </code> <br>
-          <code> } </code> <br>
+          <code>for (int val : data) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>} </code> <br>
           
           <br>
           <p> #for文 (continue and break)</p>
-          <code> for (int i = 1; i < 6; i++) { </code> <br>
-          <code> &nbsp; if (i == 2) { </code> <br>
-          <code> &nbsp; &nbsp; continue; </code> <br>
-          <code> &nbsp; } </code> <br>
-          <code> &nbsp; else if (i == 5) { </code> <br>
-          <code> &nbsp; &nbsp; break; </code> <br>
-          <code> &nbsp; } </code> <br>
-          <code> } </code> <br>
+          <code>for (int i = 1; i < 6; i++) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;if (i == 2) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;else if (i == 5) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>} </code> <br>
           
           <br>
           <p> #while文</p>
-          <code> while (条件式) { </code> <br>
-          <code> &nbsp; //処理</code> <br>
-          <code> } </code> <br>
+          <code>while (条件式) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理</code> <br>
+          <code>} </code> <br>
          
           <br>
           <p> #do ... while文 </p>
-          <code> do { </code> <br>
-          <code> &nbsp; //処理 </code> <br>
-          <code> } while (条件式); </code> <br>
+          <code>do { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>} while (条件式); </code> <br>
           <hr>
 
           <h2 id="wrapper"> ラッパークラス </h2>

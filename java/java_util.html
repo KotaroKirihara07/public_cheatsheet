@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> java.util </h2>
-          <p class="blog-post-meta"> 2024/05/27 </p>
+          <p class="blog-post-meta"> 2025/06/21 </p>
           <p> <a href="#Arrays"> Arraysクラス</a>、<a href="#Optional"> Optionalクラス</a>、<a href="#Random">Randomクラス</a>、<a href="#Scanner">Scannerクラス</a> </p>
           <p> streamパッケージ ： <a href="#Stream"> Streamクラス </a>、<a href="#Collectors">Collectorsクラス</a> </p>
           <p> regexパッケージ ： <a href="#Pattern"> Patternクラス </a></p>
@@ -625,11 +625,7 @@
           <code> var ptn = Pattern.compile(rx,検索オプション); </code> <br>
 
           <br>
-          <p> #str1とマッチしている箇所を取得する </p>
-          <code> var match = ptn.matcher(str1); </code> <br>
-
-          <br>
-          <p> #メソッド集 </p>
+          <p> #メソッド集 (Patternオブジェクト)</p>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -640,10 +636,48 @@
             </thead>
             <tbody>
               <tr>
-                <td> <code> Pattern.matches(rx,str1) </code> </td>
-                <td> str1が正規表現と一致しているか </td>
+                <td> <code> ptn.matcher(str) </code> </td>
+                <td> Matcherオブジェクトを作成する </td>
+                <td> Matcher </td>
+              </tr>
+              <tr>
+                <td> <code> ptn.split(str) </code> </td>
+                <td> 文字列を分割する </td>
+                <td> String[] </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #クラスメソッド集 (Patternクラス)</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Pattern.matches(rx, str) </code> </td>
+                <td> strが正規表現と一致しているか </td>
                 <td> boolean </td>
               </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <p> #メソッド集 (Matcherオブジェクト)</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td> <code> match.start() </code> </td>
                 <td> マッチング開始位置 </td>
@@ -779,13 +813,11 @@
 
           <br>
           <p> #リストの生成 その3 </p>
-          <code> var list = new ArrayList&lt;Integer&gt;() { </code> <br>
-          <code> &nbsp; { </code> <br>
-          <code> &nbsp; &nbsp; add(1); </code> <br>
-          <code> &nbsp; &nbsp; add(2); </code> <br>
-          <code> &nbsp; &nbsp; add(3); </code> <br>
-          <code> &nbsp; } </code> <br>
-          <code> }; </code> <br>
+          <code>var list = new ArrayList&lt;Integer&gt;() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;{ </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add(1); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>}; </code> <br>
           
           <br>
           <p> #メソッド集 </p>
@@ -809,7 +841,7 @@
                 <td> int </td>
               </tr>
               <tr>
-                <td> <code> list.add(n,value) </code> </td>
+                <td> <code> list.add(n, value) </code> </td>
                 <td> n番目のindexにvalueを追加 </td>
                 <td> void </td>
               </tr>
@@ -824,12 +856,12 @@
                 <td> boolean </td>
               </tr>
               <tr>
-                <td> <code> list.addAll(n,list2) </code> </td>
+                <td> <code> list.addAll(n, list2) </code> </td>
                 <td> n番目のindexにリストを追加 </td>
                 <td> boolean </td>
               </tr>
               <tr>
-                <td> <code> list.set(n,value) </code> </td>
+                <td> <code> list.set(n, value) </code> </td>
                 <td> n番目のindexにvalueを設定 </td>
                 <td> var </td>
               </tr>
@@ -844,7 +876,7 @@
                 <td> boolean </td>
               </tr>
               <tr>
-                <td> <code> list.removeRange(n,m+1) </code> </td>
+                <td> <code> list.removeRange(n, m+1) </code> </td>
                 <td> n番目からm番目までの要素を削除 </td>
                 <td> void </td>
               </tr>

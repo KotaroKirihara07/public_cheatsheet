@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> クラス </h2>
-          <p class="blog-post-meta"> 2024/05/19 </p>
+          <p class="blog-post-meta"> 2025/06/21 </p>
           <p> このページではクラスについての説明を行う。 </p>
           <p> <a href="#class"> クラス </a>、<a href="#inheritance"> 継承 </a>、
               <a href="#abstract"> 抽象クラス </a>、<a href="#object"> Objectクラス </a>、
@@ -47,22 +47,22 @@
           <h2 id="class"> クラス </h2>
           <p> クラス内にさらにクラスを定義することも可能。 </p>
           <p> #class命令 </p> 
-          <code> [修飾子] class ClassName { </code> <br>
-          <code> &nbsp; //フィールド (メンバー変数) </code> <br>
-          <code> &nbsp; [修飾子] データ型 フィールド名;</code> <br>
+          <code>[修飾子] class ClassName { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//フィールド (メンバー変数) </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] データ型 フィールド名;</code> <br>
           <code> </code> <br>
-          <code> &nbsp; //クラス定数 </code> <br>
-          <code> &nbsp; [修飾子] static final データ型 フィールド名; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//クラス定数 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] static final データ型 フィールド名; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; //コンストラクタ </code> <br>
-          <code> &nbsp; [修飾子] ClassName([引数の型 引数, ... ]) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//コンストラクタ </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] ClassName([引数の型 引数, ... ]) { </code> <br>
           <code> </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; //メソッド </code> <br>
-          <code> &nbsp; [修飾子] 戻り値の型 メソッド名([引数の型 引数, ... ]) { </code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//メソッド </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] 戻り値の型 メソッド名([引数の型 引数, ... ]) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
           <code> } </code> <br>
 
@@ -198,78 +198,74 @@
           <p> #インスタンス化 (配列による参照) その1 </p>
           <code> ClassName[] instances = new ClassName[n]; </code> <br>
           <code> instances[0] = new ClassName(); </code> <br>
-          <code> instances[1] = new ClassName(); </code> <br>
           <code> instances[n]  = new ClassName(); </code> <br>
 
           <br>
           <p> #インスタンス化 (配列による参照) その2 </p>
-          <code> ClassName[] instances = { </code> <br>
-          <code> &nbsp; &nbsp; new ClassName(), </code> <br>
-          <code> &nbsp; &nbsp; new ClassName(), </code> <br>
-          <code> &nbsp; &nbsp; new ClassName() </code> <br>
-          <code> }; </code> <br>
+          <code>ClassName[] instances = { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;new ClassName(), </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;new ClassName(), </code> <br>
+          <code>}; </code> <br>
 
           <br>
           <p> #メソッドの実行 </p>
-          <code> instances[n].methodName(); </code> <br>
+          <code>instances[n].methodName(); </code> <br>
 
 
           <br>
           <p> #メソッドのオーバーロード (引数のみ異なる同一名のメソッドを定義すること)</p>
-          <code> public void methodName() {} </code> <br>
-          <code> public void methodName(int i) {} </code> <br>
-          <code> public void methodName(String str) {} </code> <br>
-          <code> public void methodName(int i, String str) {} </code> <br>
+          <code>public void methodName() {} </code> <br>
+          <code>public void methodName(int i) {} </code> <br>
 
           <br>
           <p> #クラスフィールドとクラスメソッドの呼び出し (クラスフィールドとクラスメソッドはインスタンス化しなくても使用できる。クラスフィールドは各インスタンスで共有される。) </p>
-          <code> var value = ClassName.fieldName(); </code> <br>
-          <code> ClassName.methodName(); </code> <br>
+          <code>var value = ClassName.fieldName(); </code> <br>
+          <code>ClassName.methodName(); </code> <br>
 
           <br>
           <p> #クラスの実装例 </p>
-          <code> public class Person() { </code> <br>
-          <code> &nbsp; private String name; </code> <br>
-          <code> &nbsp; private int age; </code> <br>
-          <code> &nbsp; private static int COUNTER = 0; </code> <br>
+          <code>public class Person() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private String name; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int age; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private static int COUNTER = 0; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public Person() { </code> <br>
-          <code> &nbsp; &nbsp; Person.COUNTER++; </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public Person() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Person.COUNTER++; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public String getName() { </code> <br>
-          <code> &nbsp; &nbsp; return this.name; </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public String getName() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.name; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void setName(String name) {</code> <br>
-          <code> &nbsp; &nbsp; this.name = name; </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void setName(String name) {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public int getAge() { </code> <br>
-          <code> &nbsp; &nbsp; return this.age; </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public int getAge() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.age; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void setAge(int age) { </code> <br>
-          <code> &nbsp; &nbsp; if (age < 0) { </code> <br>
-          <code> &nbsp; &nbsp; &nbsp; throw new IllegalArgumentException("無効な値です。"); </code> <br>
-          <code> &nbsp; &nbsp; } </code> <br>
-          <code> &nbsp; &nbsp; else if (age > 150) { </code> <br>
-          <code> &nbsp; &nbsp; &nbsp; throw new IllegalArgumentException("無効な値です。"); </code> <br>
-          <code> &nbsp; &nbsp; } </code> <br>
-          <code> &nbsp; &nbsp; else { </code> <br>
-          <code> &nbsp; &nbsp; &nbsp; this.age = age; </code> <br>
-          <code> &nbsp; &nbsp; } </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void setAge(int age) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (age < 0) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IllegalArgumentException("無効な値です。"); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (age > 150) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IllegalArgumentException("無効な値です。"); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age = age; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void showInfo() { </code> <br>
-          <code> &nbsp; &nbsp; return String.format("%sさんは%d歳です。",getName(),getAge()); </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void showInfo() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return String.format("%sさんは%d歳です。", getName(), getAge()); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void showCount() { </code> <br>
-          <code> &nbsp; &nbsp; System.out.println(Person.COUNTER); </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void showCount() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(Person.COUNTER); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
           <hr>
 
 
@@ -287,62 +283,62 @@
 
           <br>
           <p> #基底クラスと同名のメソッドをオーバーライドする</p>
-          <code> @Override </code> <br>
-          <code> [修飾子] 戻り値の型 methodName([引数の型 引数, ... ]) { </code> <br>
-          <code> &nbsp; //処理</code> <br>
-          <code> } </code> <br>
+          <code>@Override </code> <br>
+          <code>[修飾子] 戻り値の型 methodName([引数の型 引数, ... ]) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理</code> <br>
+          <code>} </code> <br>
 
           <br>
           <p> #基底クラスのメソッドを使用する </p>
-          <code> super.methodName(引数の型 引数,..) </code> <br>
+          <code>super.methodName(引数の型 引数,..) </code> <br>
 
           <br>
           <p> #SubClassNameの型でインスタンス化 </p>
-          <code> SubClassName instnace = new SubClassName(); </code> <br>
+          <code>SubClassName instnace = new SubClassName(); </code> <br>
 
           <br>
           <p> #SuperClassNameの型でインスタンス化 (ただし、SubClassNameのみで定義されたメソッドやフィールドは不可視) </p>
-          <code> SuperClassName instnace = new SubClassName(); </code> <br>
+          <code>SuperClassName instnace = new SubClassName(); </code> <br>
 
           <br> 
           <p> #テンプレート (SuperClassName) </p>
-          <code> public class SuperClassName {</code> <br>
+          <code>public class SuperClassName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; private int age;</code> <br>
-          <code> &nbsp; private String name; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int age;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private String name; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public SuperClassName(int age, String name) { </code> <br>
-          <code> &nbsp; &nbsp; this.age = age;</code> <br>
-          <code> &nbsp; &nbsp; this.name = name;</code> <br>
-          <code> &nbsp; }</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public SuperClassName(int age, String name) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age = age;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void attack() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void attack() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
 
           <br> 
           <p> #テンプレート (SubClassName) </p>
-          <code> public class SubClassName extends SuperClassName {</code> <br>
+          <code>public class SubClassName extends SuperClassName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; private int score; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int score; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public SubClassName(int age, String name, int score) { </code> <br>
-          <code> &nbsp; &nbsp; super(age, name); </code> <br>
-          <code> &nbsp; &nbsp; this.score = score;</code> <br>
-          <code> &nbsp; }</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public SubClassName(int age, String name, int score) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(age, name); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.score = score;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
           <code> </code> <br>
-          <code> &nbsp; @Override </code> <br>
-          <code> &nbsp; public void attack() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;@Override </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void attack() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void escape() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void escape() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
           <hr>    
 
           <h2 id="abstract"> 抽象クラス </h2>
@@ -351,57 +347,55 @@
             抽象メソッドの定義は<code>@Override</code>を付与することで行う。通常のフィールドやメソッドを定義することも可能。 
           </p>
           <p> #抽象クラス</p>
-          <code> [修飾子] abstract ClassName { </code> <br>
-          <code> &nbsp; //メソッド </code> <br>
-          <code> &nbsp; [修飾子] abstract 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
-          <code> &nbsp; [修飾子] abstract 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
-          <code> &nbsp; [修飾子] abstract 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
-          <code> } </code> <br>
+          <code>[修飾子] abstract ClassName { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//メソッド </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] abstract 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
+          <code>} </code> <br>
 
 
           <br> 
           <p> #テンプレート (SuperClassName) </p>
-          <code> public abstract class SuperClassName {</code> <br>
+          <code>public abstract class SuperClassName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; private int age;</code> <br>
-          <code> &nbsp; private String name; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int age;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private String name; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public SuperClassName(int age, String name) { </code> <br>
-          <code> &nbsp; &nbsp; this.age = age;</code> <br>
-          <code> &nbsp; &nbsp; this.name = name;</code> <br>
-          <code> &nbsp; }</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public SuperClassName(int age, String name) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age = age;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
           <code> </code> <br>
-          <code> &nbsp; //抽象メソッド</code> <br>
-          <code> &nbsp; public abstract void attack(); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//抽象メソッド</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public abstract void attack(); </code> <br>
           <code>  </code> <br>
-          <code> &nbsp; //通常メソッド</code> <br>
-          <code> &nbsp; public void watch() { </code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//通常メソッド</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void watch() { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
 
           <br> 
           <p> #テンプレート (SubClassName) </p>
-          <code> public class SubClassName extends SuperClassName {</code> <br>
+          <code>public class SubClassName extends SuperClassName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; private int score; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int score; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public SubClassName(int age, String name, int score) { </code> <br>
-          <code> &nbsp; &nbsp; super(age, name); </code> <br>
-          <code> &nbsp; &nbsp; this.score = score;</code> <br>
-          <code> &nbsp; }</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public SubClassName(int age, String name, int score) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(age, name); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.score = score;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
           <code> </code> <br>
-          <code> &nbsp; @Override </code> <br>
-          <code> &nbsp; public void attack() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;@Override </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void attack() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void escape() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void escape() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
           <hr>
 
 
@@ -464,71 +458,68 @@
             フィールドは定数のみ定義可能。
           </p>
           <p> #インターフェイス </p>
-          <code> [修飾子] interface InterfaceName { </code> <br>
-          <code> &nbsp; //メソッド </code> <br>
-          <code> &nbsp; [修飾子] 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
-          <code> &nbsp; [修飾子] 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
-          <code> &nbsp; [修飾子] 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
+          <code>[修飾子] interface InterfaceName { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//メソッド </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;[修飾子] 戻り値の型 methodName([引数の型 引数, ... ]); </code> <br>
           <code> } </code> <br>
 
           <br>
           <p> #インターフェイスの実装 </p>
-          <code> [修飾子] class ClassName implements InterfaceName1, InterfaceName2, ... { } </code> <br>
+          <code>[修飾子] class ClassName implements InterfaceName1, InterfaceName2, ... { } </code> <br>
 
           <br>
           <p> #インターフェイスの実装 (継承の後)</p>
-          <code> [修飾子] class SubClassName extends SuperClassName implements InterfaceName1, InterfaceName2, ... { } </code> <br>
+          <code>[修飾子] class SubClassName extends SuperClassName implements InterfaceName1, InterfaceName2, ... { } </code> <br>
           
           <br>
           <p> #インターフェイスの継承</p>
-          <code> [修飾子] interface InterfaceName1 extends InterfaceName2, InterfaceName3, ... { } </code> <br>
+          <code>[修飾子] interface InterfaceName1 extends InterfaceName2, InterfaceName3, ... { } </code> <br>
           
           <br> 
           <p> #テンプレート (SuperClassName) </p>
-          <code> public interface InterfaceName {</code> <br>
+          <code>public interface InterfaceName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; // フィールドは暗黙裡にpublic static finalで定義される </code> <br>
-          <code> &nbsp; int NUMBER = 10; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;// フィールドは暗黙裡にpublic static finalで定義される </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;int NUMBER = 10; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; // メソッドは暗黙裡にpublic abstractで定義される </code> <br>
-          <code> &nbsp; void attack(); </code> <br>
-          <code> &nbsp; void watch(); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;// メソッドは暗黙裡にpublic abstractで定義される </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;void attack(); </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;void watch(); </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
 
           <br> 
           <p> #テンプレート (SubClassName) </p>
-          <code> public class SubClassName implements InterfaceName {</code> <br>
+          <code>public class SubClassName implements InterfaceName {</code> <br>
           <code> </code> <br>
-          <code> &nbsp; private int score; </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;private int score; </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public SubClassName(int score) { </code> <br>
-          <code> &nbsp; &nbsp; this.score = score;</code> <br>
-          <code> &nbsp; }</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public SubClassName(int score) { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.score = score;</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;}</code> <br>
           <code> </code> <br>
-          <code> &nbsp; @Override </code> <br>
-          <code> &nbsp; public void attack() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;@Override </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void attack() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; @Override </code> <br>
-          <code> &nbsp; public void watch() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;@Override </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void watch() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code> </code> <br>
-          <code> &nbsp; public void escape() {</code> <br>
-          <code> &nbsp; &nbsp; //処理 </code> <br>
-          <code> &nbsp; } </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;public void escape() {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;} </code> <br>
           <code>  </code> <br>
-          <code> } </code> <br>
+          <code>} </code> <br>
           <hr>
 
           <h2 id="enumeration"> 列挙型 </h2>
           <p> #enum命令 </p>
-          <code> [修飾子] enum 列挙型名 { </code> <br>
-          <code> &nbsp; //列挙定数, </code> <br>
-          <code> &nbsp; //列挙定数, </code> <br>
-          <code> &nbsp; //列挙定数, </code> <br>
+          <code>[修飾子] enum 列挙型名 { </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//列挙定数, </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//列挙定数, </code> <br>
           <code> } </code> <br>
           
           <br>
@@ -578,13 +569,13 @@
           <h2 id="package"> パッケージ </h2>
           <p> パッケージの作成方法と呼び出し方法について説明する。 </p>
           <p> #パッケージ内にクラスを作成する </p>
-          <code> package com.xxxx.dir1; </code> <br>
-          <code> [修飾子] class PackageClass { ... } </code> <br>
+          <code>package com.xxxx.dir1; </code> <br>
+          <code>[修飾子] class PackageClass { ... } </code> <br>
 
           <br>
           <p> #パッケージ内のクラスの呼び出し </p>
-          <code> import com.xxxx.dir1.PackageClass; </code> <br>
-          <code> [修飾子] class CallClass { ... } </code> <br>
+          <code>import com.xxxx.dir1.PackageClass; </code> <br>
+          <code>[修飾子] class CallClass { ... } </code> <br>
           <hr>
         </article>
       </div>
