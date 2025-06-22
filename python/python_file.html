@@ -33,7 +33,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> file </h2>
-        <p class="blog-post-meta"> 2025/06/21 </p>
+        <p class="blog-post-meta"> 2025/06/22 </p>
         <p> このページではファイルの取り扱い方法についての説明を行う。 </p>
         <hr>
         
@@ -203,6 +203,95 @@
         <code>&nbsp;&nbsp;&nbsp;&nbsp;data = tomllib.load(f) </code> <br>
         <code>&nbsp;&nbsp;&nbsp;&nbsp;data["default"]["age"] = 20 </code> <br>
         <code>&nbsp;&nbsp;&nbsp;&nbsp;toml.write(data) </code> <br>
+        <hr>
+
+        <h2> xml.etree.ElementTree </h2>
+        <p> <a href="https://docs.python.org/ja/3/library/xml.etree.elementtree.html" target="_blank">xml.etree.ElementTree</a>はXMLデータを解析および作成するためのモジュール。</p>
+
+        <p> #モジュールの読み込み </p>
+        <code> import xml.etree.ElementTree as ET </code> <br>
+
+        <br>
+        <p>#ファイルを読み込み、Elementオブジェクトを取得する </p>
+        <code>tree = ET.parse("data/example_data.xml")</code> <br> 
+        <code>root = tree.getroot()</code> <br> 
+
+        <br>
+        <p> #子ノードを取得する </p>
+        <code> element = root[0] </code> <br>
+
+        <br>
+        <p>#Elementオブジェクトの属性</p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> 属性 </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> データ型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> element.tag </code> </td>
+                <td> elementのタグ名 </td>
+                <td> str </td>
+              </tr>
+              <tr>
+                <td> <code> element.attrib </code> </td>
+                <td> elementの属性名とその値 </td>
+                <td> dict </td>
+              </tr>
+              <tr>
+                <td> <code>element.text</code> </td>
+                <td> タグで囲まれた値 </td>
+                <td> str </td>
+              </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <p>#Elementオブジェクトのメソッド</p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> element.find("tag_name") </code> </td>
+                <td> 特定のタグ名のElementオブジェクトを一つ返す </td>
+                <td> Elementオブジェクト </td>
+              </tr>
+              <tr>
+                <td> <code> element.findall("tag_name") </code> </td>
+                <td> 特定のタグ名のElementオブジェクトをすべて返す (引数にXPath式を限定的にサポートしている) </td>
+                <td> list </td>
+              </tr>
+              <tr>
+                <td> <code> element.get("attr_name") </code> </td>
+                <td> タグ内の指定した属性の値を返す </td>
+                <td> str </td>
+              </tr>
+              <tr>
+                <td> <code> element.set("new_attr_name", "new_attr_value") </code> </td>
+                <td> タグ内に新しい属性と属性値を追加する </td>
+                <td> - </td>
+              </tr>
+              <tr>
+                <td> <code> element.remove("attr_name") </code> </td>
+                <td> タグ内の指定した属性と属性値を削除する </td>
+                <td> - </td>
+              </tr>
+              <tr>
+                <td> <code> element.append("tag_name") </code> </td>
+                <td> 新しい子ノードを追加する </td>
+                <td> - </td>
+              </tr>
+            </tbody>
+        </table>
         <hr>
 
         <h2> shutil </h2>

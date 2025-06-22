@@ -33,12 +33,14 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> クラス・関数 </h2>
-        <p class="blog-post-meta"> 2025/06/21 </p>
+        <p class="blog-post-meta"> 2025/06/22 </p>
         <p> このページではクラスや関数についての説明を行う。 </p>
         <hr>
         
         <!-- コンテンツ -->
         <h2> クラス </h2>
+        <p> Pythonでは、「__xxx__」という名前の属性/メソッドが用意されている。適宜調べてください。</p>
+
         <p> #クラスの定義 </p> 
         <code>class Person(): </code> <br>
         <code>&nbsp;&nbsp;&nbsp;&nbsp;#クラスがもつことができるインスタンス変数の固定 </code> <br>
@@ -108,6 +110,27 @@
         <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.func2(2) </code> <br>
         <hr>
 
+        <h2> メタクラス </h2>
+        <p>#Personクラスのメタクラスを定義<p>
+        <code>class MetaPerson(type):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;@classmethod</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;def __prepare__(metacls, ):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------------</code> <br>
+        <code></code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;def __new__(metacls, ):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return super().__new__()</code> <br>
+        <code></code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(cls,):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__()</code> <br>
+        <code></code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;def __call__(cls, *args, **kwargs):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return super().__call__(*args, **kwargs)</code> <br>
+        <code></code> <br>
+        <code>#Personクラスを定義</code> <br>
+        <code>class Person(metaclass=MetaPerson):</code> <br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;pass</code> <br>
+        <hr>
+
         <h2> 関数 </h2>
         <p> #関数の定義 (位置引数) </p>
         <code>def func(a, b): </code> <br>
@@ -139,10 +162,6 @@
         <code>func = lambda n, m : "Good" if n*m > 10 else "Bad"</code> <br>
         <code>func(1, 2) </code> <br>
 
-        <br>
-        <p> #デコレーター </p>
-        <p> 説明-------------------------------------------</p>
-        <code> ---------------------------------------------------------- </code> <br>
 
         <br>
         <p> #ジェネレーター </p>
@@ -175,6 +194,23 @@
                 </tr>
             </tbody>
         </table>
+
+        <p> #イテレータ </p>
+        <code>itr = = iter([1,2,3,4,5])</code> <br>
+        <code>value = next(iter) # 1</code> <br>
+        <code>value = next(iter) # 2</code> <br>
+        <hr>
+
+        <h2> デコレータ </h2>
+        <p> #クラスデコレータ </p>
+        <p> 説明-------------------------------------------</p>
+        <code> ---- </code> <br>
+
+        <br>
+        <p> #関数デコレータ </p>
+        <p> 説明-------------------------------------------</p>
+        <code> @dataclasses.dataclass() </code> <br>
+        <hr>
       </article> 
 </div>
 </div>
