@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="linux_index.html"> Linux </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> account </h2>
+          <p class="blog-post-meta"> 2025/06/25 </p>
+          <p> このページの説明 </p>
+          <p> ユーザ系 : <a href="#useradd">useradd</a>、<a href="#usermod">usermod</a>、<a href="#userdel">userdel</a>、<a href="#passwd">passwd</a>、<a href="#id">id</a></p>
+          <p> グループ系 : <a href="#groupadd">groupadd</a>、<a href="#groupmod">groupmod</a>、<a href="#groupdel">groupdel</a></p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> アカウントの設定ファイル </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> ファイル </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>/etc/passwd</code> </td>
+                <td> ユーザ情報が保存されているファイル </td>
+              </tr>
+              <tr>
+                <td> <code>/etc/shadow</code> </td>
+                <td> パスワード情報が保存されているファイル</td>
+              </tr>
+              <tr>
+                <td> <code>/etc/group</code> </td>
+                <td> グループ情報が保存されているファイル</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="useradd"> useradd </h2>
+          <p> ユーザを追加するためのコマンド。 </p> 
+          <code> useradd [option] &lt;user_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-u &lt;UID&gt;</code> </td>
+                <td> UID(ユーザID)を指定する </td>
+              </tr>
+              <tr>
+                <td> <code>-g &lt;group_name&gt;/&lt;GID&gt;</code> </td>
+                <td> 主グループ名を指定する</td>
+              </tr>
+              <tr>
+                <td> <code>-G &lt;group_name&gt;/&lt;GID&gt;</code> </td>
+                <td> 補助グループ名を指定する</td>
+              </tr>
+              <tr>
+                <td> <code>-m</code> </td>
+                <td> ホームディレクトリを作成する</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="usermod"> usermod </h2>
+          <p> ユーザの設定を編集するためのコマンド。 </p> 
+          <code> usermod [option] &lt;user_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-u &lt;UID&gt;</code> </td>
+                <td> UID(ユーザID)を変更する </td>
+              </tr>
+              <tr>
+                <td> <code>-g &lt;group_name&gt;/&lt;GID&gt;</code> </td>
+                <td> 主グループ名を変更する</td>
+              </tr>
+              <tr>
+                <td> <code>-G &lt;group_name&gt;/&lt;GID&gt;</code> </td>
+                <td> 補助グループ名を変更する</td>
+              </tr>
+              <tr>
+                <td> <code>-l &lt;user_name&gt;</code> </td>
+                <td> ユーザ名を変更する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="userdel"> userdel </h2>
+          <p> ユーザを削除するためのコマンド。 </p> 
+          <code> userdel [option] &lt;user_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-r</code> </td>
+                <td> ホームディレクトリも含めて削除する </td>
+              </tr>
+              <tr>
+                <td> <code>-f</code> </td>
+                <td> ログイン中のユーザを削除する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="passwd"> passwd </h2>
+          <p> ユーザにパスワードを設定するためのコマンド。 </p> 
+          <code> passwd [option] &lt;user_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-l</code> </td>
+                <td> アカウントをロックする </td>
+              </tr>
+              <tr>
+                <td> <code>-u</code> </td>
+                <td> アカウントのロックを解除する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="id"> id </h2>
+          <p> ユーザの情報を表示するためのコマンド。 </p> 
+          <code> id [option] &lt;user_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-u</code> </td>
+                <td> ユーザIDを表示する </td>
+              </tr>
+              <tr>
+                <td> <code>-g</code> </td>
+                <td> グループIDを表示する </td>
+              </tr>
+              <tr>
+                <td> <code>-G</code> </td>
+                <td> 補助グループを含むグループIDを表示する </td>
+              </tr>
+              <tr>
+                <td> <code>-n</code> </td>
+                <td> ユーザID、グループID、補助グループIDを表示する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="groupadd"> groupadd </h2>
+          <p> グループを作成するためのコマンド。 </p> 
+          <code> groupadd [option] &lt;group_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-g &lt;GID&gt;</code> </td>
+                <td> グループIDを指定する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="groupmod"> groupmod </h2>
+          <p> グループの設定を編集するためのコマンド。 </p> 
+          <code> groupmod [option] &lt;group_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-g &lt;GID&gt;</code> </td>
+                <td> グループIDを変更する </td>
+              </tr>
+              <tr>
+                <td> <code>-n &lt;group_name&gt;</code> </td>
+                <td> グループ名を変更する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="groupdel"> groupdel </h2>
+          <p> グループを削除するためのコマンド。 </p> 
+          <code> groupdel &lt;group_name&gt; </code> <br>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

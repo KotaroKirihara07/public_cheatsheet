@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+    <!-- ヘッダー -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4"> Cheatsheet </span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+        <body>
+            <div class="row g-5">
+                <div class="col-md-12">
+                    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                        <a href="linux_index.html"> Linux </a>
+                    </h3>
+
+                    <article class="blog-post">
+                        <h2 class="blog-post-title"> permission </h2>
+                        <p class="blog-post-meta"> 2025/06/25 </p>
+                        <p> 説明。 </p>
+                        <p><a href="#chgrp">chgrp</a>、<a href="#chmod">chmod</a>、<a href="#chown">chown</a>、<a href="#su">su</a>、<a href="#sudo">sudo</a></p>
+                        <hr>
+
+                        <!-- コンテンツ -->
+                        <h2 id="chgrp"> chgrp </h2>
+                        <p> ファイルやディレクトリの所有グループを変更するためのコマンド。 </p>
+                        <code> chgrp [option] &lt;group_name&gt; &lt;file_name&gt;/&lt;directory_name&gt; </code> <br>
+
+                        <br>
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> option </th>
+                                <th scope="col"> 説明 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>-R</code> </td>
+                                <td> 指定したディレクトリ内のすべてのディレクトリとファイルの所有グループも変更する </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <hr>
+
+                        <h2 id="chmod"> chmod </h2>
+                        <p> ファイルやディレクトリの権限を変更するためのコマンド。 </p>
+                        <code> chmod [option] &lt;mode&gt; &lt;file_name&gt;/&lt;directory_name&gt; </code> <br>
+
+                        <br>
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> option </th>
+                                <th scope="col"> 説明 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>-R</code> </td>
+                                <td> 指定したディレクトリ内のすべてのディレクトリとファイルの権限も変更する </td>
+                            </tr>
+                        </tbody>
+                        </table>
+
+                        <br>
+                        <p> # mode</p>
+                        <p> 権限変更対象者 : |所有者|所有グループ|その他| </p>
+                        <p> 権限 : <code>0</code> (権限なし)、<code>1</code> (実行)、<code>2</code> (書き込み)、<code>4</code> (読み取り) </p>
+                        <hr>
+
+                        <h2 id="chown"> chown </h2>
+                        <p> ファイルやディレクトリの所有者を変更するためのコマンド。 </p>
+                        <code> chown [option] &lt;user_name&gt;[:&lt;group_name&gt;] &lt;file_name&gt;/&lt;directory_name&gt; </code> <br>
+
+                        <br>
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> option </th>
+                                <th scope="col"> 説明 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>-R</code> </td>
+                                <td> 指定したディレクトリ内のすべてのディレクトリとファイルの所有者も変更する </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <hr>
+
+                        <h2 id="su"> su </h2>
+                        <p> ユーザを切り替えるためのコマンド。ユーザ名を指定しないとrootユーザに切り替わる。 </p>
+                        <code> su [option] &lt;user_name&gt; </code> <br>
+                        <hr>
+
+                        <h2 id="sudo"> sudo </h2>
+                        <p> rootユーザ権限でコマンドを実行するためのコマンド。 </p>
+                        <code> sudo [option] &lt;command&gt; </code> <br>
+                        <hr>
+                    </article>
+                </div>
+            </div>
+
+            <footer class="text-muted py-5">
+                <div class="container">
+                    <hr>
+                    <p class="mb-1"> フッターコメント </p>
+                </div>
+            </footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+
+        </body>
+    </div>
+</main>
+
+</html>
