@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+    <!-- ヘッダー -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4"> Cheatsheet </span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+
+        <body>
+            <div class="row g-5">
+                <div class="col-md-12">
+                    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                        <a href="linux_index.html"> Linux </a>
+                    </h3>
+
+                    <article class="blog-post">
+                        <h2 class="blog-post-title"> shell </h2>
+                        <p class="blog-post-meta"> 2025/06/26 </p>
+                        <p> このページの説明 </p>
+                        <hr>
+
+                        <!-- コンテンツ -->
+                        <h2> 設定ファイル</h2>
+                        <p> 変数やエイリアスを設定ファイルに保存することができる。</p>
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> ファイル </th>
+                                <th scope="col"> 説明 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>~/.bash_profile</code> </td>
+                                <td> ログイン時に読み込まれる設定ファイル </td>
+                            </tr>
+                            <tr>
+                                <td> <code>~/.bashrc</code> </td>
+                                <td> bash起動時に読み込まれる設定ファイル </td>
+                            </tr>
+                            <tr>
+                                <td> <code>~/.bash_logout</code> </td>
+                                <td> ログアウト時に読み込まれる設定ファイル </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <hr>
+
+
+                        <h2> echo </h2>
+                        <p> 文字列や変数の値を出力するためのコマンド。</p>
+                        <code> echo [option] &lt;string&gt;/&lt;$var&gt;</code> 
+                        <hr>
+
+
+                        <h2> ファイルの作成と実行 </h2>
+                        <p> #ファイルの実行手順 </p>
+                        <ol>
+                            <li> <code>file_name.sh</code> を作成する (ファイル内の文頭は <code>#!/bin/bash</code>) とする</li>
+                            <li> <code>chmod 700 file_name.sh</code> で実行権限を付与する </li>
+                            <li> <code> bash file_name.sh</code> で実行 </li>
+                        </ol>
+
+                        <p> #コマンドの連続実行 </p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> 構文 </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code> コマンド1 ; コマンド2 </code> </td>
+                                    <td> コマンド1の後コマンド2を連続で実行する </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> コマンド1 && コマンド2 </code> </td>
+                                    <td> コマンド1の実行が成功した場合、コマンド2を連続で実行する </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> コマンド1 || コマンド2 </code> </td>
+                                    <td> コマンド1の実行が失敗した場合、コマンド2を連続で実行する </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+
+                        <h2> 変数 </h2>
+                        <p> #変数の代入 </p>
+                        <code> var1=text  </code> <br>
+                        <code> var2=123 </code> <br>
+
+                        <br>
+                        <p> #変数の使用 </p>
+                        <code> $var1 </code> <br>
+
+                        <br>
+                        <p> #四則演算 </p>
+                        <code> i=$(($1 + $2)) </code> <br>
+                        <code> i=$(($1 - $2)) </code> <br>
+                        <code> i=$(($1 * $2)) </code> <br>
+                        <code> i=$(($1 / $2)) </code> <br>
+                        <code> i=$(($1 % $2)) </code> <br>
+
+                        <br>
+                        <p> #特殊な変数 </p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> 変数 </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code> $0 </code> </td>
+                                    <td> スクリプトファイル名 </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $1, $2, $3 </code> </td>
+                                    <td> 引数 ($1は1つ目の引数, $2は2つ目の引数)</td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $@ / $* </code> </td>
+                                    <td> すべての引数 </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $# </code> </td>
+                                    <td> 引数の数 </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $? </code> </td>
+                                    <td> 直前の処理の成否 (成功は0、失敗は0以外)</td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $$ </code> </td>
+                                    <td> シェルのPID </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> $RANDOM </code> </td>
+                                    <td> 0から32767の範囲の乱数を出力 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+
+                        <h2> 条件分岐 </h2>
+                        <p> #if文 </p>
+                        <code>if [ condition ] then</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>elif [ condition ] then</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>else </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>fi </code> <br>
+
+                        <br>
+                        <p> #case式 </p>
+                        <code>case $var1 in </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; 1) 処理 ;; </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; 2) 処理 ;; </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; *)   処理 ;; </code> <br>
+                        <code>esac </code> <br>
+
+                        <br>
+                        <p> #条件式 </p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> condition </th>
+                                    <th scope="col"> 説明 </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <code> [-e|-r|-w|-x] &lt;file_name&gt;/&lt;directory_name&gt; </code> </td>
+                                    <td> ファイル/ディレクトリが [存在する|読み取り可能|書き込み可能|実行可能] かどうか</td>
+                                </tr>
+                                <tr>
+                                    <td> <code> var1 [-eq|-ne|-lt|-le|-gt|-ge] var2 </code> </td>
+                                    <td> var1とvar2が [等しい|等しくない|より小さい|以下|より大きい|以上] </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> ! condition </code> </td>
+                                    <td> 条件を満たさない (NOT)</td>
+                                </tr>
+                                <tr>
+                                    <td> <code> condition1 -a condition2 </code> </td>
+                                    <td> 条件式1と条件式2の両方を満たす (AND)</td>
+                                </tr>
+                                <tr>
+                                    <td> <code> condition1 -o condition2 </code> </td>
+                                    <td> 条件式1と条件式2のどちらかを満たす (OR) </td>
+                                </tr>
+                                <tr>
+                                    <td> <code> -n &lt;string&gt; </code> </td>
+                                    <td> 文字列の長さが0でない </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+
+                        <h2> 繰り返し処理 </h2>
+                        <p> #for文1 (0～10)</p>
+                        <code>for var in $(seq 0 10) </code> <br>
+                        <code>do </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>done </code> <br>
+
+                        <br>
+                        <p> #for文2 </p>
+                        <code>for var in var1,var2,... </code> <br>
+                        <code>do </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>done </code> <br>
+
+                        <br>
+                        <p> #while文 </p>
+                        <code>while [ condition ] </code> <br>
+                        <code>do </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>done </code> <br>
+
+                        <br>
+                        <p> #until文 </p>
+                        <code>until [ condition ] </code> <br>
+                        <code>do </code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;処理 </code> <br>
+                        <code>done </code> <br>
+                        <hr>
+                    </article>
+                </div>
+            </div>
+
+            <footer class="text-muted py-5">
+                <div class="container">
+                    <hr>
+                    <p class="mb-1"> フッターコメント </p>
+                </div>
+            </footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+
+        </body>
+    </div>
+</main>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="linux_index.html"> Linux </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> package </h2>
+          <p class="blog-post-meta"> 2025/06/28 </p>
+          <p> このページの説明 </p>
+          <p> Red Hat系 : <a href="#rpm">rpm</a>、<a href="#yum">yum</a> </p>
+          <p> Debian系 : <a href="#dpkag">dpkg</a>、<a href="#apt">apt</a> </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2 id="rpm"> rpm </h2>
+          <p> rpmパッケージを管理するためのコマンド。 </p> 
+          <code> rpm [option] &lt;package_name&gt;/&lt;file_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-i</code> </td>
+                <td> インストール </td>
+              </tr>
+              <tr>
+                <td> <code>-U</code> </td>
+                <td> アップグレードする (インストールされていない場合はインストールする)</td>
+              </tr>
+              <tr>
+                <td> <code>-F</code> </td>
+                <td> アップグレードする (インストールされていない場合はインストールしない)</td>
+              </tr>
+              <tr>
+                <td> <code>-e</code> </td>
+                <td> アンインストール </td>
+              </tr>
+              <tr>
+                <td> <code>-q</code> </td>
+                <td> パッケージを検索する </td>
+              </tr>
+              <tr>
+                <td> <code>-qa</code> </td>
+                <td> インストール済みのすべてのパッケージを表示する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="yum"> yum </h2>
+          <p> リポジトリ経由でrpmパッケージを操作する </p> 
+          <code> yum [option] &lt;sub_command&gt; &lt;package_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-y</code> </td>
+                <td> 確認ダイアログにすべて「y」と回答する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> sub_command </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>install</code> </td>
+                <td> パッケージをインストール/更新する </td>
+              </tr>
+              <tr>
+                <td> <code>check-update</code> </td>
+                <td> 更新パッケージの有無をチェックする </td>
+              </tr>
+              <tr>
+                <td> <code>update</code> </td>
+                <td> パッケージを更新する </td>
+              </tr>
+              <tr>
+                <td> <code>remove</code> </td>
+                <td> パッケージを削除する </td>
+              </tr>
+              <tr>
+                <td> <code>info</code> </td>
+                <td> パッケージを検索する </td>
+              </tr>
+              <tr>
+                <td> <code>list</code> </td>
+                <td> パッケージ一覧を表示する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>#yumの設定ファイル</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> file </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>/etc/yum.conf</code> </td>
+                <td> yumの全般的な設定ファイル </td>
+              </tr>
+              <tr>
+                <td> <code>/etc/yum.repos.d/*</code> </td>
+                <td> 各リポジトリの設定ファイル </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="dpkg"> dpkg </h2>
+          <p> debパッケージを管理するためのコマンド。 </p> 
+          <code> dpkg [option] &lt;package_name&gt;/&lt;file_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-i</code> </td>
+                <td> インストール </td>
+              </tr>
+              <tr>
+                <td> <code>-r</code> </td>
+                <td> アンインストール </td>
+              </tr>
+              <tr>
+                <td> <code>-p</code> </td>
+                <td> 設定ファイルも含めてアンインストール </td>
+              </tr>
+              <tr>
+                <td> <code>-l</code> </td>
+                <td> インストール済みパッケージを検索する </td>
+              </tr>
+              <tr>
+                <td> <code>-L</code> </td>
+                <td> インストールされたファイル一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>-s</code> </td>
+                <td> パッケージの情報を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>-S</code> </td>
+                <td> ファイルのインストール元パッケージを検索する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2 id="apt"> apt </h2>
+          <p> リポジトリ経由でrpmパッケージを操作する </p> 
+          <code> apt &lt;sub_command&gt; &lt;package_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> sub_command </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>update</code> </td>
+                <td> パッケージ情報を更新する </td>
+              </tr>
+              <tr>
+                <td> <code>install</code> </td>
+                <td> パッケージをインストール </td>
+              </tr>
+              <tr>
+                <td> <code>update</code> </td>
+                <td> パッケージを更新する </td>
+              </tr>
+              <tr>
+                <td> <code>remove</code> </td>
+                <td> パッケージを削除する </td>
+              </tr>
+              <tr>
+                <td> <code>list</code> </td>
+                <td> パッケージ一覧を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>show</code> </td>
+                <td> パッケージ情報を表示する </td>
+              </tr>
+              <tr>
+                <td> <code>search</code> </td>
+                <td> パッケージを検索する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>

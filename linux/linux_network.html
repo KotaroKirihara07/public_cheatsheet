@@ -36,18 +36,14 @@
 
                     <article class="blog-post">
                         <h2 class="blog-post-title"> network </h2>
-                        <p class="blog-post-meta"> 2025/02/12 </p>
+                        <p class="blog-post-meta"> 2025/06/28 </p>
                         <p> このページの説明 </p>
                         <hr>
 
                         <!-- コンテンツ -->
                         <h2> curl </h2>
                         <p> 指定したURL宛てにWeb接続を行うためのコマンド。 </p>
-                        <code> curl [オプション] URL </code> <br>
-
-                        <br>
-                        <p> #www.example.comの内容を取得する (httpのGETメソッドに相当) </p>
-                        <code> curl https://www.example.com </code> <br>
+                        <code> curl [option] &lt;URL&gt; </code> <br>
 
                         <br>
                         <p> #AWS CloudShellのグローバルIPアドレスを取得する </p>
@@ -60,59 +56,143 @@
 
                         <h2> host </h2>
                         <p> 名前解決を検証し、簡易的な情報を出力するためのコマンド。 </p>
-                        <code> host [オプション] <名前> <DNSサーバ> </code> <br>
+                        <code> host [option] &lt;name&gt; &lt;DNS_server&gt; </code> <br>
 
                         <br>
-                        <p> #www.example.comを名前解決する </p>
-                        <code> host www.example.com </code> <br>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"> option </th>
+                            <th scope="col"> 説明 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>-t &lt;record&gt;</code> </td>
+                                <td> 問い合わせるレコードの種類を指定する </td>
+                            </tr>
+                            <tr>
+                                <td> <code>-v</code> </td>
+                                <td> 詳細な情報を表示する </td>
+                            </tr>
+                        </tbody>
+                        </table>
                         <hr>
 
                         <h2> ip </h2>
                         <p> IPアドレスなどの設定情報を確認するためのコマンド。 </p>
-                        <code> ip [オプション] <オブジェクト> <サブコマンド> </code> <br>
+                        <code> ip [option] &lt;object&gt; &lt;sub_command&gt; </code> <br>
 
                         <br>
-                        <p> #IPアドレスの確認 </p>
-                        <code> ip addr </code> <br>
-
-                        <br>
-                        <p> #enp0s3のインターフェイスのみを確認する </p>
-                        <code> ip addr show enp0s3 </code> <br>
-
-                        <br>
-                        <p> #ルーティングテーブルを表示する </p>
-                        <code> ip route </code>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"> object </th>
+                            <th scope="col"> sub_command </th>
+                            <th scope="col"> 説明 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>address</code> </td>
+                                <td> <code>-</code> </td>
+                                <td> IPアドレスを表示する  </td>
+                            </tr>
+                            <tr>
+                                <td> <code>address</code> </td>
+                                <td> <code>show &lt;interface_name&gt;</code> </td>
+                                <td> 設定情報を表示する </td>
+                            </tr>
+                            <tr>
+                                <td> <code>route</code> </td>
+                                <td> <code>-</code> </td>
+                                <td> ルーティングテーブルを表示する </td>
+                            </tr>
+                        </tbody>
+                        </table>
                         <hr>
 
                         <h2> nmcli </h2>
                         <p> NetworkManagerを利用したネットワーク機能を確認、設定するためのコマンド。 </p>
-                        <code> nmcli [オブジェクト] <サブコマンド> <引数> </code> <br>
+                        <code> nmcli &lt;object&gt; &lt;sub_command&gt; &lt;args&gt; </code> <br>
 
                         <br>
-                        <p> #接続情報を確認する </p>
-                        <code> nmcli connection show </code> <br>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"> object </th>
+                            <th scope="col"> 説明 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>connection</code> </td>
+                                <td> 接続情報  </td>
+                            </tr>
+                            <tr>
+                                <td> <code>general</code> </td>
+                                <td> Network Mangerサービスの管理  </td>
+                            </tr>
+                            <tr>
+                                <td> <code>device</code> </td>
+                                <td> デバイスの管理  </td>
+                            </tr>
+                        </tbody>
+                        </table>
 
                         <br>
-                        <p> #enp0s3の接続情報を確認する </p>
-                        <code> nmcli connection show enp0s3 </code>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"> sub_command </th>
+                            <th scope="col"> 説明 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>show</code> </td>
+                                <td> 設定を参照する </td>
+                            </tr>
+                            <tr>
+                                <td> <code>modify</code> </td>
+                                <td> 設定を変更する </td>
+                            </tr>
+                            <tr>
+                                <td> <code>up</code> </td>
+                                <td> 接続を有効化する </td>
+                            </tr>
+                            <tr>
+                                <td> <code>add</code> </td>
+                                <td> 接続プロファイルを追加する </td>
+                            </tr>
+                        </tbody>
+                        </table>
                         <hr>
 
                         <h2> ping </h2>
                         <p> 宛先となるホストと疎通確認を行うためのコマンド。 </p>
-                        <code> ping [オプション] <宛先IPアドレス> </code> <br>
+                        <code> ping [option] &lt;IP_address&gt; </code> <br>
 
                         <br>
-                        <p> #192.0.0.10に疎通確認を行う </p>
-                        <code> ping 192.0.0.10 </code>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"> option </th>
+                            <th scope="col"> 説明 </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <code>-c &lt;N&gt;</code> </td>
+                                <td> N回パケットを送信する  </td>
+                            </tr>
+                        </tbody>
+                        </table>
                         <hr>
 
                         <h2> traceroute </h2>
                         <p> ホストまでの経路を表示するためのコマンド。 </p>
-                        <code> traceroute [オプション] <ホスト名> </code> <br>
-
-                        <br>
-                        <p> #googleまでの経路を表示 </p>
-                        <code> traceroute google.com </code>
+                        <code> traceroute [option] &lt;URL&gt; </code> <br>
                         <hr>
 
                         <h2> nslookup </h2>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="linux_index.html"> Linux </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> system </h2>
+          <p class="blog-post-meta"> 2025/06/27 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> systemctl </h2>
+          <p> systemユニットを制御するためのコマンド。 </p> 
+          <code> systemctl [comamnd] &lt;unit_name&gt; </code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> コマンド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>start</code> </td>
+                <td>起動</td>
+              </tr>
+              <tr>
+                <td> <code>stop</code> </td>
+                <td>停止</td>
+              </tr>
+              <tr>
+                <td> <code>restart</code> </td>
+                <td>再起動</td>
+              </tr>
+              <tr>
+                <td> <code>status</code> </td>
+                <td>状態の確認</td>
+              </tr>
+              <tr>
+                <td> <code>enable</code> </td>
+                <td>自動起動の有効化</td>
+              </tr>
+              <tr>
+                <td> <code>disable</code> </td>
+                <td>自動起動の無効化</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> ユニット名 </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>httpd</code> </td>
+                <td>Apache HTTP server</td>
+              </tr>
+              <tr>
+                <td> <code>mysql</code> </td>
+                <td>MySQL</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> export </h2>
+          <p> 環境変数を設定する </p> 
+          <code> export &lt;ENV&gt;=&lt;value&gt; </code> 
+          <hr>
+
+          <h2> df </h2>
+          <p> ディスク領域の使用状況やマウント状況を表示するためのコマンド。 </p> 
+          <code> df [option] &lt;device_file&gt;/&lt;mount_point&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-h</code> </td>
+                <td> MB/GB/TBを付けて表示する</td>
+              </tr>
+              <tr>
+                <td> <code>-T</code> </td>
+                <td> ファイルシステムの種類も表示する</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2> mount </h2>
+          <p> マウント操作をするためのコマンド。/etc/fstabファイルに設定を保存すると起動時に自動マウントされる。 </p> 
+          <code> mount [option] &lt;device_file&gt; &lt;mount_point&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-a</code> </td>
+                <td> /etc/fstabでautoオプションが指定されているデバイスをすべてマウントする</td>
+              </tr>
+              <tr>
+                <td> <code>-t &lt;file_system&gt;</code> </td>
+                <td> デバイスのファイルシステムを指定する</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> unmount </h2>
+          <p> マウントを解除するためのコマンド。 </p> 
+          <code> unmount [option] &lt;device_file&gt;/&lt;mount_point&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-a</code> </td>
+                <td> マウントされているデバイスのすべてのマウントを解除する</td>
+              </tr>
+              <tr>
+                <td> <code>-t &lt;file_system&gt;</code> </td>
+                <td> 指定したファイルシステムのデバイスのマウントを解除する</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> ln </h2>
+          <p> リンクファイルを作成するためのコマンド。 </p> 
+          <code> ln [option] &lt;from_link_file&gt;/&lt;to_link_file&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-f</code> </td>
+                <td> リンク先を上書きする </td>
+              </tr>
+              <tr>
+                <td> <code>-s</code> </td>
+                <td> シンボリックリンクを作成する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> gdisk </h2>
+          <p> GPTパーティションを作成するためのコマンド。 </p> 
+          <code> gdisk [option] &lt;device_file&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-l</code> </td>
+                <td> 指定したディスクのパーティション構成を表示する </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+
+          <h2> mkfs </h2>
+          <p> ファイルシステムを作成するためのコマンド。 </p> 
+          <code> mkfs [option] &lt;device_file&gt;</code> <br>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> option </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>-t &lt;file_system&gt;</code> </td>
+                <td> 指定したファイルシステムを作成する </td>
+              </tr>
+              <tr>
+                <td> <code>-L</code> </td>
+                <td> ラベル名を指定する </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> file system </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>ext2</code> </td>
+                <td> Linuxで標準的に使われていたファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>ext3</code> </td>
+                <td> ext2にジャーナリング機能を追加したファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>ext4</code> </td>
+                <td> Debian 11の既定のファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>xfs</code> </td>
+                <td> CentOS 7の既定のファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>btrs</code> </td>
+                <td> スナップショット機能や複数デバイスを扱う機能をもつファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>vflat</code> </td>
+                <td> Windowsで利用されているファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>ntfs</code> </td>
+                <td> Windowsで利用されているファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>iso9660</code> </td>
+                <td> CDやDVDなどのメディアで利用されるファイルシステム </td>
+              </tr>
+              <tr>
+                <td> <code>tmpfs</code> </td>
+                <td> メモリ上に作成されるファイルシステム </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
