@@ -32,7 +32,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Streamlit </h2>
-          <p class="blog-post-meta"> 2025/05/04 </p>
+          <p class="blog-post-meta"> 2025/07/02 </p>
           <p> <a href="https://docs.streamlit.io/" target="_blank"> Streamlit documentation </a> </p>
           <hr>
         
@@ -56,18 +56,18 @@
           <h2> サーバの設定 </h2>
           <p> #設定ファイルの種類 </p>
           <ul>
-            <li>グローバル設定ファイル : ~./streamlit/config.toml or %userprofile%/streamlit/config.toml</li>
-            <li>アプリケーション個別の設定ファイル : 実行するアプリケーションファイルと同じディレクトリ内の.streamlitディレクトリに配置する。./.streamlit/config.toml</li>
+            <li>グローバル設定ファイル : 「~./streamlit/config.toml」 or 「%userprofile%/streamlit/config.toml」</li>
+            <li>アプリケーション個別の設定ファイル : 実行するアプリケーションファイルと同じディレクトリ内の.streamlitディレクトリに配置する。「./.streamlit/config.toml」</li>
           </ul>
           
           <p> #設定ファイル内のセクション </p>
           <ul>
             <li>[global] : ----</li>
-            <li>[logger] : ----</li>
+            <li>[logger] : ログ </li>
             <li>[client] : ----</li>
-            <li>[server] : ----</li>
+            <li>[server] : サーバ </li>
             <li>[mapbox] : ---</li>
-            <li>[theme] : --- </li>
+            <li>[theme] : テーマ </li>
           </ul>
 
           <p> #config.tomlのテンプレート</p>
@@ -76,17 +76,9 @@
           <code>port = 8080</code> <br>
           <code>sslCertFile = </code> <br>
           <code>sslKeyFile = </code> <br>
-          <code> </code> <br>
-          <hr>
-
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
-          <hr>
-
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
+          <code>enableCORS = false</code> <br>
+          <code>maxCacheSize = 2048</code> <br>
+          <code>numThreads = 8</code> <br>
           <hr>
         </article>
       </div>
