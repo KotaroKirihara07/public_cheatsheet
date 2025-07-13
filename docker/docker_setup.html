@@ -34,42 +34,45 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> セットアップ </h2>
-          <p class="blog-post-meta"> 2024/10/23 </p>
+          <p class="blog-post-meta"> 2025/07/10 </p>
           <p> このページではDockerのセットアップ方法についての説明を行う。 </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> Docker Engineのインストール </h2>
-          <p> #UbuntuにおけるDocker Engineのインストール方法 </p> 
-          <ol>
-            <li> <code> sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common </code> </li>
-            <li> <code> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - </code></li>
-            <li> <code> sudo apt-key fingerprint 0EBFCD88 </code></li>
-            <li> <code> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" </code> </li>
-            <li> <code> sudo apt-get update </code> </li>
-            <li> <code> sudo apt-get install docker-ce docker-ce-cli containerd.io </code></li>
-            <li> <code> sudo usermod -aG docker $USER </code></li>
-            <li> <code> docker --version </code></li>
-          </ol>
+          <p> #curlを用いたDocker Engineのインストール方法 </p> 
+          <code> curl -fsSL https://get.docker.com/ | sh </code> <br>
+          <code> #上記で失敗した場合以下を実行 </code> <br>
+          <code> curl -fsSL https://get.docker.com/gpg | sudo apt-key add - </code> <br>
 
+          <br>
+          <p> #UbuntuにおけるDocker Engineのインストール方法 </p> 
+          <code> sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common </code> <br>
+          <code> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - </code> <br>
+          <code> sudo apt-key fingerprint 0EBFCD88 </code> <br>
+          <code> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" </code> <br>
+          <code> sudo apt-get update </code> <br>
+          <code> sudo apt-get install docker-ce docker-ce-cli containerd.io </code> <br>
+          <code> docker version </code> <br>
+          <code> sudo usermod -aG docker $USER </code> <br>
+          <code> sudo service docker restart </code> <br>
+          
+          <br>
           <p> #Amazon LinuxにおけるDocker Engineのインストール方法 </p>
-          <ol>
-            <li> <code> sudo yum update -y </code> </li>
-            <li> <code> sudo yum install docker </code> </li>
-            <li> <code> sudo service docker start </code> </li>
-            <li> <code> sudo usermod -a -G docker ec2-user </code> </li>
-            <li> <code> docker --version </code></li>
-          </ol>
+          <code> sudo yum update -y </code> <br>
+          <code> sudo yum install docker </code> <br>
+          <code> docker version </code> <br>
+          <code> sudo service docker start </code> <br>
+          <code> sudo usermod -aG docker ec2-user </code> <br>
+          <code> sudo service docker restart </code> <br>
           <hr>
 
           <h2> Docker Composeのインストール </h2>
           <p> #Amazon LinuxにおけるDocker Composeのインストール方法 ( <a href="https://github.com/docker/compose/releases" target="_blank"> https://github.com/docker/compose/releases </a> ) </p>
-          <ol>
-            <li> <code> sudo mkdir -p /usr/local/lib/docker/cli-plugins </code> </li>
-            <li> <code> sudo curl -SL https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose </code> </li>
-            <li> <code> sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose </code> </li>
-            <li> <code> docker compose version </code> </li>
-          </ol>
+          <code> sudo mkdir -p /usr/local/lib/docker/cli-plugins </code> <br>
+          <code> sudo curl -SL https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose </code> <br>
+          <code> sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose </code> <br>
+          <code> docker compose version </code> <br>
           <hr>
         </article>
       </div>

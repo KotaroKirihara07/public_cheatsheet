@@ -34,22 +34,48 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Docker Engine </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
-          <p> このページではDocker Engineについての説明を行う。 </p>
+          <p class="blog-post-meta"> 2025/07/13 </p>
+          <p> このページではDocker Engineについての説明を行う。Docker Engineとは、... </p>
           <hr>
         
           <!-- コンテンツ -->
           <h2> Docker Engineの操作 </h2>
-          <p> #Docker Engineの起動 </p> 
-          <code> sudo systemctl start docker </code> <br>
+          <p> <code> sudo systemctl &lt;command&gt; docker </code></p>
 
-          <br>
-          <p> #Docker Engineの終了 </p> 
-          <code> sudo systemctl stop docker </code> <br>
-
-          <br>
-          <p> #Docker Engineの自動起動の設定 </p> 
-          <code> sudo systemctl enable docker </code> <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> command </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> status </code> </td>
+                <td> Docker Engineの状態を確認する </td>
+              </tr>
+              <tr>
+                <td> <code> start </code> </td>
+                <td> Docker Engineの起動 </td>
+              </tr>
+              <tr>
+                <td> <code> restart </code> </td>
+                <td> Docker Engineの再起動 </td>
+              </tr>
+              <tr>
+                <td> <code> stop </code> </td>
+                <td> Docker Engineの終了 </td>
+              </tr>
+              <tr>
+                <td> <code> enable </code> </td>
+                <td> Docker Engineの自動起動の設定 </td>
+              </tr>
+              <tr>
+                <td> <code> disable </code> </td>
+                <td> Docker Engineの自動起動の設定を解除する </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
         </article>
       </div>

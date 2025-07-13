@@ -34,49 +34,34 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 基本 </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p class="blog-post-meta"> 2025/07/13 </p>
           <p> このページではDockerの基本についての説明を行う。 </p>
-          <p> ＊docker composeからdockerfileを使用してコンテナを作成することもできる </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> 構造 </h2>
-          <p> LinuxOS上でDocker Engineを起動して、その上にコンテナを配置することができる。図で説明したほうがいい。 </p> 
-          <code> コード </code> 
-          <hr>
-
-          <h2> 用語 </h2>
-          <p> Docker Engine : コンテナを配置するためのソフトウェア。 </p>
-          <p> コンテナ : LinuxOSっぽいものが入っており、そこでアプリケーションを立ち上げることができる。 </p> 
-          <p> Dockerイメージ : コンテナの設計書。コンテナからイメージを作成することもできる。 </p>
-          <p> Docker Hub : 公式が運用しているDockerレジストリ(Dockerイメージが配布されている場所)である。</p> 
-          <hr>     
-
-          <h2> 準備 </h2>
-          <p> Dockerで環境を構築する前のUbuntuにおける準備を以下のように行う。 </p>
+          <h2> Dockerfile </h2>
+          <p> Dockerfileをもとにコンテナを作成することができる。 </p>
           <ol>
-            <li> homeディレクトリ内に「workspace」というディレクトリを作成する </li>
-            <li> 「workspace」ディレクトリ内に「docker_workspace」というディレクトリを作成する </li>
-            <li> 「docker_workspace」ディレクトリ内にそれぞれのコンテナ用のディレクトリを作成する </li>
+            <li> Dockefileを作成する </li>
+            <li> <code>docker build</code> コマンドでDockefileからでDockerイメージを作成する</li>
+            <li> <code>docker container run</code> コマンドでコンテナを作成する</li>
+            <li> <code>docker container stop</code> コマンドでコンテナを停止する</li>
+            <li> <code>docker container rm</code> コマンドでコンテナを削除する</li>
           </ol>
           <hr>
 
-          <h2> dockerfileの使用方法 </h2>
+          <h2> Docker Compose </h2>
+          <p> docker run コマンドの引数で指定する項目をYAMLファイルに記述することでコンテナの作成を簡略化することができる。</p>
+          <ol>
+            <li> Dockefileを作成する </li>
+            <li> docker-compose.yamlを作成する </li>
+            <li> <code>docker compose up</code> コマンドでコンテナを作成する</li>
+            <li> <code>docker compose stop</code> コマンドでコンテナを停止する</li>
+            <li> <code>docker compose rm</code> コマンドでコンテナを削除する</li>
+          </ol>
           <hr>
 
-          <h2> docker composeの使用方法 (バインドマウント方式)</h2>
-          <p> </p>
-          <ol>
-            <li> 「docker_workspace」ディレクトリ内にディレクトリ(dir_name)を作成する </li>
-            <li> dir_name内に「volume」というディレクトリを作成する </li>
-            <!-- <li> dir_name内に「Dockerfile」という名前のDockerfileを作成する (ファイルの拡張子はなし) </li> -->
-            <li> dir_name内に「docker-compose.yml」という名前のDocker Composeの定義ファイルを作成する </li>
-            <!-- <li> <code> docker build -t image_name home/workspace/docker_workspace/dir_name/ </code>でDockerfileからイメージを作成する </li> -->
-            <li> <code> docker compose -f home/workspace/docker_workspace/dir_name/docker-compose.yml up -d </code>でコンテナを作成・起動する </li>
-            <li> <code> docker compose -f home/workspace/docker_workspace/dir_name/docker-compose.yml down </code>でコンテナを停止・削除する </li>
-            <li> でイメージを削除する </li>
-            <li> でボリュームを削除する </li>
-          </ol>
+          <h2> Kubernetes </h2>
           <hr>
         </article>
       </div>

@@ -34,8 +34,8 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Dockerfile </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
-          <p> このページではDockerfileについての説明を行う。Dockerfileはひとつのカスタマイズされたコンテナを使用したい場合に使用する。 </p>
+          <p class="blog-post-meta"> 2025/06/18 </p>
+          <p> このページでは<a href="https://docs.docker.com/reference/dockerfile/" target="_blank">Dockerfile</a>についての説明を行う。Dockerfileはひとつのカスタマイズされたコンテナを使用したい場合に使用する。 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -54,7 +54,7 @@
               </tr>
               <tr>
                 <td> <code>ADD</code> </td>
-                <td> イメージにファイルやフォルダを追加する </td>
+                <td> イメージへファイルをコピーする </td>
               </tr>
               <tr>
                 <td> <code>COPY</code> </td>
@@ -70,7 +70,7 @@
               </tr>
               <tr>
                 <td> <code>ENTRYPOINT</code> </td>
-                <td> イメージを実行するときのコマンドを強要する </td>
+                <td> コンテナ起動時に実行されるファイルを指定する </td>
               </tr>
               <tr>
                 <td> <code>ONBUILD</code> </td>
@@ -78,7 +78,7 @@
               </tr>
               <tr>
                 <td> <code>EXPOSE</code> </td>
-                <td> 通信を想定するポートをイメージの利用者に伝える </td>
+                <td> 接続ポートを指定する </td>
               </tr>
               <tr>
                 <td> <code>VOLUME</code> </td>
@@ -86,7 +86,7 @@
               </tr>
               <tr>
                 <td> <code>ENV</code> </td>
-                <td> 環境変数を定義する </td>
+                <td> イメージ内の環境変数を定義する </td>
               </tr>
               <tr>
                 <td> <code>WORKDIR</code> </td>
@@ -247,30 +247,28 @@
           <hr>
 
           <h2> Dockerfileテンプレート </h2>
-          <p> 「Dockerfile」と必要なものを格納したディレクトリ「docker-workspace」を同じディレクトリに配置する。</p>
-          <p> #amazon linux </p>
-          <code> FROM [イメージ名] </code> <br>
+          <p> 「Dockerfile」と必要なものを格納したディレクトリ「local_docker_workspace」を同じディレクトリに配置する。</p>
+          <p> #amazon linux 2023 </p>
+          <code> FROM amazonlinux:2023 </code> <br>
           <code> RUN yum update </code> <br>
-          <code> WORKDIR /docker-workspace </code> <br>
-          <code> COPY docker-workspace docker-workspace</code> <br>
-          <code> ENTRYPOINT["docker-workspace/install.sh"] </code> <br>
+          <code> WORKDIR ~/docker_workspace </code> <br>
+          <code> COPY local_docker_workspace ~/docker_workspace</code> <br>
+          <code> ENTRYPOINT["docker_workspace/install.sh"] </code> <br>
   
           <br>
           <p> #ubuntu </p>
-          <code> FROM [イメージ名] </code> <br>
-          <code> </code> <br>
+          <code> FROM ubuntu:&lt;tag_name&gt; </code> <br>
           <code> RUN apt-get update </code> <br>
-          <code> WORKDIR /docker-workspace </code> <br>
-          <code> COPY docker-workspace docker-workspace</code> <br>
-          <code> ENTRYPOINT["docker-workspace/install.sh"] </code> <br>
+          <code> WORKDIR /docker_workspace </code> <br>
+          <code> COPY local_docker_workspace docker_workspace</code> <br>
+          <code> ENTRYPOINT["docker_workspace/install.sh"] </code> <br>
           
           <br>
           <p> #python </p>
-          <code> FROM [イメージ名] </code> <br>
-          <code> </code> <br>
-          <code> WORKDIR /docker-workspace </code> <br>
-          <code> COPY docker-workspace docker-workspace</code> <br>
-          <code> CMD["python","docker-workspace/execute.py"] </code> <br>
+          <code> FROM python:&lt;tag_name&gt; </code> <br>
+          <code> WORKDIR /docker_workspace </code> <br>
+          <code> COPY local_docker_workspace docker_workspace</code> <br>
+          <code> CMD["python","docker_workspace/execute.py"] </code> <br>
           <hr>
 
         </article>

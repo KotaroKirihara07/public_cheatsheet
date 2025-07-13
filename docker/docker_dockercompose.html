@@ -34,23 +34,14 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Docker Compose </h2>
-          <p class="blog-post-meta"> 2024/02/17 </p>
+          <p class="blog-post-meta"> 2025/07/12 </p>
           <p> このページではDocker Composeについての説明を行う。 </p>
-          <p> Docker Composeとはコンテナの構築に関わるコマンド文の内容を1つのテキストファイルに書き込んで、一気に実行したり、停止したり、破棄したりすることを可能にするもの。</p>
+          <p> Docker Composeとはコンテナの構築に関わるコマンド文の内容をYAMLファイルに書き込んで、一気に実行したり、停止したり、破棄したりすることを可能にするもの。docker container run コマンドやdocker container run コマンドなどで実行する処理を代替可能。</p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> コンテナの起動 </h2>
-          <p> #手順 </p>
-          <ol>
-            <li> OS上にディレクトリを作成する </li>
-            <li> 上記ディレクトリに「docker-compose.yml」というファイルを作成する</li>
-            <li> 上記ディレクトリに移動する </li>
-            <li> <code> docker compose up -d </code></li>
-          </ol>
-          <hr>
-
           <h2> docker-compose.ymlの設定項目 </h2>
+          <p><a href="https://docs.docker.com/reference/compose-file/" target="_blank">Compose file reference</a></p>
           <p> #大項目 </p>
           <table class="table table-striped">
             <thead>
@@ -62,7 +53,7 @@
             <tbody>
               <tr>
                 <td> <code> version </code> </td>
-                <td> dockercomposeのバージョンを指定する </td>
+                <td> Docker Composeのバージョンを指定する </td>
               </tr>
               <tr>
                 <td> <code> services </code> </td>
@@ -75,6 +66,14 @@
               <tr>
                 <td> <code> volumes </code> </td>
                 <td> ボリュームに関する定義をする </td>
+              </tr>
+              <tr>
+                <td> <code> configs </code> </td>
+                <td>  </td>
+              </tr>
+              <tr>
+                <td> <code> secrets </code> </td>
+                <td>  </td>
               </tr>
             </tbody>
           </table>
@@ -118,137 +117,54 @@
               </tr>
             </tbody>
           </table>
-
-          <p> #restartの設定値 </p>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> 項目 </th>
-                <th scope="col"> 説明 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code> no </code> </td>
-                <td> 何もしない </td>
-              </tr>
-              <tr>
-                <td> <code> always </code> </td>
-                <td> 必ず再起動する </td>
-              </tr>
-              <tr>
-                <td> <code> on-failure </code> </td>
-                <td> プロセスが0以外のステータスで終了したときは再起動する </td>
-              </tr>
-              <tr>
-                <td> <code> unless-stopped </code> </td>
-                <td> 停止していたときは再起動しない。それ以外は再起動する。</td>
-              </tr>
-            </tbody>
-          </table>
           <hr>
 
           <h2> docker compose </h2>
-          <p> #コンテナや周辺環境の起動 </p>
-          <code> docker compose -f [ymlファイルのパス] up [オプション] </code> <br>
-
-          <br>
-          <p> #up用オプション </p>
+          <p> <a href="https://docs.docker.jp/compose/reference/index.html" target="_blank">docker-compose</a>は設定を記述したYAMLファイルをもとにコンテナを操作するためのコマンド。 </p>
+          <code> docker-compose -f docker-compose.yml &lt;command&gt; [option] </code> <br>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col"> オプション </th>
+                <th scope="col"> command </th>
                 <th scope="col"> 説明 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code> -d </code> </td>
-                <td> バックグラウンドで実行する </td>
+                <td> <code> up </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --no-color </code> </td>
-                <td> 白黒画面として表示する</td>
+                <td> <code> build </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --no-deps </code> </td>
-                <td> リンクしたサービスを表示しない </td>
+                <td> <code> ps </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --force-recreate </code> </td>
-                <td> 設定やイメージに変更がなくてもコンテナを再生成する </td>
+                <td> <code> run </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --no-create </code> </td>
-                <td> コンテナがすでに存在していれば再生成しない </td>
+                <td> <code> logs </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --no-build </code> </td>
-                <td> イメージが見つからなくてもビルドしない </td>
+                <td> <code> stop </code> </td>
+                <td>  </td>
               </tr>
               <tr>
-                <td> <code> --build </code> </td>
-                <td> コンテナを開始前にビルドする </td>
-              </tr>
-              <tr>
-                <td> <code> --abort-on-container-exit </code> </td>
-                <td> コンテナが1つでも停止したらすべてのコンテナを停止させる</td>
-              </tr>
-              <tr>
-                <td> <code> -t, --timeout </code> </td>
-                <td> コンテナを停止するときのタイムアウト数 (既定は10秒)</td>
-              </tr>
-              <tr>
-                <td> <code> --remove-orphans </code> </td>
-                <td> 定義ファイルで定義されていないサービス用のコンテナを削除する </td>
-              </tr>
-              <tr>
-                <td> <code> --scale </code> </td>
-                <td> コンテナの数を数える </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br>
-          <p> #コンテナを停止させる </p>
-          <code> docker compose -f [ymlファイルのパス] stop [オプション] </code> <br>
-
-          <br>
-          <p> #コンテナとネットワークの削除 </p>
-          <code> docker compose -f [ymlファイルのパス] down [オプション] </code> <br>
-
-          <br>
-          <p> #down用オプション </p>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> オプション </th>
-                <th scope="col"> 説明 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code> -rmi all </code> </td>
-                <td> 利用した全イメージを削除する </td>
-              </tr>
-              <tr>
-                <td> <code> -rmi local </code> </td>
-                <td> imageにカスタムタグがないイメージのみを削除する </td>
-              </tr>
-              <tr>
-                <td> <code> -v, --volumes </code> </td>
-                <td> volumesに記述されているボリュームを削除する (externalを除く)</td>
-              </tr>
-              <tr>
-                <td> <code> --remove-orphans </code> </td>
-                <td> 定義ファイルで定義されていないサービス用のコンテナを削除する </td>
+                <td> <code> rm </code> </td>
+                <td>  </td>
               </tr>
             </tbody>
           </table>
           <hr>
 
           <h2> テンプレート </h2>
-          <p> #ymlファイル</p>
+          <p> #YAMLファイル</p>
+          <code>  </code> <br>
           <hr>
         </article>
       </div>
