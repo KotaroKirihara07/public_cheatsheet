@@ -32,7 +32,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 基本 </h2>
-          <p class="blog-post-meta"> 2025/10/18 </p>
+          <p class="blog-post-meta"> 2025/10/19 </p>
           <hr>
         
           <!-- コンテンツ -->
@@ -303,8 +303,21 @@
           <hr>
 
           <h2> import </h2>
-          <p> importブロックの扱い </p>
-          <p> --- </p>
+          <p> importブロックを利用して既存のリソースを取り込むことができる。 </p>
+          <code>import {</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;to = リソース種別.リソース名 </code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;id = "id" </code> <br>
+          <code>}</code> <br>
+
+          <br>
+          <p>#手順</p>
+          <ol>
+            <li> import.tfファイルを作成する </li>
+            <li> import.tfファイルにimportブロックを記述する </li>
+            <li> <code>terraform plan -generate-config-out=import.tf</code>を実行する</li>
+            <li> import.tfファイルの内容をmain.tfファイルに転記する </li>
+            <li> <code>terraform apply</code>を実行する </li>
+          </ol>
           <hr>
 
           <h2> モジュール </h2>
