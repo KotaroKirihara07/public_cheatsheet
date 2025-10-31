@@ -32,7 +32,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> セットアップ </h2>
-          <p class="blog-post-meta"> 2025/05/08 </p>
+          <p class="blog-post-meta"> 2025/10/31 </p>
           <p> このページではAWSに関するセットアップについて説明する。 </p>
           <hr>
         
@@ -42,7 +42,6 @@
           <hr>
 
           <h2> AWS CLIでのスイッチロールの方法 </h2>
-          <p> 説明 </p> 
           <ol>
             <li> <code> aws configure </code> と入力する </li>
             <li> 「AWS Access Key ID」、「AWS Secret Access Key」、「Default region name」、「Default output format」を以下のように入力する </li>
@@ -56,38 +55,20 @@
             <li> 「.aws/config」を以下のように編集する </li>
             <br>
             <code> [default] </code> <br>
-            <code> &nbsp;&nbsp;&nbsp;&nbsp;region = "ap-northeast-1"</code> <br>
-            <code> </code>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;region = ap-northeast-1</code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;output = json</code> <br>
+            <code> </code> <br>
             <code> [profile developer] </code> <br>
             <code> &nbsp;&nbsp;&nbsp;&nbsp;role_arn = arn:aws:iam::123456789012:role/role_name</code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;aws_mfa_device = arn:aws:iam::123456789012:mfa/mfa_device_name</code> <br>
             <code> &nbsp;&nbsp;&nbsp;&nbsp;source_profile = default</code> <br>
-            <code> &nbsp;&nbsp;&nbsp;&nbsp;</code> <br>
+            <code> </code> <br>
+            <code> [profile terraformer] </code> <br>
+            <code> &nbsp;&nbsp;&nbsp;&nbsp;credential_process = aws configure export-credentials --profile developer</code> <br>
+            <code> </code> <br>
             <li> Linuxの場合は<code> export AWS_PROFILE=developer </code>、Windowsの場合は<code> set AWS_PROFILE=developer </code></li>
           </ol>
-          <hr>
-
-          <h2> --- </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
-          <hr>
-
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> メソッド </th>
-                <th scope="col"> 説明 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code></code> </td>
-                <td> </td>
-              </tr>
-            </tbody>
-          </table>
-          <hr>    
+          <hr>  
         </article>
       </div>
     </div>
@@ -95,7 +76,7 @@
     <footer class="text-muted py-5">
       <div class="container">
         <hr>
-        <p class="mb-1"> フッターコメント </p>
+        <p class="mb-1"> --- </p>
       </div>
     </footer>
 
