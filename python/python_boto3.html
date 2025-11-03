@@ -33,7 +33,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> Boto3 </h2>
-          <p class="blog-post-meta"> 2024/11/01 </p>
+          <p class="blog-post-meta"> 2025/10/31 </p>
           <p> このページではBoto3について説明する。 </p>
           <hr>
         
@@ -45,6 +45,43 @@
 
           <h2> Boto3 documentation </h2>
           <p> <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html" target="_blank"> Boto3 documentation </a> </p>  
+          <hr> 
+
+          <h2> S3 </h2>
+          <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html" target="_blank">Boto3 documentation S3 </a> <br>
+
+          <br>
+          <p>#バケット一覧を取得 </p>
+          <code>s3 = boto3.client('s3')</code> <br>  
+          <code>response = s3.list_buckets()</code> <br>
+          <code>bucket_list = [bucket["Name"] for bucket in response['Buckets']]</code> <br>  
+
+          <br>
+          <p>#バケット内のオブジェクトの一覧を取得 </p>
+          <code>s3 = boto3.resource('s3')</code> <br>
+          <code>bucket = s3.Bucket('BUCKET_NAME')</code> <br>
+          <code>object_summary_iterator = bucket.objects.all()</code> <br>
+          <code>object_list = [object.key for object in object_summary_iterator]</code> <br>
+          
+          <br>
+          <p> </p>
+          <code> </code> <br>
+
+          <br>
+          <p> </p>
+          <code> </code> <br>
+
+          <br>
+          <p> </p>
+          <code> </code> <br>
+
+          <br>
+          <p> </p>
+          <code> </code> <br>
+
+          <br>
+          <p> </p>
+          <code> </code> <br>
           <hr> 
         </article>
       </div>

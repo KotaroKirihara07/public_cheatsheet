@@ -35,7 +35,7 @@
 
           <article class="blog-post">
             <h2 class="blog-post-title"> 基本構文 </h2>
-            <p class="blog-post-meta"> 2025/06/21 </p>
+            <p class="blog-post-meta"> 2025/11/03 </p>
             <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#func">関数</a>、<a href="#input">標準入力</a>、<a href="#output">標準出力</a>、<a href="#sentence">文字列</a>、<a href="#loop">繰り返し</a>、<a href="#if">条件分岐</a>、<a href="#exception">例外処理</a>、<a href="#module">モジュール</a>、<a href="#package">パッケージ</a> </p>
             <hr>
 
@@ -574,7 +574,13 @@
             <hr>
 
             <h2 id="module"> モジュール </h2>
-            <p> #モジュールの作成 (person.pyとした場合、モジュール名はpersonとなる)</p>
+            <p> #モジュールの作成 (ファイル名をperson.pyとした場合、モジュール名はpersonとなる)</p>
+            <code>import sys</code> <br>
+            <code>import os</code> <br>
+            <code></code> <br>
+            <code>#カレントディレクトリの親ディレクトリをパスに追加</code> <br>
+            <code>sys.path.append(os.path.join(os.path.dirname(__file__), '..'))</code> <br>
+            <code></code> <br>
             <code>class Person(): </code> <br>
             <code>&nbsp;&nbsp;&nbsp;&nbsp;#「from person import *」としたときに呼び出される関数 </code> <br>
             <code>&nbsp;&nbsp;&nbsp;&nbsp;__all__ = ["func1", "func2"]</code> <br>
@@ -586,8 +592,8 @@
             <code> </code> <br>
             <code>&nbsp;&nbsp;&nbsp;&nbsp;#モジュールが直接呼び出されたときの処理 </code> <br>
             <code>&nbsp;&nbsp;&nbsp;&nbsp;if __name__ = '__main__': </code> <br>
-            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func1() </code> <br>
-            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func2() </code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#args[0]はファイル名、args[1]は第一引数 </code> <br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args = sys.argv </code> <br>
 
             <br>
             <p> #モジュールのインポートその1 </p>
@@ -596,12 +602,8 @@
             <br>
             <p> #モジュールのインポートその2 </p>
             <code> import モジュール名(=拡張子無しファイル名) as 別名 </code> <br>
-
-            <br>
-            <p> #モジュールのエクスポート </p>
-            <code> </code> <br>
-
-            <br>
+            <hr>
+            
             <h2 id="package"> パッケージ </h2>
             <p> パッケージとは複数のモジュールをまとめたもの。実質的にはディレクトリ。</p>
             <ul>
@@ -627,7 +629,7 @@
       <footer class="text-muted py-5">
         <div class="container">
           <hr>
-          <p class="mb-1"> フッターコメント </p>
+          <p class="mb-1"> --- </p>
         </div>
       </footer>
 
