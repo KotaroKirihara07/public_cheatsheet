@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="excel_index.html"> Excel </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> VBA </h2>
+          <p class="blog-post-meta"> 2025/11/08 </p>
+          <p> このページの説明 </p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <code> コード </code> 
+          <hr>
+
+          <h2> VBA </h2>
+          <p> #構造 </p> 
+          <ul>
+            <li>application</li>
+            <li>Workbook</li>
+            <li>Worksheet</li>
+            <li>Range</li>
+            <li>Cell</li>
+          </ul>
+          <hr>
+
+          <h2> VBE </h2>
+          <p> マクロVBAの編集画面をVBE(Visual Basic Editor)という。VBEの開き方は以下の2通り。 </p> 
+          <ul>
+            <li>「開発」→「Visual Basic」</li>
+            <li><kbd>Alt</kbd> + <kbd>F11</kbd></li>
+          </ul>
+          <hr>
+
+          <h2> 標準モジュール </h2>
+          <p> 標準モジュールとは、マクロVBAを書く場所である。 </p> 
+          <p> #標準モジュールの作成 : 「挿入」→「標準モジュール」 </p>
+          <p> #標準モジュールの名称変更 :「表示」→「プロパティウィンドウ」 </p>
+          <p> #標準モジュールの削除: MODULE_NAMEを右クリック→「MODULE_NAMEの解放」 </p> 
+          <hr>
+
+          <h2> マクロの実行方法 </h2>
+          <p> マクロの実行方法は以下の3通り。 </p> 
+          <ul>
+            <li>VBEの画面で実行</li>
+            <ul>
+                <li>「実行」→「Sub/ユーザフォームの実行」</li>
+                <li><kbd>F5</kbd></li>
+            </ul>
+            <li>ワークシートの開発タブで実行</li>
+            <ul>
+                <li>「開発」タブ →「マクロ」 → マクロ名を選択 → 「実行」</li>
+                <li><kbd>Alt</kbd> + <kbd>F8</kbd></li>
+            </ul>
+            <li>ボタンや図形に登録して実行</li>
+            <ul>
+                <li>「開発」タブ→「挿入」→ ボタン（フォームコントロール）→ 右クリック→「マクロの登録」 → クリックして実行</li>
+                <li>「挿入」タブ→「図形」→ 好みの図形を選択 → 右クリック→「マクロの登録」→ クリックして実行</li>
+            </ul>
+          </ul>
+          <hr>
+
+          <h2> 基本構文 </h2>
+          <p> 文中改行は<code>_</code>で接続 </p> 
+          <p> 文字列同士の結合は<code>&</code>で接続 </p>
+          <p> コメントは<code>'コメント</code>とする </p>
+          <hr>
+
+          <h2> テンプレート </h2>
+          <code>Option Explicit</code> <br>
+          <code>Sub Macro_name1()</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;process1</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;process2</code> <br>
+          <code>End Sub</code> <br>
+          <hr>
+
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code></code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
