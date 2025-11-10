@@ -60,28 +60,63 @@
           <p>#バケット内のオブジェクトの一覧を取得 </p>
           <code>s3 = boto3.resource('s3')</code> <br>
           <code>bucket = s3.Bucket('BUCKET_NAME')</code> <br>
-          <code>object_summary_iterator = bucket.objects.all()</code> <br>
-          <code>object_list = [object.key for object in object_summary_iterator]</code> <br>
+          <code>object_list = [object.key for object in bucket.objects.all()]</code> <br>
           
           <br>
-          <p> </p>
-          <code> </code> <br>
+          <p>#特定のフォルダ内のファイル一覧取得</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.list_objects_v2(Bucket=bucket_name, Prefix="path/to/source/")</code> <br>
+          <code>files = [obj['Key'] for obj in response.get('Contents', [])]</code> <br>
 
           <br>
-          <p> </p>
-          <code> </code> <br>
+          <p>#CSVファイルを読み込む</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.get_object(Bucket=source_bucket, Key="path/to/source/file.csv")</code> <br>
+          <code>csv_content = response['Body'].read().decode('utf-8')</code> <br>
+          <code>df = pd.read_csv(io.StringIO(csv_content))</code> <br>
 
           <br>
-          <p> </p>
-          <code> </code> <br>
+          <p>#テキストファイルを読み込む</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.get_object(Bucket=bucket_name, Key="path/to/source/file.txt")</code> <br>
+          <code>#ファイル全体を読み込む</code> <br>
+          <code>contents = response['Body'].read().decode('utf-8')</code> <br>
+          <code>#ファイルの内容を一行ずつ読み込みリスト化</code> <br>
+          <code>rows = contents.splitlines()</code> <br>
 
           <br>
-          <p> </p>
-          <code> </code> <br>
+          <p>#XMLファイルを読み込む</p>
+          <code>import xml.etree.ElementTree as ET</code> <br>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.get_object(Bucket=BUCKET_NAME, Key="path/to/source/file.xml")</code> <br>
+          <code>xml_content = response['Body'].read().decode('utf-8')</code> <br>
+          <code>root = ET.fromstring(xml_content)</code> <br>
 
           <br>
-          <p> </p>
-          <code> </code> <br>
+          <p>#JSONファイルを読み込む</p>
+          <code>import json</code> <br>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.get_object(Bucket=BUCKET_NAME, Key="path/to/source/file.xml")</code> <br>
+          <code>json_content = response['Body'].read().decode('utf-8')</code> <br>
+          <code>parsed_data = json.loads(json_content)</code> <br>
+
+
+          <br>
+          <p>#ファイルを作成して上書き保存する</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>response = s3_client.put_object(Body=contents, Bucket=bucket_name, Key="path/to/source/file.txt")</code> <br>
+          
+
+          <br>
+          <p>#ファイルをアップロードする</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>s3.upload_file("local/path/file.txt", bucket_name, "s3/path/file.txt")</code> <br>
+
+          
+          <br>
+          <p>#ファイルをダウンロードする</p>
+          <code>s3_client = boto3.client('s3')</code> <br>
+          <code>s3_client.download_file(bucket_name, "s3/path/file.txt", "local/path/file.txt")</code> <br>
           <hr> 
         </article>
       </div>
