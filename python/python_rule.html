@@ -31,41 +31,35 @@
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> logging </h2>
+          <h2 class="blog-post-title"> linter/formatter </h2>
           <p class="blog-post-meta"> 2025/11/29 </p>
-          <p>  </p>
+          <p> </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2>モジュールの読み込み </h2>
-          <p>#モジュールの読み込み </p> 
-          <code>import logging </code> 
+          <h2> linter </h2>
+          <p> 静的解析ツール </p> 
+          <ul>
+            <li>flake8</li>
+            <li>pylint</li>
+            <li>Prospector</li>
+          </ul>
           <hr>
 
-          <h2>ログ</h2>
-          <p>#ロガーの設定 </p> 
-          <code>logging.basicConfig(</code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;level=logging.DEBUG, </code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;format="%(message)s", </code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;datefmt="[%X]", </code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;handlers=[logging.FileHandler(filename="./log.txt")] </code> <br>
-          <code>)</code> <br>
+          <h2> formatter </h2>
+          <p> コードスタイルのチェックツール </p> 
+          <ul>
+            <li>autopep8</li>
+            <li>yapf</li>
+            <li>black</li>
+          </ul>
+          <hr>
 
-          <br>
-          <p>#ログレベルを変更 </p> 
-          <code>logging.setLevel(logging.DEBUG) </code> <br>
-
-          <br>
-          <p>#モジュールレベルのロガーの作成 </p> 
-          <code>logger = logging.getLogger(__name__)</code> <br>
-
-          <br>
-          <p>#ログ出力 </p> 
-          <code>logger.critical('critical')</code> <br>
-          <code>logging.error('error')</code> <br>
-          <code>logging.warning('warning')</code> <br>
-          <code>logging.info('info')</code> <br>
-          <code>logging.debug('debug')</code> <br>
+          <h2> linter&formatter </h2>
+          <p> LinterとFormatter両方の機能を統合したツール </p> 
+          <ul>
+            <li>Ruff</li>
+          </ul>
           <hr>
         </article>
       </div>
