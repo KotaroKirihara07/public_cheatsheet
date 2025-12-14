@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title> Cheatsheet </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/blog.css" rel="stylesheet">
+</head>
+
+<main>
+  <!-- ヘッダー --> 
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4"> Cheatsheet </span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="container">
+  <body>
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          <a href="python_index.html"> Python </a>  
+        </h3>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title"> pyspark </h2>
+          <p class="blog-post-meta"> 2025/12/14 </p>
+          <p><a href="https://spark.apache.org/docs/latest/api/python/reference/index.html" target="_blank">Apache Spark API Reference</a></p>
+          <hr>
+        
+          <!-- コンテンツ -->
+          <h2>SparkSession</h2>
+          <p>#セッションの作成 </p> 
+          <code>from pyspark.sql import SparkSession </code> <br>
+          <code> </code> <br>
+          <code>spark = SparkSession.builder.getOrCreate()</code> <br>
+          <hr>
+
+          <h2>transformation</h2>
+          <p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html" target="_blank">Apache Spark API Reference Spark SQL DataFrame</a></p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>orderBy()</code> </td>
+                <td>並べ方を行う</td>
+              </tr>
+              <tr>
+                <td> <code>groupBy()</code> </td>
+                <td>層別化</td>
+              </tr>
+              <tr>
+                <td> <code>filter()</code> </td>
+                <td>フィルターをかける</td>
+              </tr>
+              <tr>
+                <td> <code>select()</code> </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> <code>join()</code> </td>
+                <td>結合</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2>action</h2>
+          <p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html" target="_blank">Apache Spark API Reference Spark SQL DataFrame</a></p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code>show()</code> </td>
+                <td>結果を表示する</td>
+              </tr>
+              <tr>
+                <td> <code>take()</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>count()</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>collect()</code> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td> <code>save()</code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+
+          <h2></h2>
+          <p></p> 
+          <code> </code> <br>
+          <hr>
+
+          <h2> 見出し </h2>
+          <p> 説明 </p> 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code></code> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>    
+        </article>
+      </div>
+    </div>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <hr>
+        <p class="mb-1"> --- </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+  </div>
+</main>
+</html>
