@@ -34,7 +34,7 @@
 
     <article class="blog-post">
         <h2 class="blog-post-title"> DML (Data Manipulation Language) </h2>
-        <p class="blog-post-meta"> 2025/05/05 </p>
+        <p class="blog-post-meta"> 2026/01/18 </p>
         <p> DML (Data Manipulation Language)はデータ操作言語と呼ばれ、テーブルの行を検索したり、変更したりする。 </p>
         <hr>
         
@@ -219,6 +219,15 @@
         <br>
         <p> #5行目から10行目のみ取得する (OFFSETの使用) </p>
         <code> SELECT * FROM Table_name LIMIT 4 OFFSET 10;</code> <br>
+
+        <br>
+        <h4> WITH句 </h4>
+        <p> 大規模な問い合わせで使用される補助文。</p>
+        <p>#一時的なテーブルを作成して利用する </p>
+        <code>WITH temp_table AS (</code> <br>
+        <code>&nbsp;&nbsp;SELECT * FROM Table_name LIMIT 10;</code> <br>
+        <code>)</code> <br>
+        <code>SELECT * FROM temp_table;</code> <br>
         
 
         <br>
@@ -229,23 +238,23 @@
         
         <br>
         <p> #サブクエリ </p>
-        <code> SELECT col_name1, col_name2 </code> <br>
-        <code> &nbsp; FROM  (SELECT ----- ) </code> <br>
-        <code> &nbsp; AS New_table_name; </code> <br>
+        <code>SELECT col_name1, col_name2 </code> <br>
+        <code>&nbsp;&nbsp;FROM  (SELECT ----- ) </code> <br>
+        <code>&nbsp;&nbsp;AS New_table_name; </code> <br>
         
         <br>
         <p> #スカラ・サブクエリ </p>
-        <code> SELECT col_name1, col_name2 </code> <br>
-        <code> &nbsp; FROM Table_name1 </code> <br>
-        <code> &nbsp; WHERE col_name2 IN </code> <br>
-        <code> &nbsp; (SELECT col_name2 FROM Table_name2); </code> <br>
+        <code>SELECT col_name1, col_name2 </code> <br>
+        <code>&nbsp;&nbsp;FROM Table_name1 </code> <br>
+        <code>&nbsp;&nbsp;WHERE col_name2 IN </code> <br>
+        <code>&nbsp;&nbsp;(SELECT col_name2 FROM Table_name2); </code> <br>
 
         <br>
         <p> #相関サブクエリ </p>
-        <code> SELECT col_name1, col_name2 </code> <br>
-        <code> &nbsp; FROM Table_name1 </code> <br>
-        <code> &nbsp; WHERE EXISTS </code> <br>
-        <code> &nbsp; (SELECT * FROM Table_name2 WHERE Table_name1.col_name1 = Table_name2.col_name1); </code> <br>
+        <code>SELECT col_name1, col_name2 </code> <br>
+        <code>&nbsp;&nbsp;FROM Table_name1 </code> <br>
+        <code>&nbsp;&nbsp;WHERE EXISTS </code> <br>
+        <code>&nbsp;&nbsp;(SELECT * FROM Table_name2 WHERE Table_name1.col_name1 = Table_name2.col_name1); </code> <br>
         <hr>
 
         <h2> INSERT </h2>
