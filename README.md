@@ -1,4 +1,4 @@
-# Cheat Sheet
+# cheat sheet
 - aws
 - django
 - docker
