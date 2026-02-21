@@ -621,8 +621,28 @@
           </table>
 
           <br>
-          <p> #Patternオブジェクトを作成する </p>
-          <code> var ptn = Pattern.compile(rx,検索オプション); </code> <br>
+          <p> #クラスメソッド集 (Patternクラス)</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> メソッド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> Pattern.compile(rx,検索オプション) </code> </td>
+                <td> Patternオブジェクトを生成する </td>
+                <td> Pattern </td>
+              </tr>
+              <tr>
+                <td> <code> Pattern.matches(rx, str) </code> </td>
+                <td> strが正規表現と一致しているか </td>
+                <td> boolean </td>
+              </tr>
+            </tbody>
+          </table>
 
           <br>
           <p> #メソッド集 (Patternオブジェクト)</p>
@@ -644,25 +664,6 @@
                 <td> <code> ptn.split(str) </code> </td>
                 <td> 文字列を分割する </td>
                 <td> String[] </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br>
-          <p> #クラスメソッド集 (Patternクラス)</p>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> メソッド </th>
-                <th scope="col"> 説明 </th>
-                <th scope="col"> 戻り値の型 </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <code> Pattern.matches(rx, str) </code> </td>
-                <td> strが正規表現と一致しているか </td>
-                <td> boolean </td>
               </tr>
             </tbody>
           </table>
@@ -1457,7 +1458,7 @@
     <footer class="text-muted py-5">
       <div class="container">
         <hr>
-        <p class="mb-1"> フッターコメント </p>
+        <p class="mb-1"> --- </p>
       </div>
     </footer>
 

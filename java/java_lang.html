@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> java.lang </h2>
-          <p class="blog-post-meta"> 2025/06/21 </p>
+          <p class="blog-post-meta"> 2026/02/21 </p>
           <p> <a href="#Sysytem"> Systemクラス </a>、<a href="#String"> Stringクラス </a>、
               <a href="#Math"> Mathクラス </a> </p>
           <p> インスタンス化の必要がない。</p>
@@ -57,10 +57,6 @@
           <p> #文字列の生成 </p> 
           <code> String str = "abcde"; </code> <br> 
           <code> var str = new String("abcde"); </code> <br>
-
-          <br>
-          <p> #文字列への変換 </p> 
-          <code> String str = String.valueOf(123); </code> <br> 
 
           <br>
           <p> #メソッド集 </p>
@@ -184,13 +180,18 @@
             </thead>
             <tbody>
               <tr>
+                <td> <code> String.valueOf(123) </code> </td>
+                <td> 数値を文字列に変換する </td>
+                <td> String </td>
+              </tr>
+              <tr>
                 <td> <code> String.join(",", str) </code> </td>
-                <td> 特定の区切り文字で連結する (カンマで連結) </td>
+                <td> 特定の区切り文字で文字列を連結する (カンマで連結) </td>
                 <td> String </td>
               </tr>
               <tr>
                 <td> <code> String.format("%sは%d歳です。", "私", 20) </code> </td>
-                <td> 文字列に値を埋め込んで返す </td>
+                <td> 文字列に値を埋め込む </td>
                 <td> String </td>
               </tr>
             </tbody>
@@ -386,7 +387,7 @@
     <footer class="text-muted py-5">
       <div class="container">
         <hr>
-        <p class="mb-1"> フッターコメント </p>
+        <p class="mb-1"> --- </p>
       </div>
     </footer>
 

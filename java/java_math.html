@@ -5,7 +5,6 @@
     <meta name = "viewport" content = "width = device-width">
     <title> Cheatsheet </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <link rel = "stylesheet" href ="css/style.css"> -->
     <link href="../css/blog.css" rel="stylesheet">
 </head>
 
@@ -19,7 +18,6 @@
 
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page"> Home </a></li>
-        
       </ul>
     </header>
   </div>
@@ -29,42 +27,66 @@
     <div class="row g-5">
       <div class="col-md-12">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
-          <a href="java_index.html"> Java </a> 
+          <a href="java_index.html"> Java </a>  
         </h3>
 
         <article class="blog-post">
-          <h2 class="blog-post-title"> java.io </h2>
-          <p class="blog-post-meta"> 2023/06/24 </p>
-          <p> このページの説明 </p>
-          <p> 文字ストリーム：<a>Reader</a>、<a>Writer</a></p>
-          <p> バイナリストリーム：<a>FileInputStream</a>、 </p>
-          <p> ファイル：<a>FileInputStream</a>、<a>FileOutputStream</a></p>
-          <p> <a>IOException</a>、<a>FileNotFoundException</a>、</p>
+          <h2 class="blog-post-title"> java.math </h2>
+          <p class="blog-post-meta"> 2026/02/21 </p>
+          <p> <a href="#BigDecimal"> BigDecimalクラス </a> </p>
           <hr>
         
           <!-- コンテンツ -->
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
-          <code> コード </code> 
-          <hr>
+          <h2 id="BigDecimal"> BigDecimalクラス </h2>
+          <p> ---ためのクラス。</p>
+          
+          <p> #import宣言 <p> 
+          <code> import java.math.BigDecimal; </code> <br>
 
-          <h2> 見出し </h2>
-          <p> 説明 </p> 
+          <br>
+          <p> #変数の宣言 </p> 
+          <code> var x = new BigDecimal("0.1"); </code> <br>
+          <code> var y = new BigDecimal("1.0"); </code> <br>
+
+          <br>
+          <p> #メソッド </p> 
           <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col"> メソッド </th>
                 <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <code></code> </td>
-                <td> </td>
+                <td> <code>x.add(y)</code> </td>
+                <td>加算</td>
+                <td>オブジェクト</td>
+              </tr>
+              <tr>
+                <td> <code>x.subtract(y)</code> </td>
+                <td>減算</td>
+                <td>オブジェクト</td>
+              </tr>
+              <tr>
+                <td> <code>x.multiply(y)</code> </td>
+                <td>乗算</td>
+                <td>オブジェクト</td>
+              </tr>
+              <tr>
+                <td> <code>x.divide(y)</code> </td>
+                <td>除算</td>
+                <td>オブジェクト</td>
+              </tr>
+              <tr>
+                <td> <code>x.compareTo(y)</code> </td>
+                <td>値の比較して結果を数値で返す (x&lt;y: 1、x&gt;y: -1、x=y: 0)</td>
+                <td>int</td>
               </tr>
             </tbody>
           </table>
-          <hr>    
+          <hr>
         </article>
       </div>
     </div>

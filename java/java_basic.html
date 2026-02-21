@@ -34,7 +34,7 @@
 
         <article class="blog-post">
           <h2 class="blog-post-title"> 基本構文 </h2>
-          <p class="blog-post-meta"> 2025/06/19 </p>
+          <p class="blog-post-meta"> 2026/02/21 </p>
           <p> <a href="#comment">コメント</a>、<a href="#var">変数</a>、<a href="#str">文字リテラル</a>、<a href="#operator">演算子</a>、<a href="#list">配列</a>、<a href="#if">条件分岐</a>、<a href="#for"> 繰り返し</a>、<a href="#wrapper">ラッパークラス </a>、<a href="#exception">例外処理 </a>、<a href="#template"> テンプレート </a> </p>
           <hr>
         
@@ -85,7 +85,7 @@
               </tr>
               <tr>
                 <td> <code> int </code> </td>
-                <td> 4バイト整数値 (-2<sup>31</sup> ~ 2<sup>31</sup> - 1)</td>
+                <td> 4バイト整数値 (-2<sup>31</sup> ~ 2<sup>31</sup> - 1) </td>
               </tr>
               <tr>
                 <td> <code> long </code> </td>
@@ -107,10 +107,6 @@
                 <td> <code> char </code> </td>
                 <td> 2バイトUnicode文字1文字 </td>
               </tr>
-              <tr>
-                <td> <code> String </code> </td>
-                <td> 文字列 </td>
-              </tr>
             </tbody>
           </table>
 
@@ -124,6 +120,10 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td> <code> String </code> </td>
+                <td> 文字列 </td>
+              </tr>
               <tr>
                 <td> <code> クラス型 </code> </td>
                 <td> オブジェクト </td>
@@ -289,12 +289,27 @@
           <code> array[1] = new int[4]; </code> <br> 
           
           <br>
-          <p> #配列の長さを取得する </p>
-          <code> array.length </code>
+          <p>#フィールド </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> フィールド </th>
+                <th scope="col"> 説明 </th>
+                <th scope="col"> 戻り値の型 </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <code> array.length </code> </td>
+                <td> 配列の長さ </td>
+                <td> int </td>
+              </tr>
+            </tbody>
+          </table>
           <hr>
 
           <h2 id="if"> 条件分岐 </h2>
-          <p> #if文 </p>
+          <p> #if命令 </p>
           <code>if (条件1) {</code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
           <code>} else if (条件2) { </code> <br>
@@ -304,7 +319,7 @@
           <code>} </code> <br>
 
           <br>
-          <p> #switch文 </p>
+          <p> #switch命令 </p>
           <code>switch (value) { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;case 1: </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//value==1のときの処理 </code> <br>
@@ -318,24 +333,24 @@
           <code>} </code> <br>
 
           <br>
-          <p> #条件演算子 </p>
+          <p>#条件演算子 </p>
           <code>String value = (age >= 20 ? "成年" : "未成年"); </code>
           <hr>
 
           <h2 id="for"> 繰り返し </h2>
-          <p> #for文</p>
+          <p>#for命令</p>
           <code>for (int i = 1; i < 6; i++) { </code> <br>
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理</code> <br>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 (1～5)</code> <br>
           <code>} </code> <br>
           
           <br>
-          <p> #拡張for文 (配列やコレクション)</p>
+          <p> #拡張for命令 (配列やコレクション)</p>
           <code>for (int val : data) { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
           <code>} </code> <br>
           
           <br>
-          <p> #for文 (continue and break)</p>
+          <p>#for命令 (continue and break)</p>
           <code>for (int i = 1; i < 6; i++) { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;if (i == 2) { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue; </code> <br>
@@ -346,13 +361,13 @@
           <code>} </code> <br>
           
           <br>
-          <p> #while文</p>
+          <p>#while命令</p>
           <code>while (条件式) { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理</code> <br>
           <code>} </code> <br>
          
           <br>
-          <p> #do ... while文 </p>
+          <p>#do...while命令 </p>
           <code>do { </code> <br>
           <code>&nbsp;&nbsp;&nbsp;&nbsp;//処理 </code> <br>
           <code>} while (条件式); </code> <br>
@@ -415,35 +430,35 @@
 
           <h2 id="exception"> 例外処理 </h2>
           <p> #try...catch...finally構文 </p>
-          <code> try{ </code> <br>
-          <code> &nbsp; //例外が発生する可能性があるコード </code> <br>
-          <code> } catch (例外型 e) { </code> <br>
-          <code> &nbsp; //例外が発生したときの処理 </code> <br>
-          <code> } finally { </code> <br>
-          <code> &nbsp; //例外の有無に関わらず行う処理 </code> <br>
-          <code> } </code> <br>
+          <code>try{ </code> <br>
+          <code>&nbsp;//例外が発生する可能性があるコード </code> <br>
+          <code>} catch (例外型 e) { </code> <br>
+          <code>&nbsp;//例外が発生したときの処理 </code> <br>
+          <code>} finally { </code> <br>
+          <code>&nbsp;//例外の有無に関わらず行う処理 </code> <br>
+          <code>} </code> <br>
 
           <br>
           <p> #try...with...resources構文 </p>
-          <code> try (例外が発生する可能性があるコード){ </code> <br>
-          <code> &nbsp; //処理 </code> <br>
-          <code> } catch (例外クラス e) { </code> <br>
-          <code> &nbsp; //例外が発生したときの処理 </code> <br>
-          <code> } finally { </code> <br>
-          <code> &nbsp; //例外の有無に関わらず行う処理</code> <br>
-          <code> } </code> <br>
+          <code>try (例外が発生する可能性があるコード){ </code> <br>
+          <code>&nbsp;//処理 </code> <br>
+          <code>} catch (例外クラス e) { </code> <br>
+          <code>&nbsp;//例外が発生したときの処理 </code> <br>
+          <code>} finally { </code> <br>
+          <code>&nbsp;//例外の有無に関わらず行う処理</code> <br>
+          <code>} </code> <br>
 
           <br>
           <p> #try...with...finally構文 (例外throw付き) </p>
-          <code> try (例外が発生する可能性があるコード){ </code> <br>
-          <code> &nbsp; //処理 </code> <br>
-          <code> &nbsp; if (条件) </code> <br>
-          <code> &nbsp; &nbsp; throw new 例外クラス(); </code> <br>
-          <code> } catch (例外クラス e) { </code> <br>
-          <code> &nbsp; //例外が発生したときの処理 </code> <br>
-          <code> } finally { </code> <br>
-          <code> &nbsp; //例外の有無に関わらず行う処理</code> <br>
-          <code> } </code> <br>
+          <code>try (例外が発生する可能性があるコード){ </code> <br>
+          <code>&nbsp;//処理 </code> <br>
+          <code>&nbsp;if (条件) </code> <br>
+          <code>&nbsp;&nbsp; throw new 例外クラス(); </code> <br>
+          <code>} catch (例外クラス e) { </code> <br>
+          <code>&nbsp;//例外が発生したときの処理 </code> <br>
+          <code>} finally { </code> <br>
+          <code>&nbsp;//例外の有無に関わらず行う処理</code> <br>
+          <code>} </code> <br>
   
           <br>
           <p> #throw節 </p>
@@ -564,11 +579,11 @@
           <hr>
 
           <h2 id="template"> テンプレート</h2>
-          <code> public class class_name { </code> <br>
-          <code> &nbsp; &nbsp; public static void main(String[] args) { </code> <br>
-          <code> </code> <br>
-          <code> &nbsp; &nbsp; } </code> <br>
-          <code> } </code> <br>
+          <code>public class class_name { </code> <br>
+          <code>&nbsp;&nbsp;public static void main(String[] args) { </code> <br>
+          <code>//-----</code> <br>
+          <code>&nbsp;&nbsp;} </code> <br>
+          <code>} </code> <br>
           <hr>
         </article>
       </div>
@@ -577,7 +592,7 @@
     <footer class="text-muted py-5">
       <div class="container">
         <hr>
-        <p class="mb-1"> フッターコメント </p>
+        <p class="mb-1"> --- </p>
       </div>
     </footer>
 
