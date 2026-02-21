@@ -1,0 +1,10 @@
+- aws
+- django
+- docker
+- excel
+- html
+- java
+- javascript
+- postgresql
+- python
+- terraform
